@@ -1,0 +1,11 @@
+/segments.gen
+/segments_1
+/write.lock
+*.fdt
+*.fdx
+*.fnm
+*.frq
+*.nrm
+*.prx
+*.tii
+*.tis
