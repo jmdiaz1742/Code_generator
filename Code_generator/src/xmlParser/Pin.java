@@ -67,7 +67,7 @@ public class Pin {
 	/* Pin optional characteristics */
 	private String	port;
 	
-	/* Default types values */
+	/* Default variables values */
 	private static final String		DEF_STRING	= "NA";
 	private static final int		DEF_INT		= 0;
 	private static final boolean	DEF_BOOLEAN	= false;

@@ -10,10 +10,12 @@ var menudata={children:[
 {text:'d',url:'functions.html#index_d'},
 {text:'e',url:'functions.html#index_e'},
 {text:'g',url:'functions.html#index_g'},
+{text:'m',url:'functions.html#index_m'},
 {text:'p',url:'functions.html#index_p'},
 {text:'s',url:'functions.html#index_s'}]},
 {text:'Functions',url:'functions_func.html',children:[
 {text:'g',url:'functions_func.html#index_g'},
+{text:'m',url:'functions_func.html#index_m'},
 {text:'p',url:'functions_func.html#index_p'},
 {text:'s',url:'functions_func.html#index_s'}]},
 {text:'Variables',url:'functions_vars.html'}]}]}]}

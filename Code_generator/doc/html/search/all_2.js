@@ -1,25 +1,4 @@
 var searchData=
 [
-  ['getadc',['getAdc',['../classxml_parser_1_1_pin.html#a3bf9117417157f88cfdb646f0e15b3d3',1,'xmlParser::Pin']]],
-  ['getclock',['getClock',['../classxml_parser_1_1_pin.html#a7a137db52bc7d676df5816d86be8e148',1,'xmlParser::Pin']]],
-  ['getfeat_5fadc',['getFeat_adc',['../classxml_parser_1_1_pin.html#a40c9042a5c242ffa1a50a2d7aceb7d79',1,'xmlParser::Pin']]],
-  ['getfeat_5fclock',['getFeat_clock',['../classxml_parser_1_1_pin.html#a59690660153bb253ac11e4d671852c95',1,'xmlParser::Pin']]],
-  ['getfeat_5fi2c',['getFeat_i2c',['../classxml_parser_1_1_pin.html#ab006e18cb4ad89fed1bb0f956f535ed4',1,'xmlParser::Pin']]],
-  ['getfeat_5fint',['getFeat_int',['../classxml_parser_1_1_pin.html#ad24318508819a552be4abf79601ccd40',1,'xmlParser::Pin']]],
-  ['getfeat_5freset',['getFeat_reset',['../classxml_parser_1_1_pin.html#a6f4e8f231f299422e93d60c137d3bb3f',1,'xmlParser::Pin']]],
-  ['getfeat_5fspi',['getFeat_spi',['../classxml_parser_1_1_pin.html#a5bc91cb7066bb9ea930e88a4c29357ba',1,'xmlParser::Pin']]],
-  ['getfeat_5ftimer',['getFeat_timer',['../classxml_parser_1_1_pin.html#a560e5df081e67a7e7bb19e022700617e',1,'xmlParser::Pin']]],
-  ['getfeat_5fuart',['getFeat_uart',['../classxml_parser_1_1_pin.html#a8a662b36e8052d0d40578000b258cf18',1,'xmlParser::Pin']]],
-  ['getfunc_5fgnd',['getFunc_gnd',['../classxml_parser_1_1_pin.html#ac69850ba33a2968b0b5228ff7f88b182',1,'xmlParser::Pin']]],
-  ['getfunc_5fgpio',['getFunc_gpio',['../classxml_parser_1_1_pin.html#af78752f10bb9c32fe6dd194029d53d26',1,'xmlParser::Pin']]],
-  ['getfunc_5fvcc',['getFunc_vcc',['../classxml_parser_1_1_pin.html#abe7714512bcd455b4a97bd9a613e495d',1,'xmlParser::Pin']]],
-  ['geti2c',['getI2c',['../classxml_parser_1_1_pin.html#ab7ede83a8fe0a7d43b7a973aa295a606',1,'xmlParser::Pin']]],
-  ['getint',['getInt',['../classxml_parser_1_1_pin.html#a0b941d32c3c5b1e258d91b9d74e8bcc5',1,'xmlParser::Pin']]],
-  ['getname',['getName',['../classxml_parser_1_1_pin.html#af361aab6c2d25241d51c61332fb64e3a',1,'xmlParser::Pin']]],
-  ['getnumber',['getNumber',['../classxml_parser_1_1_pin.html#a2d2010fc055e4415997c0dd02ff1b86d',1,'xmlParser::Pin']]],
-  ['getport',['getPort',['../classxml_parser_1_1_pin.html#a47890f3ee3176d44ee91f2be61f04817',1,'xmlParser::Pin']]],
-  ['getreset',['getReset',['../classxml_parser_1_1_pin.html#a93f28d3abb2a3c87af1ec933541ddbed',1,'xmlParser::Pin']]],
-  ['getspi',['getSpi',['../classxml_parser_1_1_pin.html#aff5f6323398678fdbaf69e7893d92406',1,'xmlParser::Pin']]],
-  ['gettimer',['getTimer',['../classxml_parser_1_1_pin.html#aa11d62be665a6f966cca215e44498394',1,'xmlParser::Pin']]],
-  ['getuart',['getUart',['../classxml_parser_1_1_pin.html#a3e1c3eeb013b56820a43457ef1ce882f',1,'xmlParser::Pin']]]
+  ['enable',['ENABLE',['../classxml_parser_1_1_pin.html#a11f6d9dce06f4ed7fbf86ff992453abc',1,'xmlParser::Pin']]]
 ];
