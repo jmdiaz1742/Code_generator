@@ -8,10 +8,15 @@ package common;
  *
  */
 public class Features {
-	/* Features */
+	/* Features flags */
 	
 	/**
-	 * Debug flag
+	 * Enables debug functions
 	 */
 	public static final boolean DEBUG = true;
+	
+	/**
+	 * Enables console messages
+	 */
+	public static final boolean VERBOSE = true;
 }

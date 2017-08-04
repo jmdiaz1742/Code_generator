@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<microcontroller model="ATTINY-4-TSUR" number_of_pins="6">
+	<manufacturer>Microchip</manufacturer>
+	<family>ATtiny4</family>
+	<pins>
+		<pin name="PB0" number="1">
+			<interruption>PCINT0</interruption>
+			<adc>ADC0</adc>
+			<port>B</port>
+			<gpio>GPIO</gpio></pin>
+		<pin name="GND" number="2">
+		<gnd>GND</gnd></pin>
+		<pin number="3" name="PB1">
+			<interruption>PCINT1</interruption>
+			<adc>ADC1</adc>
+			<port>B</port>
+			<clock>CLKI</clock>
+			<gpio>GPIO</gpio></pin>
+		<pin name="PB2" number="4">
+			<interruption>PCINT2</interruption>
+			<adc>ADC2</adc>
+			<timer>T0</timer>
+			<port>B</port>
+			<clock>CLKO</clock>
+			<gpio>GPIO</gpio></pin>
+		<pin number="5" name="VCC">
+			<vcc>VCC</vcc></pin>
+		<pin number="6" name="PB6">
+			<interruption>PCINT3</interruption>
+			<adc>ADC3</adc>
+			<port>B</port>
+			<reset>RESET</reset>
+			<gpio>GPIO</gpio></pin>
+	</pins>
+</microcontroller>
+

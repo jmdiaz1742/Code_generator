@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cdefgmpstx",
-  1: "fpt",
+  0: "cdefgmnopstvx",
+  1: "efptx",
   2: "cx",
-  3: "gmps",
-  4: "de"
+  3: "gmopsx",
+  4: "denv",
+  5: "e"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "functions",
-  4: "variables"
+  4: "variables",
+  5: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Classes",
   2: "Namespaces",
   3: "Functions",
-  4: "Variables"
+  4: "Variables",
+  5: "Enumerator"
 };
 

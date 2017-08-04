@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pin',['Pin',['../classxml_parser_1_1_pin.html#a811f00478a35d9fbb8982107aeb3b13c',1,'xmlParser::Pin']]]
+  ['openfile',['OpenFile',['../classxml_parser_1_1_xml_opener.html#a8ba95378a7c306ac8838feb481bd4488',1,'xmlParser::XmlOpener']]]
 ];

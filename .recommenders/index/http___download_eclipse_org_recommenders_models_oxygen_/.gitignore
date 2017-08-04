@@ -9,3 +9,4 @@
 *.prx
 *.tii
 *.tis
+/segments*
