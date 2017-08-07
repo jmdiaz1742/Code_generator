@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<microcontroller model="ATTINY-4-TSUR" number_of_pins="6">
+<microcontroller>
 	<manufacturer>Microchip</manufacturer>
+	<model>ATTINY-4-TSUR</model>
 	<family>ATtiny4</family>
 	<pins>
 		<pin name="PB0" number="1">

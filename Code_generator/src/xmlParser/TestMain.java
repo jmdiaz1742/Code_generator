@@ -8,9 +8,6 @@ import common.Features;
  *
  */
 public class TestMain {
-	
-	/* Private fields */
-	
 	/* Private static fields */
 	private static String FILE_NAME = "exampleConf.xml";
 
@@ -19,24 +16,31 @@ public class TestMain {
 	 * @param openOption Options include:
 	 */
 	public static void main(String[] openOption) {
-
-		ErrorCode ErrorState = ErrorCode.NO_ERROR;
+		ErrorCode errorState = ErrorCode.NO_ERROR;
+		int totalPins;
+		
 		if (Features.DEBUG) {
-			System.out.println("Initializing in debug mode...");
+			System.out.println(Features.DEBUG_STR + "Initializing XML parser test in debug mode...");
+		} else {
+			System.out.println("Initializing XML parser test...");
 		}
 		
 		/* Get the complete path of the xml file */
 		String fileName = System.getProperty("user.dir") + System.getProperty("file.separator") + "src" + System.getProperty("file.separator") + FILE_NAME;
 		System.out.println("File path " + fileName);
 		
-		XmlOpener xmlOpener= new XmlOpener();
-		ErrorState = xmlOpener.OpenFile(fileName);
-		if (ErrorState != ErrorCode.NO_ERROR) {
+		XmlOpener xmlOpener = new XmlOpener();
+		errorState = xmlOpener.OpenFile(fileName);
+		if (errorState != ErrorCode.NO_ERROR) {
 			if (Features.VERBOSE) {
-				System.out.println("Error opening file, exiting...");
+				System.out.println(Features.VERBOSE_STR + "Error opening file, exiting...");
 			}
 			return;
 		}
-
+		
+		totalPins = xmlOpener.getUc_pinNum();
+		System.out.println("Microcontroller: " + xmlOpener.getUc_manufacturer() + " " + xmlOpener.getUc_model());
+		System.out.println("Pins: " + totalPins);
+		
 	}
 }

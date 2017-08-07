@@ -13,10 +13,22 @@ public class Features {
 	/**
 	 * Enables debug functions
 	 */
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 	
 	/**
 	 * Enables console messages
 	 */
 	public static final boolean VERBOSE = true;
+	
+	/* Features indicators for system console */
+	
+	/**
+	 * Verbose messages indicator on system console
+	 */
+	public static final String VERBOSE_STR	= "# ";
+	
+	/**
+	 * Debug messages indicator on system console
+	 */
+	public static final String DEBUG_STR	= "#$ ";
 }
