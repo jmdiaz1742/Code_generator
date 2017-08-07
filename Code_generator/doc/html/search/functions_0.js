@@ -21,5 +21,8 @@ var searchData=
   ['getreset',['getReset',['../classxml_parser_1_1_pin.html#a93f28d3abb2a3c87af1ec933541ddbed',1,'xmlParser::Pin']]],
   ['getspi',['getSpi',['../classxml_parser_1_1_pin.html#aff5f6323398678fdbaf69e7893d92406',1,'xmlParser::Pin']]],
   ['gettimer',['getTimer',['../classxml_parser_1_1_pin.html#aa11d62be665a6f966cca215e44498394',1,'xmlParser::Pin']]],
-  ['getuart',['getUart',['../classxml_parser_1_1_pin.html#a3e1c3eeb013b56820a43457ef1ce882f',1,'xmlParser::Pin']]]
+  ['getuart',['getUart',['../classxml_parser_1_1_pin.html#a3e1c3eeb013b56820a43457ef1ce882f',1,'xmlParser::Pin']]],
+  ['getuc_5fmanufacturer',['getUc_manufacturer',['../classxml_parser_1_1_xml_opener.html#aedbea635b7a1891654f2631dc56a7365',1,'xmlParser::XmlOpener']]],
+  ['getuc_5fmodel',['getUc_model',['../classxml_parser_1_1_xml_opener.html#a25090802524e2aecd96ffcefe1abcc46',1,'xmlParser::XmlOpener']]],
+  ['getuc_5fpinnum',['getUc_pinNum',['../classxml_parser_1_1_xml_opener.html#ad1f47cd82ccd0cf9905af2de1cd0b733',1,'xmlParser::XmlOpener']]]
 ];
