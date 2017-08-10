@@ -1,6 +1,8 @@
 package xmlParser;
 import common.ErrorCode;
 import common.Features;
+import microcontroller.Microcontroller;
+import microcontroller.Pin;
 
 /**
  * Dummy main class for testing the other classes 
@@ -38,9 +40,25 @@ public class TestMain {
 			return;
 		}
 		
-		totalPins = xmlOpener.getUc_pinNum();
-		System.out.println("Microcontroller: " + xmlOpener.getUc_manufacturer() + " " + xmlOpener.getUc_model());
+		Microcontroller uCtrl = new Microcontroller(xmlOpener.getParsedDoc());
+		
+		errorState = uCtrl.processDocument();
+		if (errorState != ErrorCode.NO_ERROR) {
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "Error parsing file, exiting...");
+			}
+			return;
+		}
+		
+		totalPins = uCtrl.getUc_pinNum();
+		System.out.println("Microcontroller: " + uCtrl.getUc_manufacturer() + " " + uCtrl.getUc_model());
 		System.out.println("Pins: " + totalPins);
+		
+		Pin[] pin = new Pin[totalPins];
+		
+		for (int pinNum = 0; pinNum < totalPins; pinNum++) {
+			pin[pinNum] = uCtrl.getPin(pinNum);
+		}
 		
 	}
 }

@@ -1,4 +1,4 @@
-package xmlParser;
+package microcontroller;
 
 /**
  * Basic pin object.
