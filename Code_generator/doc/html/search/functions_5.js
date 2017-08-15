@@ -1,4 +1,25 @@
 var searchData=
 [
-  ['xmlopener',['XmlOpener',['../classxml_parser_1_1_xml_opener.html#a941af2567c9157900c2c19bd3b0478e9',1,'xmlParser::XmlOpener']]]
+  ['setadc',['setAdc',['../classmicrocontroller_1_1_pin.html#a94bf91b71a1cb20f2ee542c8e96ce8a2',1,'microcontroller::Pin']]],
+  ['setclock',['setClock',['../classmicrocontroller_1_1_pin.html#ac6a07cc62b26f65f70a490ba10c9deeb',1,'microcontroller::Pin']]],
+  ['setfeat_5fadc',['setFeat_adc',['../classmicrocontroller_1_1_pin.html#ab5c22b110b82198f29ea907453db95b8',1,'microcontroller::Pin']]],
+  ['setfeat_5fclock',['setFeat_clock',['../classmicrocontroller_1_1_pin.html#a8ae8fe23881eca9461deeccaf87cf887',1,'microcontroller::Pin']]],
+  ['setfeat_5fi2c',['setFeat_i2c',['../classmicrocontroller_1_1_pin.html#af069abc26cb0e088164fd81db5edf466',1,'microcontroller::Pin']]],
+  ['setfeat_5fint',['setFeat_int',['../classmicrocontroller_1_1_pin.html#a758af9a8c0513a945d0f59e3d3a957f1',1,'microcontroller::Pin']]],
+  ['setfeat_5freset',['setFeat_reset',['../classmicrocontroller_1_1_pin.html#a31838c6d9d3415de634468d5592efefd',1,'microcontroller::Pin']]],
+  ['setfeat_5fspi',['setFeat_spi',['../classmicrocontroller_1_1_pin.html#a40a94b3b12854fde4c1f40663cc33a16',1,'microcontroller::Pin']]],
+  ['setfeat_5ftimer',['setFeat_timer',['../classmicrocontroller_1_1_pin.html#a4fff4df82d9b57d84635e0ce9025935f',1,'microcontroller::Pin']]],
+  ['setfeat_5fuart',['setFeat_uart',['../classmicrocontroller_1_1_pin.html#a89c5a279c95d660f267aeff0fb7823f1',1,'microcontroller::Pin']]],
+  ['setfunc_5fgnd',['setFunc_gnd',['../classmicrocontroller_1_1_pin.html#af8abe10ecfb0dd58675e9973bad68ead',1,'microcontroller::Pin']]],
+  ['setfunc_5fgpio',['setFunc_gpio',['../classmicrocontroller_1_1_pin.html#a976015af83db692728d6289839f9a52a',1,'microcontroller::Pin']]],
+  ['setfunc_5fvcc',['setFunc_vcc',['../classmicrocontroller_1_1_pin.html#ade3c8e9b7137e95e30bef8450dca469f',1,'microcontroller::Pin']]],
+  ['seti2c',['setI2c',['../classmicrocontroller_1_1_pin.html#a10220e38f47b8102a031ecaae1dd1517',1,'microcontroller::Pin']]],
+  ['setint',['setInt',['../classmicrocontroller_1_1_pin.html#aed1a4738499a5e65d34802a49daabeac',1,'microcontroller::Pin']]],
+  ['setname',['setName',['../classmicrocontroller_1_1_pin.html#acdfbce0ecbac12b35a0cc8034dcd5a31',1,'microcontroller::Pin']]],
+  ['setnumber',['setNumber',['../classmicrocontroller_1_1_pin.html#a43a862772f348138f48e0317ee7315f7',1,'microcontroller::Pin']]],
+  ['setport',['setPort',['../classmicrocontroller_1_1_pin.html#a498c121ea56e48984f2098891e041c12',1,'microcontroller::Pin']]],
+  ['setreset',['setReset',['../classmicrocontroller_1_1_pin.html#a4bfbaabe8a7d3aca7f01d5d74b1cc263',1,'microcontroller::Pin']]],
+  ['setspi',['setSpi',['../classmicrocontroller_1_1_pin.html#af7c3b4bbc170bb3ed588844f43037890',1,'microcontroller::Pin']]],
+  ['settimer',['setTimer',['../classmicrocontroller_1_1_pin.html#af838c8cf044c41eb3821514e520eeaaf',1,'microcontroller::Pin']]],
+  ['setuart',['setUart',['../classmicrocontroller_1_1_pin.html#a5bfe518b73af323338fe6ce0b3f7546d',1,'microcontroller::Pin']]]
 ];

@@ -17,6 +17,7 @@ var searchData=
   ['getint',['getInt',['../classmicrocontroller_1_1_pin.html#aab5e9d29f1703cbcac65fb58c0fad76b',1,'microcontroller::Pin']]],
   ['getname',['getName',['../classmicrocontroller_1_1_pin.html#a2ab1957f36ef51ff3dc1f1763c522a03',1,'microcontroller::Pin']]],
   ['getnumber',['getNumber',['../classmicrocontroller_1_1_pin.html#a0dd37ce453c4b5ef70de7a3410383797',1,'microcontroller::Pin']]],
+  ['getparseddoc',['getParsedDoc',['../classxml_parser_1_1_xml_opener.html#a9566db2c01404c2e03830fbfd7e83287',1,'xmlParser::XmlOpener']]],
   ['getpin',['getPin',['../classmicrocontroller_1_1_microcontroller.html#ae3c1134bb242639653f15442db8dadf0',1,'microcontroller::Microcontroller']]],
   ['getport',['getPort',['../classmicrocontroller_1_1_pin.html#ac9526d213fce2e3001439e35f3441a39',1,'microcontroller::Pin']]],
   ['getreset',['getReset',['../classmicrocontroller_1_1_pin.html#a23c0c64312881656e632ef9f0a668895',1,'microcontroller::Pin']]],
