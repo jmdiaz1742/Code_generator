@@ -1,5 +1,11 @@
 package common;
 
+/**
+ * Error codes enum
+ * @author Miguel Diaz
+ * @version 0.1
+ *
+ */
 public enum ErrorCode {
 	/**
 	 * No error message

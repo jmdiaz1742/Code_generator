@@ -71,6 +71,10 @@ public class XmlOpener {
 		return ErrorCode.NO_ERROR;
 	}
 	
+	/**
+	 * Get the parsed document AFTER opening the file
+	 * @return Parsed document
+	 */
 	public Document getParsedDoc() {
 		return xmlDoc;
 	}

@@ -18,6 +18,7 @@ public class Microcontroller {
 
 	/* private fields */
 	private Document ucDoc;
+	private Pin[] pin;
 	
 	/* Microcontroller characteristics */
 	
@@ -35,7 +36,7 @@ public class Microcontroller {
 	private static final String STR_PIN_NUMBER	= "number";
 	
 	/* Pin's optional characteristics */
-	private static final String STR_PIN_INT		= "interruption";
+	private static final String STR_PIN_INT		= "interrupt";
 	private static final String STR_PIN_ADC		= "adc";
 	private static final String STR_PIN_PORT	= "port";
 	private static final String STR_PIN_CLOCK	= "clock";
@@ -63,12 +64,12 @@ public class Microcontroller {
 		/* Get the root microcontroller element */
 		Element pinRoot = ucDoc.getDocumentElement();
 		if (Features.VERBOSE) {
-			System.out.println("# Root element: " + pinRoot.getTagName());
+			System.out.println(Features.VERBOSE_STR + "Root element: " + pinRoot.getTagName());
 		}
 		
 		if (!pinRoot.getTagName().equals("microcontroller")) {
 			if (Features.VERBOSE) {
-				System.out.println("# Wrong root element!...");
+				System.out.println(Features.VERBOSE_STR + "Wrong root element!...");
 			}
 			return ErrorCode.EX_ERROR;
 		}
@@ -77,7 +78,7 @@ public class Microcontroller {
 			return ErrorCode.EX_ERROR;
 		}
 		
-		if (loadPinNum() != ErrorCode.NO_ERROR) {
+		if (loadPins() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
 		return errorStatus;
@@ -126,9 +127,13 @@ public class Microcontroller {
 	 * Load the microcontroller's number of pins
 	 * @return Error status
 	 */
-	private ErrorCode loadPinNum() {
+	private ErrorCode loadPins() {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList pinList;
+		int pinsVcc = 0;
+		int pinsGnd = 0;
+		int pinsRst = 0;
+		int pinsGpio = 0;
 		
 		pinList = ucDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
@@ -143,7 +148,160 @@ public class Microcontroller {
 			}
 		}
 		
+		if (errorStatus == ErrorCode.NO_ERROR) {
+			
+			pin = new Pin[getUc_pinNum()];
+			
+			/* Parse the pins */
+			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
+				pin[pinNum] = parsePin(pinNum);
+				/* Check the pin is valid */
+				if (!pin[pinNum].isValid()) {
+					errorStatus = ErrorCode.EX_ERROR;
+					if (Features.VERBOSE) {
+						System.out.println(Features.VERBOSE_STR + "Pin " + pinNum + " not valid!");
+					}
+					break;
+				}
+				
+				/* Get pins functions */
+				if (pin[pinNum].getFunc_vcc()) {
+					pinsVcc++;
+				} else if (pin[pinNum].getFunc_gnd()) {
+					pinsGnd++;
+				} else if (pin[pinNum].getFunc_gpio()) {
+					pinsGpio++;
+				}
+				if (pin[pinNum].getFeat_reset()) {
+					pinsRst++;
+				}
+			}
+			
+			/* We should have at least 1 Vcc, 1 Gnd, 1 GPIO and 1 Reset */
+			if ((errorStatus == ErrorCode.NO_ERROR) && ((pinsVcc <= 0) || (pinsGnd <= 0) || (pinsGpio <= 0) || (pinsRst <= 0))) {
+				errorStatus = ErrorCode.EX_ERROR;
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "The microcontroller does NOT have all the required pins!");
+				}
+			}
+		}
+		
 		return errorStatus;
+	}
+	
+	/**
+	 * Load pins from XML
+	 * @param pinNum Pin's number
+	 * @return Pin's information
+	 */
+	private Pin parsePin(int pinNum) {
+		pin[pinNum] = new Pin();
+		Element pinEl;
+		NodeList mandChar;
+		NodeList optChar;
+		
+		if (Features.VERBOSE) {
+			System.out.println(Features.VERBOSE_STR + "Getting pin " + pinNum + " characteristics:");
+		}
+		
+		pinEl = (Element)ucDoc.getElementsByTagName(STR_PIN).item(pinNum);
+		
+		/* Get mandatory characteristics */
+		/* Name */
+		mandChar = pinEl.getElementsByTagName(STR_PIN_NAME);
+		if (mandChar.getLength() > 0) {
+			pin[pinNum].setName(mandChar.item(0).getTextContent());
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "\tName: " + pin[pinNum].getName());
+			}
+		}
+		/* Number */
+		mandChar = pinEl.getElementsByTagName(STR_PIN_NUMBER);
+		if (mandChar.getLength() > 0) {
+			pin[pinNum].setNumber(Integer.parseInt(mandChar.item(0).getTextContent()));
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "\tNumber: " + pin[pinNum].getNumber());
+			}
+		}
+		
+		/* Get Pin functions */
+		/* VCC */
+		optChar = pinEl.getElementsByTagName(STR_PIN_VCC);
+		if (optChar.getLength() > 0) {
+			pin[pinNum].setFunc_vcc(true);
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "\tFunction: VCC");
+			}
+		}
+		/* GND */
+		optChar = pinEl.getElementsByTagName(STR_PIN_GND);
+		if (optChar.getLength() > 0) {
+			pin[pinNum].setFunc_gnd(true);
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "\tFunction: GND");
+			}
+		}
+		/* GPIO */
+		optChar = pinEl.getElementsByTagName(STR_PIN_GPIO);
+		if (optChar.getLength() > 0) {
+			pin[pinNum].setFunc_gpio(true);
+			if (Features.VERBOSE) {
+				System.out.println(Features.VERBOSE_STR + "\tFunction: GPIO");
+			}
+		}
+		
+		/* Get optional GPIO characteristics */
+		if (pin[pinNum].getFunc_gpio()) {
+			/* Port */
+			optChar = pinEl.getElementsByTagName(STR_PIN_PORT);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setPort(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tPort: " + pin[pinNum].getPort());
+				}
+			}
+			/* Interruption */
+			optChar = pinEl.getElementsByTagName(STR_PIN_INT);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setInt(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tInterruption: " + pin[pinNum].getInt());
+				}
+			}
+			/* ADC */
+			optChar = pinEl.getElementsByTagName(STR_PIN_ADC);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setAdc(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tADC: " + pin[pinNum].getAdc());
+				}
+			}
+			/* Clock */
+			optChar = pinEl.getElementsByTagName(STR_PIN_CLOCK);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setClock(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tClock: " + pin[pinNum].getClock());
+				}
+			}
+			/* Timer */
+			optChar = pinEl.getElementsByTagName(STR_PIN_TIMER);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setTimer(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tTimer: " + pin[pinNum].getTimer());
+				}
+			}
+			/* Reset */
+			optChar = pinEl.getElementsByTagName(STR_PIN_RESET);
+			if (optChar.getLength() > 0) {
+				pin[pinNum].setReset(optChar.item(0).getTextContent());
+				if (Features.VERBOSE) {
+					System.out.println(Features.VERBOSE_STR + "\tReset: " + pin[pinNum].getReset());
+				}
+			}
+		}
+		return pin[pinNum];
 	}
 	
 	/**
@@ -152,109 +310,7 @@ public class Microcontroller {
 	 * @return Pin's characteristics
 	 */
 	public Pin getPin(int pinNum) {
-		Pin pin = new Pin();
-		Element pinEl;
-		NodeList optChar;
-		
-		if (Features.VERBOSE) {
-			System.out.println(Features.VERBOSE_STR + "Getting pin " + pinNum + " characteristics...");
-		}
-		
-		pinEl = (Element)ucDoc.getElementsByTagName(STR_PIN).item(pinNum);
-		
-		/* Get mandatory characteristics as attributes */
-		pin.setName(pinEl.getAttribute(STR_PIN_NAME));
-		if (Features.VERBOSE) {
-			System.out.println(Features.VERBOSE_STR + "\tName: " + pin.getName());
-		}
-		pin.setNumber(Integer.parseInt(pinEl.getAttribute(STR_PIN_NUMBER)));
-		if (Features.VERBOSE) {
-			System.out.println(Features.VERBOSE_STR + "\tNumber: " + pin.getNumber());
-		}
-		
-		/* Get Pin functions */
-		/* VCC */
-		optChar = pinEl.getElementsByTagName(STR_PIN_VCC);
-		if (optChar.getLength() > 0) {
-			pin.setFunc_vcc(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: VCC");
-			}
-		}
-		/* GND */
-		optChar = pinEl.getElementsByTagName(STR_PIN_GND);
-		if (optChar.getLength() > 0) {
-			pin.setFunc_gnd(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: GND");
-			}
-		}
-		/* GPIO */
-		optChar = pinEl.getElementsByTagName(STR_PIN_GPIO);
-		if (optChar.getLength() > 0) {
-			pin.setFunc_gpio(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: GPIO");
-			}
-		}
-		
-		/* Get optional GPIO characteristics */
-		if (pin.getFunc_gpio()) {
-			/* Port */
-			optChar = pinEl.getElementsByTagName(STR_PIN_PORT);
-			if (optChar.getLength() > 0) {
-				pin.setPort(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tPort: " + pin.getPort());
-				}
-			}
-			/* Interruption */
-			optChar = pinEl.getElementsByTagName(STR_PIN_INT);
-			if (optChar.getLength() > 0) {
-				pin.setFeat_int(true);
-				pin.setInt(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tInterruption: " + pin.getInt());
-				}
-			}
-			/* ADC */
-			optChar = pinEl.getElementsByTagName(STR_PIN_ADC);
-			if (optChar.getLength() > 0) {
-				pin.setFeat_adc(true);
-				pin.setAdc(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tADC: " + pin.getAdc());
-				}
-			}
-			/* Clock */
-			optChar = pinEl.getElementsByTagName(STR_PIN_CLOCK);
-			if (optChar.getLength() > 0) {
-				pin.setFeat_clock(true);
-				pin.setClock(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tClock: " + pin.getClock());
-				}
-			}
-			/* Timer */
-			optChar = pinEl.getElementsByTagName(STR_PIN_TIMER);
-			if (optChar.getLength() > 0) {
-				pin.setFeat_timer(true);
-				pin.setTimer(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tTimer: " + pin.getTimer());
-				}
-			}
-			/* Reset */
-			optChar = pinEl.getElementsByTagName(STR_PIN_RESET);
-			if (optChar.getLength() > 0) {
-				pin.setFeat_reset(true);
-				pin.setReset(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tReset: " + pin.getReset());
-				}
-			}
-		}
-		return pin;
+		return pin[pinNum];
 	}
 	
 	/**

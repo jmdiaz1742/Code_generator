@@ -361,7 +361,7 @@ public class Pin {
 	 */
 	public void setFeat_reset(boolean featState ) {
 		feat_reset = featState;
-		if (feat_reset) {
+		if (!feat_reset) {
 			setReset(DEF_FEATURE);
 		}
 	}
@@ -380,6 +380,7 @@ public class Pin {
 	 */
 	public void setInt(String feature) {
 		interruption = feature;
+		setFeat_int(ENABLE);
 	}
 	
 	/**
@@ -396,6 +397,7 @@ public class Pin {
 	 */
 	public void setAdc(String feature) {
 		adc = feature;
+		setFeat_adc(ENABLE);
 	}
 	
 	/**
@@ -412,6 +414,7 @@ public class Pin {
 	 */
 	public void setUart(String feature) {
 		uart = feature;
+		setFeat_uart(ENABLE);
 	}
 	
 	/**
@@ -428,6 +431,7 @@ public class Pin {
 	 */
 	public void setI2c(String feature) {
 		i2c = feature;
+		setFeat_i2c(ENABLE);
 	}
 	
 	/**
@@ -444,6 +448,7 @@ public class Pin {
 	 */
 	public void setSpi(String feature) {
 		spi = feature;
+		setFeat_spi(ENABLE);
 	}
 	
 	/**
@@ -460,6 +465,7 @@ public class Pin {
 	 */
 	public void setClock(String feature) {
 		clock = feature;
+		setFeat_clock(ENABLE);
 	}
 	
 	/**
@@ -476,6 +482,7 @@ public class Pin {
 	 */
 	public void setReset(String feature) {
 		reset = feature;
+		setFeat_reset(ENABLE);
 	}
 	
 	/**
@@ -492,6 +499,7 @@ public class Pin {
 	 */
 	public void setTimer(String feature) {
 		timer = feature;
+		setFeat_timer(ENABLE);
 	}
 	
 	/**
@@ -548,5 +556,39 @@ public class Pin {
 	 */
 	public String getPort() {
 		return port;
+	}
+	
+	/**
+	 * Check if the pin is correctly initialized
+	 * @return True if the pin is correctly initialized
+	 */
+	public boolean isValid() {
+		boolean validPin = true;
+		
+		/* Check that the mandatory characteristics are present */
+		if (getName().equals(Pin.DEF_NAME)) {
+			validPin = false;
+		}
+		if (getNumber() <= Pin.DEF_NUMBER) {
+			validPin = false;
+		}
+		
+		/* Check that only 1 function is set */
+		int numFunc = 0;
+		if (getFunc_gpio()) {
+			numFunc++;
+		}
+		if (getFunc_gnd()) {
+			numFunc++;
+		}
+		if  (getFunc_vcc()) {
+			numFunc++;
+		}
+		
+		if (numFunc != 1) {
+			validPin = false;
+		}
+		
+		return validPin;
 	}
 }
