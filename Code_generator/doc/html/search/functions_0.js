@@ -1,30 +1,4 @@
 var searchData=
 [
-  ['getadc',['getAdc',['../classmicrocontroller_1_1_pin.html#ab3ecaed5ed7abaa0879a0d04175e1a37',1,'microcontroller::Pin']]],
-  ['getclock',['getClock',['../classmicrocontroller_1_1_pin.html#a291b10a8fe2e1c88756366fc65982e4d',1,'microcontroller::Pin']]],
-  ['getfeat_5fadc',['getFeat_adc',['../classmicrocontroller_1_1_pin.html#a620f0451d0cef95d6dca8ef28cdaec0f',1,'microcontroller::Pin']]],
-  ['getfeat_5fclock',['getFeat_clock',['../classmicrocontroller_1_1_pin.html#a4e52882e90c9dae95551c96b7871089b',1,'microcontroller::Pin']]],
-  ['getfeat_5fi2c',['getFeat_i2c',['../classmicrocontroller_1_1_pin.html#ac702e4c98edd5337c88b35bca3831db3',1,'microcontroller::Pin']]],
-  ['getfeat_5fint',['getFeat_int',['../classmicrocontroller_1_1_pin.html#a5d7f9e09d07f058335b95ba99e1c7246',1,'microcontroller::Pin']]],
-  ['getfeat_5freset',['getFeat_reset',['../classmicrocontroller_1_1_pin.html#a9d76a02046d118dffb861cb981f67e71',1,'microcontroller::Pin']]],
-  ['getfeat_5fspi',['getFeat_spi',['../classmicrocontroller_1_1_pin.html#a0729a5ef696fac197ef88ea0a39d39e7',1,'microcontroller::Pin']]],
-  ['getfeat_5ftimer',['getFeat_timer',['../classmicrocontroller_1_1_pin.html#ad36152ef3a7f8c11dd78a0db4d6764d3',1,'microcontroller::Pin']]],
-  ['getfeat_5fuart',['getFeat_uart',['../classmicrocontroller_1_1_pin.html#af5292d7c469832d8d10e1d26d993ee51',1,'microcontroller::Pin']]],
-  ['getfunc_5fgnd',['getFunc_gnd',['../classmicrocontroller_1_1_pin.html#ad97cf027a3500a426ec1b8774e41d0ac',1,'microcontroller::Pin']]],
-  ['getfunc_5fgpio',['getFunc_gpio',['../classmicrocontroller_1_1_pin.html#af91d4c7fa51d402fd348414ab04fe9e2',1,'microcontroller::Pin']]],
-  ['getfunc_5fvcc',['getFunc_vcc',['../classmicrocontroller_1_1_pin.html#abad82f1f1327ec65fdfe73004b2136be',1,'microcontroller::Pin']]],
-  ['geti2c',['getI2c',['../classmicrocontroller_1_1_pin.html#a3039dba75a24e536ef7014c24338d1fa',1,'microcontroller::Pin']]],
-  ['getint',['getInt',['../classmicrocontroller_1_1_pin.html#aab5e9d29f1703cbcac65fb58c0fad76b',1,'microcontroller::Pin']]],
-  ['getname',['getName',['../classmicrocontroller_1_1_pin.html#a2ab1957f36ef51ff3dc1f1763c522a03',1,'microcontroller::Pin']]],
-  ['getnumber',['getNumber',['../classmicrocontroller_1_1_pin.html#a0dd37ce453c4b5ef70de7a3410383797',1,'microcontroller::Pin']]],
-  ['getparseddoc',['getParsedDoc',['../classxml_parser_1_1_xml_opener.html#a9566db2c01404c2e03830fbfd7e83287',1,'xmlParser::XmlOpener']]],
-  ['getpin',['getPin',['../classmicrocontroller_1_1_microcontroller.html#ae3c1134bb242639653f15442db8dadf0',1,'microcontroller::Microcontroller']]],
-  ['getport',['getPort',['../classmicrocontroller_1_1_pin.html#ac9526d213fce2e3001439e35f3441a39',1,'microcontroller::Pin']]],
-  ['getreset',['getReset',['../classmicrocontroller_1_1_pin.html#a23c0c64312881656e632ef9f0a668895',1,'microcontroller::Pin']]],
-  ['getspi',['getSpi',['../classmicrocontroller_1_1_pin.html#a4ea574e5865e209072ad82105a0c2a32',1,'microcontroller::Pin']]],
-  ['gettimer',['getTimer',['../classmicrocontroller_1_1_pin.html#ac274c9884fe71facc0423e385ce5a355',1,'microcontroller::Pin']]],
-  ['getuart',['getUart',['../classmicrocontroller_1_1_pin.html#a7e439c168172aa841f6a99b3760deeb2',1,'microcontroller::Pin']]],
-  ['getuc_5fmanufacturer',['getUc_manufacturer',['../classmicrocontroller_1_1_microcontroller.html#a8a12340bf13b0d4d4c74cb3184a17bb1',1,'microcontroller::Microcontroller']]],
-  ['getuc_5fmodel',['getUc_model',['../classmicrocontroller_1_1_microcontroller.html#a3aee7c4a68d697f04eb3a94ce9516e78',1,'microcontroller::Microcontroller']]],
-  ['getuc_5fpinnum',['getUc_pinNum',['../classmicrocontroller_1_1_microcontroller.html#a7d879618b3fda299ade27dfbcda4150e',1,'microcontroller::Microcontroller']]]
+  ['debugprint',['debugPrint',['../classcommon_1_1_features.html#afff82b84accd8109029afefb8e790659',1,'common::Features']]]
 ];

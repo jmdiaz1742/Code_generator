@@ -15,11 +15,16 @@ var searchData=
   ['setfunc_5fvcc',['setFunc_vcc',['../classmicrocontroller_1_1_pin.html#ade3c8e9b7137e95e30bef8450dca469f',1,'microcontroller::Pin']]],
   ['seti2c',['setI2c',['../classmicrocontroller_1_1_pin.html#a10220e38f47b8102a031ecaae1dd1517',1,'microcontroller::Pin']]],
   ['setint',['setInt',['../classmicrocontroller_1_1_pin.html#aed1a4738499a5e65d34802a49daabeac',1,'microcontroller::Pin']]],
+  ['setmode',['setMode',['../classconfigurator_1_1_pin_conf.html#ac86cb9f4f51f1a519bd2aff55fc911f6',1,'configurator::PinConf']]],
   ['setname',['setName',['../classmicrocontroller_1_1_pin.html#acdfbce0ecbac12b35a0cc8034dcd5a31',1,'microcontroller::Pin']]],
   ['setnumber',['setNumber',['../classmicrocontroller_1_1_pin.html#a43a862772f348138f48e0317ee7315f7',1,'microcontroller::Pin']]],
+  ['setouttype',['setOutType',['../classconfigurator_1_1_pin_conf.html#a25c64f8501836117bfc5371183dbd045',1,'configurator::PinConf']]],
   ['setport',['setPort',['../classmicrocontroller_1_1_pin.html#a498c121ea56e48984f2098891e041c12',1,'microcontroller::Pin']]],
+  ['setpull',['setPull',['../classconfigurator_1_1_pin_conf.html#acc5339917552ab241b2123025f9080a2',1,'configurator::PinConf']]],
   ['setreset',['setReset',['../classmicrocontroller_1_1_pin.html#a4bfbaabe8a7d3aca7f01d5d74b1cc263',1,'microcontroller::Pin']]],
+  ['setspeed',['setSpeed',['../classconfigurator_1_1_pin_conf.html#a99c843aea03e28a2663d1078c3ac7114',1,'configurator::PinConf']]],
   ['setspi',['setSpi',['../classmicrocontroller_1_1_pin.html#af7c3b4bbc170bb3ed588844f43037890',1,'microcontroller::Pin']]],
   ['settimer',['setTimer',['../classmicrocontroller_1_1_pin.html#af838c8cf044c41eb3821514e520eeaaf',1,'microcontroller::Pin']]],
-  ['setuart',['setUart',['../classmicrocontroller_1_1_pin.html#a5bfe518b73af323338fe6ce0b3f7546d',1,'microcontroller::Pin']]]
+  ['setuart',['setUart',['../classmicrocontroller_1_1_pin.html#a5bfe518b73af323338fe6ce0b3f7546d',1,'microcontroller::Pin']]],
+  ['speed',['Speed',['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html',1,'configurator::GPIO']]]
 ];
