@@ -31,4 +31,27 @@ public class Features {
 	 * Debug messages indicator on system console
 	 */
 	public static final String DEBUG_STR	= "#$ ";
+	
+	/* Static Methods */
+	
+	/**
+	 * Print Verbose message to console
+	 * @param verboseMessage Message to display
+	 */
+	public static void verbosePrint(String verboseMessage) {
+		if (VERBOSE) {
+			System.out.println(VERBOSE_STR + verboseMessage);
+		}
+	}
+	
+	/**
+	 * Print Debug message to console
+	 * @param debugMessage Message to display
+	 */
+	public static void debugPrint(String debugMessage) {
+		if (DEBUG) {
+			System.out.println(DEBUG_STR + debugMessage);
+		}
+	}
+	
 }

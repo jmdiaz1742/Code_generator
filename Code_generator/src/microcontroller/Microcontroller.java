@@ -25,7 +25,9 @@ public class Microcontroller {
 	private String	uc_model;
 	private String	uc_manufacturer;
 	private int		uc_pinNum;
+	private int		uc_gpioNum;
 	
+	private static final String ROOT_ELEMENT	= "microcontroller";
 	private static final String STR_ATT_MODEL	= "model";
 	private static final String STR_ATT_MFCT	= "manufacturer";
 	private static final String STR_PIN			= "pin";
@@ -52,6 +54,8 @@ public class Microcontroller {
 	 */
 	public Microcontroller (Document ucDoc) {
 		this.ucDoc = ucDoc;
+		setUc_pinNum(0);
+		setUc_gpioNum(0);
 	}
 	
 	/**
@@ -63,14 +67,10 @@ public class Microcontroller {
 		
 		/* Get the root microcontroller element */
 		Element pinRoot = ucDoc.getDocumentElement();
-		if (Features.VERBOSE) {
-			System.out.println(Features.VERBOSE_STR + "Root element: " + pinRoot.getTagName());
-		}
+		Features.verbosePrint("Root element: " + pinRoot.getTagName());
 		
-		if (!pinRoot.getTagName().equals("microcontroller")) {
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "Wrong root element!...");
-			}
+		if (!pinRoot.getTagName().equals(ROOT_ELEMENT)) {
+			Features.verbosePrint("Wrong root element!...");
 			return ErrorCode.EX_ERROR;
 		}
 		
@@ -96,28 +96,20 @@ public class Microcontroller {
 		element = ucDoc.getElementsByTagName(STR_ATT_MFCT);
 		if (element.getLength() > 0) {
 			setUc_manufacturer(element.item(0).getTextContent());
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "Manufacturer: " + element.item(0).getTextContent());
-			}
+			Features.verbosePrint("Manufacturer: " + element.item(0).getTextContent());
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "No manufacturer found...");
-			}
+			Features.verbosePrint("No manufacturer found...");
 		}
 		
 		/* Get model */
 		element = ucDoc.getElementsByTagName(STR_ATT_MODEL);
 		if (element.getLength() > 0) {
 			setUc_model(element.item(0).getTextContent());
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "Model: " + element.item(0).getTextContent());
-			}
+			Features.verbosePrint("Model: " + element.item(0).getTextContent());
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "No model found...");
-			}
+			Features.verbosePrint("No model found...");
 		}
 		
 		return errorStatus;
@@ -138,14 +130,10 @@ public class Microcontroller {
 		pinList = ucDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
 			setUc_pinNum(pinList.getLength());
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "Number of pins: " + pinList.getLength());
-			}
+			Features.verbosePrint("Number of pins: " + pinList.getLength());
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "No pins found...");
-			}
+			Features.verbosePrint("No pins found...");
 		}
 		
 		if (errorStatus == ErrorCode.NO_ERROR) {
@@ -158,9 +146,7 @@ public class Microcontroller {
 				/* Check the pin is valid */
 				if (!pin[pinNum].isValid()) {
 					errorStatus = ErrorCode.EX_ERROR;
-					if (Features.VERBOSE) {
-						System.out.println(Features.VERBOSE_STR + "Pin " + pinNum + " not valid!");
-					}
+					Features.verbosePrint("Pin " + pinNum + " not valid!");
 					break;
 				}
 				
@@ -176,13 +162,13 @@ public class Microcontroller {
 					pinsRst++;
 				}
 			}
+			setUc_gpioNum(pinsGpio);
+			Features.verbosePrint("Found " + getUc_gpioNum() + " GPIOs...");
 			
 			/* We should have at least 1 Vcc, 1 Gnd, 1 GPIO and 1 Reset */
 			if ((errorStatus == ErrorCode.NO_ERROR) && ((pinsVcc <= 0) || (pinsGnd <= 0) || (pinsGpio <= 0) || (pinsRst <= 0))) {
 				errorStatus = ErrorCode.EX_ERROR;
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "The microcontroller does NOT have all the required pins!");
-				}
+				Features.verbosePrint("The microcontroller does NOT have all the required pins!");
 			}
 		}
 		
@@ -200,9 +186,7 @@ public class Microcontroller {
 		NodeList mandChar;
 		NodeList optChar;
 		
-		if (Features.VERBOSE) {
-			System.out.println(Features.VERBOSE_STR + "Getting pin " + pinNum + " characteristics:");
-		}
+		Features.verbosePrint("Getting pin " + pinNum + " characteristics:");
 		
 		pinEl = (Element)ucDoc.getElementsByTagName(STR_PIN).item(pinNum);
 		
@@ -211,17 +195,13 @@ public class Microcontroller {
 		mandChar = pinEl.getElementsByTagName(STR_PIN_NAME);
 		if (mandChar.getLength() > 0) {
 			pin[pinNum].setName(mandChar.item(0).getTextContent());
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tName: " + pin[pinNum].getName());
-			}
+			Features.verbosePrint("\tName: " + pin[pinNum].getName());
 		}
 		/* Number */
 		mandChar = pinEl.getElementsByTagName(STR_PIN_NUMBER);
 		if (mandChar.getLength() > 0) {
 			pin[pinNum].setNumber(Integer.parseInt(mandChar.item(0).getTextContent()));
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tNumber: " + pin[pinNum].getNumber());
-			}
+			Features.verbosePrint("\tNumber: " + pin[pinNum].getNumber());
 		}
 		
 		/* Get Pin functions */
@@ -229,25 +209,19 @@ public class Microcontroller {
 		optChar = pinEl.getElementsByTagName(STR_PIN_VCC);
 		if (optChar.getLength() > 0) {
 			pin[pinNum].setFunc_vcc(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: VCC");
-			}
+			Features.verbosePrint("\tFunction: VCC");
 		}
 		/* GND */
 		optChar = pinEl.getElementsByTagName(STR_PIN_GND);
 		if (optChar.getLength() > 0) {
 			pin[pinNum].setFunc_gnd(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: GND");
-			}
+			Features.verbosePrint("\tFunction: GND");
 		}
 		/* GPIO */
 		optChar = pinEl.getElementsByTagName(STR_PIN_GPIO);
 		if (optChar.getLength() > 0) {
 			pin[pinNum].setFunc_gpio(true);
-			if (Features.VERBOSE) {
-				System.out.println(Features.VERBOSE_STR + "\tFunction: GPIO");
-			}
+			Features.verbosePrint("\tFunction: GPIO");
 		}
 		
 		/* Get optional GPIO characteristics */
@@ -256,49 +230,37 @@ public class Microcontroller {
 			optChar = pinEl.getElementsByTagName(STR_PIN_PORT);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setPort(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tPort: " + pin[pinNum].getPort());
-				}
+				Features.verbosePrint("\tPort: " + pin[pinNum].getPort());
 			}
 			/* Interruption */
 			optChar = pinEl.getElementsByTagName(STR_PIN_INT);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setInt(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tInterruption: " + pin[pinNum].getInt());
-				}
+				Features.verbosePrint("\tInterruption: " + pin[pinNum].getInt());
 			}
 			/* ADC */
 			optChar = pinEl.getElementsByTagName(STR_PIN_ADC);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setAdc(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tADC: " + pin[pinNum].getAdc());
-				}
+				Features.verbosePrint("\tADC: " + pin[pinNum].getAdc());
 			}
 			/* Clock */
 			optChar = pinEl.getElementsByTagName(STR_PIN_CLOCK);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setClock(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tClock: " + pin[pinNum].getClock());
-				}
+				Features.verbosePrint("\tClock: " + pin[pinNum].getClock());
 			}
 			/* Timer */
 			optChar = pinEl.getElementsByTagName(STR_PIN_TIMER);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setTimer(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tTimer: " + pin[pinNum].getTimer());
-				}
+				Features.verbosePrint("\tTimer: " + pin[pinNum].getTimer());
 			}
 			/* Reset */
 			optChar = pinEl.getElementsByTagName(STR_PIN_RESET);
 			if (optChar.getLength() > 0) {
 				pin[pinNum].setReset(optChar.item(0).getTextContent());
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "\tReset: " + pin[pinNum].getReset());
-				}
+				Features.verbosePrint("\tReset: " + pin[pinNum].getReset());
 			}
 		}
 		return pin[pinNum];
@@ -359,5 +321,21 @@ public class Microcontroller {
 	 */
 	private void setUc_pinNum(int uc_pinNum) {
 		this.uc_pinNum = uc_pinNum;
+	}
+
+	/**
+	 * Get the number of GPIOs in the microcontroller
+	 * @return Number of GPIOs
+	 */
+	public int getUc_gpioNum() {
+		return uc_gpioNum;
+	}
+
+	/**
+	 * Set the number of GPIOs in the microcontroller
+	 * @param uc_gpioNum Number of GPIOs
+	 */
+	private void setUc_gpioNum(int uc_gpioNum) {
+		this.uc_gpioNum = uc_gpioNum;
 	}
 }

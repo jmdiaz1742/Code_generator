@@ -1,6 +1,7 @@
 package xmlParser;
 import common.ErrorCode;
 import common.Features;
+import configurator.PinConf;
 import microcontroller.Microcontroller;
 import microcontroller.Pin;
 
@@ -22,12 +23,11 @@ public class TestMain {
 		int totalPins;
 		Pin[] pin;
 		Microcontroller uCtrl;
+		int gpioRef[];
+		PinConf gpio[];
 		
-		if (Features.DEBUG) {
-			System.out.println(Features.DEBUG_STR + "Initializing XML parser test in debug mode...");
-		} else {
-			System.out.println("Initializing XML parser test...");
-		}
+		System.out.println("Initializing XML parser test...");
+		Features.debugPrint("Debug mode enabled...");
 		
 		/* Get the complete path of the XML file */
 		String fileName = System.getProperty("user.dir") + System.getProperty("file.separator") + "src" + System.getProperty("file.separator") + FILE_NAME;
@@ -56,16 +56,29 @@ public class TestMain {
 		System.out.println("Pins: " + totalPins);
 		
 		pin = new Pin[totalPins];
+		gpioRef = new int[uCtrl.getUc_gpioNum()];
+		int gpioIndex = 0;
 		
 		for (int pinNum = 0; pinNum < totalPins; pinNum++) {
 			pin[pinNum] = uCtrl.getPin(pinNum);
+			
 			if (!pin[pinNum].isValid()) {
 				errorState = ErrorCode.EX_ERROR;
-				if (Features.VERBOSE) {
-					System.out.println(Features.VERBOSE_STR + "Pin " + pinNum + " is invalid!");
-				}
+				Features.verbosePrint("Pin " + pinNum + " is invalid!");
+			}
+			/* Save the reference of GPIO pins */
+			if (pin[pinNum].getFunc_gpio()) {
+				gpioRef[gpioIndex] = pinNum;
+				gpioIndex++;
 			}
 		}
+		
+		gpio = new PinConf[uCtrl.getUc_gpioNum()];
+		for (int gpioNum = 0; gpioNum < uCtrl.getUc_gpioNum(); gpioNum++) {
+			gpio[gpioNum] = new PinConf(pin[gpioRef[gpioNum]]);
+			Features.verbosePrint("GPIO: " + gpioRef[gpioNum]);
+		}
+		
 		
 	}
 }

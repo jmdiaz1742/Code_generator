@@ -79,6 +79,7 @@ public class XmlOpener {
 		return xmlDoc;
 	}
 	
+// FIXME: Find a way to validate the document
 //	/**
 //	 * Validate the XML file
 //	 * @param xmlFile XML file
@@ -86,7 +87,6 @@ public class XmlOpener {
 //	 * @return True if the XML file is valid
 //	 */
 //	private boolean validateXml(File xmlFile, Document xmlDocument) {
-//		// FIXME: Find a way to validate the document
 //		Schema schema = null;
 //		try {
 //		  String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
