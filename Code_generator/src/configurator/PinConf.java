@@ -133,16 +133,12 @@ public class PinConf {
 			this.mode = mode;
 			break;
 		case MODE_ALTERNATE_FUNCTION:
-			if (gpioPin.getFeat_clock()	|| 
-				gpioPin.getFeat_i2c()	|| 
-				gpioPin.getFeat_reset()	|| 
-				gpioPin.getFeat_spi()	|| 
-				gpioPin.getFeat_uart()) {
+			if (isAv_altFunc()) {
 				this.mode = Mode.MODE_ALTERNATE_FUNCTION;
 			}
 			break;
 		case MODE_ANALOG:
-			if (gpioPin.getFeat_adc()) {
+			if (isAv_Adc()) {
 				this.mode = Mode.MODE_ANALOG;
 			}
 			break;
@@ -199,5 +195,29 @@ public class PinConf {
 	 */
 	public void setPull(Pull pull) {
 		this.pull = pull;
+	}
+	
+	/**
+	 * Check availability of ADC
+	 * @return True if ADC is available
+	 */
+	public boolean isAv_Adc() {
+		return gpioPin.getFeat_adc();
+	}
+	
+	/**
+	 * Check the availability of alternate function
+	 * @return True if alternate function is available
+	 */
+	public boolean isAv_altFunc() {
+		boolean altFunc = false;
+		if (gpioPin.getFeat_clock()	|| 
+			gpioPin.getFeat_i2c()	|| 
+			gpioPin.getFeat_reset()	|| 
+			gpioPin.getFeat_spi()	|| 
+			gpioPin.getFeat_uart()) {
+			altFunc = true;
+		}
+		return altFunc;
 	}
 }

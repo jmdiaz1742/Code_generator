@@ -4,6 +4,7 @@ import common.Features;
 import configurator.PinConf;
 import microcontroller.Microcontroller;
 import microcontroller.Pin;
+import xmlCreator.ConfXmlWriter;
 
 /**
  * Dummy main class for testing the other classes 
@@ -79,6 +80,13 @@ public class TestMain {
 			Features.verbosePrint("GPIO: " + gpioRef[gpioNum]);
 		}
 		
+		/* Print file */
+		String confFileName = System.getProperty("user.dir") + System.getProperty("file.separator") + "src" + System.getProperty("file.separator") + "conf.xml";
+		ConfXmlWriter xmlFileWriter = new ConfXmlWriter(totalPins);
+		for (int pinNum = 0; pinNum < uCtrl.getUc_gpioNum(); pinNum++) {
+			xmlFileWriter.addPin(gpio[pinNum], pinNum);
+		}
+		xmlFileWriter.writeXml(confFileName);
 		
 	}
 }
