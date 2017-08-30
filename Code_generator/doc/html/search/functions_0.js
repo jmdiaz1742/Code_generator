@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debugprint',['debugPrint',['../classcommon_1_1_features.html#afff82b84accd8109029afefb8e790659',1,'common::Features']]]
+  ['addpin',['addPin',['../classxml_creator_1_1_conf_xml_writer.html#afc716329fad6b81ba6a0963fdefec649',1,'xmlCreator::ConfXmlWriter']]]
 ];

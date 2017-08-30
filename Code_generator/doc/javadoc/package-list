@@ -3,4 +3,5 @@ configurator
 configurator.GPIO
 framework
 microcontroller
+xmlCreator
 xmlParser

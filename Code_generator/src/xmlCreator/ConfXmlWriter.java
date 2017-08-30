@@ -42,7 +42,8 @@ public class ConfXmlWriter {
 	private static final String	STR_PIN_EL	= "Pin";
 	
 	/**
-	 * Create configuration file 
+	 * Create configuration file
+	 * @param pins Total number of GPIO pins to save
 	 */
 	public ConfXmlWriter (int pins) {
 		try {
@@ -68,7 +69,9 @@ public class ConfXmlWriter {
 	}
 	
 	/**
-	 * Create a new pin configuration element
+	 * Add a pin configuration to the file
+	 * @param pin Pin configuration
+	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
 		pinElement[pinNum] = xmlDoc.createElement(STR_PIN_EL);
@@ -76,6 +79,10 @@ public class ConfXmlWriter {
 		rootElement.appendChild(pinElement[pinNum]);
 	}
 		
+	/**
+	 * Write the XMl file
+	 * @param fileName Name of XML configuration file
+	 */
 	public void writeXml(String fileName) {
 		try {
 			xmlTransFact = TransformerFactory.newInstance();
