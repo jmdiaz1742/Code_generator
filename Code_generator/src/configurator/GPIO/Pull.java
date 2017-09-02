@@ -11,4 +11,9 @@ public enum Pull {
 	PULL_DOWN,
 	PULL_NOT_AVAILABLE,
 	PULL_MAX_VALUE;
+	
+	/**
+	 * Name as String
+	 */
+	public static final String STR_NAME = "Mode";
 }

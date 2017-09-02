@@ -12,4 +12,9 @@ public enum Mode {
 	MODE_ALTERNATE_FUNCTION,
 	MODE_ANALOG,
 	MODE_MAX_VALUE;
+	
+	/**
+	 * Name as String
+	 */
+	public static final String STR_NAME = "Mode";
 }

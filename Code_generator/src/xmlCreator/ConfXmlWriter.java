@@ -17,7 +17,10 @@ import org.w3c.dom.Element;
 
 import common.Features;
 import configurator.PinConf;
-import microcontroller.Pin;
+import configurator.GPIO.Mode;
+import configurator.GPIO.OutType;
+import configurator.GPIO.Pull;
+import configurator.GPIO.Speed;
 
 /**
  * Write a XML file
@@ -36,35 +39,34 @@ public class ConfXmlWriter {
 	Transformer xmlTrans;
 	DOMSource xmlSource;
 	StreamResult xmlResult;
-	int totalPins;
+	int totalPins = 0;
 	
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
 	private static final String	STR_PIN_EL	= "Pin";
+	private static final String	STR_PORT	= "Port";
 	
 	/**
-	 * Create configuration file
-	 * @param pins Total number of GPIO pins to save
+	 * Constructor
+	 * @param gpioPins NUmber of GPIO pins
 	 */
-	public ConfXmlWriter (int pins) {
-		try {
-			xmlFactory = DocumentBuilderFactory.newInstance();
-			xmlBuilder = xmlFactory.newDocumentBuilder();
-			
-			/* Create root element */
-			xmlDoc = xmlBuilder.newDocument();
-			rootElement = xmlDoc.createElement(STR_ROOT_EL);
-			xmlDoc.appendChild(rootElement);
-			
-			/* TODO: Add pins correctly */
-			totalPins = pins;
-			pinElement = new Element[pins];
-			for (int pinNum = 0; pinNum < totalPins; pinNum++) {
+	public ConfXmlWriter (int gpioPins) {
+		if (gpioPins > 0 ) {
+			try {
+				xmlFactory = DocumentBuilderFactory.newInstance();
+				xmlBuilder = xmlFactory.newDocumentBuilder();
 				
+				/* Create root element */
+				xmlDoc = xmlBuilder.newDocument();
+				rootElement = xmlDoc.createElement(STR_ROOT_EL);
+				xmlDoc.appendChild(rootElement);
+				
+				totalPins = gpioPins;
+				pinElement = new Element[totalPins];
+				
+			} catch (ParserConfigurationException e) {
+				Features.verbosePrint("Error creating XML file...");
+				e.printStackTrace();
 			}
-				
-		} catch (ParserConfigurationException e) {
-			Features.verbosePrint("Error creating XML file...");
-			e.printStackTrace();
 		}
 	}
 	
@@ -77,6 +79,25 @@ public class ConfXmlWriter {
 		pinElement[pinNum] = xmlDoc.createElement(STR_PIN_EL);
 		pinElement[pinNum].appendChild(xmlDoc.createTextNode(pin.getPin()));
 		rootElement.appendChild(pinElement[pinNum]);
+		
+		/* Write the pins configuration information */
+		addPinChild(STR_PORT, pin.getPort(), pinNum);
+		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
+		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
+		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
+		addPinChild(Speed.STR_NAME, pin.getSpeed().name(), pinNum);
+	}
+	
+	/**
+	 * Add a configuration child element to the pin
+	 * @param elName Configuration name
+	 * @param elInfo Configuration information
+	 * @param pinNum GPIO pin number
+	 */
+	private void addPinChild(String elName, String elInfo, int pinNum) {
+		Element childEl = xmlDoc.createElement(elName);
+		childEl.appendChild(xmlDoc.createTextNode(elInfo));
+		pinElement[pinNum].appendChild(childEl);
 	}
 		
 	/**

@@ -11,4 +11,9 @@ public enum OutType {
 	OTYPE_OPEN_DRAIN,
 	OTYPE_NOT_AVAILABLE,
 	OTYPE_MAX_VALUE;
+	
+	/**
+	 * Name as String
+	 */
+	public static final String STR_NAME = "OutType";
 }

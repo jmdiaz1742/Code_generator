@@ -12,4 +12,9 @@ public enum Speed {
 	SPEED_HIGH,
 	SPEED_NOT_AVAILABLE,
 	SPEED_MAX_VALUE;
+	
+	/**
+	 * Name as String
+	 */
+	public static final String STR_NAME = "Mode";
 }
