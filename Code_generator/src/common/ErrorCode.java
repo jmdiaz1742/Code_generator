@@ -15,5 +15,20 @@ public enum ErrorCode {
 	/**
 	 * Error during execution
 	 */
-	EX_ERROR;
+	EX_ERROR,
+	
+	/**
+	 * File reading error
+	 */
+	FILE_READ_ERROR,
+	
+	/**
+	 * File writing error
+	 */
+	FILE_WRITE_ERROR;
+	
+	/**
+	 * Error string
+	 */
+	public static final String STR_INVALID = "STR_INVALID";
 }

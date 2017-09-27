@@ -32,6 +32,28 @@ public class Features {
 	 */
 	public static final String DEBUG_STR	= "#$ ";
 	
+	/* Static fields */
+	
+	/* Software version numbers */
+	private static final int VERSION_MAJOR = 0;
+	private static final int VERSION_MINOR = 1;
+	private static final int VERSION_PATCH = 0;
+	
+	/**
+	 * Complete Software version
+	 */
+	public static final String SW_VERSION = VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH;
+	
+	/**
+	 * Status of the software version
+	 */
+	public static final String VERSION_STATUS = "Alpha";
+	
+	/**
+	 * Code name of the software version
+	 */
+	public static final String VERSION_NAME = "Alderaan";
+	
 	/* Static Methods */
 	
 	/**

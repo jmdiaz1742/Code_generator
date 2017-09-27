@@ -79,6 +79,48 @@ public class XmlOpener {
 		return xmlDoc;
 	}
 	
+	/**
+	 * Get an XML element information
+	 * @param docDocument from XML file
+	 * @param elementName Element's name
+	 * @return Element's information
+	 */
+	public static String getElementInfoFromDoc(Document doc, String elementName) {
+		String info = ErrorCode.STR_INVALID;
+		NodeList element;
+		
+		element = doc.getElementsByTagName(elementName);
+		if (element.getLength() > 0) {
+			info = element.item(0).getTextContent();
+		}
+		else {
+			Features.verbosePrint("Error reading " + elementName);
+		}
+		
+		return info;
+	}
+	
+	/**
+	 * Get an XML sub element information
+	 * @param element XML main element
+	 * @param elementName Sub element's name
+	 * @return Sub elemen't information
+	 */
+	public static String getElementInfo(Element element, String elementName) {
+		String info = ErrorCode.STR_INVALID;
+		NodeList subElement;
+		
+		subElement = element.getElementsByTagName(elementName);
+		if (subElement.getLength() > 0) {
+			info = subElement.item(0).getTextContent();
+		}
+		else {
+			Features.verbosePrint(elementName + " not found");
+		}
+		
+		return info;
+	}
+	
 // FIXME: Find a way to validate the document
 //	/**
 //	 * Validate the XML file
