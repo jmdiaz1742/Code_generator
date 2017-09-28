@@ -120,28 +120,4 @@ public class XmlOpener {
 		
 		return info;
 	}
-	
-// FIXME: Find a way to validate the document
-//	/**
-//	 * Validate the XML file
-//	 * @param xmlFile XML file
-//	 * @param xmlDocument Document created from the XML file
-//	 * @return True if the XML file is valid
-//	 */
-//	private boolean validateXml(File xmlFile, Document xmlDocument) {
-//		Schema schema = null;
-//		try {
-//		  String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
-//		  SchemaFactory factory = SchemaFactory.newInstance(language);
-//		  schema = factory.newSchema(xmlFile);
-//		} catch (Exception e) {
-//			System.out.println("File " + xmlFile.getName() + " not valid");
-//			System.out.println("Exception: " + e);
-//		}
-//		Validator validator = schema.newValidator();
-////		validator.validate(source);
-//		return false; //validator.validate(new DOMSource(xmlDocument));
-//	}
-
-
 }
