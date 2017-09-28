@@ -2,6 +2,8 @@ common
 configurator
 configurator.GPIO
 framework
+gui
 microcontroller
+projectConfiguration
 xmlCreator
 xmlParser

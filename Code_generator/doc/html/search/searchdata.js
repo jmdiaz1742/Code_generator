@@ -2,10 +2,10 @@ var indexSectionsWithContent =
 {
   0: "acdefgimnopstvwx",
   1: "cefmopstx",
-  2: "cfmx",
+  2: "cfgmpx",
   3: "acdgimopsvwx",
-  4: "densv",
-  5: "e"
+  4: "defnsv",
+  5: "f"
 };
 
 var indexSectionNames =

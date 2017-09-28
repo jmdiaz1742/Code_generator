@@ -2,6 +2,8 @@ var searchData=
 [
   ['getadc',['getAdc',['../classmicrocontroller_1_1_pin.html#ab3ecaed5ed7abaa0879a0d04175e1a37',1,'microcontroller::Pin']]],
   ['getclock',['getClock',['../classmicrocontroller_1_1_pin.html#a291b10a8fe2e1c88756366fc65982e4d',1,'microcontroller::Pin']]],
+  ['getelementinfo',['getElementInfo',['../classxml_parser_1_1_xml_opener.html#a65b9796c2ed435bbeadf05beeea1858f',1,'xmlParser::XmlOpener']]],
+  ['getelementinfofromdoc',['getElementInfoFromDoc',['../classxml_parser_1_1_xml_opener.html#a6871a074662f82f636806738743a800e',1,'xmlParser::XmlOpener']]],
   ['getfeat_5fadc',['getFeat_adc',['../classmicrocontroller_1_1_pin.html#a620f0451d0cef95d6dca8ef28cdaec0f',1,'microcontroller::Pin']]],
   ['getfeat_5fclock',['getFeat_clock',['../classmicrocontroller_1_1_pin.html#a4e52882e90c9dae95551c96b7871089b',1,'microcontroller::Pin']]],
   ['getfeat_5fi2c',['getFeat_i2c',['../classmicrocontroller_1_1_pin.html#ac702e4c98edd5337c88b35bca3831db3',1,'microcontroller::Pin']]],
@@ -31,5 +33,6 @@ var searchData=
   ['getuc_5fgpionum',['getUc_gpioNum',['../classmicrocontroller_1_1_microcontroller.html#a43019e1a06f95508af9e2726f735a8f0',1,'microcontroller::Microcontroller']]],
   ['getuc_5fmanufacturer',['getUc_manufacturer',['../classmicrocontroller_1_1_microcontroller.html#a8a12340bf13b0d4d4c74cb3184a17bb1',1,'microcontroller::Microcontroller']]],
   ['getuc_5fmodel',['getUc_model',['../classmicrocontroller_1_1_microcontroller.html#a3aee7c4a68d697f04eb3a94ce9516e78',1,'microcontroller::Microcontroller']]],
-  ['getuc_5fpinnum',['getUc_pinNum',['../classmicrocontroller_1_1_microcontroller.html#a7d879618b3fda299ade27dfbcda4150e',1,'microcontroller::Microcontroller']]]
+  ['getuc_5fpinnum',['getUc_pinNum',['../classmicrocontroller_1_1_microcontroller.html#a7d879618b3fda299ade27dfbcda4150e',1,'microcontroller::Microcontroller']]],
+  ['gui',['gui',['../namespacegui.html',1,'']]]
 ];

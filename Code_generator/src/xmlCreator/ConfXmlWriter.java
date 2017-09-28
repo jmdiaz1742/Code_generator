@@ -30,15 +30,15 @@ import configurator.GPIO.Speed;
  */
 public class ConfXmlWriter {
 	/* Private fields */
-	private DocumentBuilderFactory xmlFactory;
-	private DocumentBuilder xmlBuilder;
-	private Document xmlDoc;
-	private Element rootElement;
-	private Element[] pinElement;
-	TransformerFactory xmlTransFact;
-	Transformer xmlTrans;
-	DOMSource xmlSource;
-	StreamResult xmlResult;
+	private DocumentBuilderFactory XmlFactory;
+	private DocumentBuilder XmlBuilder;
+	private Document XmlDoc;
+	private Element RootElement;
+	private Element[] PinElement;
+	TransformerFactory XmlTransFact;
+	Transformer XmlTrans;
+	DOMSource XmlSource;
+	StreamResult XmlResult;
 	int totalPins = 0;
 	
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
@@ -52,16 +52,16 @@ public class ConfXmlWriter {
 	public ConfXmlWriter (int gpioPins) {
 		if (gpioPins > 0 ) {
 			try {
-				xmlFactory = DocumentBuilderFactory.newInstance();
-				xmlBuilder = xmlFactory.newDocumentBuilder();
+				XmlFactory = DocumentBuilderFactory.newInstance();
+				XmlBuilder = XmlFactory.newDocumentBuilder();
 				
 				/* Create root element */
-				xmlDoc = xmlBuilder.newDocument();
-				rootElement = xmlDoc.createElement(STR_ROOT_EL);
-				xmlDoc.appendChild(rootElement);
+				XmlDoc = XmlBuilder.newDocument();
+				RootElement = XmlDoc.createElement(STR_ROOT_EL);
+				XmlDoc.appendChild(RootElement);
 				
 				totalPins = gpioPins;
-				pinElement = new Element[totalPins];
+				PinElement = new Element[totalPins];
 				
 			} catch (ParserConfigurationException e) {
 				Features.verbosePrint("Error creating XML file...");
@@ -76,9 +76,9 @@ public class ConfXmlWriter {
 	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
-		pinElement[pinNum] = xmlDoc.createElement(STR_PIN_EL);
-		pinElement[pinNum].appendChild(xmlDoc.createTextNode(pin.getPin()));
-		rootElement.appendChild(pinElement[pinNum]);
+		PinElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
+		PinElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPin()));
+		RootElement.appendChild(PinElement[pinNum]);
 		
 		/* Write the pins configuration information */
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
@@ -95,9 +95,9 @@ public class ConfXmlWriter {
 	 * @param pinNum GPIO pin number
 	 */
 	private void addPinChild(String elName, String elInfo, int pinNum) {
-		Element childEl = xmlDoc.createElement(elName);
-		childEl.appendChild(xmlDoc.createTextNode(elInfo));
-		pinElement[pinNum].appendChild(childEl);
+		Element childEl = XmlDoc.createElement(elName);
+		childEl.appendChild(XmlDoc.createTextNode(elInfo));
+		PinElement[pinNum].appendChild(childEl);
 	}
 		
 	/**
@@ -106,12 +106,12 @@ public class ConfXmlWriter {
 	 */
 	public void writeXml(String fileName) {
 		try {
-			xmlTransFact = TransformerFactory.newInstance();
-			xmlTrans = xmlTransFact.newTransformer();
-			xmlSource = new DOMSource(xmlDoc);
-			xmlResult = new StreamResult(new File(fileName));
+			XmlTransFact = TransformerFactory.newInstance();
+			XmlTrans = XmlTransFact.newTransformer();
+			XmlSource = new DOMSource(XmlDoc);
+			XmlResult = new StreamResult(new File(fileName));
 			
-			xmlTrans.transform(xmlSource, xmlResult);
+			XmlTrans.transform(XmlSource, XmlResult);
 		} catch (TransformerConfigurationException e) {
 			Features.verbosePrint("Error Creating XML file...");
 			e.printStackTrace();

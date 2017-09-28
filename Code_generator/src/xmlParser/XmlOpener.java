@@ -17,10 +17,10 @@ import common.ErrorCode;
 public class XmlOpener {
 	
 	/* Private fields */
-	private File xmlFile;
-	private DocumentBuilderFactory xmlfactory;
-	private DocumentBuilder xmlBuilder;
-	private Document xmlDoc;
+	private File XmlFile;
+	private DocumentBuilderFactory Xmlfactory;
+	private DocumentBuilder XmlBuilder;
+	private Document XmlDoc;
 	
 	/* Public fields */
 	
@@ -38,31 +38,31 @@ public class XmlOpener {
 	 * @return Error code
 	 */
 	public ErrorCode OpenFile(String fileName) {
-		xmlFile = new File(fileName);
-		xmlfactory = DocumentBuilderFactory.newInstance();
+		XmlFile = new File(fileName);
+		Xmlfactory = DocumentBuilderFactory.newInstance();
 		/* Try opening the file */
 		try {
-			xmlBuilder = xmlfactory.newDocumentBuilder();
-			xmlDoc = xmlBuilder.parse(xmlFile);
+			XmlBuilder = Xmlfactory.newDocumentBuilder();
+			XmlDoc = XmlBuilder.parse(XmlFile);
 			if (Features.VERBOSE) {
-				System.out.println("# Opening file " + xmlFile.getName() + "...");
+				System.out.println("# Opening file " + XmlFile.getName() + "...");
 			}
 		/* Exceptions */
 		} catch (ParserConfigurationException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to parse " + xmlFile.getName());
+				System.out.println("# Failed to parse " + XmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
 			return ErrorCode.EX_ERROR;
 		} catch (SAXException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to parse " + xmlFile.getName());
+				System.out.println("# Failed to parse " + XmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
 			return ErrorCode.EX_ERROR;
 		} catch (IOException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to open " + xmlFile.getName());
+				System.out.println("# Failed to open " + XmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
 			return ErrorCode.EX_ERROR;
@@ -76,12 +76,12 @@ public class XmlOpener {
 	 * @return Parsed document
 	 */
 	public Document getParsedDoc() {
-		return xmlDoc;
+		return XmlDoc;
 	}
 	
 	/**
 	 * Get an XML element information
-	 * @param docDocument from XML file
+	 * @param doc Document from XML file
 	 * @param elementName Element's name
 	 * @return Element's information
 	 */

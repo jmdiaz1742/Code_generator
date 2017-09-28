@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.30)  2 SEP 2017 10:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.8.30)  27 SEP 2017 21:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,14 +1197,17 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 59.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 59.
- [2] [3] [4] [5])
+(Font)              scaled to size 6.29996pt on input line 63.
+ [2] [3] [4] [5] [6])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [6]
+ [7]
+[8
+
+]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
 
 Chapter 1.
@@ -1224,7 +1227,6 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 ) [1
-
 
 ] [2
 
@@ -1260,12 +1262,12 @@ Underfull \hbox (badness 10000) detected at line 16
  []
 
 ) (./namespaceconfigurator.tex
-Underfull \hbox (badness 10000) detected at line 11
+Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 14
+Underfull \hbox (badness 10000) detected at line 16
 [][][]
  []
 
@@ -1279,30 +1281,7 @@ Underfull \hbox (badness 10000) detected at line 9
 [][][]
  []
 
-) (./namespacemicrocontroller.tex
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (./namespacexml_creator.tex
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 6.29996pt on input line 1.
- [6]
-Underfull \hbox (badness 10000) detected at line 11
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 14
-[][][]
- []
-
-) (./namespacexml_parser.tex
+) (./namespacegui.tex
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1312,11 +1291,7 @@ Underfull \hbox (badness 10000) detected at line 16
 [][][]
  []
 
-) [7] [8
-
-]
-Chapter 4.
-(./classxml_creator_1_1_conf_xml_writer.tex
+) (./namespacemicrocontroller.tex [6]
 Underfull \hbox (badness 10000) detected at line 15
 [][][]
  []
@@ -1326,18 +1301,10 @@ Underfull \hbox (badness 10000) detected at line 18
 [][][]
  []
 
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 28.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 28.
-(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 28.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 28.
- [9])
-(./enumcommon_1_1_error_code.tex [10]
+) (./namespaceproject_configuration.tex
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 6.29996pt on input line 1.
+
 Underfull \hbox (badness 10000) detected at line 11
 [][][]
  []
@@ -1347,17 +1314,102 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) (./classcommon_1_1_features.tex
-Underfull \hbox (badness 10000) detected at line 24
+) (./namespacexml_creator.tex
+Underfull \hbox (badness 10000) detected at line 11
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 27
+Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-[11] [12]) (./classmicrocontroller_1_1_microcontroller.tex
+) (./namespacexml_parser.tex [7]
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+) [8]
+Chapter 4.
+(./classconfigurator_1_1_configuration_file.tex
+Underfull \hbox (badness 10000) detected at line 11
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 24.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 24.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+))
+(./classxml_creator_1_1_conf_xml_writer.tex [9
+
+]
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 28.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 28.
+[10]) (./enumcommon_1_1_error_code.tex [11]
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+) (./classcommon_1_1_features.tex [12]
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+\T1/pcr/m/n/8 final String common.[]Features.[]S[]W[]_[][]V[]E[]R[]S[]I[]ON = V
+[]E[]R[]S[]I[]O[]N[]_[][]M[]A[]J[]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]M[]I[]N[
+]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]P[]A[]
+ []
+
+[14]) (./classgui_1_1_main_window.tex
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+[15]) (./classgui_1_1_messages.tex)
+(./classmicrocontroller_1_1_microcontroller.tex [16]
 Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
@@ -1367,7 +1419,7 @@ Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-[13] [14]
+[17]
 Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
@@ -1387,17 +1439,17 @@ Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
 
-
+[18]
 Underfull \hbox (badness 10000) detected at line 95
 [][][]
  []
 
-[15]
+
 Underfull \hbox (badness 10000) detected at line 104
 [][][]
  []
 
-) (./enumconfigurator_1_1_g_p_i_o_1_1_mode.tex
+) (./enumconfigurator_1_1_g_p_i_o_1_1_mode.tex [19]
 Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
@@ -1407,7 +1459,7 @@ Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
-[16]) (./enumconfigurator_1_1_g_p_i_o_1_1_out_type.tex
+) (./enumconfigurator_1_1_g_p_i_o_1_1_out_type.tex
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
@@ -1417,7 +1469,7 @@ Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-[17]) (./classmicrocontroller_1_1_pin.tex [18] [19]
+[20]) (./classmicrocontroller_1_1_pin.tex [21] [22]
 Underfull \hbox (badness 10000) detected at line 147
 [][][]
  []
@@ -1427,7 +1479,7 @@ Underfull \hbox (badness 10000) detected at line 150
 [][][]
  []
 
-[20]
+[23]
 Underfull \hbox (badness 10000) detected at line 171
 [][][]
  []
@@ -1447,7 +1499,7 @@ Underfull \hbox (badness 10000) detected at line 198
 [][][]
  []
 
-[21]
+[24]
 Underfull \hbox (badness 10000) detected at line 207
 [][][]
  []
@@ -1467,7 +1519,7 @@ Underfull \hbox (badness 10000) detected at line 234
 [][][]
  []
 
-[22]
+[25]
 Underfull \hbox (badness 10000) detected at line 243
 [][][]
  []
@@ -1487,7 +1539,7 @@ Underfull \hbox (badness 10000) detected at line 270
 [][][]
  []
 
-[23]
+[26]
 Underfull \hbox (badness 10000) detected at line 279
 [][][]
  []
@@ -1507,7 +1559,7 @@ Underfull \hbox (badness 10000) detected at line 306
 [][][]
  []
 
-[24]
+[27]
 Underfull \hbox (badness 10000) detected at line 315
 [][][]
  []
@@ -1527,7 +1579,7 @@ Underfull \hbox (badness 10000) detected at line 342
 [][][]
  []
 
-[25]
+[28]
 Underfull \hbox (badness 10000) detected at line 351
 [][][]
  []
@@ -1542,15 +1594,15 @@ Underfull \hbox (badness 10000) detected at line 369
 [][][]
  []
 
-[26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
-[28] [29]
+[29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-[31] [32] [33]) (./classconfigurator_1_1_pin_conf.tex [34]
+[31] [32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+[34] [35] [36]) (./classconfigurator_1_1_pin_conf.tex [37]
 Underfull \hbox (badness 10000) detected at line 48
 [][][]
  []
@@ -1560,7 +1612,7 @@ Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
 
-[35]
+[38]
 Underfull \hbox (badness 10000) detected at line 77
 [][][]
  []
@@ -1585,7 +1637,7 @@ Underfull \hbox (badness 10000) detected at line 113
 [][][]
  []
 
-[36]
+[39]
 Underfull \hbox (badness 10000) detected at line 122
 [][][]
  []
@@ -1605,7 +1657,26 @@ Underfull \hbox (badness 10000) detected at line 149
 [][][]
  []
 
-[37] [38]) (./enumconfigurator_1_1_g_p_i_o_1_1_pull.tex [39]
+[40] [41]) (./classproject_configuration_1_1_project_settings.tex [42]
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+
+Overfull \vbox (8.33266pt too high) has occurred while \output is active []
+
+
+[43]
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_pull.tex
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
@@ -1615,7 +1686,7 @@ Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-) (./enumconfigurator_1_1_g_p_i_o_1_1_speed.tex [40]
+) (./enumconfigurator_1_1_g_p_i_o_1_1_speed.tex [44]
 Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
@@ -1625,65 +1696,75 @@ Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
 
-) (./classxml_parser_1_1_test_main.tex [41]
+) (./classxml_parser_1_1_test_main.tex [45]
 Underfull \hbox (badness 10000) detected at line 11
 [][][]
  []
 
-) (./classxml_parser_1_1_xml_opener.tex [42]
-Underfull \hbox (badness 10000) detected at line 15
+) (./classxml_parser_1_1_xml_opener.tex [46]
+Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 18
+Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 39
-[][][]
- []
-
-[43]
+[47]
 Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
 
-) [44] (./refman.ind [45
+
+Underfull \hbox (badness 10000) detected at line 69
+[][][]
+ []
 
 
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
 
-] [46] [47] [48
+[48]
+Underfull \hbox (badness 10000) detected at line 92
+[][][]
+ []
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+) [49] [50
+
+] (./refman.ind [51
+
+
+] [52] [53] [54])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 31EEE54B69FD203AD610AEA599025B0B;31061.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+(rerunfilecheck)             Checksum: EB1EC1A421AD4C4CF2339A0E20B53980;37975.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 15528 strings out of 492990
- 231229 string characters out of 6138688
- 322639 words of memory out of 5000000
- 18405 multiletter control sequences out of 15000+600000
+ 15661 strings out of 492990
+ 235254 string characters out of 6138688
+ 328298 words of memory out of 5000000
+ 18458 multiletter control sequences out of 15000+600000
  60349 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,1726b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,16n,92p,2295b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
-ts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/
-ucrro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sh
-are/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/font
-s/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic
-/uhvro8a.pfb>
-Output written on refman.pdf (56 pages, 158034 bytes).
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pf
+b></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texmf-
+dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw
+/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
+b></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (64 pages, 189248 bytes).
 PDF statistics:
- 1790 PDF objects out of 2073 (max. 8388607)
- 1687 compressed objects within 17 object streams
- 399 named destinations out of 1000 (max. 500000)
- 1281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2086 PDF objects out of 2487 (max. 8388607)
+ 1970 compressed objects within 20 object streams
+ 467 named destinations out of 1000 (max. 500000)
+ 1513 words of extra memory for PDF output out of 10000 (max. 10000000)
 

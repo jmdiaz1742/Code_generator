@@ -24,7 +24,7 @@ public class ProjectSettings {
 	
 	/**
 	 * Constructor
-	 * @param psDoc Document obtained rom XML file
+	 * @param settingsDoc Document obtained rom XML file
 	 */
 	public ProjectSettings(Document settingsDoc) {
 		this.SettingsDoc = settingsDoc;

@@ -16,15 +16,15 @@ import configurator.GPIO.Speed;
 public class PinConf {
 
 	/* Private fields */
-	Pin gpioPin;
+	Pin GpioPin;
 	
 	/* Pin configuration */
-	private String	port;
-	private String	pin;
-	private Mode 	mode;
-	private Speed	speed;
-	private OutType	outType;
-	private Pull	pull;
+	private String	Port;
+	private String	PinName;
+	private Mode 	PinMode;
+	private Speed	PinSpeed;
+	private OutType	PinOutType;
+	private Pull	PinPull;
 	
 	/* Public fields */
 	
@@ -53,7 +53,7 @@ public class PinConf {
 	 */
 	public PinConf(Pin gpioPin) {
 		if (gpioPin.isValid() && gpioPin.getFunc_gpio()) {
-			this.gpioPin = gpioPin;
+			this.GpioPin = gpioPin;
 		} else {
 			Features.verbosePrint("Pin " + gpioPin.getName() + "is NOT a GPIO!");
 		}
@@ -73,7 +73,7 @@ public class PinConf {
 	public boolean isValid() {
 		boolean valid = false;
 		
-		if (gpioPin.isValid() && gpioPin.getFunc_gpio()) {
+		if (GpioPin.isValid() && GpioPin.getFunc_gpio()) {
 			valid = true;
 		}
 		
@@ -85,7 +85,7 @@ public class PinConf {
 	 * @return Port
 	 */
 	public String getPort() {
-		return port;
+		return Port;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class PinConf {
 	 * @param port Port
 	 */
 	private void setPort(String port) {
-		this.port = port;
+		this.Port = port;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class PinConf {
 	 * @return Pin's number
 	 */
 	public String getPin() {
-		return pin;
+		return PinName;
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class PinConf {
 	 * @param pin Pin's number
 	 */
 	private void setPin(String pin) {
-		this.pin = pin;
+		this.PinName = pin;
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class PinConf {
 	 * @return Mode
 	 */
 	public Mode getMode() {
-		return mode;
+		return PinMode;
 	}
 
 	/**
@@ -127,26 +127,26 @@ public class PinConf {
 	public void setMode(Mode mode) {
 		switch (mode) {
 		case MODE_INPUT:
-			this.mode = mode;
+			this.PinMode = mode;
 			break;
 		case MODE_OUTPUT:
-			this.mode = mode;
+			this.PinMode = mode;
 			break;
 		case MODE_ALTERNATE_FUNCTION:
 			if (isAv_altFunc()) {
-				this.mode = Mode.MODE_ALTERNATE_FUNCTION;
+				this.PinMode = Mode.MODE_ALTERNATE_FUNCTION;
 			}
 			break;
 		case MODE_ANALOG:
 			if (isAv_Adc()) {
-				this.mode = Mode.MODE_ANALOG;
+				this.PinMode = Mode.MODE_ANALOG;
 			}
 			break;
 		default:
-			this.mode = DF_MODE;
+			this.PinMode = DF_MODE;
 			break;
 		}
-		this.mode = mode;
+		this.PinMode = mode;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class PinConf {
 	 * @return Output configuration
 	 */
 	public OutType getOutType() {
-		return outType;
+		return PinOutType;
 	}
 	
 	/**
@@ -162,7 +162,7 @@ public class PinConf {
 	 * @param outType Output configuration
 	 */
 	public void setOutType(OutType outType) {
-		this.outType = outType;
+		this.PinOutType = outType;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class PinConf {
 	 * @return Speed
 	 */
 	public Speed getSpeed() {
-		return speed;
+		return PinSpeed;
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class PinConf {
 	 * @param speed Speed
 	 */
 	public void setSpeed(Speed speed) {
-		this.speed = speed;
+		this.PinSpeed = speed;
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class PinConf {
 	 * @return Pull Resistor configuration
 	 */
 	public Pull getPull() {
-		return pull;
+		return PinPull;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class PinConf {
 	 * @param pull Resistor configuration
 	 */
 	public void setPull(Pull pull) {
-		this.pull = pull;
+		this.PinPull = pull;
 	}
 	
 	/**
@@ -202,7 +202,7 @@ public class PinConf {
 	 * @return True if ADC is available
 	 */
 	public boolean isAv_Adc() {
-		return gpioPin.getFeat_adc();
+		return GpioPin.getFeat_adc();
 	}
 	
 	/**
@@ -211,11 +211,11 @@ public class PinConf {
 	 */
 	public boolean isAv_altFunc() {
 		boolean altFunc = false;
-		if (gpioPin.getFeat_clock()	|| 
-			gpioPin.getFeat_i2c()	|| 
-			gpioPin.getFeat_reset()	|| 
-			gpioPin.getFeat_spi()	|| 
-			gpioPin.getFeat_uart()) {
+		if (GpioPin.getFeat_clock()	|| 
+			GpioPin.getFeat_i2c()	|| 
+			GpioPin.getFeat_reset()	|| 
+			GpioPin.getFeat_spi()	|| 
+			GpioPin.getFeat_uart()) {
 			altFunc = true;
 		}
 		return altFunc;

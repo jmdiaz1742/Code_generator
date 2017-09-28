@@ -40,7 +40,8 @@ public class MainWindow {
 	private ProjectSettings projectSettings;
 
 	/**
-	 * Launch the application.
+	 * Open main window
+	 * @param args To be determined
 	 */
 	public static void main(String[] args) {
 		try {
@@ -78,7 +79,7 @@ public class MainWindow {
 //		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		
 		if (!Features.VERSION_STATUS.equals("Release")) {
-			windowName += " " + Features.VERSION_NAME + " (" + Features.VERSION_STATUS + ")";
+			windowName += " - " + Features.VERSION_NAME + " (" + Features.VERSION_STATUS + ")";
 		}
 		if (Features.DEBUG) {
 			windowName += " Debug mode!";
