@@ -4,12 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
-import projectConfiguration.ProjectSettings;
-import xmlParser.XmlOpener;
-
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.UIManager;
@@ -36,8 +32,9 @@ public class MainWindow {
 
 	/* Private fields */
 	private JFrame FrmCodeGenerator;
-	private File ProjectFile;
-	private ProjectSettings projectSettings;
+	
+	/* Public fields */
+	public File ProjectSettingsFile;
 
 	/**
 	 * Open main window
@@ -119,7 +116,25 @@ public class MainWindow {
 		JButton btnOpenExistingProject = new JButton(Messages.getString("MainWindow.btnOpenExistingProject.text")); //$NON-NLS-1$
 		btnOpenExistingProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				openProjectFile();
+				FileNameExtensionFilter projectFileFilter;
+				final JFileChooser ProjectFileChooser;
+				
+				String initialSearchPath = System.getProperty("user.dir");
+				if (Features.DEBUG) {
+					/* Use the example project when debugging */
+					initialSearchPath += System.getProperty("file.separator") + "testProject";
+				}
+				
+				ProjectFileChooser = new JFileChooser(initialSearchPath);
+				projectFileFilter = new FileNameExtensionFilter("Project configuration files", ConfigurationFile.STR_PROJ_CONF_FILE);
+				
+				ProjectFileChooser.setFileFilter(projectFileFilter);
+				int fileOpenError = ProjectFileChooser.showOpenDialog(FrmCodeGenerator);
+				if (fileOpenError == JFileChooser.APPROVE_OPTION) {
+					ProjectSettingsFile = ProjectFileChooser.getSelectedFile();
+				} else {
+					Features.verbosePrint("Error opening project configuration file...");
+				}
 			}
 		});
 		GridBagConstraints gbc_btnOpenExistingProject = new GridBagConstraints();
@@ -128,41 +143,7 @@ public class MainWindow {
 		FrmCodeGenerator.getContentPane().add(btnOpenExistingProject, gbc_btnOpenExistingProject);
 	}
 	
-	/**
-	 * Open the project settings file
-	 * @return Error Status
-	 */
-	private ErrorCode openProjectFile() {
-		ErrorCode errorStatus = ErrorCode.NO_ERROR;
-		String initialSearchPath = System.getProperty("user.dir");
-		XmlOpener projectFileOpener = new XmlOpener();
-		
-		if (Features.DEBUG) {
-			initialSearchPath += System.getProperty("file.separator") + "testProject";
-		}
-		
-		final JFileChooser ProjectFileChooser = new JFileChooser(initialSearchPath);
-		FileNameExtensionFilter projectFileFilter = new FileNameExtensionFilter("Project configuration files", ConfigurationFile.STR_PROJ_CONF_FILE);
-		
-		ProjectFileChooser.setFileFilter(projectFileFilter);
-		int fileOpenError = ProjectFileChooser.showOpenDialog(FrmCodeGenerator);
-		
-		if (fileOpenError == JFileChooser.APPROVE_OPTION) {
-			ProjectFile = ProjectFileChooser.getSelectedFile();
-			Features.verbosePrint("Opened file " + ProjectFile.getName() + "...");
-			
-			if (projectFileOpener.OpenFile(ProjectFile.getPath()) != ErrorCode.NO_ERROR) {
-				projectSettings = new ProjectSettings(projectFileOpener.getParsedDoc());
-				projectSettings.processDocument();
-			}
-			
-		} else {
-			errorStatus = ErrorCode.FILE_READ_ERROR;
-			Features.verbosePrint("Error opening project configuration file...");
-		}
-		
-		return errorStatus;
-	}
+	
 
 
 }

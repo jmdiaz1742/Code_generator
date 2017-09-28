@@ -30,15 +30,9 @@ import configurator.GPIO.Speed;
  */
 public class ConfXmlWriter {
 	/* Private fields */
-	private DocumentBuilderFactory XmlFactory;
-	private DocumentBuilder XmlBuilder;
 	private Document XmlDoc;
 	private Element RootElement;
 	private Element[] PinElement;
-	TransformerFactory XmlTransFact;
-	Transformer XmlTrans;
-	DOMSource XmlSource;
-	StreamResult XmlResult;
 	int totalPins = 0;
 	
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
@@ -50,13 +44,16 @@ public class ConfXmlWriter {
 	 * @param gpioPins NUmber of GPIO pins
 	 */
 	public ConfXmlWriter (int gpioPins) {
+		DocumentBuilderFactory xmlFactory;
+		DocumentBuilder xmlBuilder;
+		
 		if (gpioPins > 0 ) {
 			try {
-				XmlFactory = DocumentBuilderFactory.newInstance();
-				XmlBuilder = XmlFactory.newDocumentBuilder();
+				xmlFactory = DocumentBuilderFactory.newInstance();
+				xmlBuilder = xmlFactory.newDocumentBuilder();
 				
 				/* Create root element */
-				XmlDoc = XmlBuilder.newDocument();
+				XmlDoc = xmlBuilder.newDocument();
 				RootElement = XmlDoc.createElement(STR_ROOT_EL);
 				XmlDoc.appendChild(RootElement);
 				
@@ -105,13 +102,18 @@ public class ConfXmlWriter {
 	 * @param fileName Name of XML configuration file
 	 */
 	public void writeXml(String fileName) {
+		TransformerFactory xmlTransFact;
+		Transformer xmlTrans;
+		DOMSource xmlSource;
+		StreamResult xmlResult;
+		
 		try {
-			XmlTransFact = TransformerFactory.newInstance();
-			XmlTrans = XmlTransFact.newTransformer();
-			XmlSource = new DOMSource(XmlDoc);
-			XmlResult = new StreamResult(new File(fileName));
+			xmlTransFact = TransformerFactory.newInstance();
+			xmlTrans = xmlTransFact.newTransformer();
+			xmlSource = new DOMSource(XmlDoc);
+			xmlResult = new StreamResult(new File(fileName));
 			
-			XmlTrans.transform(XmlSource, XmlResult);
+			xmlTrans.transform(xmlSource, xmlResult);
 		} catch (TransformerConfigurationException e) {
 			Features.verbosePrint("Error Creating XML file...");
 			e.printStackTrace();

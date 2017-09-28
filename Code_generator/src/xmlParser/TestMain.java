@@ -1,4 +1,6 @@
 package xmlParser;
+import java.io.File;
+
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
@@ -36,7 +38,8 @@ public class TestMain {
 		
 		/* Open the file */
 		XmlOpener xmlOpener = new XmlOpener();
-		errorState = xmlOpener.OpenFile(fileName);
+		File xmlFile = new File(fileName);
+		errorState = xmlOpener.OpenFile(xmlFile);
 		if (errorState != ErrorCode.NO_ERROR) {
 			System.out.println("Error opening file, exiting...");
 			return;

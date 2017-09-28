@@ -1,5 +1,7 @@
 package projectConfiguration;
 
+import java.io.File;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import common.ErrorCode;
@@ -17,6 +19,7 @@ public class ProjectSettings {
 	/* Private fields */
 	private Document SettingsDoc;
 	private String ProjectName;
+	private File ProjectFile;
 	
 	/* Static fields */
 	private static final String ROOT_ELEMENT	= "CodeGeneratorProject";
@@ -24,10 +27,9 @@ public class ProjectSettings {
 	
 	/**
 	 * Constructor
-	 * @param settingsDoc Document obtained rom XML file
 	 */
-	public ProjectSettings(Document settingsDoc) {
-		this.SettingsDoc = settingsDoc;
+	public ProjectSettings() {
+
 	}
 	
 	/**
@@ -40,7 +42,7 @@ public class ProjectSettings {
 		/* Get the root element */
 		Element settingsRoot = SettingsDoc.getDocumentElement();
 		if (!settingsRoot.getTagName().equals(ROOT_ELEMENT)) {
-			Features.verbosePrint("Wrong root element!...");
+			Features.verbosePrint("Wrong configuration file format!...");
 			return ErrorCode.FILE_READ_ERROR;
 		}
 		
@@ -60,6 +62,22 @@ public class ProjectSettings {
 		if (!ProjectName.equals(ErrorCode.STR_INVALID)) {
 			Features.verbosePrint("Project Name: " + ProjectName);
 		}
+		
+		return errorStatus;
+	}
+	
+	/**
+	 * Open the project settings file
+	 * @return Error Status
+	 */
+	public ErrorCode openProjectFile(File inFile) {
+		ProjectFile = inFile;
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		XmlOpener projectFileOpener = new XmlOpener();
+
+		projectFileOpener.OpenFile(ProjectFile);
+		SettingsDoc = projectFileOpener.getParsedDoc();
+		errorStatus = processDocument();
 		
 		return errorStatus;
 	}

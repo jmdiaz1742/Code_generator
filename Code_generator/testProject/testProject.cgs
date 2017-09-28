@@ -2,6 +2,7 @@
 <!DOCTYPE xml>
 
 <CodeGeneratorProject>
-	<name>Test Project</name>
+	<name>Test_Project</name>
+	<ConfigFile>blah</ConfigFile>
 </CodeGeneratorProject>
 

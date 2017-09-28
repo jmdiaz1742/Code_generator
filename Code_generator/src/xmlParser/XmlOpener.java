@@ -17,9 +17,6 @@ import common.ErrorCode;
 public class XmlOpener {
 	
 	/* Private fields */
-	private File XmlFile;
-	private DocumentBuilderFactory Xmlfactory;
-	private DocumentBuilder XmlBuilder;
 	private Document XmlDoc;
 	
 	/* Public fields */
@@ -37,35 +34,37 @@ public class XmlOpener {
 	 * @param fileName Complete path and name of XML file
 	 * @return Error code
 	 */
-	public ErrorCode OpenFile(String fileName) {
-		XmlFile = new File(fileName);
-		Xmlfactory = DocumentBuilderFactory.newInstance();
+	public ErrorCode OpenFile(File inFile) {
+		File xmlFile = inFile;
+		DocumentBuilderFactory xmlfactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder xmlBuilder;
+		
 		/* Try opening the file */
 		try {
-			XmlBuilder = Xmlfactory.newDocumentBuilder();
-			XmlDoc = XmlBuilder.parse(XmlFile);
+			xmlBuilder = xmlfactory.newDocumentBuilder();
+			XmlDoc = xmlBuilder.parse(xmlFile);
 			if (Features.VERBOSE) {
-				System.out.println("# Opening file " + XmlFile.getName() + "...");
+				System.out.println("# Opening file " + xmlFile.getName() + "...");
 			}
 		/* Exceptions */
 		} catch (ParserConfigurationException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to parse " + XmlFile.getName());
+				System.out.println("# Failed to parse " + xmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
-			return ErrorCode.EX_ERROR;
+			return ErrorCode.FILE_READ_ERROR;
 		} catch (SAXException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to parse " + XmlFile.getName());
+				System.out.println("# Failed to parse " + xmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
-			return ErrorCode.EX_ERROR;
+			return ErrorCode.FILE_READ_ERROR;
 		} catch (IOException e) {
 			if (Features.VERBOSE) {
-				System.out.println("# Failed to open " + XmlFile.getName());
+				System.out.println("# Failed to open " + xmlFile.getName());
 				System.out.println("# Exception: " + e);
 			}
-			return ErrorCode.EX_ERROR;
+			return ErrorCode.FILE_READ_ERROR;
 		}
 		
 		return ErrorCode.NO_ERROR;
