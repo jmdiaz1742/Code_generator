@@ -3,6 +3,7 @@
 
 <CodeGeneratorProject>
 	<name>Test_Project</name>
-	<ConfigFile>blah</ConfigFile>
+	<ConfigFile>testProjectConf.xml</ConfigFile>
+	<ucFile>microcontroller.xml</ucFile>
 </CodeGeneratorProject>
 

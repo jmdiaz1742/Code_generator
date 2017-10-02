@@ -45,7 +45,7 @@ public class MainWindow {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e1) {
-			// TODO Auto-generated catch block
+			Features.verbosePrint("Error loading system theme...");
 			e1.printStackTrace();
 		}
 		EventQueue.invokeLater(new Runnable() {
@@ -72,8 +72,6 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		String windowName = "Code generator " + Features.SW_VERSION;
-//		TODO: Check how to use this error code:
-//		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		
 		if (!Features.VERSION_STATUS.equals("Release")) {
 			windowName += " - " + Features.VERSION_NAME + " (" + Features.VERSION_STATUS + ")";
@@ -131,7 +129,8 @@ public class MainWindow {
 				ProjectFileChooser.setFileFilter(projectFileFilter);
 				int fileOpenError = ProjectFileChooser.showOpenDialog(FrmCodeGenerator);
 				if (fileOpenError == JFileChooser.APPROVE_OPTION) {
-					ProjectSettingsFile = ProjectFileChooser.getSelectedFile();
+					/* Load the configuration file */
+					MainGui.loadProjectFile(ProjectFileChooser.getSelectedFile());
 				} else {
 					Features.verbosePrint("Error opening project configuration file...");
 				}

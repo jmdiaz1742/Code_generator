@@ -57,7 +57,6 @@ public class PinConf {
 		} else {
 			Features.verbosePrint("Pin " + gpioPin.getName() + "is NOT a GPIO!");
 		}
-		/* TODO: Set port and pin correctly */
 		setPort(gpioPin.getPort());
 		setPin(gpioPin.getName());
 		setMode(DF_MODE);
