@@ -58,7 +58,7 @@ public class PinConf {
 			Features.verbosePrint("Pin " + gpioPin.getName() + "is NOT a GPIO!");
 		}
 		setPort(gpioPin.getPort());
-		setPin(gpioPin.getName());
+		setPinName(gpioPin.getName());
 		setMode(DF_MODE);
 		setSpeed(DF_SPEED);
 		setOutType(DF_OUTTYPE);
@@ -99,7 +99,7 @@ public class PinConf {
 	 * Get the pin's number
 	 * @return Pin's number
 	 */
-	public String getPin() {
+	public String getPinName() {
 		return PinName;
 	}
 
@@ -107,7 +107,7 @@ public class PinConf {
 	 * Set the pin's number
 	 * @param pin Pin's number
 	 */
-	private void setPin(String pin) {
+	private void setPinName(String pin) {
 		this.PinName = pin;
 	}
 

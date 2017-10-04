@@ -2,7 +2,10 @@ package gui;
 
 import java.io.File;
 
+import javax.swing.JOptionPane;
+
 import common.ErrorCode;
+import common.Features;
 import projectConfiguration.ProjectSettings;
 
 /**
@@ -27,6 +30,7 @@ public class MainGui {
 	public static void main(String[] args) {
 		// FIXME: Check how this would work, the idea is to call all the GUI
 		// windows from here
+		Features.verbosePrint("Starting GUI...");
 		Window = new MainWindow();
 	}
 	
@@ -39,6 +43,16 @@ public class MainGui {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		ProjectFile = inFile;
 		errorStatus = ProjectSettingsConf.openProjectFile(ProjectFile);
+		
+		if (errorStatus != ErrorCode.NO_ERROR) {
+			JOptionPane.showMessageDialog(Window.FrmCodeGenerator,
+				    "Error opening file",
+				    "File error",
+				    JOptionPane.ERROR_MESSAGE);
+		} else {
+			/* Send information to GUI */
+			Window.setProjectName(ProjectSettingsConf.getProjectName());
+		}
 		
 		return errorStatus;
 	}

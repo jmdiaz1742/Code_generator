@@ -31,11 +31,14 @@ import java.awt.Insets;
 public class MainWindow {
 
 	/* Private fields */
-	private JFrame FrmCodeGenerator;
+	public JFrame FrmCodeGenerator;
 	
 	/* Public fields */
-	public File ProjectSettingsFile;
 
+	
+	/* Dynamic GUI elements */
+	private JLabel lbl_ProjectName;
+	
 	/**
 	 * Open main window
 	 * @param args To be determined
@@ -64,7 +67,16 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e1) {
+			Features.verbosePrint("Error loading system theme...");
+			e1.printStackTrace();
+		}
 		initialize();
+		this.FrmCodeGenerator.setVisible(true);
+		
 	}
 
 	/**
@@ -117,7 +129,7 @@ public class MainWindow {
 		gbc_lblt_ProjectName.gridy = 0;
 		FrmCodeGenerator.getContentPane().add(lblt_ProjectName, gbc_lblt_ProjectName);
 		
-		JLabel lbl_ProjectName = new JLabel(Messages.getString("MainWindow.lblNewLabel.text")); //$NON-NLS-1$
+		lbl_ProjectName = new JLabel(Messages.getString("MainWindow.lblNewLabel.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lbl_ProjectName = new GridBagConstraints();
 		gbc_lbl_ProjectName.insets = new Insets(0, 0, 5, 0);
 		gbc_lbl_ProjectName.gridx = 1;
@@ -171,6 +183,12 @@ public class MainWindow {
 		return inFile;
 	}
 	
-	public void setprojectName
+	/**
+	 * Set Project's name in its label
+	 * @param projectName Project's name
+	 */
+	public void setProjectName(String projectName) {
+		lbl_ProjectName.setText(projectName);
+	}
 
 }

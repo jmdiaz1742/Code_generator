@@ -133,4 +133,12 @@ public class ProjectSettings {
 	public File getUcFile() {
 		return UcFile;
 	}
+	
+	/**
+	 * Get the project's name
+	 * @return Project's name
+	 */
+	public String getProjectName() {
+		return ProjectName;
+	}
 }

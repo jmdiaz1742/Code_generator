@@ -6,6 +6,7 @@ import org.w3c.dom.NodeList;
 
 import common.ErrorCode;
 import common.Features;
+import configurator.PinConf;
 import xmlParser.XmlOpener;
 
 /**
@@ -20,6 +21,9 @@ public class Microcontroller {
 	/* private fields */
 	private Document UcDoc;
 	private Pin[] CurrentPin;
+	private PinConf[] GpioCfgPin;
+	private String[] GpioName;
+	private int[] gpioPinIndex;
 	
 	/* Microcontroller characteristics */
 	
@@ -32,6 +36,8 @@ public class Microcontroller {
 	private static final String STR_ATT_MODEL	= "model";
 	private static final String STR_ATT_MFCT	= "manufacturer";
 	private static final String STR_PIN			= "pin";
+	
+	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
 	
 	/* Pin's mandatory characteristics */
 	
@@ -82,6 +88,7 @@ public class Microcontroller {
 		if (loadPins() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
+		
 		return errorStatus;
 	}
 	
@@ -159,6 +166,19 @@ public class Microcontroller {
 				}
 			}
 			setUc_gpioNum(pinsGpio);
+			
+			/* Initialize pin's configurations */
+			gpioPinIndex = new int[getUc_gpioNum()];
+			GpioCfgPin = new PinConf[getUc_gpioNum()];
+			int gpioIndex = 0;
+			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
+				if (CurrentPin[pinNum].getFunc_gpio()) {
+					GpioCfgPin[gpioIndex] = new PinConf(CurrentPin[pinNum]);
+					gpioPinIndex[gpioIndex] = pinNum;
+					gpioIndex++;
+				}
+			}
+			
 			Features.verbosePrint("Found " + getUc_gpioNum() + " GPIOs...");
 			
 			/* We should have at least 1 Vcc, 1 Gnd, 1 GPIO and 1 Reset */
@@ -184,6 +204,7 @@ public class Microcontroller {
 		String vcc;
 		String gnd;
 		String gpio;
+		int gpioPinIndex = 0;
 		
 		Features.verbosePrint("Getting pin " + pinNum + " characteristics:");
 		
@@ -270,8 +291,66 @@ public class Microcontroller {
 				CurrentPin[pinNum].setReset(reset);
 				Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
 			}
+			
+			/* Populate configured GPIOs pins */
+			GpioCfgPin[gpioPinIndex] = new PinConf(CurrentPin[pinNum]);
+			gpioPinIndex++;
 		}
 		return CurrentPin[pinNum];
+	}
+	
+	public ErrorCode loadPinsConf(Document confDoc) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList pinList;
+		
+		/* Get the root microcontroller element */
+		Element pinRoot = confDoc.getDocumentElement();
+		Features.verbosePrint("Configuration Root element: " + pinRoot.getTagName());
+		
+		if (!pinRoot.getTagName().equals(CFG_ROOT_ELEMENT)) {
+			Features.verbosePrint("Wrong root element!...");
+			return ErrorCode.FILE_READ_ERROR;
+		}
+		
+		/* Get the pin's configuration */
+		
+		pinList = confDoc.getElementsByTagName(STR_PIN);
+		if (pinList.getLength() > 0) {
+			setUc_pinNum(pinList.getLength());
+			Features.verbosePrint("Number of configured pins: " + pinList.getLength());
+		} else {
+			errorStatus = ErrorCode.EX_ERROR;
+			Features.verbosePrint("No pins configurations found...");
+		}
+		
+		
+		
+		for (int pinNum = 0; pinNum < pinList.getLength(); pinNum++) {
+			String name;
+			String mode;
+			String outType;
+			String pull;
+			String speed;
+			Element pinEl;
+			int gpioIndex;
+			
+			pinEl = (Element)confDoc.getElementsByTagName(STR_PIN).item(pinNum);
+			
+			name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
+			if (!name.equals(ErrorCode.STR_INVALID)) {	
+				gpioIndex = getGpioPinIndexFromName(name);
+			}
+			
+			mode = XmlOpener.getElementInfo(pinEl, "Mode");
+			if (!mode.equals(ErrorCode.STR_INVALID)) {
+//				GpioCfgPin[gpioIndex].setMode(mode);
+			}
+			
+		}
+		
+		
+		
+		return errorStatus;
 	}
 	
 	/**
@@ -345,5 +424,21 @@ public class Microcontroller {
 	 */
 	private void setUc_gpioNum(int uc_gpioNum) {
 		this.Uc_gpioNum = uc_gpioNum;
+	}
+	
+	public PinConf getConfiguredPin(String gpioName) {
+		return GpioCfgPin[getGpioPinIndexFromName(gpioName)];
+	}
+	
+	private int getGpioPinIndexFromName(String gpioName) {
+		int gpioNum;
+		
+		for (gpioNum = 0; gpioNum < GpioCfgPin.length; gpioNum++) {
+			if (GpioCfgPin[gpioNum].getPinName().equals(gpioName)) {
+				break;
+			}
+		}
+		
+		return gpioNum;
 	}
 }

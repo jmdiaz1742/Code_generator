@@ -74,7 +74,7 @@ public class ConfXmlWriter {
 	 */
 	public void addPin(PinConf pin, int pinNum) {
 		PinElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
-		PinElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPin()));
+		PinElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPinName()));
 		RootElement.appendChild(PinElement[pinNum]);
 		
 		/* Write the pins configuration information */
