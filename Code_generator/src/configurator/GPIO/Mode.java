@@ -17,4 +17,29 @@ public enum Mode {
 	 * Name as String
 	 */
 	public static final String STR_NAME = "Mode";
+	
+	/* Public methods */
+	
+	public static Mode getConfFromString(String conf) {
+		Mode mode = MODE_MAX_VALUE;
+		
+		switch(conf) {
+		case "MODE_INPUT":
+			mode = Mode.MODE_INPUT;
+			break;
+		case "MODE_OUTPUT":
+			mode = Mode.MODE_OUTPUT;
+			break;
+		case "MODE_ALTERNATE_FUNCTION":
+			mode = Mode.MODE_ALTERNATE_FUNCTION;
+			break;
+		case "MODE_ANALOG":
+			mode = Mode.MODE_ANALOG;
+			break;
+		default:
+			mode = MODE_MAX_VALUE;
+			break;
+		}
+		return mode;
+	}
 }

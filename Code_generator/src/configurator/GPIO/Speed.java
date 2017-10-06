@@ -16,5 +16,5 @@ public enum Speed {
 	/**
 	 * Name as String
 	 */
-	public static final String STR_NAME = "Mode";
+	public static final String STR_NAME = "Speed";
 }
