@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 import common.ErrorCode;
 import common.Features;
+import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
+import xmlParser.XmlOpener;
 
 /**
  * Main GUI state machine
@@ -19,6 +21,7 @@ public class MainGui {
 	/* Private fields */
 	static MainWindow Window;
 	static ProjectSettings ProjectSettingsConf = new ProjectSettings();
+	static Microcontroller SelectedMicrocontroller;
 	
 	/* Public fields */
 	static File ProjectFile;
@@ -32,6 +35,7 @@ public class MainGui {
 		// windows from here
 		Features.verbosePrint("Starting GUI...");
 		Window = new MainWindow();
+		Window.setVisible(true);
 	}
 	
 	/**
@@ -41,20 +45,48 @@ public class MainGui {
 	 */
 	public static ErrorCode loadProjectFile(File inFile) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		XmlOpener fileOpener = new XmlOpener();;
+		
 		ProjectFile = inFile;
 		errorStatus = ProjectSettingsConf.openProjectFile(ProjectFile);
-		
 		if (errorStatus != ErrorCode.NO_ERROR) {
-			JOptionPane.showMessageDialog(Window.FrmCodeGenerator,
-				    "Error opening file",
-				    "File error",
-				    JOptionPane.ERROR_MESSAGE);
-		} else {
-			/* Send information to GUI */
-			Window.setProjectName(ProjectSettingsConf.getProjectName());
+			showErrorDialog("Error opening configuration file");
+			return errorStatus;
+		}
+		/* Send information to GUI */
+		Window.setProjectName(ProjectSettingsConf.getProjectName());
+		
+		errorStatus  = ProjectSettingsConf.processDocument();
+		if (errorStatus != ErrorCode.NO_ERROR) {
+			showErrorDialog("Error prcessing configuration file");
+			return errorStatus;
 		}
 		
+		errorStatus = fileOpener.OpenFile(ProjectSettingsConf.getUcFile());
+		if (errorStatus != ErrorCode.NO_ERROR) {
+			showErrorDialog("Error opening microcontroller file");
+			return errorStatus;
+		}
+		
+		SelectedMicrocontroller = new Microcontroller(fileOpener.getParsedDoc());
+		Window.setMicrocontroller(SelectedMicrocontroller.getUc_model());
 		return errorStatus;
+	}
+	
+	/**
+	 * Show an error dialog
+	 * @param message Message to display
+	 */
+	private static void showErrorDialog(String message) {
+		JOptionPane.showMessageDialog(Window.FrmCodeGenerator,
+				message,
+			    "File error",
+			    JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public static void showAboutWindow() {
+		AboutWindow aboutWindow = new AboutWindow();
+		aboutWindow.setVisible(true);
 	}
 
 }

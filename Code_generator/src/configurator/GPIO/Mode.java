@@ -20,6 +20,11 @@ public enum Mode {
 	
 	/* Public methods */
 	
+	/**
+	 * Get the corresponding mode from its name as String
+	 * @param conf Configuration name 
+	 * @return Mode
+	 */
 	public static Mode getConfFromString(String conf) {
 		Mode mode = MODE_MAX_VALUE;
 		
@@ -36,6 +41,7 @@ public enum Mode {
 		case "MODE_ANALOG":
 			mode = Mode.MODE_ANALOG;
 			break;
+		case "MODE_MAX_VALUE":
 		default:
 			mode = MODE_MAX_VALUE;
 			break;

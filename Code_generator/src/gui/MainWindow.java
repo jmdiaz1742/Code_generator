@@ -38,6 +38,7 @@ public class MainWindow {
 	
 	/* Dynamic GUI elements */
 	private JLabel lbl_ProjectName;
+	private JLabel lbl_Microcontroller;
 	
 	/**
 	 * Open main window
@@ -75,8 +76,15 @@ public class MainWindow {
 			e1.printStackTrace();
 		}
 		initialize();
-		this.FrmCodeGenerator.setVisible(true);
 		
+	}
+	
+	/**
+	 * Set visibility of About window
+	 * @param status true if visible
+	 */
+	public void setVisible(boolean status) {
+		this.FrmCodeGenerator.setVisible(status);
 	}
 
 	/**
@@ -115,15 +123,29 @@ public class MainWindow {
 			}
 		});
 		mnFile.add(mntmOpenProject);
+		
+		JMenu mnHelp = new JMenu(Messages.getString("MainWindow.mnHelp.text")); //$NON-NLS-1$
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmAbout = new JMenuItem(Messages.getString("MainWindow.mntmAbout.text")); //$NON-NLS-1$
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin About button click ******/
+				MainGui.showAboutWindow();
+				/****** Begin About button click ******/
+			}
+		});
+		mnHelp.add(mntmAbout);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		FrmCodeGenerator.getContentPane().setLayout(gridBagLayout);
 		
 		JLabel lblt_ProjectName = new JLabel(Messages.getString("MainWindow.lblProject.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_ProjectName = new GridBagConstraints();
+		gbc_lblt_ProjectName.anchor = GridBagConstraints.WEST;
 		gbc_lblt_ProjectName.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_ProjectName.gridx = 0;
 		gbc_lblt_ProjectName.gridy = 0;
@@ -131,10 +153,25 @@ public class MainWindow {
 		
 		lbl_ProjectName = new JLabel(Messages.getString("MainWindow.lblNewLabel.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lbl_ProjectName = new GridBagConstraints();
-		gbc_lbl_ProjectName.insets = new Insets(0, 0, 5, 0);
+		gbc_lbl_ProjectName.insets = new Insets(0, 0, 5, 5);
 		gbc_lbl_ProjectName.gridx = 1;
 		gbc_lbl_ProjectName.gridy = 0;
 		FrmCodeGenerator.getContentPane().add(lbl_ProjectName, gbc_lbl_ProjectName);
+		
+		JLabel lblt_Microcontroller = new JLabel(Messages.getString("MainWindow.lblSelectedMicrocontroller.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lblt_Microcontroller = new GridBagConstraints();
+		gbc_lblt_Microcontroller.anchor = GridBagConstraints.WEST;
+		gbc_lblt_Microcontroller.insets = new Insets(0, 0, 0, 5);
+		gbc_lblt_Microcontroller.gridx = 0;
+		gbc_lblt_Microcontroller.gridy = 1;
+		FrmCodeGenerator.getContentPane().add(lblt_Microcontroller, gbc_lblt_Microcontroller);
+		
+		lbl_Microcontroller = new JLabel(Messages.getString("MainWindow.label.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lbl_Microcontroller = new GridBagConstraints();
+		gbc_lbl_Microcontroller.insets = new Insets(0, 0, 0, 5);
+		gbc_lbl_Microcontroller.gridx = 1;
+		gbc_lbl_Microcontroller.gridy = 1;
+		FrmCodeGenerator.getContentPane().add(lbl_Microcontroller, gbc_lbl_Microcontroller);
 	}
 	
 	/**
@@ -189,6 +226,14 @@ public class MainWindow {
 	 */
 	public void setProjectName(String projectName) {
 		lbl_ProjectName.setText(projectName);
+	}
+	
+	/**
+	 * Set the Microcontroller's model in its label
+	 * @param ucName Microcontroller's model
+	 */
+	public void setMicrocontroller(String ucName) {
+		lbl_Microcontroller.setText(ucName);
 	}
 
 }

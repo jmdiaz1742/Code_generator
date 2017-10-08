@@ -30,6 +30,7 @@ public class ProjectSettings {
 	private static final String STR_PROJECT_NAME	= "name";
 	private static final String STR_CONFIG_FILE		= "ConfigFile";
 	private static final String STR_UC_FILE			= "ucFile";
+	private static final String STR_SETTINGS_FOLDER	= "settings";
 	
 	/**
 	 * Constructor
@@ -83,7 +84,7 @@ public class ProjectSettings {
 		confFileName = XmlOpener.getElementInfoFromDoc(SettingsDoc, STR_CONFIG_FILE);
 		if (!confFileName.equals(ErrorCode.STR_INVALID)) {
 			Features.verbosePrint("Configuration file: " + confFileName);
-			ConfFile = new File(ProjectPath + System.getProperty("file.separator") + confFileName);
+			ConfFile = new File(ProjectPath + System.getProperty("file.separator") + STR_SETTINGS_FOLDER + System.getProperty("file.separator") + confFileName);
 		}
 		else {
 			errorStatus = ErrorCode.FILE_READ_ERROR;
@@ -92,7 +93,7 @@ public class ProjectSettings {
 		/* Get microcontroller file */
 		ucFileName = XmlOpener.getElementInfoFromDoc(SettingsDoc, STR_UC_FILE);
 		if (!ucFileName.equals(ErrorCode.STR_INVALID)) {
-			UcFile = new File(ProjectPath + System.getProperty("file.separator") + ucFileName);
+			UcFile = new File(ProjectPath + System.getProperty("file.separator") + STR_SETTINGS_FOLDER + System.getProperty("file.separator") + ucFileName);
 			Features.verbosePrint("Microcontroller file: " + ucFileName);
 		}
 		else {

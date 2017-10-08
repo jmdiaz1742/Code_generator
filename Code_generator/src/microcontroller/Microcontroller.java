@@ -8,6 +8,9 @@ import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
 import configurator.GPIO.Mode;
+import configurator.GPIO.OutType;
+import configurator.GPIO.Pull;
+import configurator.GPIO.Speed;
 import xmlParser.XmlOpener;
 
 /**
@@ -191,8 +194,6 @@ public class Microcontroller {
 		String vcc;
 		String gnd;
 		String gpio;
-		int gpioPinIndex = 0;
-		
 		Features.verbosePrint("Getting pin " + pinNum + " characteristics:");
 		
 		pinEl = (Element)UcDoc.getElementsByTagName(STR_PIN).item(pinNum);
@@ -318,26 +319,39 @@ public class Microcontroller {
 		
 		for (int pinNum = 0; pinNum < pinList.getLength(); pinNum++) {
 			String name;
-			String mode;
-			String outType;
-			String pull;
-			String speed;
+			String configuration;
 			Element pinEl;
 			int gpioIndex = 0;
 			
 			pinEl = (Element)confDoc.getElementsByTagName(STR_PIN).item(pinNum);
+			
+			/* Set the pin's configurations if available */ 
 			
 			name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
 			if (!name.equals(ErrorCode.STR_INVALID)) {	
 				gpioIndex = getGpioIndexFromPinName(name);
 			}
 			
-			mode = XmlOpener.getElementInfo(pinEl, "Mode");
-			if (!mode.equals(ErrorCode.STR_INVALID)) {
-				
-				GpioCfgPin[gpioIndex].setMode(Mode.getConfFromString(mode));
+			configuration = XmlOpener.getElementInfo(pinEl, Mode.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[gpioIndex].setMode(Mode.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Mode: " + configuration);
 			}
 			
+			configuration = XmlOpener.getElementInfo(pinEl, OutType.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[gpioIndex].setOutType(OutType.getConfFromString(configuration));
+			}
+			
+			configuration = XmlOpener.getElementInfo(pinEl, Pull.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[gpioIndex].setPull(Pull.getConfFromString(configuration));
+			}
+			
+			configuration = XmlOpener.getElementInfo(pinEl, Speed.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[gpioIndex].setSpeed(Speed.getConfFromString(configuration));
+			}
 		}
 		
 		
