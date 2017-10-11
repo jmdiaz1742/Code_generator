@@ -51,5 +51,13 @@
 		<reset>RESET</reset>
 		<gpio>GPIO</gpio>
 	</pin>
+	<pin>
+		<name>PC1</name>
+		<number>7</number>
+		<interrupt>PCINT4</interrupt>
+		<adc>ADC4</adc>
+		<port>C</port>
+		<gpio>GPIO</gpio>
+	</pin>
 </microcontroller>
 

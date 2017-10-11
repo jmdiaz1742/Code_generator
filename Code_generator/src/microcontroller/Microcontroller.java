@@ -1,5 +1,7 @@
 package microcontroller;
 
+import java.util.ArrayList;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -27,22 +29,17 @@ public class Microcontroller {
 	private Pin[] CurrentPin;
 	private PinConf[] GpioCfgPin;
 	
-	/* Microcontroller characteristics */
+	/* Public fields */
+	public String[] Ports;
 	
+	/* Microcontroller characteristics */
 	private String	Uc_model;
 	private String	Uc_manufacturer;
 	private int		Uc_pinNum;
 	private int		Uc_gpioNum;
-	
-	private static final String ROOT_ELEMENT	= "microcontroller";
-	private static final String STR_ATT_MODEL	= "model";
-	private static final String STR_ATT_MFCT	= "manufacturer";
-	private static final String STR_PIN			= "pin";
-	
-	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
+	private int		Uc_portNum;
 	
 	/* Pin's mandatory characteristics */
-	
 	private static final String STR_PIN_NAME	= "name";
 	private static final String STR_PIN_NUMBER	= "number";
 	
@@ -56,6 +53,13 @@ public class Microcontroller {
 	private static final String STR_PIN_GND		= "gnd";
 	private static final String STR_PIN_GPIO	= "gpio";
 	private static final String STR_PIN_RESET	= "reset";
+	
+	/* Strings to extract information from XML file */
+	private static final String ROOT_ELEMENT	= "microcontroller";
+	private static final String STR_ATT_MODEL	= "model";
+	private static final String STR_ATT_MFCT	= "manufacturer";
+	private static final String STR_PIN			= "pin";
+	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
 	
 	/**
 	 * Constructor
@@ -90,6 +94,8 @@ public class Microcontroller {
 		if (loadPins() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
+		
+		calculatePortNum();
 		
 		return errorStatus;
 	}
@@ -444,10 +450,36 @@ public class Microcontroller {
 		this.Uc_gpioNum = uc_gpioNum;
 	}
 	
+	/**
+	 * Get the number of ports in the microcontroller
+	 * @return Number of ports
+	 */
+	public int getUc_portNum() {
+		return Uc_portNum;
+	}
+
+	/**
+	 * Set the number of ports in the microcontroller
+	 * @param uc_portNum Number of ports
+	 */
+	private void setUc_portNum(int uc_portNum) {
+		Uc_portNum = uc_portNum;
+	}
+	
+	/**
+	 * Get the configuration of a pin
+	 * @param gpioName Name of the pin
+	 * @return Pin configuration
+	 */
 	public PinConf getConfiguredPin(String gpioName) {
 		return GpioCfgPin[getGpioPinIndexFromName(gpioName)];
 	}
 	
+	/**
+	 * Get the Gpio index of the gpio pins array
+	 * @param gpioName Pin's name
+	 * @return Pin's index in the GPIO array
+	 */
 	private int getGpioPinIndexFromName(String gpioName) {
 		int gpioNum;
 		
@@ -458,5 +490,47 @@ public class Microcontroller {
 		}
 		
 		return gpioNum;
+	}
+	
+	/**
+	 * Calculate the number of different ports in the microcontroller
+	 */
+	private void calculatePortNum() {
+		ArrayList<String> diffPorts = new ArrayList<>();
+		
+		for (int portNum = 0; portNum < CurrentPin.length; portNum++) {
+			String portName = CurrentPin[portNum].getPort();
+			if ((!diffPorts.contains(portName)) && (!portName.equals(Pin.DEF_PORT))) {
+				diffPorts.add(portName);
+			}
+		}
+		
+		if (diffPorts.size() == 1) {
+			setUc_portNum(0);
+		} else {
+			setUc_portNum(diffPorts.size());
+		}
+		
+//		Ports[getUc_portNum()] = new String();
+//		
+//		for (int portNum = 0; portNum < getUc_portNum(); portNum++) {
+//			
+//		}
+	}
+	
+	/**
+	 * Check if the microcontroller configuration is valid
+	 * @return true if valid
+	 */
+	public boolean isValid() {
+		boolean validity = true;
+		
+		if (	(getUc_gpioNum() <= 0)	||
+				(getUc_pinNum() <= 0)	||
+				(getUc_model().equals(""))) {
+			validity = false;
+		}
+		
+		return validity;
 	}
 }

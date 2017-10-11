@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
 import java.awt.GridBagLayout;
@@ -13,6 +14,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
@@ -21,6 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import javax.swing.JButton;
 
 /**
  * Main application window
@@ -39,6 +42,11 @@ public class MainWindow {
 	/* Dynamic GUI elements */
 	private JLabel lbl_ProjectName;
 	private JLabel lbl_Microcontroller;
+	private JButton btn_ConfigureGpios;
+	
+	/* Dynamic menu elements */
+	private JMenuItem mntmSave;
+	private JMenuItem mntmSaveAs;
 	
 	/**
 	 * Open main window
@@ -102,7 +110,7 @@ public class MainWindow {
 		
 		FrmCodeGenerator = new JFrame();
 		FrmCodeGenerator.setTitle(windowName);
-		FrmCodeGenerator.setBounds(100, 100, 800, 700);
+		FrmCodeGenerator.setBounds(100, 100, 466, 270);
 		FrmCodeGenerator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -112,6 +120,16 @@ public class MainWindow {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmNewProject = new JMenuItem(Messages.getString("MainWindow.mntmNewProject.text")); //$NON-NLS-1$
+		mntmNewProject.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin New Project button click ******/
+				JOptionPane.showMessageDialog(FrmCodeGenerator,
+						"Coming soon!",
+						"Feature not ready",
+					    JOptionPane.WARNING_MESSAGE);
+				/****** End New Project button click ******/
+			}
+		});
 		mnFile.add(mntmNewProject);
 		
 		JMenuItem mntmOpenProject = new JMenuItem(Messages.getString("MainWindow.mntmOpenProject.text")); //$NON-NLS-1$
@@ -123,6 +141,14 @@ public class MainWindow {
 			}
 		});
 		mnFile.add(mntmOpenProject);
+		
+		mntmSave = new JMenuItem(Messages.getString("MainWindow.mntmSave.text"));
+		mntmSave.setEnabled(false);
+		mnFile.add(mntmSave);
+		
+		mntmSaveAs = new JMenuItem(Messages.getString("MainWindow.mntmSaveAs.text")); //$NON-NLS-1$
+		mntmSaveAs.setEnabled(false);
+		mnFile.add(mntmSaveAs);
 		
 		JMenu mnHelp = new JMenu(Messages.getString("MainWindow.mnHelp.text")); //$NON-NLS-1$
 		menuBar.add(mnHelp);
@@ -138,9 +164,9 @@ public class MainWindow {
 		mnHelp.add(mntmAbout);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		FrmCodeGenerator.getContentPane().setLayout(gridBagLayout);
 		
 		JLabel lblt_ProjectName = new JLabel(Messages.getString("MainWindow.lblProject.text")); //$NON-NLS-1$
@@ -153,6 +179,7 @@ public class MainWindow {
 		
 		lbl_ProjectName = new JLabel(Messages.getString("MainWindow.lblNewLabel.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lbl_ProjectName = new GridBagConstraints();
+		gbc_lbl_ProjectName.anchor = GridBagConstraints.WEST;
 		gbc_lbl_ProjectName.insets = new Insets(0, 0, 5, 5);
 		gbc_lbl_ProjectName.gridx = 1;
 		gbc_lbl_ProjectName.gridy = 0;
@@ -161,17 +188,33 @@ public class MainWindow {
 		JLabel lblt_Microcontroller = new JLabel(Messages.getString("MainWindow.lblSelectedMicrocontroller.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_Microcontroller = new GridBagConstraints();
 		gbc_lblt_Microcontroller.anchor = GridBagConstraints.WEST;
-		gbc_lblt_Microcontroller.insets = new Insets(0, 0, 0, 5);
+		gbc_lblt_Microcontroller.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Microcontroller.gridx = 0;
 		gbc_lblt_Microcontroller.gridy = 1;
 		FrmCodeGenerator.getContentPane().add(lblt_Microcontroller, gbc_lblt_Microcontroller);
 		
 		lbl_Microcontroller = new JLabel(Messages.getString("MainWindow.label.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lbl_Microcontroller = new GridBagConstraints();
-		gbc_lbl_Microcontroller.insets = new Insets(0, 0, 0, 5);
+		gbc_lbl_Microcontroller.anchor = GridBagConstraints.WEST;
+		gbc_lbl_Microcontroller.insets = new Insets(0, 0, 5, 5);
 		gbc_lbl_Microcontroller.gridx = 1;
 		gbc_lbl_Microcontroller.gridy = 1;
 		FrmCodeGenerator.getContentPane().add(lbl_Microcontroller, gbc_lbl_Microcontroller);
+		
+		btn_ConfigureGpios = new JButton(Messages.getString("MainWindow.btnConfigureGpios.text")); //$NON-NLS-1$
+		btn_ConfigureGpios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/****** Begin Configure GPIOs button click ******/
+				MainGui.showGpioConfWindow();
+				/****** Begin Configure GPIOs button click ******/
+			}
+		});
+		btn_ConfigureGpios.setEnabled(false);
+		GridBagConstraints gbc_btn_ConfigureGpios = new GridBagConstraints();
+		gbc_btn_ConfigureGpios.insets = new Insets(0, 0, 0, 5);
+		gbc_btn_ConfigureGpios.gridx = 0;
+		gbc_btn_ConfigureGpios.gridy = 2;
+		FrmCodeGenerator.getContentPane().add(btn_ConfigureGpios, gbc_btn_ConfigureGpios);
 	}
 	
 	/**
@@ -203,14 +246,14 @@ public class MainWindow {
 	 */
 	public File OpenFileChooser(String initialPath, String title, FileNameExtensionFilter fileFilter) {
 		File inFile = null;
-		final JFileChooser ProjectFileChooser = new JFileChooser(initialPath);
+		final JFileChooser projectFileChooser = new JFileChooser(initialPath);
 		
-		ProjectFileChooser.setDialogTitle(title);
-		ProjectFileChooser.setFileFilter(fileFilter);
-		int fileOpenError = ProjectFileChooser.showOpenDialog(FrmCodeGenerator);
+		projectFileChooser.setDialogTitle(title);
+		projectFileChooser.setFileFilter(fileFilter);
+		int fileOpenError = projectFileChooser.showOpenDialog(FrmCodeGenerator);
 		if (fileOpenError == JFileChooser.APPROVE_OPTION) {
 			/* File selected */
-			inFile = ProjectFileChooser.getSelectedFile();
+			inFile = projectFileChooser.getSelectedFile();
 			Features.verbosePrint("File " + inFile.getName() + " selected...");
 		} else {
 			/* Operation canceled */
@@ -223,17 +266,22 @@ public class MainWindow {
 	/**
 	 * Set Project's name in its label
 	 * @param projectName Project's name
-	 */
-	public void setProjectName(String projectName) {
-		lbl_ProjectName.setText(projectName);
-	}
-	
-	/**
-	 * Set the Microcontroller's model in its label
+	 * @param ucManufacturer Microcontroller's manufacturer
 	 * @param ucName Microcontroller's model
+	 * @return Error status
 	 */
-	public void setMicrocontroller(String ucName) {
-		lbl_Microcontroller.setText(ucName);
+	public ErrorCode setProjectInformation(String projectName, String ucManufacturer, String ucName) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		if (projectName.equals("") || ucManufacturer.equals("") || ucName.equals("")) {
+			Features.verbosePrint("Wrong project information...");
+			MainGui.showErrorDialog("Wrong project information");
+			errorStatus = ErrorCode.FILE_CONF_ERROR;
+			return errorStatus;
+		}
+		lbl_ProjectName.setText(projectName);
+		lbl_Microcontroller.setText(ucManufacturer + " " + ucName);
+		btn_ConfigureGpios.setEnabled(true);
+		mntmSaveAs.setEnabled(true);
+		return errorStatus;
 	}
-
 }

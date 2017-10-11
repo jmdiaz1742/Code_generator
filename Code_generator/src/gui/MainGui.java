@@ -19,7 +19,8 @@ import xmlParser.XmlOpener;
 public class MainGui {
 
 	/* Private fields */
-	static MainWindow Window;
+	static MainWindow CgMainWindow;
+	static GpioConfWindow CgGpioConfWindow;
 	static ProjectSettings ProjectSettingsConf = new ProjectSettings();
 	static Microcontroller SelectedMicrocontroller;
 	
@@ -34,8 +35,8 @@ public class MainGui {
 		// FIXME: Check how this would work, the idea is to call all the GUI
 		// windows from here
 		Features.verbosePrint("Starting GUI...");
-		Window = new MainWindow();
-		Window.setVisible(true);
+		CgMainWindow = new MainWindow();
+		CgMainWindow.setVisible(true);
 	}
 	
 	/**
@@ -53,9 +54,7 @@ public class MainGui {
 			showErrorDialog("Error opening configuration file");
 			return errorStatus;
 		}
-		/* Send information to GUI */
-		Window.setProjectName(ProjectSettingsConf.getProjectName());
-		
+		/* Send information to GUI */	
 		errorStatus  = ProjectSettingsConf.processDocument();
 		if (errorStatus != ErrorCode.NO_ERROR) {
 			showErrorDialog("Error prcessing configuration file");
@@ -69,7 +68,15 @@ public class MainGui {
 		}
 		
 		SelectedMicrocontroller = new Microcontroller(fileOpener.getParsedDoc());
-		Window.setMicrocontroller(SelectedMicrocontroller.getUc_model());
+		SelectedMicrocontroller.processDocument();
+		
+		if (!ProjectSettingsConf.getConfFile().getName().equals("")) {
+			/* If a configuration file is found */
+			errorStatus = fileOpener.OpenFile(ProjectSettingsConf.getConfFile());
+			SelectedMicrocontroller.loadPinsConf(fileOpener.getParsedDoc());
+		}
+		
+		CgMainWindow.setProjectInformation(ProjectSettingsConf.getProjectName(), SelectedMicrocontroller.getUc_manufacturer(), SelectedMicrocontroller.getUc_model());
 		return errorStatus;
 	}
 	
@@ -77,16 +84,25 @@ public class MainGui {
 	 * Show an error dialog
 	 * @param message Message to display
 	 */
-	private static void showErrorDialog(String message) {
-		JOptionPane.showMessageDialog(Window.FrmCodeGenerator,
+	public static void showErrorDialog(String message) {
+		JOptionPane.showMessageDialog(CgMainWindow.FrmCodeGenerator,
 				message,
 			    "File error",
 			    JOptionPane.ERROR_MESSAGE);
 	}
 	
+	/**
+	 * Show about information window
+	 */
 	public static void showAboutWindow() {
-		AboutWindow aboutWindow = new AboutWindow();
-		aboutWindow.setVisible(true);
+		new AboutWindow();
+	}
+	
+	/**
+	 * Show the GPIOs configuration window
+	 */
+	public static void showGpioConfWindow() {
+		CgGpioConfWindow = new GpioConfWindow(SelectedMicrocontroller);
 	}
 
 }

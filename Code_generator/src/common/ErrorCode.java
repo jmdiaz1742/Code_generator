@@ -25,7 +25,12 @@ public enum ErrorCode {
 	/**
 	 * File writing error
 	 */
-	FILE_WRITE_ERROR;
+	FILE_WRITE_ERROR,
+	
+	/**
+	 * File configuration error
+	 */
+	FILE_CONF_ERROR;
 	
 	/**
 	 * Error string
