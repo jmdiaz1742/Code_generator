@@ -24,6 +24,7 @@ public class PinConf {
 	private Mode 	PinMode;
 	private Speed	PinSpeed;
 	private OutType	PinOutType;
+	private boolean	PinOutLevel;
 	private Pull	PinPull;
 	
 	/* Public fields */
@@ -162,6 +163,22 @@ public class PinConf {
 	 */
 	public void setOutType(OutType outType) {
 		this.PinOutType = outType;
+	}
+
+	/**
+	 * Get the pin's output status
+	 * @return true if HIGH
+	 */
+	public boolean getPinOutLevel() {
+		return PinOutLevel;
+	}
+
+	/**
+	 * Set the pin's output status
+	 * @param pinOutStatus true if HIGH
+	 */
+	public void setPinOutLevel(boolean level) {
+		PinOutLevel = level;
 	}
 
 	/**

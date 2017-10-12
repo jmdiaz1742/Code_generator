@@ -27,7 +27,6 @@ public class Microcontroller {
 	/* private fields */
 	private Document UcDoc;
 	private Pin[] CurrentPin;
-	private PinConf[] GpioCfgPin;
 	
 	/* Public fields */
 	
@@ -35,6 +34,11 @@ public class Microcontroller {
 	 * Ports name list
 	 */
 	public String[] Ports;
+	
+	/**
+	 * Configured pins list
+	 */
+	public PinConf[] GpioCfgPin;
 	
 	/* Microcontroller characteristics */
 	private String	Uc_model;
@@ -64,6 +68,8 @@ public class Microcontroller {
 	private static final String STR_ATT_MFCT	= "manufacturer";
 	private static final String STR_PIN			= "pin";
 	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
+	
+	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
 	
 	/**
 	 * Constructor
