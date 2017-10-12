@@ -30,6 +30,10 @@ public class Microcontroller {
 	private PinConf[] GpioCfgPin;
 	
 	/* Public fields */
+	
+	/**
+	 * Ports name list
+	 */
 	public String[] Ports;
 	
 	/* Microcontroller characteristics */
@@ -295,7 +299,7 @@ public class Microcontroller {
 		int gpioNum = 0;
 		
 		/* Load all GPIO pins without configuration */
-		GpioCfgPin = new PinConf[gpioNum];
+		GpioCfgPin = new PinConf[getUc_gpioNum()];
 		for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
 			if (CurrentPin[pinNum].getFunc_gpio()) {
 				GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum]);
@@ -511,11 +515,11 @@ public class Microcontroller {
 			setUc_portNum(diffPorts.size());
 		}
 		
-//		Ports[getUc_portNum()] = new String();
-//		
-//		for (int portNum = 0; portNum < getUc_portNum(); portNum++) {
-//			
-//		}
+		Ports = new String[getUc_portNum()];
+		
+		for (int portNum = 0; portNum < getUc_portNum(); portNum++) {
+			Ports[portNum] = diffPorts.get(portNum);
+		}
 	}
 	
 	/**

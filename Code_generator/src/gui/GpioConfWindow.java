@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 
 /**
  * Window for configuring GPIO pins
- * @author Miguel Díaz
+ * @author Miguel Diaz
  * @version 0.1
  *
  */
@@ -60,6 +60,8 @@ public class GpioConfWindow {
 			return;
 		}
 		initialize();
+		initPortsComboBox();
+		frmGpiosConfiguration.setVisible(true);
 	}
 
 	/**
@@ -93,6 +95,15 @@ public class GpioConfWindow {
 		gbc_comboBox_PortSelection.gridx = 1;
 		gbc_comboBox_PortSelection.gridy = 0;
 		frmGpiosConfiguration.getContentPane().add(comboBox_PortSelection, gbc_comboBox_PortSelection);
+	}
+	
+	/**
+	 * Initialize elements in the ports selection combo box
+	 */
+	private void initPortsComboBox() {
+		for (int portNum = 0; portNum < UcConf.getUc_portNum(); portNum++) {
+			comboBox_PortSelection.addItem(UcConf.Ports[portNum]);
+		}
 	}
 
 }

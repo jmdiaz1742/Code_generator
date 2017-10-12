@@ -123,10 +123,7 @@ public class MainWindow {
 		mntmNewProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin New Project button click ******/
-				JOptionPane.showMessageDialog(FrmCodeGenerator,
-						"Coming soon!",
-						"Feature not ready",
-					    JOptionPane.WARNING_MESSAGE);
+				showComingSoonMessage();
 				/****** End New Project button click ******/
 			}
 		});
@@ -143,10 +140,24 @@ public class MainWindow {
 		mnFile.add(mntmOpenProject);
 		
 		mntmSave = new JMenuItem(Messages.getString("MainWindow.mntmSave.text"));
+		mntmSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/****** Begin Save button click ******/
+				showComingSoonMessage();
+				/****** End Save button click ******/
+			}
+		});
 		mntmSave.setEnabled(false);
 		mnFile.add(mntmSave);
 		
 		mntmSaveAs = new JMenuItem(Messages.getString("MainWindow.mntmSaveAs.text")); //$NON-NLS-1$
+		mntmSaveAs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin Save as button click ******/
+				showComingSoonMessage();
+				/****** End Save as button click ******/
+			}
+		});
 		mntmSaveAs.setEnabled(false);
 		mnFile.add(mntmSaveAs);
 		
@@ -283,5 +294,15 @@ public class MainWindow {
 		btn_ConfigureGpios.setEnabled(true);
 		mntmSaveAs.setEnabled(true);
 		return errorStatus;
+	}
+	
+	/**
+	 * Show a Coming Soon! dialog
+	 */
+	private void showComingSoonMessage() {
+		JOptionPane.showMessageDialog(FrmCodeGenerator,
+				"Coming soon!",
+				"Feature not ready",
+			    JOptionPane.WARNING_MESSAGE);
 	}
 }

@@ -32,4 +32,12 @@
 		<Pull>PULL_NOT_AVAILABLE</Pull>
 		<Speed>SPEED_FAST</Speed>
 	</Pin>
+	<Pin>
+		PC1
+		<Port>C</Port>
+		<Mode>MODE_INPUT</Mode>
+		<OutType>OTYPE_PUSH_PULL</OutType>
+		<Pull>PULL_NOT_AVAILABLE</Pull>
+		<Speed>SPEED_FAST</Speed>
+	</Pin>
 </Microcontroller_Configuration>

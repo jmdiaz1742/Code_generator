@@ -15,6 +15,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
 import configurator.GPIO.Mode;
