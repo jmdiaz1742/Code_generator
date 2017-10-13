@@ -12,8 +12,8 @@ import javax.swing.JComboBox;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * Window for configuring GPIO pins
@@ -25,6 +25,7 @@ public class GpioConfWindow {
 
 	private JFrame frmGpiosConfiguration;
 	private Microcontroller UcConf;
+	private boolean GuiInitialized = false;
 	
 	/* Dynamic GUI elements */
 	JComboBox<String> comboBox_PortSelection;
@@ -34,7 +35,7 @@ public class GpioConfWindow {
 	private JLabel lblt_OutputLevel;
 	private JLabel lblt_PullResistor;
 	private JLabel lblSpeed;
-	JLabel[] lbl_PinName = new JLabel[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
+	JLabel[] lbl_PinName;
 	
 	/* GUI Constants */
 	private static final int PIN_NAME_LABEL_INIT_POS_X = 0;
@@ -77,6 +78,7 @@ public class GpioConfWindow {
 		initDynamicPinElements();
 		loadPortsPins();
 		frmGpiosConfiguration.setVisible(true);
+		GuiInitialized = true;
 	}
 
 	/**
@@ -103,20 +105,16 @@ public class GpioConfWindow {
 		frmGpiosConfiguration.getContentPane().add(lblt_SelectPort, gbc_lblt_SelectPort);
 		
 		comboBox_PortSelection = new JComboBox<String>();
-		comboBox_PortSelection.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				/****** Begin Port combo box click ******/
-				loadPortsPins();
-				/****** End Port combo box click ******/
+		comboBox_PortSelection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				/****** Begin Port combo box click ******/
+				if (GuiInitialized) {
+					Features.verbosePrint("Combo box clicked!");
+//					loadPortsPins();
+				}
+//				/****** End Port combo box click ******/
 			}
 		});
-//		comboBox_PortSelection.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				/****** Begin Port combo box click ******/
-//				loadPortsPins();
-//				/****** End Port combo box click ******/
-//			}
-//		});
 		comboBox_PortSelection.setToolTipText(Messages.getString("GpioConfWindow.comboBox_PortSelection.toolTipText")); //$NON-NLS-1$
 		GridBagConstraints gbc_comboBox_PortSelection = new GridBagConstraints();
 		gbc_comboBox_PortSelection.insets = new Insets(0, 0, 5, 5);
@@ -177,6 +175,11 @@ public class GpioConfWindow {
 		}
 	}
 	
+	/**
+	 * Get how many pins are in a given port
+	 * @param port Port's name
+	 * @return Number of pins in the port
+	 */
 	private int getPinsNumInPort(String port) {
 		int totalPins = 0;
 		
@@ -189,31 +192,43 @@ public class GpioConfWindow {
 		return totalPins;
 	}
 	
-	
+	/**
+	 * Initialize all dynamic pins elements as empty
+	 */
 	private void initDynamicPinElements() {	
+		Features.verbosePrint("Initializing dynamic elements...");
+		lbl_PinName = new JLabel[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
+		
 		for (int pinNum = 0; pinNum < Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT; pinNum++) {
 			/* Pin's name */
-			lbl_PinName[pinNum] = new JLabel("");
+			lbl_PinName[pinNum] = new JLabel("Pin " + pinNum);
 			GridBagConstraints gbc_lbl_PinName = new GridBagConstraints();
 			gbc_lbl_PinName.insets = new Insets(0, 0, 5, 5);
-			gbc_lbl_PinName.anchor = GridBagConstraints.EAST;
 			gbc_lbl_PinName.gridx = PIN_NAME_LABEL_INIT_POS_X;
 			gbc_lbl_PinName.gridy = PIN_NAME_LABEL_INIT_POS_Y + pinNum;
 			frmGpiosConfiguration.getContentPane().add(lbl_PinName[pinNum], gbc_lbl_PinName);
+			lbl_PinName[pinNum].setVisible(false);
 		}
 	}
 	
+	/**
+	 * Populate all dynamic pin elements
+	 */
 	private void loadPortsPins() {
 		String currentPort = comboBox_PortSelection.getSelectedItem().toString();;
 		int totalPins = getPinsNumInPort(currentPort);
 		
-		for (int pinNum = 0; pinNum < totalPins; pinNum++) {
-			setPinName(pinNum, UcConf.GpioCfgPin[pinNum].getPinName());
+		/* Pin's name */
+		for (int pinNum = 0; pinNum < totalPins; ) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(currentPort)) {
+				lbl_PinName[pinNum].setText(UcConf.GpioCfgPin[pinNum].getPinName());
+				lbl_PinName[pinNum].setVisible(true);
+				pinNum++;
+			}
 		}
-	}
-	
-	private void setPinName(int pinIndex, String name) {
-		lbl_PinName[pinIndex].setText(name);
+		for (int pinNum = totalPins; pinNum < Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT; pinNum++) {
+			lbl_PinName[pinNum].setVisible(false);
+		}
 	}
 
 }

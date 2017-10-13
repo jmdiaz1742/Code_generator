@@ -184,8 +184,18 @@ public class Microcontroller {
 				}
 			}
 			setUc_gpioNum(pinsGpio);
-	
 			Features.verbosePrint("Found " + getUc_gpioNum() + " GPIOs...");
+			
+			int gpioNum = 0;
+			
+			/* Load all GPIO pins without configuration */
+			GpioCfgPin = new PinConf[getUc_gpioNum()];
+			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
+				if (CurrentPin[pinNum].getFunc_gpio()) {
+					GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum]);
+					gpioNum++;
+				}
+			}
 			
 			/* We should have at least 1 Vcc, 1 Gnd, 1 GPIO and 1 Reset */
 			if ((errorStatus == ErrorCode.NO_ERROR) && ((pinsVcc <= 0) || (pinsGnd <= 0) || (pinsGpio <= 0) || (pinsRst <= 0))) {
@@ -302,16 +312,6 @@ public class Microcontroller {
 	public ErrorCode loadPinsConf(Document confDoc) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList pinList;
-		int gpioNum = 0;
-		
-		/* Load all GPIO pins without configuration */
-		GpioCfgPin = new PinConf[getUc_gpioNum()];
-		for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
-			if (CurrentPin[pinNum].getFunc_gpio()) {
-				GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum]);
-				gpioNum++;
-			}
-		}
 		
 		/* Get the root microcontroller element */
 		Element pinRoot = confDoc.getDocumentElement();
@@ -329,8 +329,8 @@ public class Microcontroller {
 			setUc_pinNum(pinList.getLength());
 			Features.verbosePrint("Number of configured pins: " + pinList.getLength());
 		} else {
-			errorStatus = ErrorCode.EX_ERROR;
 			Features.verbosePrint("No pins configurations found...");
+			return ErrorCode.EX_ERROR;
 		}
 		
 		for (int pinNum = 0; pinNum < pinList.getLength(); pinNum++) {
