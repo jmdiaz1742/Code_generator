@@ -46,7 +46,7 @@ public class MainGui {
 	 */
 	public static ErrorCode loadProjectFile(File inFile) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
-		XmlOpener fileOpener = new XmlOpener();;
+		XmlOpener fileOpener = new XmlOpener();
 		
 		ProjectFile = inFile;
 		errorStatus = ProjectSettingsConf.openProjectFile(ProjectFile);
