@@ -3,6 +3,7 @@ package configurator;
 import microcontroller.Pin;
 import common.Features;
 import configurator.GPIO.Mode;
+import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
@@ -19,32 +20,36 @@ public class PinConf {
 	Pin GpioPin;
 	
 	/* Pin configuration */
-	private String	Port;
-	private String	PinName;
-	private Mode 	PinMode;
-	private Speed	PinSpeed;
-	private OutType	PinOutType;
-	private boolean	PinOutLevel;
-	private Pull	PinPull;
+	private String		Port;
+	private String		PinName;
+	private Mode 		PinMode;
+	private Speed		PinSpeed;
+	private OutType		PinOutType;
+	private OutLevel	PinOutLevel;
+	private Pull		PinPull;
 	
 	/* Public fields */
 	
 	/**
 	 * Default Pin mode
 	 */
-	public static final Mode	DF_MODE		= Mode.MODE_INPUT;
+	public static final Mode DF_MODE = Mode.MODE_INPUT;
 	/**
 	 * Default pin's speed
 	 */
-	public static final Speed	DF_SPEED	= Speed.SPEED_FAST;
+	public static final Speed DF_SPEED = Speed.SPEED_FAST;
 	/**
 	 * Default pin's output type
 	 */
-	public static final OutType	DF_OUTTYPE	= OutType.OTYPE_PUSH_PULL;
+	public static final OutType DF_OUTTYPE = OutType.OTYPE_PUSH_PULL;
+	/**
+	 * Default pin's output level
+	 */
+	public static final OutLevel DF_OUT_LEVEL =	OutLevel.LOW;
 	/**
 	 * Default pin'r pull resistor
 	 */
-	public static final Pull	DF_PULL		= Pull.PULL_NOT_AVAILABLE;
+	public static final Pull DF_PULL = Pull.PULL_NOT_AVAILABLE;
 	
 	/* Methods */
 	
@@ -169,7 +174,7 @@ public class PinConf {
 	 * Get the pin's output status
 	 * @return true if HIGH
 	 */
-	public boolean getPinOutLevel() {
+	public OutLevel getOutLevel() {
 		return PinOutLevel;
 	}
 
@@ -177,7 +182,7 @@ public class PinConf {
 	 * Set the pin's output status
 	 * @param pinOutStatus true if HIGH
 	 */
-	public void setPinOutLevel(boolean level) {
+	public void setOutLevel(OutLevel level) {
 		PinOutLevel = level;
 	}
 

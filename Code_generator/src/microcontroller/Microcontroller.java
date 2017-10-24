@@ -10,6 +10,7 @@ import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
 import configurator.GPIO.Mode;
+import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
@@ -63,10 +64,10 @@ public class Microcontroller {
 	private static final String STR_PIN_RESET	= "reset";
 	
 	/* Strings to extract information from XML file */
-	private static final String ROOT_ELEMENT	= "microcontroller";
-	private static final String STR_ATT_MODEL	= "model";
-	private static final String STR_ATT_MFCT	= "manufacturer";
-	private static final String STR_PIN			= "pin";
+	private static final String ROOT_ELEMENT		= "microcontroller";
+	private static final String STR_ATT_MODEL		= "model";
+	private static final String STR_ATT_MFCT		= "manufacturer";
+	private static final String STR_PIN				= "pin";
 	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
 	
 	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
@@ -346,27 +347,46 @@ public class Microcontroller {
 			name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
 			if (!name.equals(ErrorCode.STR_INVALID)) {	
 				gpioIndex = getGpioIndexFromPinName(name);
+				if (gpioIndex >= getUc_pinNum()) {
+					Features.verbosePrint("Pin " + name + " not found...");
+					return ErrorCode.EX_ERROR;
+				}
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Mode.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[gpioIndex].setMode(Mode.getConfFromString(configuration));
 				Features.verbosePrint("Found " + name + "'s Mode: " + configuration);
+			} else {
+				GpioCfgPin[gpioIndex].setMode(PinConf.DF_MODE);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, OutType.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[gpioIndex].setOutType(OutType.getConfFromString(configuration));
+			} else {
+				GpioCfgPin[gpioIndex].setOutType(PinConf.DF_OUTTYPE);
+			}
+			
+			configuration = XmlOpener.getElementInfo(pinEl, OutLevel.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[gpioIndex].setOutLevel(OutLevel.getConfFromString(configuration));
+			} else {
+				GpioCfgPin[gpioIndex].setOutLevel(PinConf.DF_OUT_LEVEL);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Pull.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[gpioIndex].setPull(Pull.getConfFromString(configuration));
+			} else {
+				GpioCfgPin[gpioIndex].setPull(PinConf.DF_PULL);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Speed.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[gpioIndex].setSpeed(Speed.getConfFromString(configuration));
+			} else {
+				GpioCfgPin[gpioIndex].setSpeed(PinConf.DF_SPEED);
 			}
 		}
 		
@@ -379,7 +399,7 @@ public class Microcontroller {
 		int gpioIndex;
 		
 		for (gpioIndex = 0; gpioIndex < getUc_pinNum(); gpioIndex++) {
-			if (name == CurrentPin[gpioIndex].getName()) {
+			if (name.equals(CurrentPin[gpioIndex].getName())) {
 				break;
 			}
 		}

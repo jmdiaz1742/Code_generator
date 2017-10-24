@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Microcontroller_Configuration>
-	<Pin>
-		PB0
+	<pin>
+		<name>PB0</name>
+		<Port>B</Port>
+		<Mode>MODE_OUTPUT</Mode>
+		<OutType>OTYPE_PUSH_PULL</OutType>
+		<OutLevel>LOW</OutLevel>
+		<Speed>SPEED_FAST</Speed>
+	</pin>
+	<pin>
+		<name>PB1</name>
 		<Port>B</Port>
 		<Mode>MODE_INPUT</Mode>
 		<OutType>OTYPE_PUSH_PULL</OutType>
 		<Pull>PULL_NOT_AVAILABLE</Pull>
 		<Speed>SPEED_FAST</Speed>
-	</Pin>
-	<Pin>
-		PB1
+	</pin>
+	<pin>
+		<name>PB2</name>
 		<Port>B</Port>
 		<Mode>MODE_INPUT</Mode>
 		<OutType>OTYPE_PUSH_PULL</OutType>
 		<Pull>PULL_NOT_AVAILABLE</Pull>
 		<Speed>SPEED_FAST</Speed>
-	</Pin>
-	<Pin>
-		PB2
+	</pin>
+	<pin>
+		<name>PB6</name>
 		<Port>B</Port>
 		<Mode>MODE_INPUT</Mode>
 		<OutType>OTYPE_PUSH_PULL</OutType>
 		<Pull>PULL_NOT_AVAILABLE</Pull>
 		<Speed>SPEED_FAST</Speed>
-	</Pin>
-	<Pin>
-		PB6
-		<Port>B</Port>
-		<Mode>MODE_INPUT</Mode>
-		<OutType>OTYPE_PUSH_PULL</OutType>
-		<Pull>PULL_NOT_AVAILABLE</Pull>
-		<Speed>SPEED_FAST</Speed>
-	</Pin>
-	<Pin>
-		PC1
+	</pin>
+	<pin>
+		<name>PC1</name>
 		<Port>C</Port>
 		<Mode>MODE_INPUT</Mode>
 		<OutType>OTYPE_PUSH_PULL</OutType>
 		<Pull>PULL_NOT_AVAILABLE</Pull>
 		<Speed>SPEED_FAST</Speed>
-	</Pin>
+	</pin>
 </Microcontroller_Configuration>

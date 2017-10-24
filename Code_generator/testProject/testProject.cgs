@@ -4,6 +4,6 @@
 <CodeGeneratorProject>
 	<name>Test_Project</name>
 	<ConfigFile>testProjectConf.xml</ConfigFile>
-	<ucFile>microcontroller.xml</ucFile>
+	<ucFile>ATTINY-4-TSUR.xml</ucFile>
 </CodeGeneratorProject>
 
