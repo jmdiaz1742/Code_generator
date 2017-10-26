@@ -18,7 +18,8 @@ public class AboutWindow {
 	private JFrame frmAboutCodeGenerator;
 
 	/**
-	 * Launch the application.
+	 * About window main
+	 * @param args Init parameters
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

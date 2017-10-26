@@ -39,6 +39,7 @@ public class ConfXmlWriter {
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
 	private static final String	STR_PIN_EL	= "Pin";
 	private static final String	STR_PORT	= "Port";
+	private static final String	STR_NAME	= "name";
 
 	/**
 	 * Constructor
@@ -79,6 +80,7 @@ public class ConfXmlWriter {
 		RootElement.appendChild(PinElement[pinNum]);
 
 		/* Write the pins configuration information */
+		addPinChild(STR_NAME, pin.getPinName(), pinNum);
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
@@ -101,6 +103,7 @@ public class ConfXmlWriter {
 	/**
 	 * Write the XMl file
 	 * @param fileName Name of XML configuration file
+	 * @return Error status
 	 */
 	public ErrorCode writeXml(String fileName) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;

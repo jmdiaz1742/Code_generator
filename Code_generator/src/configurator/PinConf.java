@@ -171,16 +171,16 @@ public class PinConf {
 	}
 
 	/**
-	 * Get the pin's output status
-	 * @return true if HIGH
+	 * Get the pin's output level
+	 * @return Pin's output level
 	 */
 	public OutLevel getOutLevel() {
 		return PinOutLevel;
 	}
 
 	/**
-	 * Set the pin's output status
-	 * @param pinOutStatus true if HIGH
+	 * Set the pin's output level
+	 * @param level Pin's output level
 	 */
 	public void setOutLevel(OutLevel level) {
 		PinOutLevel = level;

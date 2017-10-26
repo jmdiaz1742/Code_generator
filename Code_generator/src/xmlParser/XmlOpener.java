@@ -31,7 +31,7 @@ public class XmlOpener {
 	/* Methods */
 	/**
 	 * Open the XML file
-	 * @param fileName Complete path and name of XML file
+	 * @param inFile XML file
 	 * @return Error code
 	 */
 	public ErrorCode OpenFile(File inFile) {

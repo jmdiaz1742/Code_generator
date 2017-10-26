@@ -65,8 +65,8 @@ public class GpioConfWindow {
 
 
 	/**
-	 * Launch the application.
-	 * @wbp.parser.entryPoint
+	 * Gpio configuration window main
+	 * @param args Init parameters
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -83,7 +83,7 @@ public class GpioConfWindow {
 
 	/**
 	 * Create the GPIO configuration window and show it
-	 * @wbp.parser.entryPoint
+	 * @param uCtrl Microcontroller object containing all pin's information
 	 */
 	public GpioConfWindow(Microcontroller uCtrl) {
 		UcConf = uCtrl;

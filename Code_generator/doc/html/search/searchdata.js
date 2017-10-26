@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "acdefgimnopstvwx",
-  1: "cefmopstx",
+  0: "acdefgilmnopstvwx",
+  1: "acefgmopstx",
   2: "cfgmpx",
-  3: "acdgimopsvwx",
-  4: "defnsv",
+  3: "acdgilmopsvwx",
+  4: "defgnpsv",
   5: "f"
 };
 
