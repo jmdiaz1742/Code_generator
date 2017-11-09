@@ -143,11 +143,10 @@ public class MainWindow {
 		mntmSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/****** Begin Save button click ******/
-				showComingSoonMessage();
+				saveProject();
 				/****** End Save button click ******/
 			}
 		});
-		mntmSave.setEnabled(false);
 		mnFile.add(mntmSave);
 		
 		mntmSaveAs = new JMenuItem(Messages.getString("MainWindow.mntmSaveAs.text")); //$NON-NLS-1$
@@ -296,6 +295,7 @@ public class MainWindow {
 		return errorStatus;
 	}
 	
+	
 	/**
 	 * Show a Coming Soon! dialog
 	 */
@@ -304,5 +304,12 @@ public class MainWindow {
 				"Coming soon!",
 				"Feature not ready",
 			    JOptionPane.WARNING_MESSAGE);
+	}
+	
+	/**
+	 * Save the project files
+	 */
+	private void saveProject() {
+		MainGui.saveUc();
 	}
 }

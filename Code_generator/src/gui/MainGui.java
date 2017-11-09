@@ -8,6 +8,7 @@ import common.ErrorCode;
 import common.Features;
 import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
+import xmlCreator.ConfXmlWriter;
 import xmlParser.XmlOpener;
 
 /**
@@ -26,6 +27,7 @@ public class MainGui {
 	
 	/* Public fields */
 	static File ProjectFile;
+	static String ProjectPath;
 	
 	/**
 	 * Main function
@@ -49,6 +51,7 @@ public class MainGui {
 		XmlOpener fileOpener = new XmlOpener();
 		
 		ProjectFile = inFile;
+		ProjectPath = ProjectFile.getPath();
 		errorStatus = ProjectSettingsConf.openProjectFile(ProjectFile);
 		if (errorStatus != ErrorCode.NO_ERROR) {
 			showErrorDialog("Error opening configuration file");
@@ -105,6 +108,22 @@ public class MainGui {
 	 */
 	public static void showGpioConfWindow() {
 		CgGpioConfWindow = new GpioConfWindow(SelectedMicrocontroller);
+	}
+	
+	/**
+	 * Set the project's microcontroller configuration
+	 * @param uC
+	 */
+	public static void setUC(Microcontroller uC) {
+		SelectedMicrocontroller = uC;
+	}
+	
+	/**
+	 * Save the microcontroller's configuration to disk
+	 */
+	public static void saveUc() {
+		ConfXmlWriter pinConfWriter = new ConfXmlWriter(SelectedMicrocontroller);
+		pinConfWriter.writeXml(ProjectSettingsConf.getConfFile().getPath());
 	}
 
 }

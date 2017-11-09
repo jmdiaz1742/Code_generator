@@ -22,6 +22,7 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
+import microcontroller.Microcontroller;
 
 /**
  * Write a XML file
@@ -34,7 +35,7 @@ public class ConfXmlWriter {
 	private Document XmlDoc;
 	private Element RootElement;
 	private Element[] PinElement;
-	int totalPins = 0;
+	Microcontroller UCConf;
 
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
 	private static final String	STR_PIN_EL	= "Pin";
@@ -45,11 +46,13 @@ public class ConfXmlWriter {
 	 * Constructor
 	 * @param gpioPins NUmber of GPIO pins
 	 */
-	public ConfXmlWriter (int gpioPins) {
+	public ConfXmlWriter (Microcontroller uC) {
 		DocumentBuilderFactory xmlFactory;
 		DocumentBuilder xmlBuilder;
+		
+		UCConf = uC;
 
-		if (gpioPins > 0 ) {
+		if (UCConf.getUc_gpioNum() > 0 ) {
 			try {
 				xmlFactory = DocumentBuilderFactory.newInstance();
 				xmlBuilder = xmlFactory.newDocumentBuilder();
@@ -59,13 +62,23 @@ public class ConfXmlWriter {
 				RootElement = XmlDoc.createElement(STR_ROOT_EL);
 				XmlDoc.appendChild(RootElement);
 
-				totalPins = gpioPins;
-				PinElement = new Element[totalPins];
+				PinElement = new Element[UCConf.getUc_gpioNum()];
+				
+				configurePins();
 
 			} catch (ParserConfigurationException e) {
 				Features.verbosePrint("Error creating XML file...");
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	/**
+	 * Configure all pins
+	 */
+	private void configurePins() {
+		for (int pinNum = 0; pinNum < UCConf.getUc_gpioNum(); pinNum++) {
+			addPin(UCConf.GpioCfgPin[pinNum], pinNum);
 		}
 	}
 
@@ -111,12 +124,16 @@ public class ConfXmlWriter {
 		Transformer xmlTrans;
 		DOMSource xmlSource;
 		StreamResult xmlResult;
+		File xmlFile;
 
 		try {
+			xmlFile = new File (fileName);
+			xmlFile.getParentFile().mkdirs();
+			
 			xmlTransFact = TransformerFactory.newInstance();
 			xmlTrans = xmlTransFact.newTransformer();
 			xmlSource = new DOMSource(XmlDoc);
-			xmlResult = new StreamResult(new File(fileName));
+			xmlResult = new StreamResult(xmlFile);
 
 			xmlTrans.transform(xmlSource, xmlResult);
 		} catch (TransformerConfigurationException e) {

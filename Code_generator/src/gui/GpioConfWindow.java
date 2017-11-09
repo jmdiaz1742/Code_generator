@@ -19,9 +19,8 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Window for configuring GPIO pins
@@ -65,9 +64,6 @@ public class GpioConfWindow {
 	private static final int PIN_PULL_CBOX_INIT_POS_Y		= 3;
 	private static final int PIN_SPEED_CBOX_INIT_POS_X		= 5;
 	private static final int PIN_SPEED_CBOX_INIT_POS_Y		= 3;
-	private JMenuBar menuBar;
-	private JMenu mnFile;
-	private JMenuItem mntmSave;
 
 
 	/**
@@ -116,6 +112,14 @@ public class GpioConfWindow {
 	 */
 	private void initialize() {
 		frmGpiosConfiguration = new JFrame();
+		frmGpiosConfiguration.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				/* Begin Window closing */
+				MainGui.setUC(UcConf);
+				/* End Window closing */
+			}
+		});
 		frmGpiosConfiguration.setTitle(Messages.getString("GpioConfWindow.frmGpiosConfiguration.title")); //$NON-NLS-1$
 		frmGpiosConfiguration.setBounds(100, 100, 980, 740);
 		frmGpiosConfiguration.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -197,22 +201,6 @@ public class GpioConfWindow {
 		gbc_lblSpeed.gridx = 5;
 		gbc_lblSpeed.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblSpeed, gbc_lblSpeed);
-		
-		menuBar = new JMenuBar();
-		frmGpiosConfiguration.setJMenuBar(menuBar);
-		
-		mnFile = new JMenu(Messages.getString("GpioConfWindow.mnFile.text")); //$NON-NLS-1$
-		menuBar.add(mnFile);
-		
-		mntmSave = new JMenuItem(Messages.getString("GpioConfWindow.mntmSave.text")); //$NON-NLS-1$
-		mntmSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin Save menu click ******/
-				
-				/****** End Save menu click ******/
-			}
-		});
-		mnFile.add(mntmSave);
 	}
 	
 	/**
@@ -531,6 +519,9 @@ public class GpioConfWindow {
 		}
 	}
 	
+	/**
+	 * update speed combo boxes
+	 */
 	private void updateSpeed() {
 		int portPinNum = 0;
 		
@@ -551,16 +542,47 @@ public class GpioConfWindow {
 		}
 	}
 	
+	/**
+	 * Save pins' output levels
+	 */
 	private void outLevelChange() {
+		int portPinNum = 0;
 		
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setOutLevel(OutLevel.getConfFromString(comboBox_PinOutLevel[portPinNum].getSelectedItem().toString()));
+			}
+		}
 	}
 	
+	/**
+	 * Save pin's pull resistors configurations
+	 */
 	private void pullChange() {
+		int portPinNum = 0;
 		
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setPull(Pull.getConfFromString(comboBox_PinPull[portPinNum].getSelectedItem().toString()));
+			}
+		}
 	}
 	
+	/**
+	 * Save the pins' speed
+	 */
 	private void speedChange() {
+		int portPinNum = 0;
 		
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {				
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setSpeed(Speed.getConfFromString(comboBox_PinSpeed[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
 	}
 
 }
