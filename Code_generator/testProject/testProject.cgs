@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE xml>
+
+<CodeGeneratorProject>
+	<name>Test_Project</name>
+	<ConfigFile>testProjectConf.xml</ConfigFile>
+	<ucFile>ATTINY-4-TSUR.xml</ucFile>
+</CodeGeneratorProject>
+

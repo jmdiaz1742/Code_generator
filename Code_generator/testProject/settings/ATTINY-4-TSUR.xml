@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE xml>
+
+<microcontroller>
+	<manufacturer>Microchip</manufacturer>
+	<model>ATTINY-4-TSUR</model>
+	<family>ATtiny4</family>
+	<pin>
+		<name>PB0</name>
+		<number>1</number>
+		<interrupt>PCINT0</interrupt>
+		<adc>ADC0</adc>
+		<port>B</port>
+		<gpio>GPIO</gpio>
+	</pin>
+	<pin>
+		<name>GND</name>
+		<number>2</number>
+		<gnd>GND</gnd>
+	</pin>
+	<pin>
+		<name>PB1</name>
+		<number>3</number>
+		<interrupt>PCINT1</interrupt>
+		<adc>ADC1</adc>
+		<port>B</port>
+		<clock>CLKI</clock>
+		<gpio>GPIO</gpio>
+	</pin>
+	<pin>
+		<name>PB2</name>
+		<number>4</number>
+		<interrupt>PCINT2</interrupt>
+		<adc>ADC2</adc>
+		<timer>T0</timer>
+		<port>B</port>
+		<clock>CLKO</clock>
+		<gpio>GPIO</gpio>
+	</pin>
+	<pin>
+		<name>VCC</name>
+		<number>5</number>
+		<vcc>VCC</vcc>
+	</pin>
+	<pin>
+		<name>PB6</name>
+		<number>6</number>
+		<interrupt>PCINT3</interrupt>
+		<adc>ADC3</adc>
+		<port>B</port>
+		<reset>RESET</reset>
+		<gpio>GPIO</gpio>
+	</pin>
+	<pin>
+		<name>PC1</name>
+		<number>7</number>
+		<interrupt>PCINT4</interrupt>
+		<adc>ADC4</adc>
+		<port>C</port>
+		<gpio>GPIO</gpio>
+	</pin>
+</microcontroller>
+

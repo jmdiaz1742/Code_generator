@@ -1,11 +1,12 @@
+/segments.gen
+/segments_1
+/write.lock
 *.fdt
 *.fdx
-*.frq
 *.fnm
+*.frq
 *.nrm
-*.tii
 *.prx
+*.tii
 *.tis
-*.gen
-/segments_1
-*.lock
+/segments*
