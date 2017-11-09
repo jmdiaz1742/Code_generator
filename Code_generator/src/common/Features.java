@@ -13,7 +13,7 @@ public class Features {
 	/**
 	 * Enables debug functions
 	 */
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 	
 	/**
 	 * Enables console messages
