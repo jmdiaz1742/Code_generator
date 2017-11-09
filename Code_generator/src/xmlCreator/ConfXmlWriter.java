@@ -19,6 +19,7 @@ import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
 import configurator.GPIO.Mode;
+import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
@@ -38,13 +39,13 @@ public class ConfXmlWriter {
 	Microcontroller UCConf;
 
 	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
-	private static final String	STR_PIN_EL	= "Pin";
-	private static final String	STR_PORT	= "Port";
+	private static final String	STR_PIN_EL	= "pin";
+	private static final String	STR_PORT	= "port";
 	private static final String	STR_NAME	= "name";
 
 	/**
 	 * Constructor
-	 * @param gpioPins NUmber of GPIO pins
+	 * @param uC Microcontroller configuration
 	 */
 	public ConfXmlWriter (Microcontroller uC) {
 		DocumentBuilderFactory xmlFactory;
@@ -63,7 +64,6 @@ public class ConfXmlWriter {
 				XmlDoc.appendChild(RootElement);
 
 				PinElement = new Element[UCConf.getUc_gpioNum()];
-				
 				configurePins();
 
 			} catch (ParserConfigurationException e) {
@@ -97,6 +97,7 @@ public class ConfXmlWriter {
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
+		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);
 		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
 		addPinChild(Speed.STR_NAME, pin.getSpeed().name(), pinNum);
 	}
@@ -145,7 +146,7 @@ public class ConfXmlWriter {
 			Features.verbosePrint("Error writing XML file...");
 			e.printStackTrace();
 		}
-		Features.verbosePrint(fileName + " printed correctly...");
+		Features.verbosePrint("Saved file " + fileName);
 
 		return errorStatus;
 	}

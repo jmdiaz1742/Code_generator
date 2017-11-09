@@ -152,7 +152,7 @@ public class Microcontroller {
 		pinList = UcDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
 			setUc_pinNum(pinList.getLength());
-			Features.verbosePrint("Number of pins: " + pinList.getLength());
+			Features.verbosePrint("Number of pins: " + getUc_pinNum());
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
 			Features.verbosePrint("No pins found...");
@@ -327,8 +327,8 @@ public class Microcontroller {
 		
 		pinList = confDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
-			setUc_pinNum(pinList.getLength());
-			Features.verbosePrint("Number of configured pins: " + pinList.getLength());
+			setUc_gpioNum(pinList.getLength());
+			Features.verbosePrint("Number of configured pins: " + getUc_gpioNum());
 		} else {
 			Features.verbosePrint("No pins configurations found...");
 			return ErrorCode.EX_ERROR;
@@ -355,38 +355,42 @@ public class Microcontroller {
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Mode.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
-				GpioCfgPin[gpioIndex].setMode(Mode.getConfFromString(configuration));
+				GpioCfgPin[pinNum].setMode(Mode.getConfFromString(configuration));
 				Features.verbosePrint("Found " + name + "'s Mode: " + configuration);
 			} else {
-				GpioCfgPin[gpioIndex].setMode(PinConf.DF_MODE);
+				GpioCfgPin[pinNum].setMode(PinConf.DF_MODE);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, OutType.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
-				GpioCfgPin[gpioIndex].setOutType(OutType.getConfFromString(configuration));
+				GpioCfgPin[pinNum].setOutType(OutType.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Output type: " + configuration);
 			} else {
-				GpioCfgPin[gpioIndex].setOutType(PinConf.DF_OUTTYPE);
+				GpioCfgPin[pinNum].setOutType(PinConf.DF_OUTTYPE);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, OutLevel.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
-				GpioCfgPin[gpioIndex].setOutLevel(OutLevel.getConfFromString(configuration));
+				GpioCfgPin[pinNum].setOutLevel(OutLevel.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Output Level: " + configuration);
 			} else {
-				GpioCfgPin[gpioIndex].setOutLevel(PinConf.DF_OUT_LEVEL);
+				GpioCfgPin[pinNum].setOutLevel(PinConf.DF_OUT_LEVEL);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Pull.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
-				GpioCfgPin[gpioIndex].setPull(Pull.getConfFromString(configuration));
+				GpioCfgPin[pinNum].setPull(Pull.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Pull resistor: " + configuration);
 			} else {
 				GpioCfgPin[gpioIndex].setPull(PinConf.DF_PULL);
 			}
 			
 			configuration = XmlOpener.getElementInfo(pinEl, Speed.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
-				GpioCfgPin[gpioIndex].setSpeed(Speed.getConfFromString(configuration));
+				GpioCfgPin[pinNum].setSpeed(Speed.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Speed: " + configuration);
 			} else {
-				GpioCfgPin[gpioIndex].setSpeed(PinConf.DF_SPEED);
+				GpioCfgPin[pinNum].setSpeed(PinConf.DF_SPEED);
 			}
 		}
 		

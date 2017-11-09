@@ -112,7 +112,7 @@ public class MainGui {
 	
 	/**
 	 * Set the project's microcontroller configuration
-	 * @param uC
+	 * @param uC Microcontroller configuration
 	 */
 	public static void setUC(Microcontroller uC) {
 		SelectedMicrocontroller = uC;

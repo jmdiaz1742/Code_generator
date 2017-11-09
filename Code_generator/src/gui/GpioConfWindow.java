@@ -552,6 +552,7 @@ public class GpioConfWindow {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
 				/* Save configuration to microcontroller object */
 				UcConf.GpioCfgPin[pinNum].setOutLevel(OutLevel.getConfFromString(comboBox_PinOutLevel[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
 			}
 		}
 	}
@@ -566,6 +567,7 @@ public class GpioConfWindow {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
 				/* Save configuration to microcontroller object */
 				UcConf.GpioCfgPin[pinNum].setPull(Pull.getConfFromString(comboBox_PinPull[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
 			}
 		}
 	}
@@ -584,5 +586,4 @@ public class GpioConfWindow {
 			}
 		}
 	}
-
 }
