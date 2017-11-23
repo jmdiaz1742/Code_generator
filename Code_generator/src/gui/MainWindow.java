@@ -24,6 +24,9 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JButton;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 /**
  * Main application window
@@ -92,6 +95,7 @@ public class MainWindow {
 	 * @param status true if visible
 	 */
 	public void setVisible(boolean status) {
+		this.FrmCodeGenerator.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.FrmCodeGenerator.setVisible(status);
 	}
 
@@ -120,6 +124,7 @@ public class MainWindow {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmNewProject = new JMenuItem(Messages.getString("MainWindow.mntmNewProject.text")); //$NON-NLS-1$
+		mntmNewProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
 		mntmNewProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin New Project button click ******/
@@ -130,6 +135,7 @@ public class MainWindow {
 		mnFile.add(mntmNewProject);
 		
 		JMenuItem mntmOpenProject = new JMenuItem(Messages.getString("MainWindow.mntmOpenProject.text")); //$NON-NLS-1$
+		mntmOpenProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
 		mntmOpenProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Open Existing Project button click ******/
@@ -140,6 +146,7 @@ public class MainWindow {
 		mnFile.add(mntmOpenProject);
 		
 		mntmSave = new JMenuItem(Messages.getString("MainWindow.mntmSave.text"));
+		mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
 		mntmSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/****** Begin Save button click ******/
@@ -150,6 +157,7 @@ public class MainWindow {
 		mnFile.add(mntmSave);
 		
 		mntmSaveAs = new JMenuItem(Messages.getString("MainWindow.mntmSaveAs.text")); //$NON-NLS-1$
+		mntmSaveAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
 		mntmSaveAs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Save as button click ******/
@@ -164,6 +172,7 @@ public class MainWindow {
 		menuBar.add(mnHelp);
 		
 		JMenuItem mntmAbout = new JMenuItem(Messages.getString("MainWindow.mntmAbout.text")); //$NON-NLS-1$
+		mntmAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		mntmAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin About button click ******/
@@ -212,6 +221,7 @@ public class MainWindow {
 		FrmCodeGenerator.getContentPane().add(lbl_Microcontroller, gbc_lbl_Microcontroller);
 		
 		btn_ConfigureGpios = new JButton(Messages.getString("MainWindow.btnConfigureGpios.text")); //$NON-NLS-1$
+		btn_ConfigureGpios.setMnemonic('G');
 		btn_ConfigureGpios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/****** Begin Configure GPIOs button click ******/

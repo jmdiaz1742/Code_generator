@@ -103,6 +103,7 @@ public class GpioConfWindow {
 		selectPort();
 		initDynamicPinElements();
 		populateDynamicPinElements();
+		frmGpiosConfiguration.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frmGpiosConfiguration.setVisible(true);
 		GuiRefreshLocked = false;
 	}
