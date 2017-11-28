@@ -43,7 +43,6 @@ var searchData=
   ['getuc_5fportnum',['getUc_portNum',['../classmicrocontroller_1_1_microcontroller.html#acc67805242fb40816ececf03ceb17d3d',1,'microcontroller::Microcontroller']]],
   ['getucfile',['getUcFile',['../classproject_configuration_1_1_project_settings.html#a4bf550763c113143fe5b9010771caf9a',1,'projectConfiguration::ProjectSettings']]],
   ['gpiocfgpin',['GpioCfgPin',['../classmicrocontroller_1_1_microcontroller.html#a5120e7091c844dcb10ad76884ca98cd7',1,'microcontroller::Microcontroller']]],
-  ['gpioconfwindow',['GpioConfWindow',['../classgui_1_1_gpio_conf_window.html#a38360714cebc9b8dcd533105f6305e3e',1,'gui::GpioConfWindow']]],
-  ['gpioconfwindow',['GpioConfWindow',['../classgui_1_1_gpio_conf_window.html',1,'gui']]],
+  ['gpioconfwindow',['GpioConfWindow',['../classgui_1_1_gpio_conf_window.html',1,'gui.GpioConfWindow'],['../classgui_1_1_gpio_conf_window.html#a38360714cebc9b8dcd533105f6305e3e',1,'gui.GpioConfWindow.GpioConfWindow()']]],
   ['gui',['gui',['../namespacegui.html',1,'']]]
 ];

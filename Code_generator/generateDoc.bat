@@ -6,14 +6,14 @@ title Generate doxygen documentation
 ECHO Using doxygen...
 doxygen Doxyfile
 IF errorlevel 1 (
-  ECHO Error generating documentation!
+  ECHO Problem vuilding HTML documentation!
   exit 1
 )
 
 ECHO Generating pdf...
 doc\latex\make.bat
 IF errorlevel 1 (
-  ECHO Error generating pdf!
+  ECHO Problem vuilding PDF documentation!
   exit 1
 )
 
