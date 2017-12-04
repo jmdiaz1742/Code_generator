@@ -20,20 +20,20 @@ import xmlParser.XmlOpener;
 public class MainGui {
 
 	/* Private fields */
-	static MainWindow CgMainWindow;
-	static GpioConfWindow CgGpioConfWindow;
-	static ProjectSettings ProjectSettingsConf = new ProjectSettings();
-	static Microcontroller SelectedMicrocontroller;
+	static private MainWindow CgMainWindow;
+	static private ProjectSettings ProjectSettingsConf = new ProjectSettings();
+	static private Microcontroller SelectedMicrocontroller;
+	static private Microcontroller NewMicrocontroller;
 	
 	/* Public fields */
-	static File ProjectFile;
-	static String ProjectPath;
+	static public File ProjectFile;
+	static public String ProjectPath;
 	
 	/**
 	 * Main function
 	 * @param args TBD
 	 */
-	public static void main(String[] args) {
+	static public void main(String[] args) {
 		// FIXME: Check how this would work, the idea is to call all the GUI
 		// windows from here
 		Features.verbosePrint("Starting GUI...");
@@ -46,7 +46,7 @@ public class MainGui {
 	 * @param inFile Settings file
 	 * @return Error status
 	 */
-	public static ErrorCode loadProjectFile(File inFile) {
+	static public ErrorCode loadProjectFile(File inFile) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		XmlOpener fileOpener = new XmlOpener();
 		
@@ -89,7 +89,7 @@ public class MainGui {
 	 * Show an error dialog
 	 * @param message Message to display
 	 */
-	public static void showErrorDialog(String message) {
+	static public void showErrorDialog(String message) {
 		JOptionPane.showMessageDialog(CgMainWindow.FrmCodeGenerator,
 				message,
 			    "File error",
@@ -99,29 +99,35 @@ public class MainGui {
 	/**
 	 * Show about information window
 	 */
-	public static void showAboutWindow() {
+	static public void showAboutWindow() {
 		new AboutWindow();
 	}
 	
 	/**
 	 * Show the GPIOs configuration window
 	 */
-	public static void showGpioConfWindow() {
-		CgGpioConfWindow = new GpioConfWindow(SelectedMicrocontroller);
+	static public void showGpioConfWindow() {
+		new GpioConfWindow(SelectedMicrocontroller);
 	}
 	
 	/**
 	 * Set the project's microcontroller configuration
 	 * @param uC Microcontroller configuration
 	 */
-	public static void setUC(Microcontroller uC) {
-		SelectedMicrocontroller = uC;
+	static public void setNewUC(Microcontroller uC) {
+		if (uC == SelectedMicrocontroller)
+		{
+			Features.verbosePrint("No uC change...");
+		} else
+		{
+			Features.verbosePrint("uC changed...");
+		}
 	}
 	
 	/**
 	 * Save the microcontroller's configuration to disk
 	 */
-	public static void saveUc() {
+	static public void saveUc() {
 		ConfXmlWriter pinConfWriter = new ConfXmlWriter(SelectedMicrocontroller);
 		pinConfWriter.writeXml(ProjectSettingsConf.getConfFile().getPath());
 	}

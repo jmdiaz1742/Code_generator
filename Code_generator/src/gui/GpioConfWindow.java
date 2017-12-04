@@ -117,7 +117,7 @@ public class GpioConfWindow {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				/* Begin Window closing */
-				MainGui.setUC(UcConf);
+				MainGui.setNewUC(UcConf);
 				/* End Window closing */
 			}
 		});
