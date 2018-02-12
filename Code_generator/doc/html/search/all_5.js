@@ -2,6 +2,7 @@ var searchData=
 [
   ['getadc',['getAdc',['../classmicrocontroller_1_1_pin.html#ab3ecaed5ed7abaa0879a0d04175e1a37',1,'microcontroller::Pin']]],
   ['getclock',['getClock',['../classmicrocontroller_1_1_pin.html#a291b10a8fe2e1c88756366fc65982e4d',1,'microcontroller::Pin']]],
+  ['getcodename',['getCodeName',['../classconfigurator_1_1_pin_conf.html#af0824abd1b0a9d93c0ea392ecd321393',1,'configurator::PinConf']]],
   ['getconffile',['getConfFile',['../classproject_configuration_1_1_project_settings.html#a330476bc144b9d3b9bac9c30324fce04',1,'projectConfiguration::ProjectSettings']]],
   ['getconffromstring',['getConfFromString',['../enumconfigurator_1_1_g_p_i_o_1_1_mode.html#af38adb287e0dc7caa74eebc87ac87775',1,'configurator.GPIO.Mode.getConfFromString()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_level.html#a14414bfba5cc4eb3beef071ec104b2d0',1,'configurator.GPIO.OutLevel.getConfFromString()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_type.html#a30d4fac374ac645912a8aed6952a476a',1,'configurator.GPIO.OutType.getConfFromString()'],['../enumconfigurator_1_1_g_p_i_o_1_1_pull.html#a0e831fb5a1b34801e671baa61b9ee24a',1,'configurator.GPIO.Pull.getConfFromString()'],['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html#a0d2d02de5b8821cd3ea181b01a55f5b2',1,'configurator.GPIO.Speed.getConfFromString()']]],
   ['getconfiguredpin',['getConfiguredPin',['../classmicrocontroller_1_1_microcontroller.html#ae8a88e9fc0911e0678ee0fb50568e953',1,'microcontroller::Microcontroller']]],

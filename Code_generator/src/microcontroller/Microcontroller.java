@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
+import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
@@ -391,6 +392,14 @@ public class Microcontroller {
 				Features.verbosePrint("Found " + name + "'s Speed: " + configuration);
 			} else {
 				GpioCfgPin[pinNum].setSpeed(PinConf.DF_SPEED);
+			}
+			
+			configuration = XmlOpener.getElementInfo(pinEl, CodeName.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[pinNum].setCodeName(configuration);
+				Features.verbosePrint("Found " + name + "'s Code name: " + configuration);
+			} else {
+				GpioCfgPin[pinNum].setCodeName(PinConf.DF_CODE_NAME);
 			}
 		}
 		

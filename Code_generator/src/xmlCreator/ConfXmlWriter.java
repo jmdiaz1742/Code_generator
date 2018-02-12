@@ -18,6 +18,7 @@ import org.w3c.dom.Element;
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
+import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
@@ -38,10 +39,10 @@ public class ConfXmlWriter {
 	private Element[] PinElement;
 	Microcontroller UCConf;
 
-	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
-	private static final String	STR_PIN_EL	= "pin";
-	private static final String	STR_PORT	= "port";
-	private static final String	STR_NAME	= "name";
+	private static final String	STR_ROOT_EL		= "Microcontroller_Configuration";
+	private static final String	STR_PIN_EL		= "pin";
+	private static final String	STR_PORT		= "port";
+	private static final String	STR_NAME		= "name";
 
 	/**
 	 * Constructor
@@ -100,6 +101,7 @@ public class ConfXmlWriter {
 		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);
 		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
 		addPinChild(Speed.STR_NAME, pin.getSpeed().name(), pinNum);
+		addPinChild(CodeName.STR_NAME, pin.getCodeName(), pinNum);
 	}
 
 	/**

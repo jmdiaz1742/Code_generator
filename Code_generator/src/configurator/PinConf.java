@@ -22,6 +22,7 @@ public class PinConf {
 	/* Pin configuration */
 	private String		Port;
 	private String		PinName;
+	private String		CodeName;
 	private Mode 		PinMode;
 	private Speed		PinSpeed;
 	private OutType		PinOutType;
@@ -47,9 +48,14 @@ public class PinConf {
 	 */
 	public static final OutLevel DF_OUT_LEVEL =	OutLevel.LOW;
 	/**
-	 * Default pin'r pull resistor
+	 * Default pin's pull resistor
 	 */
 	public static final Pull DF_PULL = Pull.PULL_NOT_AVAILABLE;
+	
+	/**
+	 * Default pin's code name
+	 */
+	public static final String DF_CODE_NAME = "";
 	
 	/* Methods */
 	
@@ -65,6 +71,7 @@ public class PinConf {
 		}
 		setPort(gpioPin.getPort());
 		setPinName(gpioPin.getName());
+		setCodeName(gpioPin.getName());
 		setMode(DF_MODE);
 		setSpeed(DF_SPEED);
 		setOutType(DF_OUTTYPE);
@@ -115,6 +122,22 @@ public class PinConf {
 	 */
 	private void setPinName(String pin) {
 		this.PinName = pin;
+	}
+
+	/**
+	 * Get the pin's user selected name
+	 * @return pin's name
+	 */
+	public String getCodeName() {
+		return CodeName;
+	}
+
+	/**
+	 * Set the pin's user selected name
+	 * @param name Pin's name
+	 */
+	public void setCodeName(String name) {
+		CodeName = name;
 	}
 
 	/**

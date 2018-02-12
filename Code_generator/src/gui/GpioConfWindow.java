@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import common.Features;
 import configurator.GPIO.Mode;
@@ -36,7 +39,7 @@ public class GpioConfWindow {
 	private String SelectedPort;
 	private int PortPinsTotal;
 	
-	/* Dynamic GUI elements */
+	/* Static GUI elements */
 	private JComboBox<String> comboBox_PortSelection;
 	private JLabel lblt_Pin;
 	private JLabel lblt_Mode;
@@ -44,12 +47,16 @@ public class GpioConfWindow {
 	private JLabel lblt_OutputLevel;
 	private JLabel lblt_PullResistor;
 	private JLabel lblSpeed;
+	private JLabel lblCodename;
+	
+	/* Dynamic GUI elements */
 	private JLabel[] lbl_PinName;
 	private JComboBox<String>[] comboBox_PinMode;
 	private JComboBox<String>[] comboBox_PinOutType;
 	private JComboBox<String>[] comboBox_PinOutLevel;
 	private JComboBox<String>[] comboBox_PinPull;
 	private JComboBox<String>[] comboBox_PinSpeed;
+	private JTextField[] textField_CodeName;
 	
 	/* GUI Constants */
 	private static final int PIN_NAME_LABEL_INIT_POS_X		= 0;
@@ -64,6 +71,8 @@ public class GpioConfWindow {
 	private static final int PIN_PULL_CBOX_INIT_POS_Y		= 3;
 	private static final int PIN_SPEED_CBOX_INIT_POS_X		= 5;
 	private static final int PIN_SPEED_CBOX_INIT_POS_Y		= 3;
+	private static final int PIN_CODE_NAME_TXTF_INIT_POS_X	= 6;
+	private static final int PIN_CODE_NAME_TXTF_INIT_POS_Y	= 3;
 
 
 	/**
@@ -125,9 +134,9 @@ public class GpioConfWindow {
 		frmGpiosConfiguration.setBounds(100, 100, 980, 740);
 		frmGpiosConfiguration.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{120, 169, 135, 0, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{120, 169, 135, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmGpiosConfiguration.getContentPane().setLayout(gridBagLayout);
 		
@@ -198,10 +207,17 @@ public class GpioConfWindow {
 		
 		lblSpeed = new JLabel(Messages.getString("GpioConfWindow.lblSpeed.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblSpeed = new GridBagConstraints();
-		gbc_lblSpeed.insets = new Insets(0, 0, 5, 0);
+		gbc_lblSpeed.insets = new Insets(0, 0, 5, 5);
 		gbc_lblSpeed.gridx = 5;
 		gbc_lblSpeed.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblSpeed, gbc_lblSpeed);
+		
+		lblCodename = new JLabel(Messages.getString("GpioConfWindow.lblCodename.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lblCodename = new GridBagConstraints();
+		gbc_lblCodename.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCodename.gridx = 6;
+		gbc_lblCodename.gridy = 2;
+		frmGpiosConfiguration.getContentPane().add(lblCodename, gbc_lblCodename);
 	}
 	
 	/**
@@ -225,6 +241,7 @@ public class GpioConfWindow {
 		comboBox_PinOutLevel = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinPull = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinSpeed = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
+		textField_CodeName = new JTextField[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		
 		for (int pinNum = 0; pinNum < Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT; pinNum++) {
 			/* Pin's name */
@@ -247,11 +264,11 @@ public class GpioConfWindow {
 			comboBox_PinMode[pinNum].setVisible(false);
 			comboBox_PinMode[pinNum].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					/****** Begin Port combo box click ******/
+					/****** Begin Pin's mode combo box click ******/
 					if (!GuiRefreshLocked) {
 						modeChange();
 					}
-					/****** End Port combo box click ******/
+					/****** End Pin's mode combo box click ******/
 				}
 			});
 			
@@ -266,11 +283,11 @@ public class GpioConfWindow {
 			comboBox_PinOutType[pinNum].setVisible(false);
 			comboBox_PinOutType[pinNum].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					/****** Begin Port combo box click ******/
+					/****** Begin Pin's output combo box click ******/
 					if (!GuiRefreshLocked) {
 						outTypeChange();
 					}
-					/****** End Port combo box click ******/
+					/****** End Pin's output combo box click ******/
 				}
 			});
 			
@@ -287,11 +304,11 @@ public class GpioConfWindow {
 			comboBox_PinOutLevel[pinNum].setVisible(false);
 			comboBox_PinOutLevel[pinNum].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					/****** Begin Port combo box click ******/
+					/****** Begin Pin's output level combo box click ******/
 					if (!GuiRefreshLocked) {
 						outLevelChange();
 					}
-					/****** End Port combo box click ******/
+					/****** End Pin's output level combo box click ******/
 				}
 			});
 			
@@ -309,11 +326,11 @@ public class GpioConfWindow {
 			comboBox_PinPull[pinNum].setVisible(false);
 			comboBox_PinPull[pinNum].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					/****** Begin Port combo box click ******/
+					/****** Begin Pin's pull resistor combo box click ******/
 					if (!GuiRefreshLocked) {
 						pullChange();
 					}
-					/****** End Port combo box click ******/
+					/****** End Pin's pull resistor combo box click ******/
 				}
 			});
 			
@@ -332,13 +349,48 @@ public class GpioConfWindow {
 			comboBox_PinSpeed[pinNum].setVisible(false);
 			comboBox_PinSpeed[pinNum].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					/****** Begin Port combo box click ******/
+					/****** Begin Pin's speed combo box click ******/
 					if (!GuiRefreshLocked) {
 						speedChange();
 					}
-					/****** End Port combo box click ******/
+					/****** End Pin's speed combo box click ******/
 				}
 			});
+			
+			/* Pin's Code Name */
+			textField_CodeName[pinNum] = new JTextField(20);
+			GridBagConstraints gbc_textField_CodeName = new GridBagConstraints();
+			gbc_textField_CodeName.insets = new Insets(0, 0, 5, 5);
+			gbc_textField_CodeName.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField_CodeName.gridx = PIN_CODE_NAME_TXTF_INIT_POS_X;
+			gbc_textField_CodeName.gridy = PIN_CODE_NAME_TXTF_INIT_POS_Y + pinNum;
+			frmGpiosConfiguration.getContentPane().add(textField_CodeName[pinNum], gbc_textField_CodeName);
+			textField_CodeName[pinNum].setVisible(false);
+			/****** Begin Pin's Code Name change ******/
+			textField_CodeName[pinNum].getDocument().addDocumentListener(new DocumentListener() {
+
+				@Override
+				public void changedUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						codeNameChange();
+					}
+				}
+
+				@Override
+				public void insertUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						codeNameChange();
+					}					
+				}
+
+				@Override
+				public void removeUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						codeNameChange();
+					}					
+				}
+			});
+			/****** End Pin's Code Name change ******/
 		}
 	}
 	
@@ -422,6 +474,10 @@ public class GpioConfWindow {
 				}
 				comboBox_PinSpeed[portPinNum].setVisible(true);
 				
+				/* Pin's Code name */
+				textField_CodeName[portPinNum].setText(UcConf.GpioCfgPin[pinNum].getCodeName());
+				textField_CodeName[portPinNum].setVisible(true);
+				
 				portPinNum++;
 			}
 		}
@@ -432,6 +488,7 @@ public class GpioConfWindow {
 			comboBox_PinOutLevel[pinNum].setVisible(false);
 			comboBox_PinPull[pinNum].setVisible(false);
 			comboBox_PinSpeed[pinNum].setVisible(false);
+			textField_CodeName[pinNum].setVisible(false);
 		}
 	}
 	
@@ -583,6 +640,21 @@ public class GpioConfWindow {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {				
 				/* Save configuration to microcontroller object */
 				UcConf.GpioCfgPin[pinNum].setSpeed(Speed.getConfFromString(comboBox_PinSpeed[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
+	
+	/**
+	 * Save the pin's code name
+	 */
+	private void codeNameChange() {
+		int portPinNum = 0;
+		
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {				
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setCodeName(textField_CodeName[portPinNum].getText());
 				portPinNum++;
 			}
 		}
