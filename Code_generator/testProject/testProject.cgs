@@ -5,5 +5,5 @@
 	<name>Test_Project</name>
 	<ConfigFile>testProjectConf.xml</ConfigFile>
 	<ucFile>ATTINY-4-TSUR.xml</ucFile>
+	<frameworkFolder>framework</frameworkFolder>
 </CodeGeneratorProject>
-

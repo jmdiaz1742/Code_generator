@@ -23,7 +23,6 @@ public class MainGui {
 	static private MainWindow CgMainWindow;
 	static private ProjectSettings ProjectSettingsConf = new ProjectSettings();
 	static private Microcontroller SelectedMicrocontroller;
-	static private Microcontroller NewMicrocontroller;
 	
 	/* Public fields */
 	static public File ProjectFile;
