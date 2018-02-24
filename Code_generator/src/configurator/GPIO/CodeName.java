@@ -8,7 +8,7 @@ package configurator.GPIO;
  */
 public enum CodeName {
 	CODE_NAME;
-	
+
 	/**
 	 * Name as String
 	 */

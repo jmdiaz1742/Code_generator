@@ -22,12 +22,12 @@
  * @brief MCU errors
  */
 typedef enum {
-	// We start our error definitions from the last element in the HAL error
-	// enum HAL_StatusTypeDef. For more information see sm32f3xx_hal_def.h
-	MCU_ERROR_OK       = HAL_OK,
-	MCU_ERROR_NULL_PTR = HAL_TIMEOUT + 1,
-	MCU_ERROR_CLK_CFG,
-	MCU_ERROR_OSC_CFG
+    // We start our error definitions from the last element in the HAL error
+    // enum HAL_StatusTypeDef. For more information see sm32f3xx_hal_def.h
+    MCU_ERROR_OK       = HAL_OK,
+    MCU_ERROR_NULL_PTR = HAL_TIMEOUT + 1,
+    MCU_ERROR_CLK_CFG,
+    MCU_ERROR_OSC_CFG
 } framework_McuErrorType;
 
 /**
@@ -35,7 +35,7 @@ typedef enum {
  */
 typedef struct
 {
-	// TODO: Define Mcu_ClkCfgType
+    // TODO: Define Mcu_ClkCfgType
 } Mcu_ClkCfgType;
 
 /**
@@ -43,7 +43,7 @@ typedef struct
  */
 typedef struct
 {
-	// TODO: Define Mcu_lldCfgType
+    // TODO: Define Mcu_lldCfgType
 } Mcu_lldCfgType;
 
 /**
@@ -51,7 +51,7 @@ typedef struct
  */
 typedef struct
 {
-	// TODO: Define Mcu_ClkPeriphCfgType
+    // TODO: Define Mcu_ClkPeriphCfgType
 } Mcu_ClkPeriphCfgType;
 
 /**
@@ -59,15 +59,15 @@ typedef struct
  */
 typedef struct
 {
-	uint32_t OscillatorType;
-	uint32_t PLLState;
-	uint32_t PLLSource;
-	uint32_t PLLMUL;
-	uint32_t ClockType;
-	uint32_t SYSCLKSource;
-	uint32_t AHBCLKDivider;
-	uint32_t APB1CLKDivider;
-	uint32_t APB2CLKDivider;
+    uint32_t OscillatorType;
+    uint32_t PLLState;
+    uint32_t PLLSource;
+    uint32_t PLLMUL;
+    uint32_t ClockType;
+    uint32_t SYSCLKSource;
+    uint32_t AHBCLKDivider;
+    uint32_t APB1CLKDivider;
+    uint32_t APB2CLKDivider;
 } Mcu_SysCfgType;
 
 /************************
@@ -94,6 +94,6 @@ Mcu_SysCfgType Mcu_SysCfg;
 /************************
  * Public Functions     *
  ************************/
-void MCU_Init (Mcu_SysCfgType *cfgPtr);
+void MCU_Init(Mcu_SysCfgType *cfgPtr);
 
 #endif /* _MCU_H_ */

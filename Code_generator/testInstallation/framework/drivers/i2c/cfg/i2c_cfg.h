@@ -49,6 +49,6 @@ FWK_I2C_ELEMENTS_DEFINITIONS
 /************************
  * Public Functions     *
  ************************/
-extern int i2c_cfgmainFunc (void);
+extern int i2c_cfgmainFunc(void);
 
 #endif /* _I2C_CFG_H_ */

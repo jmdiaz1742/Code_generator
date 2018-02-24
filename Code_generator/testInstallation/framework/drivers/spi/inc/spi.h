@@ -31,14 +31,14 @@ typedef enum { SPI_1, SPI_CHANNEL_MAX } Spi_IdType;
  */
 typedef struct
 {
-	SPI_TypeDef *Channel;
-	uint32_t     BaudRatePrescaler;
-	uint32_t     Direction;
-	uint32_t     CLKPhase;
-	uint32_t     CLKPolarity;
-	uint32_t     DataSize;
-	uint32_t     FirstBit;
-	uint32_t     Mode;
+    SPI_TypeDef *Channel;
+    uint32_t     BaudRatePrescaler;
+    uint32_t     Direction;
+    uint32_t     CLKPhase;
+    uint32_t     CLKPolarity;
+    uint32_t     DataSize;
+    uint32_t     FirstBit;
+    uint32_t     Mode;
 } Spi_CfgType;
 
 /************************
@@ -68,8 +68,8 @@ const Spi_CfgType Spi_Cfg[SPI_ELEMENTS_MAX];
 /************************
  * Public Functions     *
  ************************/
-void Spi_Init (const Spi_CfgType *cfgPtr);
-void Spi_TransmitU8 (Spi_IdType channel, uint8_t *src, uint8_t *dest);
-void Spi_TransmitU16 (Spi_IdType channel, uint16_t *src, uint16_t *dest);
+void Spi_Init(const Spi_CfgType *cfgPtr);
+void Spi_TransmitU8(Spi_IdType channel, uint8_t *src, uint8_t *dest);
+void Spi_TransmitU16(Spi_IdType channel, uint16_t *src, uint16_t *dest);
 
 #endif /* _SPI_H_ */
