@@ -11,15 +11,17 @@ public class Common {
 	/* public fields */
 
 	/* Private fields */
-	
+
 	private static String installationFwkPath;
 	private static String projectFwkPath;
-	
+
 	private final static String STR_DRIVERS = "drivers";
 	private final static String STR_CFG = "cfg";
 	private final static String STR_CFG_FILE = "_cfg.";
 	private final static String STR_EXT_FILE_C = "c";
 	private final static String STR_EXT_FILE_H = "h";
+
+	public final static String STR_MODULE_GPIO = "gpio";
 
 	/* Methods */
 
@@ -74,8 +76,9 @@ public class Common {
 	public static String getCfgPath(String fwkPath, String cfgModule) {
 		String path;
 
-		path = fwkPath + System.getProperty("file.separator") + STR_DRIVERS + System.getProperty("file.separator")
-				+ cfgModule + System.getProperty("file.separator") + STR_CFG;
+		path = fwkPath + System.getProperty("file.separator");
+		path += STR_DRIVERS + System.getProperty("file.separator");
+		path += cfgModule + System.getProperty("file.separator") + STR_CFG;
 
 		return path;
 	}
@@ -92,7 +95,11 @@ public class Common {
 	public static String getCfgFileCPath(String fwkPath, String cfgModule) {
 		String cfgFileC;
 
-		cfgFileC = fwkPath + cfgModule + STR_CFG_FILE + STR_EXT_FILE_C;
+		cfgFileC = fwkPath + System.getProperty("file.separator");
+		cfgFileC += STR_DRIVERS + System.getProperty("file.separator");
+		cfgFileC += cfgModule + System.getProperty("file.separator");
+		cfgFileC += STR_CFG + System.getProperty("file.separator");
+		cfgFileC += cfgModule + STR_CFG_FILE + STR_EXT_FILE_C;
 
 		return cfgFileC;
 	}
@@ -107,10 +114,14 @@ public class Common {
 	 * @return GPIO configuration header file path
 	 */
 	public static String getCfgFileHPath(String fwkPath, String cfgModule) {
-		String cfgFileC;
+		String cfgFileH;
 
-		cfgFileC = fwkPath + cfgModule + STR_CFG_FILE + STR_EXT_FILE_H;
+		cfgFileH = fwkPath + System.getProperty("file.separator");
+		cfgFileH += STR_DRIVERS + System.getProperty("file.separator");
+		cfgFileH += cfgModule + System.getProperty("file.separator");
+		cfgFileH += STR_CFG + System.getProperty("file.separator");
+		cfgFileH += cfgModule + STR_CFG_FILE + STR_EXT_FILE_H;
 
-		return cfgFileC;
+		return cfgFileH;
 	}
 }

@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import common.ErrorCode;
 import common.Features;
+import generator.CodeGenerator;
 import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
 import xmlCreator.ConfXmlWriter;
@@ -24,6 +25,7 @@ public class MainGui {
 	static private MainWindow CgMainWindow;
 	static private ProjectSettings ProjectSettingsConf = new ProjectSettings();
 	static private Microcontroller SelectedMicrocontroller;
+	static private CodeGenerator generator;
 
 	/* Public fields */
 	static public File ProjectFile;
@@ -34,6 +36,7 @@ public class MainGui {
 	 * 
 	 * @param args
 	 *            TBD
+	 * @wbp.parser.entryPoint
 	 */
 	static public void main(String[] args) {
 		// FIXME: Check how this would work, the idea is to call all the GUI
@@ -134,6 +137,12 @@ public class MainGui {
 	static public void saveUc() {
 		ConfXmlWriter pinConfWriter = new ConfXmlWriter(SelectedMicrocontroller);
 		pinConfWriter.writeXml(ProjectSettingsConf.getConfFile().getPath());
+	}
+	
+	static public void generateCode() {
+		generator = new CodeGenerator(SelectedMicrocontroller, ProjectSettingsConf);
+		
+		generator.Generate();
 	}
 
 }

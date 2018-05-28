@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
+import generator.CodeGenerator;
+
 import java.awt.GridBagLayout;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -187,9 +189,9 @@ public class MainWindow {
 		mnHelp.add(mntmAbout);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		FrmCodeGenerator.getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblt_ProjectName = new JLabel(Messages.getString("MainWindow.lblProject.text")); //$NON-NLS-1$
@@ -230,15 +232,29 @@ public class MainWindow {
 			public void actionPerformed(ActionEvent e) {
 				/****** Begin Configure GPIOs button click ******/
 				MainGui.showGpioConfWindow();
-				/****** Begin Configure GPIOs button click ******/
+				/****** End Configure GPIOs button click ******/
 			}
 		});
 		btn_ConfigureGpios.setEnabled(false);
 		GridBagConstraints gbc_btn_ConfigureGpios = new GridBagConstraints();
-		gbc_btn_ConfigureGpios.insets = new Insets(0, 0, 0, 5);
+		gbc_btn_ConfigureGpios.insets = new Insets(0, 0, 5, 5);
 		gbc_btn_ConfigureGpios.gridx = 0;
 		gbc_btn_ConfigureGpios.gridy = 2;
 		FrmCodeGenerator.getContentPane().add(btn_ConfigureGpios, gbc_btn_ConfigureGpios);
+
+		JButton btn_GenerateCode = new JButton(Messages.getString("MainWindow.btnGenerateCode.text")); //$NON-NLS-1$
+		btn_GenerateCode.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin Generate Code button click ******/
+				MainGui.generateCode();
+				/****** End Generate Code button click ******/
+			}
+		});
+		GridBagConstraints gbc_btn_GenerateCode = new GridBagConstraints();
+		gbc_btn_GenerateCode.insets = new Insets(0, 0, 0, 5);
+		gbc_btn_GenerateCode.gridx = 0;
+		gbc_btn_GenerateCode.gridy = 3;
+		FrmCodeGenerator.getContentPane().add(btn_GenerateCode, gbc_btn_GenerateCode);
 	}
 
 	/**
