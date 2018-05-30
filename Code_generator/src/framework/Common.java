@@ -1,5 +1,7 @@
 package framework;
 
+import common.Features;
+
 /**
  * Framework common fields and methods
  *
@@ -23,6 +25,13 @@ public class Common {
 
 	public final static String STR_MODULE_GPIO = "gpio";
 
+	public final static String STR_TKN_GPIO_CFG_ARRAY = "FWK_GPIO_CFG_ARRAY";
+	public final static String STR_TKN_GPIO_ELEMENTS = "FWK_GPIO_ELEMENTS";
+	public final static String STR_TKN_GPIO_ELEMENTS_MAX = "GPIO_ELEMENTS_MAX";
+	public final static String STR_TKN_GPIO_INC = "FWK_GPIO_INCLUDES";
+	public final static String STR_TKN_GPIO_CFG_DEFS = "FWK_GPIO_CFG_DEFINITIONS";
+	public final static String STR_TKN_GPIO_EL_DEFS = "FWK_GPIO_ELEMENTS_DEFINITIONS";
+
 	/* Methods */
 
 	/**
@@ -31,7 +40,18 @@ public class Common {
 	 * @return installation framework path
 	 */
 	public static String getInstallationFwkPath() {
+		if (Features.DEBUG)
+		{
+			String fwkPath;
+			fwkPath = 	System.getProperty("user.dir") + System.getProperty("file.separator");
+			fwkPath += "testInstallation" + System.getProperty("file.separator");
+			fwkPath += "framework";
+			return fwkPath;
+		}
+		else
+		{
 		return installationFwkPath;
+		}
 	}
 
 	/**
