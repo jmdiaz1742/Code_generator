@@ -7,8 +7,6 @@ import javax.swing.JFrame;
 import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
-import generator.CodeGenerator;
-
 import java.awt.GridBagLayout;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;

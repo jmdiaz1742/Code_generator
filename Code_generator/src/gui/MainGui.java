@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import common.ErrorCode;
 import common.Features;
-import generator.CodeGenerator;
+import framework.CodeGenerator;
 import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
 import xmlCreator.ConfXmlWriter;
