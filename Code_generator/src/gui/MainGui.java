@@ -32,11 +32,8 @@ public class MainGui {
 	static public String ProjectPath;
 
 	/**
-	 * Main function
 	 * 
-	 * @param args
-	 *            TBD
-	 * @wbp.parser.entryPoint
+	 * @param args TBD
 	 */
 	static public void main(String[] args) {
 		// FIXME: Check how this would work, the idea is to call all the GUI
