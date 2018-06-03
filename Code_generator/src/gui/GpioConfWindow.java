@@ -500,6 +500,7 @@ public class GpioConfWindow {
 	 * Reflect the pin's mode changes
 	 */
 	private void modeChange() {
+		updateMode();
 		updateOutputType();
 		updateOutLevel();
 		updatePull();
@@ -512,6 +513,84 @@ public class GpioConfWindow {
 	private void outTypeChange() {
 		updateOutLevel();
 	}
+	
+	/**
+	 * Save pins' output levels
+	 */
+	private void outLevelChange() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setOutLevel(
+						OutLevel.getConfFromString(comboBox_PinOutLevel[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
+	
+	/**
+	 * Save pin's pull resistors configurations
+	 */
+	private void pullChange() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum]
+						.setPull(Pull.getConfFromString(comboBox_PinPull[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
+
+	/**
+	 * Save the pins' speed
+	 */
+	private void speedChange() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum]
+						.setSpeed(Speed.getConfFromString(comboBox_PinSpeed[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
+
+	/**
+	 * Save the pin's code name
+	 */
+	private void codeNameChange() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setCodeName(textField_CodeName[portPinNum].getText());
+				portPinNum++;
+			}
+		}
+	}
+
+	/**
+	 * Reflect the pin's Mode changes
+	 */
+	private void updateMode() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setMode(Mode.getConfFromString(comboBox_PinMode[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
 
 	/**
 	 * Update output type combo boxes
@@ -521,6 +600,7 @@ public class GpioConfWindow {
 
 		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+
 				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_OUTPUT.name())) {
 					/* Set selected output type */
 					comboBox_PinOutType[portPinNum].setSelectedItem(UcConf.GpioCfgPin[pinNum].getOutType().ordinal());
@@ -608,66 +688,5 @@ public class GpioConfWindow {
 		}
 	}
 
-	/**
-	 * Save pins' output levels
-	 */
-	private void outLevelChange() {
-		int portPinNum = 0;
-
-		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
-			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
-				/* Save configuration to microcontroller object */
-				UcConf.GpioCfgPin[pinNum].setOutLevel(
-						OutLevel.getConfFromString(comboBox_PinOutLevel[portPinNum].getSelectedItem().toString()));
-				portPinNum++;
-			}
-		}
-	}
-
-	/**
-	 * Save pin's pull resistors configurations
-	 */
-	private void pullChange() {
-		int portPinNum = 0;
-
-		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
-			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
-				/* Save configuration to microcontroller object */
-				UcConf.GpioCfgPin[pinNum]
-						.setPull(Pull.getConfFromString(comboBox_PinPull[portPinNum].getSelectedItem().toString()));
-				portPinNum++;
-			}
-		}
-	}
-
-	/**
-	 * Save the pins' speed
-	 */
-	private void speedChange() {
-		int portPinNum = 0;
-
-		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
-			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
-				/* Save configuration to microcontroller object */
-				UcConf.GpioCfgPin[pinNum]
-						.setSpeed(Speed.getConfFromString(comboBox_PinSpeed[portPinNum].getSelectedItem().toString()));
-				portPinNum++;
-			}
-		}
-	}
-
-	/**
-	 * Save the pin's code name
-	 */
-	private void codeNameChange() {
-		int portPinNum = 0;
-
-		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
-			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
-				/* Save configuration to microcontroller object */
-				UcConf.GpioCfgPin[pinNum].setCodeName(textField_CodeName[portPinNum].getText());
-				portPinNum++;
-			}
-		}
-	}
+	
 }

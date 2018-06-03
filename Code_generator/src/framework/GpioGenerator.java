@@ -19,8 +19,17 @@ import projectConfiguration.ProjectSettings;
 class GpioGenerator {
 
 	private static final String MODULE_GPIO = "gpio";
-	private static final String STR_ALT_FUNC_DEF = "GPIO_ALT_NONE";
+	private static final String STR_ALT_MODE_NONE = "GPIO_ALT_NONE";
+	private static final String STR_ALT_MODE_ADC = "GPIO_MODE_ANALOG";
 
+	private static final String STR_SUFF_PORT = "_PORT";
+	private static final String STR_SUFF_PIN = "_PIN";
+	private static final String STR_SUFF_MODE = "_MODE";
+	private static final String STR_SUFF_ALT = "_ALT";
+	private static final String STR_SUFF_PULL = "_PULL";
+	private static final String STR_SUFF_SPEED = "_SPEED";
+
+	/* Toke Strings */
 	private final static String STR_TKN_CFG_ARRAY = "FWK_GPIO_CFG_ARRAY";
 	private final static String STR_TKN_ELEMENTS = "FWK_GPIO_ELEMENTS";
 	private final static String STR_TKN_INC = "FWK_GPIO_INCLUDES"; // TODO: Get correct use
@@ -200,12 +209,12 @@ class GpioGenerator {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
 
 			cfgArray += "{";
-			cfgArray += pinName + "_PORT," + framework.Common.NL;
-			cfgArray += pinName + "_PIN," + framework.Common.NL;
-			cfgArray += pinName + "_MODE," + framework.Common.NL;
-			cfgArray += pinName + "_ALT," + framework.Common.NL;
-			cfgArray += pinName + "_PULL," + framework.Common.NL;
-			cfgArray += pinName + "_SPEED" + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_PORT + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_PIN + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_MODE + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_ALT + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_PULL + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_SPEED + framework.Common.NL;
 			cfgArray += "}";
 			if (pinNum < uC.GpioCfgPin.length - 1) {
 				cfgArray += "," + framework.Common.NL;
@@ -229,22 +238,22 @@ class GpioGenerator {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
 			String defineStr = framework.Common.STR_DEFINITION;
 
-			elDefs += defineStr + pinName + "_PORT ";
-			elDefs += "PORT_" + uC.GpioCfgPin[pinNum].getPort() + framework.Common.NL;
+			elDefs += defineStr + pinName + STR_SUFF_PORT + " ";
+			elDefs += uC.GpioCfgPin[pinNum].getPort() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + "_PIN ";
-			elDefs += "PIN_" + uC.GpioCfgPin[pinNum].getPinName() + framework.Common.NL;
+			elDefs += defineStr + pinName + STR_SUFF_PIN + " ";
+			elDefs += uC.GpioCfgPin[pinNum].getPinName() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + "_MODE ";
+			elDefs += defineStr + pinName + STR_SUFF_MODE + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getMode() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + "_ALT ";
-			elDefs += STR_ALT_FUNC_DEF + framework.Common.NL;
+			elDefs += defineStr + pinName + STR_SUFF_ALT + " ";
+			elDefs += STR_ALT_MODE_NONE + framework.Common.NL;
 
-			elDefs += defineStr + pinName + "_PULL ";
+			elDefs += defineStr + pinName + STR_SUFF_PULL + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getPull() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + "_SPEED ";
+			elDefs += defineStr + pinName + STR_SUFF_SPEED + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getSpeed() + framework.Common.NL;
 
 			if (pinNum < uC.GpioCfgPin.length - 1) {

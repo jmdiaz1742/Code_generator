@@ -46,6 +46,7 @@ public class MainWindow {
 	private JLabel lbl_ProjectName;
 	private JLabel lbl_Microcontroller;
 	private JButton btn_ConfigureGpios;
+	private JButton btn_GenerateCode;
 
 	/* Dynamic menu elements */
 	private JMenuItem mntmSave;
@@ -240,7 +241,8 @@ public class MainWindow {
 		gbc_btn_ConfigureGpios.gridy = 2;
 		FrmCodeGenerator.getContentPane().add(btn_ConfigureGpios, gbc_btn_ConfigureGpios);
 
-		JButton btn_GenerateCode = new JButton(Messages.getString("MainWindow.btnGenerateCode.text")); //$NON-NLS-1$
+		btn_GenerateCode = new JButton(Messages.getString("MainWindow.btnGenerateCode.text")); //$NON-NLS-1$
+		btn_GenerateCode.setEnabled(false);
 		btn_GenerateCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Generate Code button click ******/
@@ -329,6 +331,7 @@ public class MainWindow {
 		lbl_ProjectName.setText(projectName);
 		lbl_Microcontroller.setText(ucManufacturer + " " + ucName);
 		btn_ConfigureGpios.setEnabled(true);
+		btn_GenerateCode.setEnabled(true);
 		mntmSaveAs.setEnabled(true);
 		return errorStatus;
 	}
