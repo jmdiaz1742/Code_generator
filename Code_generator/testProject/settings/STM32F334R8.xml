@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE xml>
+
+<microcontroller>
+	<manufacturer>ST</manufacturer>
+	<model>STM32F334R8</model>
+	<family>STM32</family>
+	<pin>
+		<!-- Backup power supply -->
+		<number>1</number>
+		<name>VBAT</name>
+		<vcc>VBAT</vcc>
+	</pin>
+	<pin>
+		<number>2</number>
+		<name>PC13</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>13</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<timer>TIM1_CH1N</timer>
+		<rtc>RTC_TAMP1/RTC_TS</rtc>
+		<rtc>RTC_OUT/WKUP2</rtc>
+	</pin>
+	<pin>
+		<number>3</number>
+		<name>PC14</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>14</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<osc>OSC32_IN</osc>
+	</pin>
+	<pin>
+		<number>4</number>
+		<name>PC15</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>15</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<osc>OSC32_OUT</osc>
+	</pin>
+	<pin>
+		<number>5</number>
+		<name>PF0</name>
+		<gpio>GPIO</gpio>
+		<port>F</port>
+		<portPin>0</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<timer>TIM1_CH3N</timer>
+		<osc>OSC_IN</osc>
+	</pin>
+	<pin>
+		<number>6</number>
+		<name>PF1</name>
+		<gpio>GPIO</gpio>
+		<port>F</port>
+		<portPin>1</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<osc>OSC_OUT</osc>
+	</pin>
+	<pin>
+		<!-- Device reset input / internal reset output (active low) -->
+		<number>7</number>
+		<name>NRST</name>
+		<reset>NRST</reset>
+	</pin>
+	<pin>
+		<number>8</number>
+		<name>PC0</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>0</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC12_IN6</adc>
+		<timer>TIM1_CH1</timer>
+	</pin>
+	<pin>
+		<number>9</number>
+		<name>PC1</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>1</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC12_IN7</adc>
+		<timer>TIM1_CH2</timer>
+	</pin>
+	<pin>
+		<number>10</number>
+		<name>PC2</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>2</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC12_IN8</adc>
+		<timer>TIM1_CH3</timer>
+	</pin>
+	<pin>
+		<number>11</number>
+		<name>PC3</name>
+		<gpio>GPIO</gpio>
+		<port>C</port>
+		<portPin>3</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC12_IN9</adc>
+		<timer>TIM1_CH4</timer>
+		<timer>TIM1_BKIN2</timer>
+	</pin>
+	<pin>
+		<!-- Analog ground/Negative reference voltage -->
+		<number>12</number>
+		<name>VSSA/VREF-</name>
+		<vcc>VSSA/VREF-</vcc>
+	</pin>
+	<pin>
+		<number>13</number>
+		<name>VDDA/VREF+</name>
+		<vcc>VDDA/VREF+</vcc>
+	</pin>
+	<pin>
+		<number>14</number>
+		<name>PA0</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>0</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC1_IN1</adc>
+		<timer>TIM2_CH1</timer>
+		<timer>TIM2_ETR</timer>
+		<tsc>TSC_G1_IO1</tsc>
+		<uart>USART2_CTS</uart>
+		<rtc>RTC_TAMP2/WKUP1</rtc>
+	</pin>
+	<pin>
+		<number>15</number>
+		<name>PA1</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>1</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC1_IN2</adc>
+		<timer>TIM2_CH2</timer>
+		<timer>TIM15_CH1N</timer>
+		<tsc>TSC_G1_IO2</tsc>
+		<uart>USART2_RTS_DE</uart>
+		<rtc>RTC_REFIN</rtc>
+	</pin>
+	<pin>
+		<number>16</number>
+		<name>PA2</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>2</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC1_IN3</adc>
+		<timer>TIM2_CH3</timer>
+		<tsc>TSC_G1_IO3</tsc>
+		<uart>USART2_TX</uart>
+		<comp>COMP2_OUT</comp>
+		<comp>COMP2_INM</comp>
+	</pin>
+	<pin>
+		<number>17</number>
+		<name>PA3</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>3</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC1_IN4</adc>
+		<timer>TIM2_CH4</timer>
+		<timer>TIM15_CH2</timer>
+		<tsc>TSC_G1_IO4</tsc>
+		<uart>USART2_RX</uart>
+	</pin>
+	<pin>
+		<number>18</number>
+		<name>VSS</name>
+		<gnd>VSS</gnd>
+	</pin>
+	<pin>
+		<number>19</number>
+		<name>VDD</name>
+		<vcc>VDD</vcc>
+	</pin>
+	<pin>
+		<number>20</number>
+		<name>PA4</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>4</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC2_IN1</adc>
+		<dac>DAC1_OUT1</dac>
+		<timer>TIM3_CH2</timer>
+		<tsc>TSC_G2_IO1</tsc>
+		<uart>USART2_CK</uart>
+		<comp>COMP4_INM</comp>
+		<comp>COMP2_INM</comp>
+		<comp>COMP6_INM</comp>
+	</pin>
+	<pin>
+		<number>21</number>
+		<name>PA5</name>
+		<gpio>GPIO</gpio>
+		<port>A</port>
+		<portPin>5</portPin>
+		<interrupt>PCINT0</interrupt> <!--TODO: -->
+		<adc>ADC2_IN2</adc>
+		<timer>TIM2_CH1</timer>
+		<timer>TIM2_ETR,</timer>
+		<tsc>TSC_G2_IO2</tsc>
+		<spi>SPI1_SCK</spi>
+		<dac>DAC1_OUT2</dac>
+		<opamp>OPAMP2_VINM</opamp>
+	</pin>
+</microcontroller>
