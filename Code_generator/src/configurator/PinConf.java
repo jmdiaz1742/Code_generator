@@ -78,6 +78,7 @@ public class PinConf {
 		setMode(DF_MODE);
 		setSpeed(DF_SPEED);
 		setOutType(DF_OUTTYPE);
+		setOutLevel(DF_OUT_LEVEL);
 		setPull(DF_PULL);
 	}
 
