@@ -723,6 +723,7 @@
     <pin>
         <number>60</number>
         <name>BOOT0</name>
+        <misc>BOOT0</misc>
     </pin>
     <pin>
         <number>61</number>

@@ -63,6 +63,7 @@ public class Microcontroller {
 	private static final String STR_PIN_GND = "gnd";
 	private static final String STR_PIN_GPIO = "gpio";
 	private static final String STR_PIN_RESET = "reset";
+	private static final String STR_PIN_MISC = "misc";
 
 	/* Strings to extract information from XML file */
 	private static final String ROOT_ELEMENT = "microcontroller";
@@ -76,8 +77,7 @@ public class Microcontroller {
 	/**
 	 * Constructor
 	 * 
-	 * @param ucDoc
-	 *            Document obtained from XML file
+	 * @param ucDoc Document obtained from XML file
 	 */
 	public Microcontroller(Document ucDoc) {
 		this.UcDoc = ucDoc;
@@ -218,8 +218,7 @@ public class Microcontroller {
 	/**
 	 * Load pins from XML
 	 * 
-	 * @param pinNum
-	 *            Pin's number
+	 * @param pinNum Pin's number
 	 * @return Pin's information
 	 */
 	private Pin parsePin(int pinNum) {
@@ -230,6 +229,8 @@ public class Microcontroller {
 		String vcc;
 		String gnd;
 		String gpio;
+		String reset;
+		String misc;
 		Features.verbosePrint("Getting pin " + pinNum + " characteristics:");
 
 		pinEl = (Element) UcDoc.getElementsByTagName(STR_PIN).item(pinNum);
@@ -269,6 +270,19 @@ public class Microcontroller {
 			CurrentPin[pinNum].setFunc_gpio(true);
 			Features.verbosePrint("\tFunction: GPIO");
 		}
+		/* RESET */
+		reset = XmlOpener.getElementInfo(pinEl, STR_PIN_RESET);
+		if (!reset.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setFunc_reset(true);
+			CurrentPin[pinNum].setReset(reset);
+			Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
+		}
+		/* MISC */
+		misc = XmlOpener.getElementInfo(pinEl, STR_PIN_MISC);
+		if (!misc.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setFunc_misc(true);
+			Features.verbosePrint("\tFunction: MISC");
+		}
 
 		/* Get optional GPIO characteristics */
 		if (CurrentPin[pinNum].getFunc_gpio()) {
@@ -277,7 +291,6 @@ public class Microcontroller {
 			String adc;
 			String clock;
 			String timer;
-			String reset;
 
 			/* Port */
 			port = XmlOpener.getElementInfo(pinEl, STR_PIN_PORT);
@@ -308,12 +321,6 @@ public class Microcontroller {
 			if (!timer.equals(ErrorCode.STR_INVALID)) {
 				CurrentPin[pinNum].setTimer(timer);
 				Features.verbosePrint("\tTimer: " + CurrentPin[pinNum].getTimer());
-			}
-			/* Reset */
-			reset = XmlOpener.getElementInfo(pinEl, STR_PIN_RESET);
-			if (!reset.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setReset(reset);
-				Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
 			}
 		}
 		return CurrentPin[pinNum];
@@ -429,8 +436,7 @@ public class Microcontroller {
 	/**
 	 * Get a pin's characteristics
 	 * 
-	 * @param pinNum
-	 *            Number of pin
+	 * @param pinNum Number of pin
 	 * @return Pin's characteristics
 	 */
 	public Pin getPin(int pinNum) {
@@ -449,8 +455,7 @@ public class Microcontroller {
 	/**
 	 * Set the microcontroller's model
 	 * 
-	 * @param uc_model
-	 *            Microcontroller's model
+	 * @param uc_model Microcontroller's model
 	 */
 	private void setUc_model(String uc_model) {
 		this.Uc_model = uc_model;
@@ -468,8 +473,7 @@ public class Microcontroller {
 	/**
 	 * Set the microcontroller's manufacturer
 	 * 
-	 * @param uc_manufacturer
-	 *            microcontroller's manufacturer
+	 * @param uc_manufacturer microcontroller's manufacturer
 	 */
 	private void setUc_manufacturer(String uc_manufacturer) {
 		this.Uc_manufacturer = uc_manufacturer;
@@ -487,8 +491,7 @@ public class Microcontroller {
 	/**
 	 * Set the microcontroller's pins number
 	 * 
-	 * @param uc_pinNum
-	 *            Number of pins
+	 * @param uc_pinNum Number of pins
 	 */
 	private void setUc_pinNum(int uc_pinNum) {
 		this.Uc_pinNum = uc_pinNum;
@@ -506,8 +509,7 @@ public class Microcontroller {
 	/**
 	 * Set the number of GPIOs in the microcontroller
 	 * 
-	 * @param uc_gpioNum
-	 *            Number of GPIOs
+	 * @param uc_gpioNum Number of GPIOs
 	 */
 	private void setUc_gpioNum(int uc_gpioNum) {
 		this.Uc_gpioNum = uc_gpioNum;
@@ -525,8 +527,7 @@ public class Microcontroller {
 	/**
 	 * Set the number of ports in the microcontroller
 	 * 
-	 * @param uc_portNum
-	 *            Number of ports
+	 * @param uc_portNum Number of ports
 	 */
 	private void setUc_portNum(int uc_portNum) {
 		Uc_portNum = uc_portNum;
@@ -535,8 +536,7 @@ public class Microcontroller {
 	/**
 	 * Get the configuration of a pin
 	 * 
-	 * @param gpioName
-	 *            Name of the pin
+	 * @param gpioName Name of the pin
 	 * @return Pin configuration
 	 */
 	public PinConf getConfiguredPin(String gpioName) {
@@ -546,8 +546,7 @@ public class Microcontroller {
 	/**
 	 * Get the Gpio index of the gpio pins array
 	 * 
-	 * @param gpioName
-	 *            Pin's name
+	 * @param gpioName Pin's name
 	 * @return Pin's index in the GPIO array
 	 */
 	private int getGpioPinIndexFromName(String gpioName) {

@@ -17,6 +17,8 @@ package microcontroller;
  * <li>VCC
  * <li>GND
  * <li>GPIO
+ * <li>RESET
+ * <li>MISC
  * </ul>
  * <li>Pin features:
  * <ul>
@@ -40,6 +42,8 @@ public class Pin {
 	private boolean func_vcc;
 	private boolean func_gnd;
 	private boolean func_gpio;
+	private boolean func_reset;
+	private boolean func_misc;
 
 	/* Pin features availability */
 	private boolean feat_int;
@@ -153,8 +157,7 @@ public class Pin {
 	/**
 	 * Set the pin to Vcc status
 	 * 
-	 * @param funcState
-	 *            Function availability
+	 * @param funcState Function availability
 	 */
 	public void setFunc_vcc(boolean funcState) {
 		func_vcc = funcState;
@@ -162,6 +165,8 @@ public class Pin {
 		if (func_vcc) {
 			setFunc_gnd(DISABLE);
 			setFunc_gpio(DISABLE);
+			setFunc_reset(DISABLE);
+			setFunc_misc(DISABLE);
 		}
 	}
 
@@ -177,8 +182,7 @@ public class Pin {
 	/**
 	 * Set the pin to GND status
 	 * 
-	 * @param funcState
-	 *            Function availability
+	 * @param funcState Function availability
 	 */
 	public void setFunc_gnd(boolean funcState) {
 		func_gnd = funcState;
@@ -186,6 +190,8 @@ public class Pin {
 		if (func_gnd) {
 			setFunc_vcc(DISABLE);
 			setFunc_gpio(DISABLE);
+			setFunc_reset(DISABLE);
+			setFunc_misc(DISABLE);
 		}
 	}
 
@@ -201,8 +207,7 @@ public class Pin {
 	/**
 	 * Set the pin to GPIO status
 	 * 
-	 * @param funcState
-	 *            Function availability
+	 * @param funcState Function availability
 	 */
 	public void setFunc_gpio(boolean funcState) {
 		func_gpio = funcState;
@@ -210,6 +215,8 @@ public class Pin {
 			/* If pin is set as GPIO, disable all other functions */
 			setFunc_vcc(DISABLE);
 			setFunc_gnd(DISABLE);
+			setFunc_reset(DISABLE);
+			setFunc_misc(DISABLE);
 		} else {
 			/* If the pin is NOT set as GPIO, disable all GPIO related features; */
 			setFeat_int(DISABLE);
@@ -219,7 +226,6 @@ public class Pin {
 			setFeat_spi(DISABLE);
 			setFeat_clock(DISABLE);
 			setFeat_timer(DISABLE);
-			setFeat_reset(DISABLE);
 		}
 	}
 
@@ -233,10 +239,61 @@ public class Pin {
 	}
 
 	/**
+	 * Set the pin to RESET status
+	 * 
+	 * @param funcState Function availability
+	 */
+	public void setFunc_reset(boolean funcState) {
+		func_reset = funcState;
+		/* If pin is set as RESET, disable all other functions */
+		if (func_reset) {
+			setFunc_vcc(DISABLE);
+			setFunc_gnd(DISABLE);
+			setFunc_gpio(DISABLE);
+			setFunc_misc(DISABLE);
+		} else {
+			setFeat_reset(DISABLE);
+		}
+	}
+
+	/**
+	 * See if the pin is RESET
+	 * 
+	 * @return Function availability
+	 */
+	public boolean getFunc_reset() {
+		return func_reset;
+	}
+
+	/**
+	 * Set the pin to MISC status
+	 * 
+	 * @param funcState Function availability
+	 */
+	public void setFunc_misc(boolean funcState) {
+		func_misc = funcState;
+		/* If pin is set as MISC, disable all other functions */
+		if (func_misc) {
+			setFunc_vcc(DISABLE);
+			setFunc_gnd(DISABLE);
+			setFunc_gpio(DISABLE);
+			setFunc_reset(DISABLE);
+		}
+	}
+
+	/**
+	 * See if the pin is MISC
+	 * 
+	 * @return Function availability
+	 */
+	public boolean getFunc_misc() {
+		return func_misc;
+	}
+
+	/**
 	 * Set the pin's interruption feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_int(boolean featState) {
 		feat_int = featState;
@@ -257,8 +314,7 @@ public class Pin {
 	/**
 	 * Set the pin's ADC feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_adc(boolean featState) {
 		feat_adc = featState;
@@ -279,8 +335,7 @@ public class Pin {
 	/**
 	 * Set the pin's UART feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_uart(boolean featState) {
 		feat_uart = featState;
@@ -301,8 +356,7 @@ public class Pin {
 	/**
 	 * Set the pin's I2C feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_i2c(boolean featState) {
 		feat_i2c = featState;
@@ -323,8 +377,7 @@ public class Pin {
 	/**
 	 * Set the pin's SPI feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_spi(boolean featState) {
 		feat_spi = featState;
@@ -345,8 +398,7 @@ public class Pin {
 	/**
 	 * Set the pin's Clock feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_clock(boolean featState) {
 		feat_clock = featState;
@@ -367,8 +419,7 @@ public class Pin {
 	/**
 	 * Set the pin's timer feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_timer(boolean featState) {
 		feat_timer = featState;
@@ -389,8 +440,7 @@ public class Pin {
 	/**
 	 * Set the pin's reset feature
 	 * 
-	 * @param featState
-	 *            Feature availability
+	 * @param featState Feature availability
 	 */
 	public void setFeat_reset(boolean featState) {
 		feat_reset = featState;
@@ -411,8 +461,7 @@ public class Pin {
 	/**
 	 * Set the pin's interruption
 	 * 
-	 * @param feature
-	 *            Pin's interruption
+	 * @param feature Pin's interruption
 	 */
 	public void setInt(String feature) {
 		interruption = feature;
@@ -431,8 +480,7 @@ public class Pin {
 	/**
 	 * Set the pin's ADC
 	 * 
-	 * @param feature
-	 *            Pin's ADC
+	 * @param feature Pin's ADC
 	 */
 	public void setAdc(String feature) {
 		adc = feature;
@@ -451,8 +499,7 @@ public class Pin {
 	/**
 	 * Set the pin's UART
 	 * 
-	 * @param feature
-	 *            Pin's UART
+	 * @param feature Pin's UART
 	 */
 	public void setUart(String feature) {
 		uart = feature;
@@ -471,8 +518,7 @@ public class Pin {
 	/**
 	 * Set the pin's I2C
 	 * 
-	 * @param feature
-	 *            Pin's I2C
+	 * @param feature Pin's I2C
 	 */
 	public void setI2c(String feature) {
 		i2c = feature;
@@ -491,8 +537,7 @@ public class Pin {
 	/**
 	 * Set the pin's SPI
 	 * 
-	 * @param feature
-	 *            Pin's SPI
+	 * @param feature Pin's SPI
 	 */
 	public void setSpi(String feature) {
 		spi = feature;
@@ -511,8 +556,7 @@ public class Pin {
 	/**
 	 * Set the pin's clock
 	 * 
-	 * @param feature
-	 *            Pin's clock
+	 * @param feature Pin's clock
 	 */
 	public void setClock(String feature) {
 		clock = feature;
@@ -531,8 +575,7 @@ public class Pin {
 	/**
 	 * Set the pin's reset
 	 * 
-	 * @param feature
-	 *            Pin's reset
+	 * @param feature Pin's reset
 	 */
 	public void setReset(String feature) {
 		reset = feature;
@@ -551,8 +594,7 @@ public class Pin {
 	/**
 	 * Set the pin's timer
 	 * 
-	 * @param feature
-	 *            Pin's timer
+	 * @param feature Pin's timer
 	 */
 	public void setTimer(String feature) {
 		timer = feature;
@@ -571,8 +613,7 @@ public class Pin {
 	/**
 	 * Set the pin's name
 	 * 
-	 * @param pinName
-	 *            Pin's name
+	 * @param pinName Pin's name
 	 */
 	public void setName(String pinName) {
 		name = pinName;
@@ -590,8 +631,7 @@ public class Pin {
 	/**
 	 * Set the pin's number
 	 * 
-	 * @param pinNum
-	 *            Pin's number
+	 * @param pinNum Pin's number
 	 */
 	public void setNumber(int pinNum) {
 		number = pinNum;
@@ -609,8 +649,7 @@ public class Pin {
 	/**
 	 * Set the pin's port
 	 * 
-	 * @param pinPort
-	 *            Pin's port
+	 * @param pinPort Pin's port
 	 */
 	public void setPort(String pinPort) {
 		port = pinPort;
@@ -650,6 +689,12 @@ public class Pin {
 			numFunc++;
 		}
 		if (getFunc_vcc()) {
+			numFunc++;
+		}
+		if (getFunc_reset()) {
+			numFunc++;
+		}
+		if (getFunc_misc()) {
 			numFunc++;
 		}
 
