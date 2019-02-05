@@ -85,7 +85,7 @@ public class CodeGenerator {
 			break;
 		}
 		}
-		beautifyFile(cfgFile);
+		// beautifyFile(cfgFile);
 
 		Features.verbosePrint("Generating " + module + " configuration H file...");
 
@@ -105,7 +105,7 @@ public class CodeGenerator {
 			break;
 		}
 		}
-		beautifyFile(cfgFile);
+		// beautifyFile(cfgFile);
 
 		return error;
 	}

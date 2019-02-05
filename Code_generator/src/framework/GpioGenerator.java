@@ -23,8 +23,7 @@ class GpioGenerator {
 	/**
 	 * Generate configuration array from microcontroller
 	 * 
-	 * @param module
-	 *            Framework module
+	 * @param module Framework module
 	 * @return Configuration array as string
 	 */
 	public static String getCfgArray(Microcontroller uC) {
@@ -52,8 +51,7 @@ class GpioGenerator {
 
 	/**
 	 * 
-	 * @param module
-	 *            Framework module
+	 * @param module Framework module
 	 * @return Elements definitions as String
 	 */
 	public static String getElDefs(Microcontroller uC) {
@@ -62,6 +60,8 @@ class GpioGenerator {
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
 			String defineStr = framework.Common.STR_DEFINITION;
+
+			elDefs += "// " + pinName + framework.Common.NL;
 
 			elDefs += defineStr + pinName + STR_SUFF_PORT + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getPort() + framework.Common.NL;
@@ -91,8 +91,7 @@ class GpioGenerator {
 
 	/**
 	 * 
-	 * @param module
-	 *            Framework module
+	 * @param module Framework module
 	 * @return Elements list as String
 	 */
 	public static String getElements(Microcontroller uC) {
