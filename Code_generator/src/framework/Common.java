@@ -50,8 +50,7 @@ public class Common {
 	/**
 	 * Set installation framework path
 	 * 
-	 * @param installationFwkPath
-	 *            installation framework path
+	 * @param installationFwkPath installation framework path
 	 */
 	public static void setInstallationFwkPath(String installationFwkPath) {
 		Common.installationFwkPath = installationFwkPath;
@@ -69,8 +68,7 @@ public class Common {
 	/**
 	 * Set project's framework path
 	 * 
-	 * @param projectFwkPath
-	 *            project's framework path
+	 * @param projectFwkPath project's framework path
 	 */
 	public static void setProjectFwkPath(String projectFwkPath) {
 		Common.projectFwkPath = projectFwkPath;
@@ -79,11 +77,9 @@ public class Common {
 	/**
 	 * Get configuration module files folder path
 	 *
-	 * @param fwkPath
-	 *            Framework folder path
+	 * @param fwkPath   Framework folder path
 	 *
-	 * @param cfgModule
-	 *            Configuration module name
+	 * @param cfgModule Configuration module name
 	 * @return Configuration files folder path
 	 */
 	public static String getCfgPath(String fwkPath, String cfgModule) {
@@ -99,10 +95,8 @@ public class Common {
 	/**
 	 * Get GPIO configuration file path
 	 *
-	 * @param fwkPath
-	 *            Framework folder path
-	 * @param cfgModule
-	 *            Configuration module name
+	 * @param fwkPath   Framework folder path
+	 * @param cfgModule Configuration module name
 	 * @return GPIO configuration file path
 	 */
 	public static String getCfgFileCPath(String fwkPath, String cfgModule) {
@@ -120,10 +114,8 @@ public class Common {
 	/**
 	 * Get GPIO configuration header file path
 	 *
-	 * @param fwkPath
-	 *            Framework folder path
-	 * @param cfgModule
-	 *            Configuration module name
+	 * @param fwkPath   Framework folder path
+	 * @param cfgModule Configuration module name
 	 * @return GPIO configuration header file path
 	 */
 	public static String getCfgFileHPath(String fwkPath, String cfgModule) {

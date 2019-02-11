@@ -32,10 +32,8 @@ public class CodeGenerator {
 	/**
 	 * Constructor
 	 * 
-	 * @param uC
-	 *            Project's microcontroller
-	 * @param projectSettings
-	 *            Project's settings
+	 * @param uC              Project's microcontroller
+	 * @param projectSettings Project's settings
 	 */
 	public CodeGenerator(Microcontroller uC, ProjectSettings projectSettings) {
 		this.uC = uC;
@@ -59,8 +57,7 @@ public class CodeGenerator {
 	/**
 	 * Generate configuration .c and .h files
 	 * 
-	 * @param module
-	 *            Framework module
+	 * @param module Framework module
 	 * @return Error Code
 	 */
 	private ErrorCode generateCfgFiles(String module) {
@@ -96,6 +93,7 @@ public class CodeGenerator {
 
 		switch (module) {
 		case MODULE_GPIO: {
+			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC , GpioGenerator.getElDefs(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_EL_DEFS, GpioGenerator.getElDefs(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_ELEMENTS, GpioGenerator.getElements(uC));
 			break;
@@ -113,10 +111,8 @@ public class CodeGenerator {
 	/**
 	 * Copies one file from one location to another
 	 * 
-	 * @param src
-	 *            Original file
-	 * @param dest
-	 *            New file
+	 * @param src  Original file
+	 * @param dest New file
 	 * @return Error Code
 	 */
 	static private ErrorCode copyFile(File src, File dest) {
@@ -163,12 +159,9 @@ public class CodeGenerator {
 	/**
 	 * Replaces text inside a file
 	 * 
-	 * @param file
-	 *            Configuration File
-	 * @param originalStr
-	 *            String to replace
-	 * @param newStf
-	 *            New String
+	 * @param file        Configuration File
+	 * @param originalStr String to replace
+	 * @param newStf      New String
 	 * @return Error Code
 	 */
 	private static ErrorCode replaceInFile(File file, String originalStr, String newStf) {
@@ -205,8 +198,7 @@ public class CodeGenerator {
 	/**
 	 * Beautifies a .c or .h file using the .clang_format configuration settings
 	 * 
-	 * @param file
-	 *            File to beautify
+	 * @param file File to beautify
 	 */
 	private static void beautifyFile(File file) {
 		// String command = "clang-format -i -style=file " + "\"" + file.getPath() +

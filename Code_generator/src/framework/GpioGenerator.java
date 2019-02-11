@@ -23,7 +23,7 @@ class GpioGenerator {
 	/**
 	 * Generate configuration array from microcontroller
 	 * 
-	 * @param module Framework module
+	 * @param uC Microcontroller used
 	 * @return Configuration array as string
 	 */
 	public static String getCfgArray(Microcontroller uC) {
@@ -51,7 +51,7 @@ class GpioGenerator {
 
 	/**
 	 * 
-	 * @param module Framework module
+	 * @param uC Microcontroller used
 	 * @return Elements definitions as String
 	 */
 	public static String getElDefs(Microcontroller uC) {
@@ -91,7 +91,7 @@ class GpioGenerator {
 
 	/**
 	 * 
-	 * @param module Framework module
+	 * @param uC Microcontroller used
 	 * @return Elements list as String
 	 */
 	public static String getElements(Microcontroller uC) {
@@ -108,6 +108,16 @@ class GpioGenerator {
 		}
 
 		return elements;
+	}
+
+	/**
+	 * 
+	 * @param uC Microcontroller used
+	 * @return Headers needed for GPIO module
+	 */
+	public static String getIncludes(Microcontroller uC) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

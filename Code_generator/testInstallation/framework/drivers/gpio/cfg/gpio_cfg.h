@@ -1,7 +1,7 @@
 /**
  * @file gpio_cfg.h
  * @author Miguel Diaz
- * @brief GPIO gramework configuration header
+ * @brief GPIO framework configuration header
  */
 
 /************************
