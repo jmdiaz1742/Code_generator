@@ -8,7 +8,25 @@ package configurator.GPIO;
  *
  */
 public enum Pull {
-	PULL_UP, PULL_DOWN, PULL_NOT_AVAILABLE, PULL_MAX_VALUE;
+	/**
+	 * Pull Up
+	 */
+	PULL_UP,
+
+	/**
+	 * Pull Down
+	 */
+	PULL_DOWN,
+
+	/**
+	 * If the pin is configured as output, or there is no resistor available
+	 */
+	PULL_NOT_AVAILABLE,
+
+	/**
+	 * Maximum value for Pull enum
+	 */
+	PULL_MAX_VALUE;
 
 	/**
 	 * Name as String
@@ -18,8 +36,7 @@ public enum Pull {
 	/**
 	 * Get the corresponding Pull configuration from its name as String
 	 * 
-	 * @param conf
-	 *            Configuration name
+	 * @param conf Configuration name
 	 * @return Pull configuration
 	 */
 	public static Pull getConfFromString(String conf) {

@@ -28,7 +28,15 @@ public class MainGui {
 	static private CodeGenerator generator;
 
 	/* Public fields */
+	
+	/**
+	 * Project configuration file
+	 */
 	static public File ProjectFile;
+	
+	/**
+	 * Project's location
+	 */
 	static public String ProjectPath;
 
 	/**
@@ -136,6 +144,9 @@ public class MainGui {
 		pinConfWriter.writeXml(ProjectSettingsConf.getConfFile().getPath());
 	}
 	
+	/**
+	 * Generate source code files
+	 */
 	static public void generateCode() {
 		generator = new CodeGenerator(SelectedMicrocontroller, ProjectSettingsConf);
 		

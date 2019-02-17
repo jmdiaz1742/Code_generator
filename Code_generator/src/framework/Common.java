@@ -28,12 +28,29 @@ public class Common {
 	private final static String STR_FRAMEWORK_COMMON = "frameworkCommon";
 	private final static String STR_FRAMEWORK_INCLUDES = "frameworkIncludes";
 
+	/**
+	 * GPIO module name
+	 */
 	public final static String STR_MODULE_GPIO = "gpio";
 
+	/**
+	 * Common implementation of New Line
+	 */
 	public final static String NL = "\r\n";
 
+	/**
+	 * Macro definition String
+	 */
 	public final static String STR_DEFINITION = "#define ";
+
+	/**
+	 * Include header file string
+	 */
 	public final static String STR_INCLUDE = "#include ";
+
+	/**
+	 * Header file extension
+	 */
 	public final static String STR_HEADER_EXT = ".h";
 
 	/* Methods */

@@ -13,6 +13,11 @@ import common.Features;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * About Window, contains version and contact information
+ * @author ovd
+ *
+ */
 public class AboutWindow {
 
 	private JFrame frmAboutCodeGenerator;

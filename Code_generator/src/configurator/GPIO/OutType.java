@@ -8,7 +8,25 @@ package configurator.GPIO;
  *
  */
 public enum OutType {
-	OTYPE_PUSH_PULL, OTYPE_OPEN_DRAIN, OTYPE_NOT_AVAILABLE, OTYPE_MAX_VALUE;
+	/**
+	 * Push Pull, totem
+	 */
+	OTYPE_PUSH_PULL,
+
+	/**
+	 * Open Drain
+	 */
+	OTYPE_OPEN_DRAIN,
+
+	/**
+	 * If the pin is configured as input
+	 */
+	OTYPE_NOT_AVAILABLE,
+
+	/**
+	 * Maximum value for OutType enum
+	 */
+	OTYPE_MAX_VALUE;
 
 	/**
 	 * Name as String
@@ -18,8 +36,7 @@ public enum OutType {
 	/**
 	 * Get the corresponding output type from its name as String
 	 * 
-	 * @param conf
-	 *            Configuration name
+	 * @param conf Configuration name
 	 * @return Output type
 	 */
 	public static OutType getConfFromString(String conf) {

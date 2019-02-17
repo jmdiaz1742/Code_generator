@@ -8,7 +8,20 @@ package configurator.GPIO;
  *
  */
 public enum OutLevel {
-	LOW, HIGH, MAX_VALUE;
+	/**
+	 * Low, logical 0, Ground
+	 */
+	LOW,
+
+	/**
+	 * High, logical 1, Vcc
+	 */
+	HIGH,
+
+	/**
+	 * Maximum value for OutLevel enum
+	 */
+	MAX_VALUE;
 
 	/**
 	 * Name as String
@@ -20,8 +33,7 @@ public enum OutLevel {
 	/**
 	 * Get the corresponding mode from its name as String
 	 * 
-	 * @param conf
-	 *            Configuration name
+	 * @param conf Configuration name
 	 * @return level
 	 */
 	public static OutLevel getConfFromString(String conf) {

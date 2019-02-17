@@ -82,6 +82,9 @@ public class Microcontroller {
 	private static final String STR_PIN = "pin";
 	private static final String CFG_ROOT_ELEMENT = "Microcontroller_Configuration";
 
+	/**
+	 * Maximum number of pins allowed in a single port
+	 */
 	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
 
 	/* Include files needed */
@@ -344,6 +347,11 @@ public class Microcontroller {
 		return CurrentPin[pinNum];
 	}
 
+	/**
+	 * Load pins' configuration
+	 * @param confDoc Document with pins
+	 * @return Error Code
+	 */
 	public ErrorCode loadPinsConf(Document confDoc) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList pinList;

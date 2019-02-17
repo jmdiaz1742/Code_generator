@@ -7,6 +7,9 @@ package configurator.GPIO;
  *
  */
 public enum CodeName {
+	/**
+	 * Code name for pin
+	 */
 	CODE_NAME;
 
 	/**

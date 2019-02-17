@@ -4,6 +4,11 @@ import java.beans.Beans;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+/**
+ * Messages window
+ * @author ovd
+ *
+ */
 public class Messages {
 	////////////////////////////////////////////////////////////////////////////
 	//
@@ -31,6 +36,11 @@ public class Messages {
 	// Strings access
 	//
 	////////////////////////////////////////////////////////////////////////////
+	/**
+	 * Get String
+	 * @param key Key
+	 * @return String
+	 */
 	public static String getString(String key) {
 		try {
 			ResourceBundle bundle = Beans.isDesignTime() ? loadBundle() : RESOURCE_BUNDLE;

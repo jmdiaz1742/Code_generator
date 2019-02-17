@@ -8,7 +8,30 @@ package configurator.GPIO;
  *
  */
 public enum Mode {
-	MODE_INPUT, MODE_OUTPUT, MODE_ALTERNATE_FUNCTION, MODE_ANALOG, MODE_MAX_VALUE;
+	/**
+	 * Input
+	 */
+	MODE_INPUT,
+
+	/**
+	 * Output
+	 */
+	MODE_OUTPUT,
+
+	/**
+	 * Alternate function
+	 */
+	MODE_ALTERNATE_FUNCTION,
+
+	/**
+	 * Analog
+	 */
+	MODE_ANALOG,
+
+	/**
+	 * Maximum value for Mode enum
+	 */
+	MODE_MAX_VALUE;
 
 	/**
 	 * Name as String
@@ -20,8 +43,7 @@ public enum Mode {
 	/**
 	 * Get the corresponding mode from its name as String
 	 * 
-	 * @param conf
-	 *            Configuration name
+	 * @param conf Configuration name
 	 * @return Mode
 	 */
 	public static Mode getConfFromString(String conf) {

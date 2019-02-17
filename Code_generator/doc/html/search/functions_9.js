@@ -14,6 +14,8 @@ var searchData=
   ['setfeat_5fuart',['setFeat_uart',['../classmicrocontroller_1_1_pin.html#a89c5a279c95d660f267aeff0fb7823f1',1,'microcontroller::Pin']]],
   ['setfunc_5fgnd',['setFunc_gnd',['../classmicrocontroller_1_1_pin.html#af8abe10ecfb0dd58675e9973bad68ead',1,'microcontroller::Pin']]],
   ['setfunc_5fgpio',['setFunc_gpio',['../classmicrocontroller_1_1_pin.html#a976015af83db692728d6289839f9a52a',1,'microcontroller::Pin']]],
+  ['setfunc_5fmisc',['setFunc_misc',['../classmicrocontroller_1_1_pin.html#adfd8bac1b660de4fa8ae34ebb7f1f734',1,'microcontroller::Pin']]],
+  ['setfunc_5freset',['setFunc_reset',['../classmicrocontroller_1_1_pin.html#ad1f341505d7d1359e8d369c21039dd51',1,'microcontroller::Pin']]],
   ['setfunc_5fvcc',['setFunc_vcc',['../classmicrocontroller_1_1_pin.html#ade3c8e9b7137e95e30bef8450dca469f',1,'microcontroller::Pin']]],
   ['seti2c',['setI2c',['../classmicrocontroller_1_1_pin.html#a10220e38f47b8102a031ecaae1dd1517',1,'microcontroller::Pin']]],
   ['setinstallationfwkpath',['setInstallationFwkPath',['../classframework_1_1_common.html#aeadca7af71173bded4811d1b8d80772b',1,'framework::Common']]],

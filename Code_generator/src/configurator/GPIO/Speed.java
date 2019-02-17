@@ -8,7 +8,30 @@ package configurator.GPIO;
  *
  */
 public enum Speed {
-	SPEED_FAST, SPEED_MEDIUM, SPEED_HIGH, SPEED_NOT_AVAILABLE, SPEED_MAX_VALUE;
+	/**
+	 * Fast
+	 */
+	SPEED_FAST,
+
+	/**
+	 * Medium
+	 */
+	SPEED_MEDIUM,
+
+	/**
+	 * High
+	 */
+	SPEED_HIGH,
+
+	/**
+	 * Not all MCUs will have this setting
+	 */
+	SPEED_NOT_AVAILABLE,
+
+	/**
+	 * Maximum value for Speed enum
+	 */
+	SPEED_MAX_VALUE;
 
 	/**
 	 * Name as String
@@ -18,8 +41,7 @@ public enum Speed {
 	/**
 	 * Get the corresponding Speed configuration from its name as String
 	 * 
-	 * @param conf
-	 *            Configuration name
+	 * @param conf Configuration name
 	 * @return Speed
 	 */
 	public static Speed getConfFromString(String conf) {
