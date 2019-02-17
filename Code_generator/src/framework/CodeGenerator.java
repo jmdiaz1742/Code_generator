@@ -74,7 +74,7 @@ public class CodeGenerator {
 		 * be using GPIO
 		 */
 		modules += framework.Common.STR_INCLUDE;
-		modules += "<" + framework.Common.STR_MODULE_GPIO + framework.Common.STR_HEADER_EXT + ">";
+		modules += "\"" + framework.Common.STR_MODULE_GPIO + framework.Common.STR_HEADER_EXT + "\"";
 
 		/* Generate frameworkCommon.h */
 		Features.verbosePrint("Generating framework common file...");

@@ -119,7 +119,7 @@ class GpioGenerator {
 		String includes = "";
 
 		for (int incNum = 0; incNum < uC.Includes_Gpio.length; incNum++) {
-			includes += framework.Common.STR_INCLUDE + "<" + uC.Includes_Gpio[incNum] + ">";
+			includes += framework.Common.STR_INCLUDE + "\"" + uC.Includes_Gpio[incNum] + "\"";
 			if (incNum < uC.Includes_Gpio.length - 1) {
 				includes += framework.Common.NL;
 			}
