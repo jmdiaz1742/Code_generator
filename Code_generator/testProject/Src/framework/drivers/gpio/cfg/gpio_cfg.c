@@ -36,12 +36,12 @@
 /**
  * @brief GPIO initial configuration structures array
  */
-const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {{NOMBRE_PORT,
-NOMBRE_PIN,
-NOMBRE_MODE,
-NOMBRE_ALT,
-NOMBRE_PULL,
-NOMBRE_SPEED
+const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {{PC13_PORT,
+PC13_PIN,
+PC13_MODE,
+PC13_ALT,
+PC13_PULL,
+PC13_SPEED
 },
 {PC14_PORT,
 PC14_PIN,

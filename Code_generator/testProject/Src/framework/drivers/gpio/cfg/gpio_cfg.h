@@ -1,7 +1,7 @@
 /**
  * @file gpio_cfg.h
  * @author Miguel Diaz
- * @brief GPIO gramework configuration header
+ * @brief GPIO framework configuration header
  */
 
 /************************
@@ -13,7 +13,7 @@
 /************************
  * Includes             *
  ************************/
-FWK_GPIO_INCLUDES
+#include <stm32f3xx_hal.h>
 
 /************************
  * Public Types         *
@@ -21,7 +21,7 @@ FWK_GPIO_INCLUDES
 /**
  * @brief GPIO elements
  */
-typedef enum { NOMBRE,
+typedef enum { PC13,
 PC14,
 PC15,
 PF0,
@@ -82,13 +82,13 @@ PB9, GPIO_ELEMENTS_MAX } Gpio_elementsType;
  ************************/
 FWK_GPIO_CFG_DEFINITIONS
 
-// NOMBRE
-#define NOMBRE_PORT C
-#define NOMBRE_PIN PC13
-#define NOMBRE_MODE MODE_INPUT
-#define NOMBRE_ALT GPIO_ALT_NONE
-#define NOMBRE_PULL PULL_NOT_AVAILABLE
-#define NOMBRE_SPEED SPEED_FAST
+// PC13
+#define PC13_PORT C
+#define PC13_PIN PC13
+#define PC13_MODE MODE_INPUT
+#define PC13_ALT GPIO_ALT_NONE
+#define PC13_PULL PULL_NOT_AVAILABLE
+#define PC13_SPEED SPEED_FAST
 
 // PC14
 #define PC14_PORT C

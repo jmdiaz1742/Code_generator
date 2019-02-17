@@ -16,10 +16,7 @@
  * Includes             *
  ************************/
 // Include framework modules depending on what you are using:
-#include "mcu.h"
-#include "gpio.h"
-#include "spi.h"
-#include "i2c.h"
+#include <gpio.h>
 
 /************************
  * Public Types         *

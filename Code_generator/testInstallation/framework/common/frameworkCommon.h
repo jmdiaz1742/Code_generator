@@ -13,7 +13,7 @@
 /************************
  * Includes             *
  ************************/
-#include <stdlib.h>
+FWK_COMMON_INCLUDES
 
 /************************
  * Public Types         *

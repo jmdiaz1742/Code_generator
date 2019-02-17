@@ -14,6 +14,7 @@
  * Includes             *
  ************************/
 #include <stdlib.h>
+#include <stdbool.h>
 
 /************************
  * Public Types         *

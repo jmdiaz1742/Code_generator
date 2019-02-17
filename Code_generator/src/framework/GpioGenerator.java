@@ -13,11 +13,11 @@ class GpioGenerator {
 	private static final String STR_SUFF_PULL = "_PULL";
 	private static final String STR_SUFF_SPEED = "_SPEED";
 
-	/* Toke Strings */
+	/* Token Strings */
 	public static final String STR_TKN_CFG_ARRAY = "FWK_GPIO_CFG_ARRAY";
 	public static final String STR_TKN_ELEMENTS = "FWK_GPIO_ELEMENTS";
-	public static final String STR_TKN_INC = "FWK_GPIO_INCLUDES"; // TODO: Get correct use
-	public static final String STR_TKN_CFG_DEFS = "FWK_GPIO_CFG_DEFINITIONS"; // TODO: Get correct use
+	public static final String STR_TKN_INC = "FWK_GPIO_INCLUDES";
+	public static final String STR_TKN_CFG_DEFS = "FWK_GPIO_CFG_DEFINITIONS";
 	public static final String STR_TKN_EL_DEFS = "FWK_GPIO_ELEMENTS_DEFINITIONS";
 
 	/**
@@ -116,8 +116,16 @@ class GpioGenerator {
 	 * @return Headers needed for GPIO module
 	 */
 	public static String getIncludes(Microcontroller uC) {
-		// TODO Auto-generated method stub
-		return null;
+		String includes = "";
+
+		for (int incNum = 0; incNum < uC.Includes_Gpio.length; incNum++) {
+			includes += framework.Common.STR_INCLUDE + "<" + uC.Includes_Gpio[incNum] + ">";
+			if (incNum < uC.Includes_Gpio.length - 1) {
+				includes += framework.Common.NL;
+			}
+		}
+
+		return includes;
 	}
 
 }

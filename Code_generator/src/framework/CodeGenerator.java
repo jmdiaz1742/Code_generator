@@ -27,7 +27,8 @@ public class CodeGenerator {
 	private Microcontroller uC;
 	private ProjectSettings projectSettings;
 
-	private static final String MODULE_GPIO = "gpio";
+	private final static String STR_TKN_FWK_COMMON_INC = "FWK_COMMON_INCLUDES";
+	private final static String STR_TKN_FWK_MODULES_INC = "FWK_MODULES_INCLUDES";
 
 	/**
 	 * Constructor
@@ -49,7 +50,50 @@ public class CodeGenerator {
 		ErrorCode error = ErrorCode.NO_ERROR;
 
 		// Generate GPIO module files:
-		error = generateCfgFiles(MODULE_GPIO);
+		error = generateCfgFiles(framework.Common.STR_MODULE_GPIO);
+		error = generateCommonFiles();
+
+		return error;
+	}
+
+	/**
+	 * Generate Common framework files
+	 * 
+	 * @return Error Code
+	 */
+	private ErrorCode generateCommonFiles() {
+		ErrorCode error = ErrorCode.NO_ERROR;
+		File cfgFile = null;
+		File fwkFile = null;
+		String modules = "";
+
+		/* Set modules in use */
+
+		/*
+		 * TODO: Set a method to establish which modules are in use, for now we'll only
+		 * be using GPIO
+		 */
+		modules += framework.Common.STR_INCLUDE;
+		modules += "<" + framework.Common.STR_MODULE_GPIO + framework.Common.STR_HEADER_EXT + ">";
+
+		/* Generate frameworkCommon.h */
+		Features.verbosePrint("Generating framework common file...");
+
+		fwkFile = new File(framework.Common.getFrameworkCommonFilePath(framework.Common.getInstallationFwkPath()));
+		cfgFile = new File(framework.Common.getFrameworkCommonFilePath(projectSettings.getFrameworkPath()));
+
+		error = copyFile(fwkFile, cfgFile);
+
+		error = replaceInFile(cfgFile, STR_TKN_FWK_COMMON_INC, framework.Common.getCommonIncludes(uC));
+
+		/* Generate frameworkIncludes.h */
+		Features.verbosePrint("Generating framework common file...");
+
+		fwkFile = new File(framework.Common.getFrameworkIncludesFilePath(framework.Common.getInstallationFwkPath()));
+		cfgFile = new File(framework.Common.getFrameworkIncludesFilePath(projectSettings.getFrameworkPath()));
+
+		error = copyFile(fwkFile, cfgFile);
+		error = replaceInFile(cfgFile, STR_TKN_FWK_MODULES_INC, modules);
 
 		return error;
 	}
@@ -73,7 +117,7 @@ public class CodeGenerator {
 		error = copyFile(fwkFile, cfgFile);
 
 		switch (module) {
-		case MODULE_GPIO: {
+		case framework.Common.STR_MODULE_GPIO: {
 			error = replaceInFile(cfgFile, GpioGenerator.STR_TKN_CFG_ARRAY, GpioGenerator.getCfgArray(uC));
 			break;
 		}
@@ -92,10 +136,11 @@ public class CodeGenerator {
 		error = copyFile(fwkFile, cfgFile);
 
 		switch (module) {
-		case MODULE_GPIO: {
-			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC , GpioGenerator.getElDefs(uC));
+		case framework.Common.STR_MODULE_GPIO: {
+			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC, GpioGenerator.getIncludes(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_EL_DEFS, GpioGenerator.getElDefs(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_ELEMENTS, GpioGenerator.getElements(uC));
+			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC, GpioGenerator.getIncludes(uC));
 			break;
 		}
 		default: {

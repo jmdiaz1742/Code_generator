@@ -48,8 +48,7 @@ public class ConfXmlWriter {
 	/**
 	 * Constructor
 	 * 
-	 * @param uC
-	 *            Microcontroller configuration
+	 * @param uC Microcontroller configuration
 	 */
 	public ConfXmlWriter(Microcontroller uC) {
 		DocumentBuilderFactory xmlFactory;
@@ -89,10 +88,8 @@ public class ConfXmlWriter {
 	/**
 	 * Add a pin configuration to the file
 	 * 
-	 * @param pin
-	 *            Pin configuration
-	 * @param pinNum
-	 *            Number of GPIO pin
+	 * @param pin    Pin configuration
+	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
 		PinElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
@@ -113,12 +110,9 @@ public class ConfXmlWriter {
 	/**
 	 * Add a configuration child element to the pin
 	 * 
-	 * @param elName
-	 *            Configuration name
-	 * @param elInfo
-	 *            Configuration information
-	 * @param pinNum
-	 *            GPIO pin number
+	 * @param elName Configuration name
+	 * @param elInfo Configuration information
+	 * @param pinNum GPIO pin number
 	 */
 	private void addPinChild(String elName, String elInfo, int pinNum) {
 		Element childEl = XmlDoc.createElement(elName);
@@ -129,8 +123,7 @@ public class ConfXmlWriter {
 	/**
 	 * Write the XMl file
 	 * 
-	 * @param fileName
-	 *            Name of XML configuration file
+	 * @param fileName Name of XML configuration file
 	 * @return Error status
 	 */
 	public ErrorCode writeXml(String fileName) {

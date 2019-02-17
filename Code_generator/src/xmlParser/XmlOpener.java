@@ -34,8 +34,7 @@ public class XmlOpener {
 	/**
 	 * Open the XML file
 	 * 
-	 * @param inFile
-	 *            XML file
+	 * @param inFile XML file
 	 * @return Error code
 	 */
 	public ErrorCode OpenFile(File inFile) {
@@ -86,10 +85,8 @@ public class XmlOpener {
 	/**
 	 * Get an XML element information
 	 * 
-	 * @param doc
-	 *            Document from XML file
-	 * @param elementName
-	 *            Element's name
+	 * @param doc         Document from XML file
+	 * @param elementName Element's name
 	 * @return Element's information
 	 */
 	public static String getElementInfoFromDoc(Document doc, String elementName) {
@@ -109,10 +106,8 @@ public class XmlOpener {
 	/**
 	 * Get an XML sub element information
 	 * 
-	 * @param element
-	 *            XML main element
-	 * @param elementName
-	 *            Sub element's name
+	 * @param element     XML main element
+	 * @param elementName Sub element's name
 	 * @return Sub elemen't information
 	 */
 	public static String getElementInfo(Element element, String elementName) {

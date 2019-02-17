@@ -1,6 +1,7 @@
 package framework;
 
 import common.Features;
+import microcontroller.Microcontroller;
 
 /**
  * Framework common fields and methods
@@ -17,16 +18,23 @@ public class Common {
 	private static String installationFwkPath;
 	private static String projectFwkPath;
 
+	private final static String STR_COMMON = "common";
 	private final static String STR_DRIVERS = "drivers";
 	private final static String STR_CFG = "cfg";
 	private final static String STR_CFG_FILE = "_cfg.";
 	private final static String STR_EXT_FILE_C = "c";
 	private final static String STR_EXT_FILE_H = "h";
 
-	public static final String NL = "\r\n";
+	private final static String STR_FRAMEWORK_COMMON = "frameworkCommon";
+	private final static String STR_FRAMEWORK_INCLUDES = "frameworkIncludes";
+
 	public final static String STR_MODULE_GPIO = "gpio";
 
+	public final static String NL = "\r\n";
+
 	public final static String STR_DEFINITION = "#define ";
+	public final static String STR_INCLUDE = "#include ";
+	public final static String STR_HEADER_EXT = ".h";
 
 	/* Methods */
 
@@ -128,5 +136,55 @@ public class Common {
 		cfgFileH += cfgModule + STR_CFG_FILE + STR_EXT_FILE_H;
 
 		return cfgFileH;
+	}
+
+	/**
+	 * Get the framework common header path
+	 * 
+	 * @param fwkPath Framework folder path
+	 * @return Framework common header path
+	 */
+	public static String getFrameworkCommonFilePath(String fwkPath) {
+		String FwkcommonPath;
+
+		FwkcommonPath = fwkPath + System.getProperty("file.separator");
+		FwkcommonPath += STR_COMMON + System.getProperty("file.separator");
+		FwkcommonPath += STR_FRAMEWORK_COMMON + STR_HEADER_EXT;
+
+		return FwkcommonPath;
+	}
+
+	/**
+	 * Get the framework includes header path
+	 * 
+	 * @param fwkPath Framework folder path
+	 * @return Framework includes header path
+	 */
+	public static String getFrameworkIncludesFilePath(String fwkPath) {
+		String FwkcommonPath;
+
+		FwkcommonPath = fwkPath + System.getProperty("file.separator");
+		FwkcommonPath += STR_COMMON + System.getProperty("file.separator");
+		FwkcommonPath += STR_FRAMEWORK_INCLUDES + STR_HEADER_EXT;
+
+		return FwkcommonPath;
+	}
+
+	/**
+	 * 
+	 * @param uC Microcontroller used
+	 * @return Common headers needed for framework
+	 */
+	public static String getCommonIncludes(Microcontroller uC) {
+		String includes = "";
+
+		for (int incNum = 0; incNum < uC.Includes_Common.length; incNum++) {
+			includes += framework.Common.STR_INCLUDE + "<" + uC.Includes_Common[incNum] + ">";
+			if (incNum < uC.Includes_Common.length - 1) {
+				includes += framework.Common.NL;
+			}
+		}
+
+		return includes;
 	}
 }

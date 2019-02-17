@@ -38,6 +38,16 @@ public class Microcontroller {
 	public String[] Ports;
 
 	/**
+	 * List of public includes
+	 */
+	public String[] Includes_Common;
+
+	/**
+	 * List of Includes for GPIO module
+	 */
+	public String[] Includes_Gpio;
+
+	/**
 	 * Configured pins list
 	 */
 	public PinConf[] GpioCfgPin;
@@ -74,6 +84,10 @@ public class Microcontroller {
 
 	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
 
+	/* Include files needed */
+	private static final String STR_INCLUDE_COMMON = "include_common";
+	private static final String STR_INCLUDE_GPIO = "include_gpio";
+
 	/**
 	 * Constructor
 	 * 
@@ -107,6 +121,10 @@ public class Microcontroller {
 		}
 
 		if (loadPins() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+
+		if (loadIncludes() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
 
@@ -600,5 +618,48 @@ public class Microcontroller {
 		}
 
 		return validity;
+	}
+
+	private ErrorCode loadIncludes() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList includeList;
+		String incName;
+
+		Features.verbosePrint("Looking for Include files list...");
+
+		/* Get Common includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_COMMON);
+		if (includeList.getLength() > 0) {
+			Includes_Common = new String[includeList.getLength()];
+			for (int incNum = 0; incNum < Includes_Common.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Common[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			errorStatus = ErrorCode.EX_ERROR;
+			Features.verbosePrint("No Common includes found...");
+		}
+
+		/* Get GPIO includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_GPIO);
+		if (includeList.getLength() > 0) {
+			Includes_Gpio = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Gpio.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Gpio[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			errorStatus = ErrorCode.EX_ERROR;
+			Features.verbosePrint("No Common includes found...");
+		}
+
+		return errorStatus;
 	}
 }

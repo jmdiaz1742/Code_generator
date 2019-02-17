@@ -55,8 +55,7 @@ public class MainWindow {
 	/**
 	 * Open main window
 	 * 
-	 * @param args
-	 *            To be determined
+	 * @param args To be determined
 	 */
 	public static void main(String[] args) {
 		try {
@@ -96,8 +95,7 @@ public class MainWindow {
 	/**
 	 * Set visibility of About window
 	 * 
-	 * @param status
-	 *            true if visible
+	 * @param status true if visible
 	 */
 	public void setVisible(boolean status) {
 		this.FrmCodeGenerator.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -129,7 +127,7 @@ public class MainWindow {
 		menuBar.add(mnFile);
 
 		JMenuItem mntmNewProject = new JMenuItem(Messages.getString("MainWindow.mntmNewProject.text")); //$NON-NLS-1$
-		mntmNewProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
+		mntmNewProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
 		mntmNewProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin New Project button click ******/
@@ -140,7 +138,7 @@ public class MainWindow {
 		mnFile.add(mntmNewProject);
 
 		JMenuItem mntmOpenProject = new JMenuItem(Messages.getString("MainWindow.mntmOpenProject.text")); //$NON-NLS-1$
-		mntmOpenProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
+		mntmOpenProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
 		mntmOpenProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Open Existing Project button click ******/
@@ -151,7 +149,7 @@ public class MainWindow {
 		mnFile.add(mntmOpenProject);
 
 		mntmSave = new JMenuItem(Messages.getString("MainWindow.mntmSave.text"));
-		mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+		mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
 		mntmSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/****** Begin Save button click ******/
@@ -162,7 +160,8 @@ public class MainWindow {
 		mnFile.add(mntmSave);
 
 		mntmSaveAs = new JMenuItem(Messages.getString("MainWindow.mntmSaveAs.text")); //$NON-NLS-1$
-		mntmSaveAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
+		mntmSaveAs.setAccelerator(
+				KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK));
 		mntmSaveAs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Save as button click ******/
@@ -282,12 +281,9 @@ public class MainWindow {
 	/**
 	 * Open file chooser dialog and get the selected file
 	 * 
-	 * @param initialPath
-	 *            Path to search the file in
-	 * @param title
-	 *            Dialog title
-	 * @param fileFilter
-	 *            Extension filter
+	 * @param initialPath Path to search the file in
+	 * @param title       Dialog title
+	 * @param fileFilter  Extension filter
 	 * @return Selected file
 	 */
 	public File OpenFileChooser(String initialPath, String title, FileNameExtensionFilter fileFilter) {
@@ -312,12 +308,9 @@ public class MainWindow {
 	/**
 	 * Set Project's name in its label
 	 * 
-	 * @param projectName
-	 *            Project's name
-	 * @param ucManufacturer
-	 *            Microcontroller's manufacturer
-	 * @param ucName
-	 *            Microcontroller's model
+	 * @param projectName    Project's name
+	 * @param ucManufacturer Microcontroller's manufacturer
+	 * @param ucName         Microcontroller's model
 	 * @return Error status
 	 */
 	public ErrorCode setProjectInformation(String projectName, String ucManufacturer, String ucName) {
