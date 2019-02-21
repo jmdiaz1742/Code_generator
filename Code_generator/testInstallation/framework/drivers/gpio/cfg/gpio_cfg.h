@@ -21,7 +21,11 @@ FWK_GPIO_INCLUDES
 /**
  * @brief GPIO elements
  */
-typedef enum { FWK_GPIO_ELEMENTS, GPIO_ELEMENTS_MAX } Gpio_elementsType;
+typedef enum
+{
+    FWK_GPIO_ELEMENTS
+    GPIO_ELEMENTS_MAX
+} Gpio_elementsType;
 
 /************************
  * Public Macros        *

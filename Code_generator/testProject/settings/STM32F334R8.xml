@@ -9,6 +9,13 @@
 		<include_common>stdbool.h</include_common>
 		<include_gpio>stm32f3xx_hal.h</include_gpio>
 	</includes>
+	<configuration_definitions>
+		<!-- GPIO definitions -->
+		<cfg_def_gpio>PULL_NOT_AVAILABLE GPIO_NOPULL</cfg_def_gpio>
+		<cfg_def_gpio>SPEED_FAST GPIO_SPEED_HIGH</cfg_def_gpio>
+		<cfg_def_gpio>GPIO_ALT_NONE ((uint8_t)0xFF)</cfg_def_gpio>
+		<cfg_def_gpio>MODE_INPUT GPIO_MODE_INPUT</cfg_def_gpio>
+	</configuration_definitions>
 	<pins>
 		<pin>
 			<!-- Backup power supply -->
@@ -20,8 +27,8 @@
 			<number>2</number>
 			<name>PC13</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>13</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_13</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM1_CH1N</timer>
@@ -32,8 +39,8 @@
 			<number>3</number>
 			<name>PC14</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>14</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_14</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<osc>OSC32_IN</osc>
@@ -42,8 +49,8 @@
 			<number>4</number>
 			<name>PC15</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>15</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_15</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<osc>OSC32_OUT</osc>
@@ -52,8 +59,8 @@
 			<number>5</number>
 			<name>PF0</name>
 			<gpio>GPIO</gpio>
-			<port>F</port>
-			<portPin>0</portPin>
+			<port>PORT_F</port>
+			<portPin>PIN_0</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM1_CH3N</timer>
@@ -63,8 +70,8 @@
 			<number>6</number>
 			<name>PF1</name>
 			<gpio>GPIO</gpio>
-			<port>F</port>
-			<portPin>1</portPin>
+			<port>PORT_F</port>
+			<portPin>PIN_1</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<osc>OSC_OUT</osc>
@@ -79,8 +86,8 @@
 			<number>8</number>
 			<name>PC0</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>0</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_0</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC12_IN6</adc>
@@ -90,8 +97,8 @@
 			<number>9</number>
 			<name>PC1</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>1</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_1</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC12_IN7</adc>
@@ -101,8 +108,8 @@
 			<number>10</number>
 			<name>PC2</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>2</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_2</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC12_IN8</adc>
@@ -112,8 +119,8 @@
 			<number>11</number>
 			<name>PC3</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>3</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_3</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC12_IN9</adc>
@@ -135,8 +142,8 @@
 			<number>14</number>
 			<name>PA0</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>0</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_0</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN1</adc>
@@ -150,8 +157,8 @@
 			<number>15</number>
 			<name>PA1</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>1</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_1</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN2</adc>
@@ -165,8 +172,8 @@
 			<number>16</number>
 			<name>PA2</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>2</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_2</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN3</adc>
@@ -180,8 +187,8 @@
 			<number>17</number>
 			<name>PA3</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>3</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_3</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN4</adc>
@@ -204,8 +211,8 @@
 			<number>20</number>
 			<name>PA4</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>4</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_4</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN1</adc>
@@ -221,8 +228,8 @@
 			<number>21</number>
 			<name>PA5</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>5</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_5</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN2</adc>
@@ -237,8 +244,8 @@
 			<number>22</number>
 			<name>PA6</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>6</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_6</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN3</adc>
@@ -255,8 +262,8 @@
 			<number>23</number>
 			<name>PA7</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>7</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_7</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN4</adc>
@@ -272,8 +279,8 @@
 			<number>24</number>
 			<name>PC4</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>4</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_4</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN5</adc>
@@ -284,8 +291,8 @@
 			<number>25</number>
 			<name>PC5</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>5</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_5</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN11</adc>
@@ -298,8 +305,8 @@
 			<number>26</number>
 			<name>PB0</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>0</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_0</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN11</adc>
@@ -313,8 +320,8 @@
 			<number>27</number>
 			<name>PB1</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>1</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_1</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN12</adc>
@@ -328,8 +335,8 @@
 			<number>28</number>
 			<name>PB2</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>2</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_2</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN12</adc>
@@ -341,8 +348,8 @@
 			<number>29</number>
 			<name>PB10</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>10</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_10</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM2_CH3</timer>
@@ -354,8 +361,8 @@
 			<number>30</number>
 			<name>PB11</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>11</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_11</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM2_CH4</timer>
@@ -378,8 +385,8 @@
 			<number>33</number>
 			<name>PB12</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>12</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_12</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN13</adc>
@@ -391,8 +398,8 @@
 			<number>34</number>
 			<name>PB13</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>13</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_13</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC1_IN13</adc>
@@ -405,8 +412,8 @@
 			<number>35</number>
 			<name>PB14</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>14</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_14</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN14</adc>
@@ -421,8 +428,8 @@
 			<number>36</number>
 			<name>PB15</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>15</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_15</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<adc>ADC2_IN15</adc>
@@ -437,8 +444,8 @@
 			<number>37</number>
 			<name>PC6</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>6</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_6</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM3_CH1</timer>
@@ -449,8 +456,8 @@
 			<number>38</number>
 			<name>PC7</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>7</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_7</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM3_CH2</timer>
@@ -460,8 +467,8 @@
 			<number>39</number>
 			<name>PC8</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>8</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_8</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM3_CH3</timer>
@@ -471,8 +478,8 @@
 			<number>40</number>
 			<name>PC9</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>9</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_9</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM3_CH4</timer>
@@ -482,8 +489,8 @@
 			<number>41</number>
 			<name>PA8</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>8</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_8</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<mco>MCO</mco>
@@ -495,8 +502,8 @@
 			<number>42</number>
 			<name>PA9</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>9</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_9</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<tsc>TSC_G4_IO1</tsc>
@@ -510,8 +517,8 @@
 			<number>43</number>
 			<name>PA10</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>10</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_10</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM17_BKIN</timer>
@@ -526,8 +533,8 @@
 			<number>44</number>
 			<name>PA11</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>11</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_11</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM1_CH1N</timer>
@@ -540,8 +547,8 @@
 			<number>45</number>
 			<name>PA12</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>12</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_12</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM16_CH1</timer>
@@ -556,8 +563,8 @@
 			<number>46</number>
 			<name>PA13</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>13</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_13</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<jtag>JTCK/SWDAT</jtag>
@@ -580,8 +587,8 @@
 			<number>49</number>
 			<name>PA14</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>14</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_14</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<jtag>JTCK/SWCLK</jtag>
@@ -594,8 +601,8 @@
 			<number>50</number>
 			<name>PA15</name>
 			<gpio>GPIO</gpio>
-			<port>A</port>
-			<portPin>15</portPin>
+			<port>PORT_A</port>
+			<portPin>PIN_15</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<jtag>JTD1</jtag>
@@ -611,8 +618,8 @@
 			<number>51</number>
 			<name>PC10</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>10</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_10</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<uart>USART3_TX</uart>
@@ -621,8 +628,8 @@
 			<number>52</number>
 			<name>PC11</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>11</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_11</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<hrtim>HRTIM1_EEV2</hrtim>
@@ -632,8 +639,8 @@
 			<number>53</number>
 			<name>PC12</name>
 			<gpio>GPIO</gpio>
-			<port>C</port>
-			<portPin>12</portPin>
+			<port>PORT_C</port>
+			<portPin>PIN_12</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<hrtim>HRTIM1_EEV1</hrtim>
@@ -643,8 +650,8 @@
 			<number>54</number>
 			<name>PD2</name>
 			<gpio>GPIO</gpio>
-			<port>D</port>
-			<portPin>2</portPin>
+			<port>PORT_D</port>
+			<portPin>PIN_2</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM3_ETR</timer>
@@ -653,8 +660,8 @@
 			<number>55</number>
 			<name>PB3</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>3</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_3</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<jtag>JTDO/TRACE</jtag>
@@ -668,8 +675,8 @@
 			<number>56</number>
 			<name>PB4</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>4</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_4</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<jtag>NJTRSR</jtag>
@@ -685,8 +692,8 @@
 			<number>57</number>
 			<name>PB5</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>5</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_5</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM16_BKIN</timer>
@@ -701,8 +708,8 @@
 			<number>58</number>
 			<name>PB6</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>6</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_6</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM16_CH1N</timer>
@@ -715,8 +722,8 @@
 			<number>59</number>
 			<name>PB7</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>7</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_7</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM17_CH1</timer>
@@ -735,8 +742,8 @@
 			<number>61</number>
 			<name>PB8</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>8</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_8</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM16_CH1</timer>
@@ -751,8 +758,8 @@
 			<number>62</number>
 			<name>PB9</name>
 			<gpio>GPIO</gpio>
-			<port>B</port>
-			<portPin>9</portPin>
+			<port>PORT_B</port>
+			<portPin>PIN_9</portPin>
 			<interrupt>PCINT0</interrupt>
 			<!--TODO: -->
 			<timer>TIM17_CH1</timer>

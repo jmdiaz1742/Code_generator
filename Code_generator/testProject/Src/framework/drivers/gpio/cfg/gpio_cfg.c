@@ -36,7 +36,10 @@
 /**
  * @brief GPIO initial configuration structures array
  */
-const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {{PC13_PORT,
+const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {
+// Corellian header: Generated code! ##########################################
+// Do NOT modify code between this header and the footer below ################
+{PC13_PORT,
 PC13_PIN,
 PC13_MODE,
 PC13_ALT,
@@ -392,7 +395,10 @@ PB9_MODE,
 PB9_ALT,
 PB9_PULL,
 PB9_SPEED
-}};
+}
+// Corellian footer: Generated code! ##########################################
+// Do NOT modify code between this footer and the header above ################
+};
 /************************
  * File Scope Variables *
  ************************/

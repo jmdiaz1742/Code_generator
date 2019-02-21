@@ -53,6 +53,8 @@ public class Features {
 	 * Code name of the software version
 	 */
 	public static final String VERSION_NAME = "Bespin";
+	
+	public static final String GENERATOR_NAME = "Corellian";
 
 	/* Static Methods */
 

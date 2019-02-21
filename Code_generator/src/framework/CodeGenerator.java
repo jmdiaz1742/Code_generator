@@ -29,6 +29,9 @@ public class CodeGenerator {
 
 	private final static String STR_TKN_FWK_COMMON_INC = "FWK_COMMON_INCLUDES";
 	private final static String STR_TKN_FWK_MODULES_INC = "FWK_MODULES_INCLUDES";
+	
+	public static final String STR_TKN_CFG_DEFS_COMMON = "FWK_GPIO_COMMON_DEFINITIONS";
+	public static final String STR_TKN_CFG_DEFS_GPIO = "FWK_GPIO_CFG_DEFINITIONS";
 
 	/**
 	 * Constructor
@@ -85,6 +88,7 @@ public class CodeGenerator {
 		error = copyFile(fwkFile, cfgFile);
 
 		error = replaceInFile(cfgFile, STR_TKN_FWK_COMMON_INC, framework.Common.getCommonIncludes(uC));
+		error = replaceInFile(cfgFile, STR_TKN_CFG_DEFS_COMMON, framework.Common.getCommonCfgDefinitions(uC));
 
 		/* Generate frameworkIncludes.h */
 		Features.verbosePrint("Generating framework common file...");
@@ -141,6 +145,7 @@ public class CodeGenerator {
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_EL_DEFS, GpioGenerator.getElDefs(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_ELEMENTS, GpioGenerator.getElements(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC, GpioGenerator.getIncludes(uC));
+			replaceInFile(cfgFile, GpioGenerator.STR_TKN_CFG_DEFS, GpioGenerator.getCfgDefinitions(uC));
 			break;
 		}
 		default: {
@@ -245,6 +250,7 @@ public class CodeGenerator {
 	 * 
 	 * @param file File to beautify
 	 */
+	@SuppressWarnings("unused") /* TODO: Fix this method */
 	private static void beautifyFile(File file) {
 		// String command = "clang-format -i -style=file " + "\"" + file.getPath() +
 		// "\"";

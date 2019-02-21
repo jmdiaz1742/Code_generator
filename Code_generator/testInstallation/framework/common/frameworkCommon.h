@@ -35,6 +35,8 @@ FWK_COMMON_INCLUDES
 #define LOW_BYTE_IN_16B_MASK (0x00FF)
 #define HIGH_BYTE_IN_16B_MASK (0xFF00)
 
+FWK_GPIO_COMMON_DEFINITIONS
+
 /************************
  * Public Constants     *
  ************************/

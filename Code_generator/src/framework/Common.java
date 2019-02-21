@@ -1,5 +1,6 @@
 package framework;
 
+import common.ErrorCode;
 import common.Features;
 import microcontroller.Microcontroller;
 
@@ -12,6 +13,25 @@ import microcontroller.Microcontroller;
  */
 public class Common {
 	/* public fields */
+
+	/**
+	 * Common implementation of New Line
+	 */
+	public final static String NL = "\r\n";
+
+	/**
+	 * Header for indicating generated code
+	 */
+	public final static String STR_GEN_CODE_NOTICE_HEADER = "// " + Features.GENERATOR_NAME
+			+ " header: Generated code! ##########################################" + NL
+			+ "// Do NOT modify code between this header and the footer below ################";
+
+	/**
+	 * Footer for indicating generated code
+	 */
+	public final static String STR_GEN_CODE_NOTICE_FOOTER = "// " + Features.GENERATOR_NAME
+			+ " footer: Generated code! ##########################################" + NL
+			+ "// Do NOT modify code between this footer and the header above ################";
 
 	/* Private fields */
 
@@ -32,11 +52,6 @@ public class Common {
 	 * GPIO module name
 	 */
 	public final static String STR_MODULE_GPIO = "gpio";
-
-	/**
-	 * Common implementation of New Line
-	 */
-	public final static String NL = "\r\n";
 
 	/**
 	 * Macro definition String
@@ -188,12 +203,14 @@ public class Common {
 	}
 
 	/**
+	 * Get Framework common headers
 	 * 
 	 * @param uC Microcontroller used
 	 * @return Common headers needed for framework
 	 */
 	public static String getCommonIncludes(Microcontroller uC) {
-		String includes = "";
+		String includes = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+		includes += "// Framework Common header files:" + framework.Common.NL;
 
 		for (int incNum = 0; incNum < uC.Includes_Common.length; incNum++) {
 			includes += framework.Common.STR_INCLUDE + "<" + uC.Includes_Common[incNum] + ">";
@@ -202,6 +219,33 @@ public class Common {
 			}
 		}
 
+		includes += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+
 		return includes;
+	}
+
+	/**
+	 * Get Framework Common definitions
+	 * 
+	 * @param uCMicrocontroller used
+	 * @return Common definitions needed for framework
+	 */
+	public static String getCommonCfgDefinitions(Microcontroller uC) {
+		String commonDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+		commonDefs += "// " + uC.getUc_manufacturer() + " " + uC.getUc_model() + " Common definitions:"
+				+ framework.Common.NL;
+
+		if (uC.Definitions_Common[0] != ErrorCode.STR_INVALID) {
+			for (int defNum = 0; defNum < uC.Definitions_Common.length; defNum++) {
+				commonDefs += framework.Common.STR_DEFINITION + uC.Definitions_Common[defNum];
+				if (defNum < uC.Definitions_Common.length - 1) {
+					commonDefs += framework.Common.NL;
+				}
+			}
+		}
+
+		commonDefs += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+
+		return commonDefs;
 	}
 }

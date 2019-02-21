@@ -1,5 +1,6 @@
 package framework;
 
+import common.ErrorCode;
 import microcontroller.Microcontroller;
 
 class GpioGenerator {
@@ -27,7 +28,7 @@ class GpioGenerator {
 	 * @return Configuration array as string
 	 */
 	public static String getCfgArray(Microcontroller uC) {
-		String cfgArray = "";
+		String cfgArray = framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
@@ -45,6 +46,8 @@ class GpioGenerator {
 			}
 		}
 
+		cfgArray += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER + framework.Common.NL;
+
 		return cfgArray;
 
 	}
@@ -55,7 +58,7 @@ class GpioGenerator {
 	 * @return Elements definitions as String
 	 */
 	public static String getElDefs(Microcontroller uC) {
-		String elDefs = "";
+		String elDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
@@ -86,6 +89,8 @@ class GpioGenerator {
 			}
 		}
 
+		elDefs += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+
 		return elDefs;
 	}
 
@@ -95,17 +100,16 @@ class GpioGenerator {
 	 * @return Elements list as String
 	 */
 	public static String getElements(Microcontroller uC) {
-		String elements = "";
+		String elements = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
 
 			elements += pinName;
-
-			if (pinNum < uC.GpioCfgPin.length - 1) {
-				elements += "," + framework.Common.NL;
-			}
+			elements += "," + framework.Common.NL;
 		}
+
+		elements +=framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
 
 		return elements;
 	}
@@ -116,7 +120,7 @@ class GpioGenerator {
 	 * @return Headers needed for GPIO module
 	 */
 	public static String getIncludes(Microcontroller uC) {
-		String includes = "";
+		String includes = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
 		for (int incNum = 0; incNum < uC.Includes_Gpio.length; incNum++) {
 			includes += framework.Common.STR_INCLUDE + "\"" + uC.Includes_Gpio[incNum] + "\"";
@@ -125,7 +129,26 @@ class GpioGenerator {
 			}
 		}
 
+		includes += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+
 		return includes;
+	}
+
+	public static String getCfgDefinitions(Microcontroller uC) {
+		String cfgDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+
+		if (uC.Definitions_Gpio[0] != ErrorCode.STR_INVALID) {
+			for (int defNum = 0; defNum < uC.Definitions_Gpio.length; defNum++) {
+				cfgDefs += framework.Common.STR_DEFINITION + uC.Definitions_Gpio[defNum];
+				if (defNum < uC.Definitions_Gpio.length - 1) {
+					cfgDefs += framework.Common.NL;
+				}
+			}
+		}
+
+		cfgDefs += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+
+		return cfgDefs;
 	}
 
 }

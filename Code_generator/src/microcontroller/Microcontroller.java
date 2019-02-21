@@ -38,7 +38,7 @@ public class Microcontroller {
 	public String[] Ports;
 
 	/**
-	 * List of public includes
+	 * List of common includes that will be available for all framework
 	 */
 	public String[] Includes_Common;
 
@@ -46,6 +46,16 @@ public class Microcontroller {
 	 * List of Includes for GPIO module
 	 */
 	public String[] Includes_Gpio;
+	
+	/**
+	 * List of common definitions that will be available for all framework
+	 */
+	public String[] Definitions_Common;
+	
+	/**
+	 * List of definitions for GPIO module
+	 */
+	public String[] Definitions_Gpio;
 
 	/**
 	 * Configured pins list
@@ -90,6 +100,8 @@ public class Microcontroller {
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
 	private static final String STR_INCLUDE_GPIO = "include_gpio";
+	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
+	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
 
 	/**
 	 * Constructor
@@ -128,6 +140,10 @@ public class Microcontroller {
 		}
 
 		if (loadIncludes() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+		
+		if (loadDefinitions() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
 
@@ -665,7 +681,52 @@ public class Microcontroller {
 			}
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
-			Features.verbosePrint("No Common includes found...");
+			Features.verbosePrint("No GPIO includes found...");
+		}
+
+		return errorStatus;
+	}
+	
+	private ErrorCode loadDefinitions() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList includeList;
+		String defName;
+
+		Features.verbosePrint("Looking for Common definitions...");
+
+		/* Get Common definitions */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_COMMON);
+		if (includeList.getLength() > 0) {
+			Definitions_Common = new String[includeList.getLength()];
+			for (int incNum = 0; incNum < Definitions_Common.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Common[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Common = new String[1];
+			Definitions_Common[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No Common definitions found...");
+		}
+
+		/* Get GPIO includes */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_GPIO);
+		if (includeList.getLength() > 0) {
+			Definitions_Gpio = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Definitions_Gpio.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Gpio[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Gpio = new String[1];
+			Definitions_Gpio[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No GPIO definitions found...");
 		}
 
 		return errorStatus;
