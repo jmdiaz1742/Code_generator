@@ -29,12 +29,12 @@ typedef enum
 {
     // Corellian header: Generated code! ##########################################
 // Do NOT modify code between this header and the footer below ################
-PC13,
-PC14,
-PC15,
+LED_1,
+LED_2,
+SW_1,
 PF0,
 PF1,
-PC0,
+NC_1,
 PC1,
 PC2,
 PC3,
@@ -103,32 +103,32 @@ PB9,
 
 // Corellian header: Generated code! ##########################################
 // Do NOT modify code between this header and the footer below ################
-// PC13
-#define PC13_PORT PORT_C
-#define PC13_PIN PC13
-#define PC13_MODE MODE_INPUT
-#define PC13_ALT GPIO_ALT_NONE
-#define PC13_PULL PULL_NOT_AVAILABLE
-#define PC13_SPEED SPEED_FAST
-#define PC13_INIT_OUT LOW
+// LED_1
+#define LED_1_PORT PORT_C
+#define LED_1_PIN PC13
+#define LED_1_MODE MODE_OUTPUT
+#define LED_1_ALT GPIO_ALT_NONE
+#define LED_1_PULL PULL_NOT_AVAILABLE
+#define LED_1_SPEED SPEED_FAST
+#define LED_1_INIT_OUT HIGH
 
-// PC14
-#define PC14_PORT PORT_C
-#define PC14_PIN PC14
-#define PC14_MODE MODE_INPUT
-#define PC14_ALT GPIO_ALT_NONE
-#define PC14_PULL PULL_NOT_AVAILABLE
-#define PC14_SPEED SPEED_FAST
-#define PC14_INIT_OUT LOW
+// LED_2
+#define LED_2_PORT PORT_C
+#define LED_2_PIN PC14
+#define LED_2_MODE MODE_OUTPUT
+#define LED_2_ALT GPIO_ALT_NONE
+#define LED_2_PULL PULL_NOT_AVAILABLE
+#define LED_2_SPEED SPEED_FAST
+#define LED_2_INIT_OUT HIGH
 
-// PC15
-#define PC15_PORT PORT_C
-#define PC15_PIN PC15
-#define PC15_MODE MODE_INPUT
-#define PC15_ALT GPIO_ALT_NONE
-#define PC15_PULL PULL_NOT_AVAILABLE
-#define PC15_SPEED SPEED_FAST
-#define PC15_INIT_OUT LOW
+// SW_1
+#define SW_1_PORT PORT_C
+#define SW_1_PIN PC15
+#define SW_1_MODE MODE_INPUT
+#define SW_1_ALT GPIO_ALT_NONE
+#define SW_1_PULL PULL_UP
+#define SW_1_SPEED SPEED_FAST
+#define SW_1_INIT_OUT LOW
 
 // PF0
 #define PF0_PORT PORT_F
@@ -148,14 +148,14 @@ PB9,
 #define PF1_SPEED SPEED_FAST
 #define PF1_INIT_OUT LOW
 
-// PC0
-#define PC0_PORT PORT_C
-#define PC0_PIN PC0
-#define PC0_MODE MODE_INPUT
-#define PC0_ALT GPIO_ALT_NONE
-#define PC0_PULL PULL_NOT_AVAILABLE
-#define PC0_SPEED SPEED_FAST
-#define PC0_INIT_OUT LOW
+// NC_1
+#define NC_1_PORT PORT_C
+#define NC_1_PIN PC0
+#define NC_1_MODE MODE_OUTPUT
+#define NC_1_ALT GPIO_ALT_NONE
+#define NC_1_PULL PULL_NOT_AVAILABLE
+#define NC_1_SPEED SPEED_FAST
+#define NC_1_INIT_OUT LOW
 
 // PC1
 #define PC1_PORT PORT_C
