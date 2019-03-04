@@ -13,6 +13,7 @@ class GpioGenerator {
 	private static final String STR_SUFF_ALT = "_ALT";
 	private static final String STR_SUFF_PULL = "_PULL";
 	private static final String STR_SUFF_SPEED = "_SPEED";
+	private static final String STR_SUFF_INIT_OUT = "_INIT_OUT";
 
 	/* Token Strings */
 	public static final String STR_TKN_CFG_ARRAY = "FWK_GPIO_CFG_ARRAY";
@@ -39,7 +40,8 @@ class GpioGenerator {
 			cfgArray += pinName + STR_SUFF_MODE + "," + framework.Common.NL;
 			cfgArray += pinName + STR_SUFF_ALT + "," + framework.Common.NL;
 			cfgArray += pinName + STR_SUFF_PULL + "," + framework.Common.NL;
-			cfgArray += pinName + STR_SUFF_SPEED + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_SPEED + "," + framework.Common.NL;
+			cfgArray += pinName + STR_SUFF_INIT_OUT + framework.Common.NL;
 			cfgArray += "}";
 			if (pinNum < uC.GpioCfgPin.length - 1) {
 				cfgArray += "," + framework.Common.NL;
@@ -84,6 +86,9 @@ class GpioGenerator {
 			elDefs += defineStr + pinName + STR_SUFF_SPEED + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getSpeed() + framework.Common.NL;
 
+			elDefs += defineStr + pinName + STR_SUFF_INIT_OUT + " ";
+			elDefs += uC.GpioCfgPin[pinNum].getOutLevel() + framework.Common.NL;
+
 			if (pinNum < uC.GpioCfgPin.length - 1) {
 				elDefs += framework.Common.NL;
 			}
@@ -109,7 +114,7 @@ class GpioGenerator {
 			elements += "," + framework.Common.NL;
 		}
 
-		elements +=framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+		elements += framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
 
 		return elements;
 	}
