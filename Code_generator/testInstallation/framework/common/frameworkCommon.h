@@ -16,10 +16,6 @@
 FWK_COMMON_INCLUDES
 
 /************************
- * Public Types         *
- ************************/
-
-/************************
  * Public Macros        *
  ************************/
 #define FRAMEWORK_VERSION_MAJOR 0
@@ -36,21 +32,5 @@ FWK_COMMON_INCLUDES
 #define HIGH_BYTE_IN_16B_MASK (0xFF00)
 
 FWK_GPIO_COMMON_DEFINITIONS
-
-/************************
- * Public Constants     *
- ************************/
-
-/************************
- * Public Calibrations  *
- ************************/
-
-/************************
- * Public Variables     *
- ************************/
-
-/************************
- * Public Functions     *
- ************************/
 
 #endif /* _FRAMEWORK_COMMON_H_ */

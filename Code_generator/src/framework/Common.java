@@ -22,16 +22,16 @@ public class Common {
 	/**
 	 * Header for indicating generated code
 	 */
-	public final static String STR_GEN_CODE_NOTICE_HEADER = "// " + Features.GENERATOR_NAME
-			+ " header: Generated code! ##########################################" + NL
-			+ "// Do NOT modify code between this header and the footer below ################";
+	public final static String STR_GEN_CODE_NOTICE_HEADER = "// ################ " + Features.GENERATOR_NAME
+			+ " generator v" + common.Features.SW_VERSION + ": Generated code! ###############" + NL
+			+ "// ######## Do NOT modify code between this header and the footer below #######";
 
 	/**
 	 * Footer for indicating generated code
 	 */
-	public final static String STR_GEN_CODE_NOTICE_FOOTER = "// " + Features.GENERATOR_NAME
-			+ " footer: Generated code! ##########################################" + NL
-			+ "// Do NOT modify code between this footer and the header above ################";
+	public final static String STR_GEN_CODE_NOTICE_FOOTER = "// ################ " + Features.GENERATOR_NAME
+			+ " generator v" + common.Features.SW_VERSION + ": Generated code! ###############" + NL
+			+ "// ######## Do NOT modify code between this footer and the header above #######";
 
 	/* Private fields */
 

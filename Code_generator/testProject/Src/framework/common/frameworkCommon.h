@@ -13,17 +13,13 @@
 /************************
  * Includes             *
  ************************/
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 // Framework Common header files:
 #include <stdlib.h>
 #include <stdbool.h>
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
-
-/************************
- * Public Types         *
- ************************/
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 
 /************************
  * Public Macros        *
@@ -41,27 +37,11 @@
 #define LOW_BYTE_IN_16B_MASK (0x00FF)
 #define HIGH_BYTE_IN_16B_MASK (0xFF00)
 
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 // ST STM32F334R8 Common definitions:
 
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
-
-/************************
- * Public Constants     *
- ************************/
-
-/************************
- * Public Calibrations  *
- ************************/
-
-/************************
- * Public Variables     *
- ************************/
-
-/************************
- * Public Functions     *
- ************************/
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 
 #endif /* _FRAMEWORK_COMMON_H_ */

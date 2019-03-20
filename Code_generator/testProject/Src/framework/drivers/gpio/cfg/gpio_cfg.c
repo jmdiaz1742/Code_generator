@@ -37,8 +37,8 @@
  * @brief GPIO initial configuration structures array
  */
 const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 {LED_1_PORT,
 LED_1_PIN,
 LED_1_MODE,
@@ -447,8 +447,8 @@ PB9_PULL,
 PB9_SPEED,
 PB9_INIT_OUT
 }
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 };
 /************************
  * File Scope Variables *

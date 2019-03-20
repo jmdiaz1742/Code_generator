@@ -13,11 +13,11 @@
 /************************
  * Includes             *
  ************************/
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 #include "stm32f3xx_hal.h"
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 
 /************************
  * Public Types         *
@@ -27,8 +27,8 @@
  */
 typedef enum
 {
-    // Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+    // ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 LED_1,
 LED_2,
 SW_1,
@@ -80,8 +80,8 @@ PB6,
 PB7,
 PB8,
 PB9,
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
     GPIO_ELEMENTS_MAX
 } Gpio_elementsType;
 
@@ -92,17 +92,17 @@ PB9,
 /************************
  * Public Defines       *
  ************************/
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 #define PULL_NOT_AVAILABLE GPIO_NOPULL
 #define SPEED_FAST GPIO_SPEED_HIGH
 #define GPIO_ALT_NONE ((uint8_t)0xFF)
 #define MODE_INPUT GPIO_MODE_INPUT
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 
-// Corellian header: Generated code! ##########################################
-// Do NOT modify code between this header and the footer below ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this header and the footer below #######
 // LED_1
 #define LED_1_PORT PORT_C
 #define LED_1_PIN PC13
@@ -562,8 +562,8 @@ PB9,
 #define PB9_SPEED SPEED_FAST
 #define PB9_INIT_OUT LOW
 
-// Corellian footer: Generated code! ##########################################
-// Do NOT modify code between this footer and the header above ################
+// ################ Corellian generator v0.2.0: Generated code! ###############
+// ######## Do NOT modify code between this footer and the header above #######
 
 /************************
  * Public Constants     *
