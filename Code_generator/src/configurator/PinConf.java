@@ -18,7 +18,7 @@ import configurator.GPIO.Speed;
 public class PinConf {
 
 	/* Private fields */
-	Pin GpioPin;
+	private Pin GpioPin;
 
 	/* Pin configuration */
 	private String Port;
@@ -63,8 +63,7 @@ public class PinConf {
 	/**
 	 * Constructor
 	 * 
-	 * @param gpioPin
-	 *            Pin information
+	 * @param gpioPin Pin information
 	 */
 	public PinConf(Pin gpioPin) {
 		if (gpioPin.isValid() && gpioPin.getFunc_gpio()) {
@@ -109,8 +108,7 @@ public class PinConf {
 	/**
 	 * Set the pin's port
 	 * 
-	 * @param port
-	 *            Port
+	 * @param port Port
 	 */
 	private void setPort(String port) {
 		this.Port = port;
@@ -128,8 +126,7 @@ public class PinConf {
 	/**
 	 * Set the pin's number
 	 * 
-	 * @param pin
-	 *            Pin's number
+	 * @param pin Pin's number
 	 */
 	private void setPinName(String pin) {
 		this.PinName = pin;
@@ -147,8 +144,7 @@ public class PinConf {
 	/**
 	 * Set the pin's user selected name
 	 * 
-	 * @param name
-	 *            Pin's name
+	 * @param name Pin's name
 	 */
 	public void setCodeName(String name) {
 		CodeName = name;
@@ -166,8 +162,7 @@ public class PinConf {
 	/**
 	 * Set the pin's mode configuration
 	 * 
-	 * @param mode
-	 *            Mode
+	 * @param mode Mode
 	 */
 	public void setMode(Mode mode) {
 		switch (mode) {
@@ -206,8 +201,7 @@ public class PinConf {
 	/**
 	 * Set the pin's output configuration
 	 * 
-	 * @param outType
-	 *            Output configuration
+	 * @param outType Output configuration
 	 */
 	public void setOutType(OutType outType) {
 		this.PinOutType = outType;
@@ -225,8 +219,7 @@ public class PinConf {
 	/**
 	 * Set the pin's output level
 	 * 
-	 * @param level
-	 *            Pin's output level
+	 * @param level Pin's output level
 	 */
 	public void setOutLevel(OutLevel level) {
 		PinOutLevel = level;
@@ -244,8 +237,7 @@ public class PinConf {
 	/**
 	 * Set the pin's speed
 	 * 
-	 * @param speed
-	 *            Speed
+	 * @param speed Speed
 	 */
 	public void setSpeed(Speed speed) {
 		this.PinSpeed = speed;
@@ -263,8 +255,7 @@ public class PinConf {
 	/**
 	 * Set the pull resistor configuration
 	 * 
-	 * @param pull
-	 *            Resistor configuration
+	 * @param pull Resistor configuration
 	 */
 	public void setPull(Pull pull) {
 		this.PinPull = pull;

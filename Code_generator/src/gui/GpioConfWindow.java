@@ -78,8 +78,7 @@ public class GpioConfWindow {
 	/**
 	 * Gpio configuration window main
 	 * 
-	 * @param args
-	 *            Init parameters
+	 * @param args Init parameters
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -97,8 +96,7 @@ public class GpioConfWindow {
 	/**
 	 * Create the GPIO configuration window and show it
 	 * 
-	 * @param uCtrl
-	 *            Microcontroller object containing all pin's information
+	 * @param uCtrl Microcontroller object containing all pin's information
 	 */
 	public GpioConfWindow(Microcontroller uCtrl) {
 		UcConf = uCtrl;
@@ -513,7 +511,7 @@ public class GpioConfWindow {
 	private void outTypeChange() {
 		updateOutLevel();
 	}
-	
+
 	/**
 	 * Save pins' output levels
 	 */
@@ -529,7 +527,7 @@ public class GpioConfWindow {
 			}
 		}
 	}
-	
+
 	/**
 	 * Save pin's pull resistors configurations
 	 */
@@ -586,7 +584,8 @@ public class GpioConfWindow {
 		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
 				/* Save configuration to microcontroller object */
-				UcConf.GpioCfgPin[pinNum].setMode(Mode.getConfFromString(comboBox_PinMode[portPinNum].getSelectedItem().toString()));
+				UcConf.GpioCfgPin[pinNum]
+						.setMode(Mode.getConfFromString(comboBox_PinMode[portPinNum].getSelectedItem().toString()));
 				portPinNum++;
 			}
 		}
@@ -688,5 +687,4 @@ public class GpioConfWindow {
 		}
 	}
 
-	
 }

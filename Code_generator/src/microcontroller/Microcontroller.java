@@ -46,12 +46,12 @@ public class Microcontroller {
 	 * List of Includes for GPIO module
 	 */
 	public String[] Includes_Gpio;
-	
+
 	/**
 	 * List of common definitions that will be available for all framework
 	 */
 	public String[] Definitions_Common;
-	
+
 	/**
 	 * List of definitions for GPIO module
 	 */
@@ -142,7 +142,7 @@ public class Microcontroller {
 		if (loadIncludes() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
-		
+
 		if (loadDefinitions() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
@@ -365,6 +365,7 @@ public class Microcontroller {
 
 	/**
 	 * Load pins' configuration
+	 * 
 	 * @param confDoc Document with pins
 	 * @return Error Code
 	 */
@@ -686,7 +687,7 @@ public class Microcontroller {
 
 		return errorStatus;
 	}
-	
+
 	private ErrorCode loadDefinitions() {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList includeList;

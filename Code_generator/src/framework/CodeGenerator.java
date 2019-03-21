@@ -29,7 +29,7 @@ public class CodeGenerator {
 
 	private final static String STR_TKN_FWK_COMMON_INC = "FWK_COMMON_INCLUDES";
 	private final static String STR_TKN_FWK_MODULES_INC = "FWK_MODULES_INCLUDES";
-	
+
 	public static final String STR_TKN_CFG_DEFS_COMMON = "FWK_GPIO_COMMON_DEFINITIONS";
 	public static final String STR_TKN_CFG_DEFS_GPIO = "FWK_GPIO_CFG_DEFINITIONS";
 

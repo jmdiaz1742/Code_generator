@@ -15,6 +15,7 @@ import java.awt.Insets;
 
 /**
  * About Window, contains version and contact information
+ * 
  * @author ovd
  *
  */
@@ -25,8 +26,7 @@ public class AboutWindow {
 	/**
 	 * About window main
 	 * 
-	 * @param args
-	 *            Init parameters
+	 * @param args Init parameters
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

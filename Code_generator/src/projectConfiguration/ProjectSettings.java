@@ -124,8 +124,7 @@ public class ProjectSettings {
 	/**
 	 * Open the project settings file
 	 * 
-	 * @param inFile
-	 *            Project file
+	 * @param inFile Project file
 	 * @return Error Status
 	 */
 	public ErrorCode openProjectFile(File inFile) {

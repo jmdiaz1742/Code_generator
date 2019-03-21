@@ -38,7 +38,7 @@ import java.awt.event.InputEvent;
 public class MainWindow {
 
 	/* Private fields */
-	
+
 	/**
 	 * Frame for the main Window
 	 */

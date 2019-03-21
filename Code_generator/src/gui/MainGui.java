@@ -28,12 +28,12 @@ public class MainGui {
 	static private CodeGenerator generator;
 
 	/* Public fields */
-	
+
 	/**
 	 * Project configuration file
 	 */
 	static public File ProjectFile;
-	
+
 	/**
 	 * Project's location
 	 */
@@ -54,8 +54,7 @@ public class MainGui {
 	/**
 	 * Load the project settings file
 	 * 
-	 * @param inFile
-	 *            Settings file
+	 * @param inFile Settings file
 	 * @return Error status
 	 */
 	static public ErrorCode loadProjectFile(File inFile) {
@@ -101,8 +100,7 @@ public class MainGui {
 	/**
 	 * Show an error dialog
 	 * 
-	 * @param message
-	 *            Message to display
+	 * @param message Message to display
 	 */
 	static public void showErrorDialog(String message) {
 		JOptionPane.showMessageDialog(CgMainWindow.FrmCodeGenerator, message, "File error", JOptionPane.ERROR_MESSAGE);
@@ -125,8 +123,7 @@ public class MainGui {
 	/**
 	 * Set the project's microcontroller configuration
 	 * 
-	 * @param uC
-	 *            Microcontroller configuration
+	 * @param uC Microcontroller configuration
 	 */
 	static public void setNewUC(Microcontroller uC) {
 		if (uC == SelectedMicrocontroller) {
@@ -143,13 +140,13 @@ public class MainGui {
 		ConfXmlWriter pinConfWriter = new ConfXmlWriter(SelectedMicrocontroller);
 		pinConfWriter.writeXml(ProjectSettingsConf.getConfFile().getPath());
 	}
-	
+
 	/**
 	 * Generate source code files
 	 */
 	static public void generateCode() {
 		generator = new CodeGenerator(SelectedMicrocontroller, ProjectSettingsConf);
-		
+
 		generator.Generate();
 	}
 

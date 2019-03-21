@@ -53,7 +53,7 @@ public class Features {
 	 * Code name of the software version
 	 */
 	public static final String VERSION_NAME = "Coruscant";
-	
+
 	public static final String GENERATOR_NAME = "Corellian";
 
 	/* Static Methods */
@@ -61,8 +61,7 @@ public class Features {
 	/**
 	 * Print Verbose message to console
 	 * 
-	 * @param verboseMessage
-	 *            Message to display
+	 * @param verboseMessage Message to display
 	 */
 	public static void verbosePrint(String verboseMessage) {
 		if (VERBOSE) {
@@ -73,8 +72,7 @@ public class Features {
 	/**
 	 * Print Debug message to console
 	 * 
-	 * @param debugMessage
-	 *            Message to display
+	 * @param debugMessage Message to display
 	 */
 	public static void debugPrint(String debugMessage) {
 		if (DEBUG) {

@@ -38,7 +38,7 @@ public class ConfXmlWriter {
 	private Document XmlDoc;
 	private Element RootElement;
 	private Element[] PinElement;
-	Microcontroller UCConf;
+	private Microcontroller UCConf;
 
 	private static final String STR_ROOT_EL = "Microcontroller_Configuration";
 	private static final String STR_PIN_EL = "pin";

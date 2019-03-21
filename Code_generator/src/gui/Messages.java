@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 /**
  * Messages window
+ * 
  * @author ovd
  *
  */
@@ -38,6 +39,7 @@ public class Messages {
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Get String
+	 * 
 	 * @param key Key
 	 * @return String
 	 */
