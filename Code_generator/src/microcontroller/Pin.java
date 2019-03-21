@@ -125,6 +125,8 @@ public class Pin {
 		this.func_vcc = DEF_FUNCTION;
 		this.func_gnd = DEF_FUNCTION;
 		this.func_gpio = DEF_FUNCTION;
+		this.func_reset = DEF_FUNCTION;
+		this.func_misc = DEF_FUNCTION;
 
 		/* Pin features availability */
 		this.feat_int = DEF_FEATURE_AV;

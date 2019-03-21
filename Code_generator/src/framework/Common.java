@@ -227,7 +227,7 @@ public class Common {
 	/**
 	 * Get Framework Common definitions
 	 * 
-	 * @param uCMicrocontroller used
+	 * @param uC Microcontroller used
 	 * @return Common definitions needed for framework
 	 */
 	public static String getCommonCfgDefinitions(Microcontroller uC) {
