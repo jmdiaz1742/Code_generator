@@ -8,6 +8,8 @@ var searchData=
   ['def_5fname',['DEF_NAME',['../classmicrocontroller_1_1_pin.html#ac62bb0dd4fc778afca3a03f38aaf5286',1,'microcontroller::Pin']]],
   ['def_5fnumber',['DEF_NUMBER',['../classmicrocontroller_1_1_pin.html#acc975066ef6c3b2b51898851e76870ec',1,'microcontroller::Pin']]],
   ['def_5fport',['DEF_PORT',['../classmicrocontroller_1_1_pin.html#a8c107a823644fef712553314a53a3035',1,'microcontroller::Pin']]],
+  ['definitions_5fcommon',['Definitions_Common',['../classmicrocontroller_1_1_microcontroller.html#a4e1281f95ad3321af414ccd903843c20',1,'microcontroller::Microcontroller']]],
+  ['definitions_5fgpio',['Definitions_Gpio',['../classmicrocontroller_1_1_microcontroller.html#a20b640e4cfb5616ffd816b5db4135c82',1,'microcontroller::Microcontroller']]],
   ['df_5fcode_5fname',['DF_CODE_NAME',['../classconfigurator_1_1_pin_conf.html#ac18dfb3cda820399798b011f6cb8f48d',1,'configurator::PinConf']]],
   ['df_5fmode',['DF_MODE',['../classconfigurator_1_1_pin_conf.html#a89274bbe6afd4f06ad37d635dd90d1d7',1,'configurator::PinConf']]],
   ['df_5fout_5flevel',['DF_OUT_LEVEL',['../classconfigurator_1_1_pin_conf.html#a34da90704ad7ff485ab0db310eb1baaf',1,'configurator::PinConf']]],

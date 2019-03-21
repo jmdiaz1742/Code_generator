@@ -6,6 +6,8 @@ var searchData=
   ['speed_5fmedium',['SPEED_MEDIUM',['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html#ab65bd6186d988862f5f29c371bd5c387',1,'configurator::GPIO::Speed']]],
   ['speed_5fnot_5favailable',['SPEED_NOT_AVAILABLE',['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html#ad70c06f5ce490400ba50cbc2e98a55a2',1,'configurator::GPIO::Speed']]],
   ['str_5fdefinition',['STR_DEFINITION',['../classframework_1_1_common.html#a544523f90d9b353645fa926148e8d5fb',1,'framework::Common']]],
+  ['str_5fgen_5fcode_5fnotice_5ffooter',['STR_GEN_CODE_NOTICE_FOOTER',['../classframework_1_1_common.html#a6e77fe5b8b0d464c68f785eccb2f61b7',1,'framework::Common']]],
+  ['str_5fgen_5fcode_5fnotice_5fheader',['STR_GEN_CODE_NOTICE_HEADER',['../classframework_1_1_common.html#ae3812f0f36ab384320e447afa820a781',1,'framework::Common']]],
   ['str_5fheader_5fext',['STR_HEADER_EXT',['../classframework_1_1_common.html#a73fc8460885dc7ea89523d024da328d9',1,'framework::Common']]],
   ['str_5finclude',['STR_INCLUDE',['../classframework_1_1_common.html#a8ee64ddc864abacd365496d4a705c4d9',1,'framework::Common']]],
   ['str_5finvalid',['STR_INVALID',['../enumcommon_1_1_error_code.html#a10a7a36f68454ce05c6bab095877b43f',1,'common::ErrorCode']]],
