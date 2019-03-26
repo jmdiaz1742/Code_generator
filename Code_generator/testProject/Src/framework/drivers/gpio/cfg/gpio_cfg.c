@@ -37,7 +37,7 @@
  * @brief GPIO initial configuration structures array
  */
 const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {
-// ################ Corellian generator v0.3.0: Generated code! ###############
+// ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 {LED_1_PORT,
 LED_1_PIN,
@@ -447,7 +447,7 @@ PB9_PULL,
 PB9_SPEED,
 PB9_INIT_OUT
 }
-// ################ Corellian generator v0.3.0: Generated code! ###############
+// ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 };
 /************************

@@ -54,7 +54,7 @@ public class Features {
 	 */
 	public static final String VERSION_NAME = "Coruscant";
 
-	public static final String GENERATOR_NAME = "Corellian";
+	public static final String GENERATOR_NAME = "Kamino";
 
 	/* Static Methods */
 
