@@ -64,29 +64,28 @@ class GpioGenerator {
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
-			String defineStr = framework.Common.STR_DEFINITION;
 
 			elDefs += "// " + pinName + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_PORT + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_PORT + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getPort() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_PIN + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_PIN + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getPinName() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_MODE + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_MODE + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getMode() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_ALT + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_ALT + " ";
 			elDefs += STR_ALT_MODE_NONE + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_PULL + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_PULL + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getPull() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_SPEED + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_SPEED + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getSpeed() + framework.Common.NL;
 
-			elDefs += defineStr + pinName + STR_SUFF_INIT_OUT + " ";
+			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_INIT_OUT + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getOutLevel() + framework.Common.NL;
 
 			if (pinNum < uC.GpioCfgPin.length - 1) {
