@@ -68,6 +68,7 @@ public class Pin {
 	/* Pin necessary characteristics */
 	private String name;
 	private int number;
+	private String portPin;
 
 	/* Pin optional characteristics */
 	private String port;
@@ -646,6 +647,22 @@ public class Pin {
 	 */
 	public int getNumber() {
 		return number;
+	}
+
+	/**
+	 * Get port pin number
+	 * @return port pin number
+	 */
+	public String getPortPin() {
+		return portPin;
+	}
+
+	/**
+	 * Set port pin number
+	 * @param portPin
+	 */
+	public void setPortPin(String portPin) {
+		this.portPin = portPin;
 	}
 
 	/**

@@ -115,6 +115,15 @@ public class PinConf {
 	}
 
 	/**
+	 * Get the port pin number
+	 * 
+	 * @return Port pin number
+	 */
+	public String getPortPin() {
+		return GpioPin.getPortPin();
+	}
+
+	/**
 	 * Get the pin's number
 	 * 
 	 * @return Pin's number

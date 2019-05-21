@@ -71,7 +71,7 @@ class GpioGenerator {
 			elDefs += uC.GpioCfgPin[pinNum].getPort() + framework.Common.NL;
 
 			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_PIN + " ";
-			elDefs += uC.GpioCfgPin[pinNum].getPinName() + framework.Common.NL;
+			elDefs += uC.GpioCfgPin[pinNum].getPortPin() + framework.Common.NL;
 
 			elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_MODE + " ";
 			elDefs += uC.GpioCfgPin[pinNum].getMode() + framework.Common.NL;

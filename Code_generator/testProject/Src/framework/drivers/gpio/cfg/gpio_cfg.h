@@ -94,10 +94,7 @@ PB9,
  ************************/
 // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-#define PULL_NOT_AVAILABLE GPIO_NOPULL
-#define SPEED_FAST GPIO_SPEED_HIGH
-#define GPIO_ALT_NONE ((uint8_t)0xFF)
-#define MODE_INPUT GPIO_MODE_INPUT
+
 // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
@@ -105,7 +102,7 @@ PB9,
 // ######## Do NOT modify code between this header and the footer below #######
 // LED_1
 #define LED_1_PORT PORT_C
-#define LED_1_PIN PC13
+#define LED_1_PIN PIN_13
 #define LED_1_MODE MODE_OUTPUT
 #define LED_1_ALT GPIO_ALT_NONE
 #define LED_1_PULL PULL_NOT_AVAILABLE
@@ -114,7 +111,7 @@ PB9,
 
 // LED_2
 #define LED_2_PORT PORT_C
-#define LED_2_PIN PC14
+#define LED_2_PIN PIN_14
 #define LED_2_MODE MODE_OUTPUT
 #define LED_2_ALT GPIO_ALT_NONE
 #define LED_2_PULL PULL_NOT_AVAILABLE
@@ -123,7 +120,7 @@ PB9,
 
 // SW_1
 #define SW_1_PORT PORT_C
-#define SW_1_PIN PC15
+#define SW_1_PIN PIN_15
 #define SW_1_MODE MODE_INPUT
 #define SW_1_ALT GPIO_ALT_NONE
 #define SW_1_PULL PULL_UP
@@ -132,7 +129,7 @@ PB9,
 
 // PF0
 #define PF0_PORT PORT_F
-#define PF0_PIN PF0
+#define PF0_PIN PIN_0
 #define PF0_MODE MODE_INPUT
 #define PF0_ALT GPIO_ALT_NONE
 #define PF0_PULL PULL_NOT_AVAILABLE
@@ -141,7 +138,7 @@ PB9,
 
 // PF1
 #define PF1_PORT PORT_F
-#define PF1_PIN PF1
+#define PF1_PIN PIN_1
 #define PF1_MODE MODE_INPUT
 #define PF1_ALT GPIO_ALT_NONE
 #define PF1_PULL PULL_NOT_AVAILABLE
@@ -150,7 +147,7 @@ PB9,
 
 // NC_1
 #define NC_1_PORT PORT_C
-#define NC_1_PIN PC0
+#define NC_1_PIN PIN_0
 #define NC_1_MODE MODE_OUTPUT
 #define NC_1_ALT GPIO_ALT_NONE
 #define NC_1_PULL PULL_NOT_AVAILABLE
@@ -159,7 +156,7 @@ PB9,
 
 // PC1
 #define PC1_PORT PORT_C
-#define PC1_PIN PC1
+#define PC1_PIN PIN_1
 #define PC1_MODE MODE_INPUT
 #define PC1_ALT GPIO_ALT_NONE
 #define PC1_PULL PULL_NOT_AVAILABLE
@@ -168,7 +165,7 @@ PB9,
 
 // PC2
 #define PC2_PORT PORT_C
-#define PC2_PIN PC2
+#define PC2_PIN PIN_2
 #define PC2_MODE MODE_INPUT
 #define PC2_ALT GPIO_ALT_NONE
 #define PC2_PULL PULL_NOT_AVAILABLE
@@ -177,7 +174,7 @@ PB9,
 
 // PC3
 #define PC3_PORT PORT_C
-#define PC3_PIN PC3
+#define PC3_PIN PIN_3
 #define PC3_MODE MODE_INPUT
 #define PC3_ALT GPIO_ALT_NONE
 #define PC3_PULL PULL_NOT_AVAILABLE
@@ -186,7 +183,7 @@ PB9,
 
 // PA0
 #define PA0_PORT PORT_A
-#define PA0_PIN PA0
+#define PA0_PIN PIN_0
 #define PA0_MODE MODE_INPUT
 #define PA0_ALT GPIO_ALT_NONE
 #define PA0_PULL PULL_NOT_AVAILABLE
@@ -195,7 +192,7 @@ PB9,
 
 // PA1
 #define PA1_PORT PORT_A
-#define PA1_PIN PA1
+#define PA1_PIN PIN_1
 #define PA1_MODE MODE_INPUT
 #define PA1_ALT GPIO_ALT_NONE
 #define PA1_PULL PULL_NOT_AVAILABLE
@@ -204,7 +201,7 @@ PB9,
 
 // PA2
 #define PA2_PORT PORT_A
-#define PA2_PIN PA2
+#define PA2_PIN PIN_2
 #define PA2_MODE MODE_INPUT
 #define PA2_ALT GPIO_ALT_NONE
 #define PA2_PULL PULL_NOT_AVAILABLE
@@ -213,7 +210,7 @@ PB9,
 
 // PA3
 #define PA3_PORT PORT_A
-#define PA3_PIN PA3
+#define PA3_PIN PIN_3
 #define PA3_MODE MODE_INPUT
 #define PA3_ALT GPIO_ALT_NONE
 #define PA3_PULL PULL_NOT_AVAILABLE
@@ -222,7 +219,7 @@ PB9,
 
 // PA4
 #define PA4_PORT PORT_A
-#define PA4_PIN PA4
+#define PA4_PIN PIN_4
 #define PA4_MODE MODE_INPUT
 #define PA4_ALT GPIO_ALT_NONE
 #define PA4_PULL PULL_NOT_AVAILABLE
@@ -231,7 +228,7 @@ PB9,
 
 // PA5
 #define PA5_PORT PORT_A
-#define PA5_PIN PA5
+#define PA5_PIN PIN_5
 #define PA5_MODE MODE_INPUT
 #define PA5_ALT GPIO_ALT_NONE
 #define PA5_PULL PULL_NOT_AVAILABLE
@@ -240,7 +237,7 @@ PB9,
 
 // PA6
 #define PA6_PORT PORT_A
-#define PA6_PIN PA6
+#define PA6_PIN PIN_6
 #define PA6_MODE MODE_INPUT
 #define PA6_ALT GPIO_ALT_NONE
 #define PA6_PULL PULL_NOT_AVAILABLE
@@ -249,7 +246,7 @@ PB9,
 
 // PA7
 #define PA7_PORT PORT_A
-#define PA7_PIN PA7
+#define PA7_PIN PIN_7
 #define PA7_MODE MODE_INPUT
 #define PA7_ALT GPIO_ALT_NONE
 #define PA7_PULL PULL_NOT_AVAILABLE
@@ -258,7 +255,7 @@ PB9,
 
 // PC4
 #define PC4_PORT PORT_C
-#define PC4_PIN PC4
+#define PC4_PIN PIN_4
 #define PC4_MODE MODE_INPUT
 #define PC4_ALT GPIO_ALT_NONE
 #define PC4_PULL PULL_NOT_AVAILABLE
@@ -267,7 +264,7 @@ PB9,
 
 // PC5
 #define PC5_PORT PORT_C
-#define PC5_PIN PC5
+#define PC5_PIN PIN_5
 #define PC5_MODE MODE_INPUT
 #define PC5_ALT GPIO_ALT_NONE
 #define PC5_PULL PULL_NOT_AVAILABLE
@@ -276,7 +273,7 @@ PB9,
 
 // PB0
 #define PB0_PORT PORT_B
-#define PB0_PIN PB0
+#define PB0_PIN PIN_0
 #define PB0_MODE MODE_INPUT
 #define PB0_ALT GPIO_ALT_NONE
 #define PB0_PULL PULL_NOT_AVAILABLE
@@ -285,7 +282,7 @@ PB9,
 
 // PB1
 #define PB1_PORT PORT_B
-#define PB1_PIN PB1
+#define PB1_PIN PIN_1
 #define PB1_MODE MODE_INPUT
 #define PB1_ALT GPIO_ALT_NONE
 #define PB1_PULL PULL_NOT_AVAILABLE
@@ -294,7 +291,7 @@ PB9,
 
 // PB2
 #define PB2_PORT PORT_B
-#define PB2_PIN PB2
+#define PB2_PIN PIN_2
 #define PB2_MODE MODE_INPUT
 #define PB2_ALT GPIO_ALT_NONE
 #define PB2_PULL PULL_NOT_AVAILABLE
@@ -303,7 +300,7 @@ PB9,
 
 // PB10
 #define PB10_PORT PORT_B
-#define PB10_PIN PB10
+#define PB10_PIN PIN_10
 #define PB10_MODE MODE_INPUT
 #define PB10_ALT GPIO_ALT_NONE
 #define PB10_PULL PULL_NOT_AVAILABLE
@@ -312,7 +309,7 @@ PB9,
 
 // PB11
 #define PB11_PORT PORT_B
-#define PB11_PIN PB11
+#define PB11_PIN PIN_11
 #define PB11_MODE MODE_INPUT
 #define PB11_ALT GPIO_ALT_NONE
 #define PB11_PULL PULL_NOT_AVAILABLE
@@ -321,7 +318,7 @@ PB9,
 
 // PB12
 #define PB12_PORT PORT_B
-#define PB12_PIN PB12
+#define PB12_PIN PIN_12
 #define PB12_MODE MODE_INPUT
 #define PB12_ALT GPIO_ALT_NONE
 #define PB12_PULL PULL_NOT_AVAILABLE
@@ -330,7 +327,7 @@ PB9,
 
 // PB13
 #define PB13_PORT PORT_B
-#define PB13_PIN PB13
+#define PB13_PIN PIN_13
 #define PB13_MODE MODE_INPUT
 #define PB13_ALT GPIO_ALT_NONE
 #define PB13_PULL PULL_NOT_AVAILABLE
@@ -339,7 +336,7 @@ PB9,
 
 // PB14
 #define PB14_PORT PORT_B
-#define PB14_PIN PB14
+#define PB14_PIN PIN_14
 #define PB14_MODE MODE_INPUT
 #define PB14_ALT GPIO_ALT_NONE
 #define PB14_PULL PULL_NOT_AVAILABLE
@@ -348,7 +345,7 @@ PB9,
 
 // PB15
 #define PB15_PORT PORT_B
-#define PB15_PIN PB15
+#define PB15_PIN PIN_15
 #define PB15_MODE MODE_INPUT
 #define PB15_ALT GPIO_ALT_NONE
 #define PB15_PULL PULL_NOT_AVAILABLE
@@ -357,7 +354,7 @@ PB9,
 
 // PC6
 #define PC6_PORT PORT_C
-#define PC6_PIN PC6
+#define PC6_PIN PIN_6
 #define PC6_MODE MODE_INPUT
 #define PC6_ALT GPIO_ALT_NONE
 #define PC6_PULL PULL_NOT_AVAILABLE
@@ -366,7 +363,7 @@ PB9,
 
 // PC7
 #define PC7_PORT PORT_C
-#define PC7_PIN PC7
+#define PC7_PIN PIN_7
 #define PC7_MODE MODE_INPUT
 #define PC7_ALT GPIO_ALT_NONE
 #define PC7_PULL PULL_NOT_AVAILABLE
@@ -375,7 +372,7 @@ PB9,
 
 // PC8
 #define PC8_PORT PORT_C
-#define PC8_PIN PC8
+#define PC8_PIN PIN_8
 #define PC8_MODE MODE_INPUT
 #define PC8_ALT GPIO_ALT_NONE
 #define PC8_PULL PULL_NOT_AVAILABLE
@@ -384,7 +381,7 @@ PB9,
 
 // PC9
 #define PC9_PORT PORT_C
-#define PC9_PIN PC9
+#define PC9_PIN PIN_9
 #define PC9_MODE MODE_INPUT
 #define PC9_ALT GPIO_ALT_NONE
 #define PC9_PULL PULL_NOT_AVAILABLE
@@ -393,7 +390,7 @@ PB9,
 
 // PA8
 #define PA8_PORT PORT_A
-#define PA8_PIN PA8
+#define PA8_PIN PIN_8
 #define PA8_MODE MODE_INPUT
 #define PA8_ALT GPIO_ALT_NONE
 #define PA8_PULL PULL_NOT_AVAILABLE
@@ -402,7 +399,7 @@ PB9,
 
 // PA9
 #define PA9_PORT PORT_A
-#define PA9_PIN PA9
+#define PA9_PIN PIN_9
 #define PA9_MODE MODE_INPUT
 #define PA9_ALT GPIO_ALT_NONE
 #define PA9_PULL PULL_NOT_AVAILABLE
@@ -411,7 +408,7 @@ PB9,
 
 // PA10
 #define PA10_PORT PORT_A
-#define PA10_PIN PA10
+#define PA10_PIN PIN_10
 #define PA10_MODE MODE_INPUT
 #define PA10_ALT GPIO_ALT_NONE
 #define PA10_PULL PULL_NOT_AVAILABLE
@@ -420,7 +417,7 @@ PB9,
 
 // PA11
 #define PA11_PORT PORT_A
-#define PA11_PIN PA11
+#define PA11_PIN PIN_11
 #define PA11_MODE MODE_INPUT
 #define PA11_ALT GPIO_ALT_NONE
 #define PA11_PULL PULL_NOT_AVAILABLE
@@ -429,7 +426,7 @@ PB9,
 
 // PA12
 #define PA12_PORT PORT_A
-#define PA12_PIN PA12
+#define PA12_PIN PIN_12
 #define PA12_MODE MODE_INPUT
 #define PA12_ALT GPIO_ALT_NONE
 #define PA12_PULL PULL_NOT_AVAILABLE
@@ -438,7 +435,7 @@ PB9,
 
 // PA13
 #define PA13_PORT PORT_A
-#define PA13_PIN PA13
+#define PA13_PIN PIN_13
 #define PA13_MODE MODE_INPUT
 #define PA13_ALT GPIO_ALT_NONE
 #define PA13_PULL PULL_NOT_AVAILABLE
@@ -447,7 +444,7 @@ PB9,
 
 // PA14
 #define PA14_PORT PORT_A
-#define PA14_PIN PA14
+#define PA14_PIN PIN_14
 #define PA14_MODE MODE_INPUT
 #define PA14_ALT GPIO_ALT_NONE
 #define PA14_PULL PULL_NOT_AVAILABLE
@@ -456,7 +453,7 @@ PB9,
 
 // PA15
 #define PA15_PORT PORT_A
-#define PA15_PIN PA15
+#define PA15_PIN PIN_15
 #define PA15_MODE MODE_INPUT
 #define PA15_ALT GPIO_ALT_NONE
 #define PA15_PULL PULL_NOT_AVAILABLE
@@ -465,7 +462,7 @@ PB9,
 
 // PC10
 #define PC10_PORT PORT_C
-#define PC10_PIN PC10
+#define PC10_PIN PIN_10
 #define PC10_MODE MODE_INPUT
 #define PC10_ALT GPIO_ALT_NONE
 #define PC10_PULL PULL_NOT_AVAILABLE
@@ -474,7 +471,7 @@ PB9,
 
 // PC11
 #define PC11_PORT PORT_C
-#define PC11_PIN PC11
+#define PC11_PIN PIN_11
 #define PC11_MODE MODE_INPUT
 #define PC11_ALT GPIO_ALT_NONE
 #define PC11_PULL PULL_NOT_AVAILABLE
@@ -483,7 +480,7 @@ PB9,
 
 // PC12
 #define PC12_PORT PORT_C
-#define PC12_PIN PC12
+#define PC12_PIN PIN_12
 #define PC12_MODE MODE_INPUT
 #define PC12_ALT GPIO_ALT_NONE
 #define PC12_PULL PULL_NOT_AVAILABLE
@@ -492,7 +489,7 @@ PB9,
 
 // PD2
 #define PD2_PORT PORT_D
-#define PD2_PIN PD2
+#define PD2_PIN PIN_2
 #define PD2_MODE MODE_INPUT
 #define PD2_ALT GPIO_ALT_NONE
 #define PD2_PULL PULL_NOT_AVAILABLE
@@ -501,7 +498,7 @@ PB9,
 
 // PB3
 #define PB3_PORT PORT_B
-#define PB3_PIN PB3
+#define PB3_PIN PIN_3
 #define PB3_MODE MODE_INPUT
 #define PB3_ALT GPIO_ALT_NONE
 #define PB3_PULL PULL_NOT_AVAILABLE
@@ -510,7 +507,7 @@ PB9,
 
 // PB4
 #define PB4_PORT PORT_B
-#define PB4_PIN PB4
+#define PB4_PIN PIN_4
 #define PB4_MODE MODE_INPUT
 #define PB4_ALT GPIO_ALT_NONE
 #define PB4_PULL PULL_NOT_AVAILABLE
@@ -519,7 +516,7 @@ PB9,
 
 // PB5
 #define PB5_PORT PORT_B
-#define PB5_PIN PB5
+#define PB5_PIN PIN_5
 #define PB5_MODE MODE_INPUT
 #define PB5_ALT GPIO_ALT_NONE
 #define PB5_PULL PULL_NOT_AVAILABLE
@@ -528,7 +525,7 @@ PB9,
 
 // PB6
 #define PB6_PORT PORT_B
-#define PB6_PIN PB6
+#define PB6_PIN PIN_6
 #define PB6_MODE MODE_INPUT
 #define PB6_ALT GPIO_ALT_NONE
 #define PB6_PULL PULL_NOT_AVAILABLE
@@ -537,7 +534,7 @@ PB9,
 
 // PB7
 #define PB7_PORT PORT_B
-#define PB7_PIN PB7
+#define PB7_PIN PIN_7
 #define PB7_MODE MODE_INPUT
 #define PB7_ALT GPIO_ALT_NONE
 #define PB7_PULL PULL_NOT_AVAILABLE
@@ -546,7 +543,7 @@ PB9,
 
 // PB8
 #define PB8_PORT PORT_B
-#define PB8_PIN PB8
+#define PB8_PIN PIN_8
 #define PB8_MODE MODE_INPUT
 #define PB8_ALT GPIO_ALT_NONE
 #define PB8_PULL PULL_NOT_AVAILABLE
@@ -555,7 +552,7 @@ PB9,
 
 // PB9
 #define PB9_PORT PORT_B
-#define PB9_PIN PB9
+#define PB9_PIN PIN_9
 #define PB9_MODE MODE_INPUT
 #define PB9_ALT GPIO_ALT_NONE
 #define PB9_PULL PULL_NOT_AVAILABLE

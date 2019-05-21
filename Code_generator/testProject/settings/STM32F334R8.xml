@@ -11,10 +11,6 @@
     </includes>
     <configuration_definitions>
         <!-- GPIO definitions -->
-        <cfg_def_gpio>PULL_NOT_AVAILABLE GPIO_NOPULL</cfg_def_gpio>
-        <cfg_def_gpio>SPEED_FAST GPIO_SPEED_HIGH</cfg_def_gpio>
-        <cfg_def_gpio>GPIO_ALT_NONE ((uint8_t)0xFF)</cfg_def_gpio>
-        <cfg_def_gpio>MODE_INPUT GPIO_MODE_INPUT</cfg_def_gpio>
     </configuration_definitions>
     <pins>
         <pin>

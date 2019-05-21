@@ -72,6 +72,7 @@ public class Microcontroller {
 	/* Pin's mandatory characteristics */
 	private static final String STR_PIN_NAME = "name";
 	private static final String STR_PIN_NUMBER = "number";
+	private static final String STR_PORT_PIN = "portPin";
 
 	/* Pin's optional characteristics */
 	private static final String STR_PIN_INT = "interrupt";
@@ -263,6 +264,7 @@ public class Microcontroller {
 		Element pinEl;
 		String name;
 		String pinsNum;
+		String portPin;
 		String vcc;
 		String gnd;
 		String gpio;
@@ -286,6 +288,13 @@ public class Microcontroller {
 		if (!pinsNum.equals(ErrorCode.STR_INVALID)) {
 			CurrentPin[pinNum].setNumber(Integer.parseInt(pinsNum));
 			Features.verbosePrint("\tNumber: " + pinsNum);
+		}
+
+		/* Port pin */
+		portPin = XmlOpener.getElementInfo(pinEl, STR_PORT_PIN);
+		if (!portPin.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setPortPin(portPin);
+			Features.verbosePrint("\tPort Pin: " + portPin);
 		}
 
 		/* Get Pin functions */
