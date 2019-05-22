@@ -32,7 +32,7 @@
 /************************
  * Global Variables     *
  ************************/
-GPIO_TypeDef *GPIO_port[PORT_MAX] = {GPIOA, GPIOB, GPIOC, GPIOD, GPIOF};
+GPIO_TypeDef* GPIO_port[PORT_MAX] = {GPIOA, GPIOB, GPIOC, GPIOD, GPIOF};
 
 uint16_t GPIO_pin[PIN_MAX] = {GPIO_PIN_0,
                               GPIO_PIN_1,
@@ -66,7 +66,7 @@ uint16_t GPIO_pin[PIN_MAX] = {GPIO_PIN_0,
  * @brief Initialize GPIO port clock
  * @param port pin Gpio port
  */
-void GPIO_EnableClock(Gpio_portIdtype port)
+void GPIO_EnableClock(Gpio_portId_t port)
 {
     /* Enable each GPIO Clock (to be able to program the configuration registers) */
     switch (port)
@@ -95,7 +95,7 @@ void GPIO_EnableClock(Gpio_portIdtype port)
  * @brief Initialize GPIO pin
  * @param cfgPtr pin configuration structure
  */
-void GPIO_Init(const Gpio_CfgType *cfgPtr)
+void Gpio_Init(const Gpio_cfg_t* cfgPtr)
 {
     GPIO_InitTypeDef GPIO_InitStruct;
     if (NULL != cfgPtr)
@@ -124,7 +124,7 @@ void GPIO_Init(const Gpio_CfgType *cfgPtr)
  * @param port Port to be written
  * @param value Value to be written to port
  */
-void Gpio_WritePort(Gpio_portIdtype port, Gpio_dataType value)
+void Gpio_WritePort(Gpio_portId_t port, Gpio_data_t value)
 {
     /* Write to port's Output Data Register */
     GPIO_port[port]->ODR = value;
@@ -136,7 +136,7 @@ void Gpio_WritePort(Gpio_portIdtype port, Gpio_dataType value)
  * @param pin Pin to be written
  * @param state Value to be written to pin
  */
-void Gpio_SetPin(Gpio_portIdtype port, Gpio_pinIdtype pin, Gpio_pinStateType state)
+void Gpio_SetPin(Gpio_portId_t port, Gpio_pinId_t pin, Gpio_pinState_t state)
 {
     HAL_GPIO_WritePin(GPIO_port[port], GPIO_pin[pin], state);
 }
@@ -146,9 +146,9 @@ void Gpio_SetPin(Gpio_portIdtype port, Gpio_pinIdtype pin, Gpio_pinStateType sta
  * @param port Pin's port
  * @return Port's value
  */
-Gpio_dataType Gpio_ReadPort(Gpio_portIdtype port)
+Gpio_data_t Gpio_ReadPort(Gpio_portId_t port)
 {
-    Gpio_dataType portValue;
+    Gpio_data_t portValue;
 
     /* Read Input Data Register */
     portValue = GPIO_port[port]->IDR;
@@ -161,9 +161,9 @@ Gpio_dataType Gpio_ReadPort(Gpio_portIdtype port)
  * @param pin Pin to be read
  * @return Pin's value
  */
-Gpio_pinStateType Gpio_GetPin(Gpio_portIdtype port, Gpio_pinIdtype pin)
+Gpio_pinState_t Gpio_GetPin(Gpio_portId_t port, Gpio_pinId_t pin)
 {
-    Gpio_pinStateType pinState;
+    Gpio_pinState_t pinState;
 
     pinState = HAL_GPIO_ReadPin(GPIO_port[port], GPIO_pin[pin]);
     return pinState;

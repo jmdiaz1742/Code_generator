@@ -36,7 +36,7 @@
 /**
  * @brief GPIO initial configuration structures array
  */
-const Gpio_CfgType Gpio_Cfg[GPIO_ELEMENTS_MAX] = {FWK_GPIO_CFG_ARRAY};
+const Gpio_cfg_t Gpio_Cfg[GPIO_ELEMENTS_MAX] = {FWK_GPIO_CFG_ARRAY};
 /************************
  * File Scope Variables *
  ************************/

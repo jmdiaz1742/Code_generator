@@ -29,12 +29,12 @@ typedef enum
 {
     // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-LED_1,
-LED_2,
-SW_1,
+USER_BUTTON,
+PC14,
+PC15,
 PF0,
 PF1,
-NC_1,
+PC0,
 PC1,
 PC2,
 PC3,
@@ -65,7 +65,7 @@ PA8,
 PA9,
 PA10,
 PA11,
-PA12,
+USER_LED,
 PA13,
 PA14,
 PA15,
@@ -100,32 +100,32 @@ PB9,
 
 // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-// LED_1
-#define LED_1_PORT PORT_C
-#define LED_1_PIN PIN_13
-#define LED_1_MODE MODE_OUTPUT
-#define LED_1_ALT GPIO_ALT_NONE
-#define LED_1_PULL PULL_NOT_AVAILABLE
-#define LED_1_SPEED SPEED_FAST
-#define LED_1_INIT_OUT HIGH
+// USER_BUTTON
+#define USER_BUTTON_PORT PORT_C
+#define USER_BUTTON_PIN PIN_13
+#define USER_BUTTON_MODE MODE_INPUT
+#define USER_BUTTON_ALT GPIO_ALT_NONE
+#define USER_BUTTON_PULL PULL_UP
+#define USER_BUTTON_SPEED SPEED_FAST
+#define USER_BUTTON_INIT_OUT HIGH
 
-// LED_2
-#define LED_2_PORT PORT_C
-#define LED_2_PIN PIN_14
-#define LED_2_MODE MODE_OUTPUT
-#define LED_2_ALT GPIO_ALT_NONE
-#define LED_2_PULL PULL_NOT_AVAILABLE
-#define LED_2_SPEED SPEED_FAST
-#define LED_2_INIT_OUT HIGH
+// PC14
+#define PC14_PORT PORT_C
+#define PC14_PIN PIN_14
+#define PC14_MODE MODE_INPUT
+#define PC14_ALT GPIO_ALT_NONE
+#define PC14_PULL PULL_NOT_AVAILABLE
+#define PC14_SPEED SPEED_FAST
+#define PC14_INIT_OUT HIGH
 
-// SW_1
-#define SW_1_PORT PORT_C
-#define SW_1_PIN PIN_15
-#define SW_1_MODE MODE_INPUT
-#define SW_1_ALT GPIO_ALT_NONE
-#define SW_1_PULL PULL_UP
-#define SW_1_SPEED SPEED_FAST
-#define SW_1_INIT_OUT LOW
+// PC15
+#define PC15_PORT PORT_C
+#define PC15_PIN PIN_15
+#define PC15_MODE MODE_INPUT
+#define PC15_ALT GPIO_ALT_NONE
+#define PC15_PULL PULL_NOT_AVAILABLE
+#define PC15_SPEED SPEED_FAST
+#define PC15_INIT_OUT LOW
 
 // PF0
 #define PF0_PORT PORT_F
@@ -145,14 +145,14 @@ PB9,
 #define PF1_SPEED SPEED_FAST
 #define PF1_INIT_OUT LOW
 
-// NC_1
-#define NC_1_PORT PORT_C
-#define NC_1_PIN PIN_0
-#define NC_1_MODE MODE_OUTPUT
-#define NC_1_ALT GPIO_ALT_NONE
-#define NC_1_PULL PULL_NOT_AVAILABLE
-#define NC_1_SPEED SPEED_FAST
-#define NC_1_INIT_OUT LOW
+// PC0
+#define PC0_PORT PORT_C
+#define PC0_PIN PIN_0
+#define PC0_MODE MODE_INPUT
+#define PC0_ALT GPIO_ALT_NONE
+#define PC0_PULL PULL_NOT_AVAILABLE
+#define PC0_SPEED SPEED_FAST
+#define PC0_INIT_OUT LOW
 
 // PC1
 #define PC1_PORT PORT_C
@@ -188,7 +188,7 @@ PB9,
 #define PA0_ALT GPIO_ALT_NONE
 #define PA0_PULL PULL_NOT_AVAILABLE
 #define PA0_SPEED SPEED_FAST
-#define PA0_INIT_OUT LOW
+#define PA0_INIT_OUT HIGH
 
 // PA1
 #define PA1_PORT PORT_A
@@ -197,7 +197,7 @@ PB9,
 #define PA1_ALT GPIO_ALT_NONE
 #define PA1_PULL PULL_NOT_AVAILABLE
 #define PA1_SPEED SPEED_FAST
-#define PA1_INIT_OUT LOW
+#define PA1_INIT_OUT HIGH
 
 // PA2
 #define PA2_PORT PORT_A
@@ -424,14 +424,14 @@ PB9,
 #define PA11_SPEED SPEED_FAST
 #define PA11_INIT_OUT LOW
 
-// PA12
-#define PA12_PORT PORT_A
-#define PA12_PIN PIN_12
-#define PA12_MODE MODE_INPUT
-#define PA12_ALT GPIO_ALT_NONE
-#define PA12_PULL PULL_NOT_AVAILABLE
-#define PA12_SPEED SPEED_FAST
-#define PA12_INIT_OUT LOW
+// USER_LED
+#define USER_LED_PORT PORT_A
+#define USER_LED_PIN PIN_12
+#define USER_LED_MODE MODE_OUTPUT
+#define USER_LED_ALT GPIO_ALT_NONE
+#define USER_LED_PULL PULL_NOT_AVAILABLE
+#define USER_LED_SPEED SPEED_FAST
+#define USER_LED_INIT_OUT LOW
 
 // PA13
 #define PA13_PORT PORT_A
