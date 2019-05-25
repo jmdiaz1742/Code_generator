@@ -33,7 +33,7 @@ public class PinConf {
 	private Pull PinPull;
 
 	/* Public fields */
-	
+
 	/**
 	 * Default Pin's selection
 	 */
@@ -168,6 +168,7 @@ public class PinConf {
 
 	/**
 	 * Get the pin's selection
+	 * 
 	 * @return Selection
 	 */
 	public Selected getSelected() {
@@ -176,6 +177,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's selection
+	 * 
 	 * @param selection Selection
 	 */
 	public void setSelected(Selected selection) {

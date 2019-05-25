@@ -54,8 +54,7 @@ USER_LED_ALT,
 USER_LED_PULL,
 USER_LED_SPEED,
 USER_LED_INIT_OUT
-},
-
+}
 // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 };

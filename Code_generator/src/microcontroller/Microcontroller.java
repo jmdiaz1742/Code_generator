@@ -421,7 +421,7 @@ public class Microcontroller {
 					return ErrorCode.EX_ERROR;
 				}
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(pinEl, Selected.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setSelected(Selected.getConfFromString(configuration));
@@ -592,6 +592,23 @@ public class Microcontroller {
 	 */
 	private void setUc_portNum(int uc_portNum) {
 		Uc_portNum = uc_portNum;
+	}
+
+	/**
+	 * Get the total pins selected
+	 * 
+	 * @return Total of pins selected
+	 */
+	public int getUc_selectedPinsNum() {
+		int selectedPins = 0;
+
+		for (int pinNum = 0; pinNum < GpioCfgPin.length; pinNum++) {
+			if (GpioCfgPin[pinNum].getSelected().getBoolean()) {
+				selectedPins++;
+			}
+		}
+
+		return selectedPins;
 	}
 
 	/**

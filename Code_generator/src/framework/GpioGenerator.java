@@ -30,6 +30,7 @@ class GpioGenerator {
 	 */
 	public static String getCfgArray(Microcontroller uC) {
 		String cfgArray = framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+		int generatedPinsNum = 0;
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
@@ -44,7 +45,8 @@ class GpioGenerator {
 				cfgArray += pinName + STR_SUFF_SPEED + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_INIT_OUT + framework.Common.NL;
 				cfgArray += "}";
-				if (pinNum < uC.GpioCfgPin.length - 1) {
+				generatedPinsNum++;
+				if (generatedPinsNum < uC.getUc_selectedPinsNum()) {
 					cfgArray += "," + framework.Common.NL;
 				}
 			}
@@ -63,6 +65,7 @@ class GpioGenerator {
 	 */
 	public static String getElDefs(Microcontroller uC) {
 		String elDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+		int generatedPinsNum = 0;
 
 		for (int pinNum = 0; pinNum < uC.GpioCfgPin.length; pinNum++) {
 			String pinName = uC.GpioCfgPin[pinNum].getCodeName();
@@ -92,7 +95,9 @@ class GpioGenerator {
 				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_INIT_OUT + " ";
 				elDefs += uC.GpioCfgPin[pinNum].getOutLevel() + framework.Common.NL;
 
-				if (pinNum < uC.GpioCfgPin.length - 1) {
+				generatedPinsNum++;
+
+				if (generatedPinsNum < uC.getUc_selectedPinsNum()) {
 					elDefs += framework.Common.NL;
 				}
 			}

@@ -69,7 +69,6 @@ USER_LED,
 #define USER_LED_SPEED SPEED_FAST
 #define USER_LED_INIT_OUT LOW
 
-
 // ################## Kamino generator v0.3.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
