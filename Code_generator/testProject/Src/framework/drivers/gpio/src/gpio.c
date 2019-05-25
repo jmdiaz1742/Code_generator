@@ -32,24 +32,7 @@
 /************************
  * Global Variables     *
  ************************/
-GPIO_TypeDef* GPIO_port[PORT_MAX] = {GPIOA, GPIOB, GPIOC, GPIOD, GPIOF};
 
-uint16_t GPIO_pin[PIN_MAX] = {GPIO_PIN_0,
-                              GPIO_PIN_1,
-                              GPIO_PIN_2,
-                              GPIO_PIN_3,
-                              GPIO_PIN_4,
-                              GPIO_PIN_5,
-                              GPIO_PIN_6,
-                              GPIO_PIN_7,
-                              GPIO_PIN_8,
-                              GPIO_PIN_9,
-                              GPIO_PIN_10,
-                              GPIO_PIN_11,
-                              GPIO_PIN_12,
-                              GPIO_PIN_13,
-                              GPIO_PIN_14,
-                              GPIO_PIN_15};
 /************************
  * File Scope Variables *
  ************************/
@@ -63,58 +46,18 @@ uint16_t GPIO_pin[PIN_MAX] = {GPIO_PIN_0,
  ************************/
 
 /**
- * @brief Initialize GPIO port clock
- * @param port pin Gpio port
- */
-void GPIO_EnableClock(Gpio_portId_t port)
-{
-    /* Enable each GPIO Clock (to be able to program the configuration registers) */
-    switch (port)
-    {
-        case PORT_A:
-            __GPIOA_CLK_ENABLE();
-            break;
-        case PORT_B:
-            __GPIOB_CLK_ENABLE();
-            break;
-        case PORT_C:
-            __GPIOC_CLK_ENABLE();
-            break;
-        case PORT_D:
-            __GPIOD_CLK_ENABLE();
-            break;
-        case PORT_F:
-            __GPIOF_CLK_ENABLE();
-            break;
-        default:
-            break;
-    }
-}
-
-/**
  * @brief Initialize GPIO pin
  * @param cfgPtr pin configuration structure
  */
 void Gpio_Init(const Gpio_cfg_t* cfgPtr)
 {
-    GPIO_InitTypeDef GPIO_InitStruct;
     if (NULL != cfgPtr)
     {
         for (uint8_t gpioNum = 0; gpioNum < GPIO_ELEMENTS_MAX; gpioNum++)
         {
-            GPIO_EnableClock(cfgPtr[gpioNum].Port);
-
-            GPIO_InitStruct.Mode  = cfgPtr[gpioNum].Mode;
-            GPIO_InitStruct.Pull  = cfgPtr[gpioNum].Pull;
-            GPIO_InitStruct.Speed = cfgPtr[gpioNum].Speed;
-            GPIO_InitStruct.Pin   = GPIO_pin[cfgPtr[gpioNum].Pin];
-
-            if (GPIO_ALT_NONE != cfgPtr[gpioNum].Alternate)
-            {
-                GPIO_InitStruct.Alternate = cfgPtr[gpioNum].Alternate;
-            }
-
-            HAL_GPIO_Init(GPIO_port[cfgPtr[gpioNum].Port], &GPIO_InitStruct);
+            GpioWrapper_setMode(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Mode);
+            GpioWrapper_setPull(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Pull);
+            GpioWrapper_setSpeed(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Speed);
         }
     }
 }
@@ -126,8 +69,7 @@ void Gpio_Init(const Gpio_cfg_t* cfgPtr)
  */
 void Gpio_WritePort(Gpio_portId_t port, Gpio_data_t value)
 {
-    /* Write to port's Output Data Register */
-    GPIO_port[port]->ODR = value;
+    GpioWrapper_WritePort(port, value);
 }
 
 /**
@@ -138,7 +80,7 @@ void Gpio_WritePort(Gpio_portId_t port, Gpio_data_t value)
  */
 void Gpio_SetPin(Gpio_portId_t port, Gpio_pinId_t pin, Gpio_pinState_t state)
 {
-    HAL_GPIO_WritePin(GPIO_port[port], GPIO_pin[pin], state);
+    GpioWrapper_SetPin(port, pin, state);
 }
 
 /**
@@ -148,11 +90,7 @@ void Gpio_SetPin(Gpio_portId_t port, Gpio_pinId_t pin, Gpio_pinState_t state)
  */
 Gpio_data_t Gpio_ReadPort(Gpio_portId_t port)
 {
-    Gpio_data_t portValue;
-
-    /* Read Input Data Register */
-    portValue = GPIO_port[port]->IDR;
-    return portValue;
+    return GpioWrapper_ReadPort(port);
 }
 
 /**
@@ -163,8 +101,5 @@ Gpio_data_t Gpio_ReadPort(Gpio_portId_t port)
  */
 Gpio_pinState_t Gpio_GetPin(Gpio_portId_t port, Gpio_pinId_t pin)
 {
-    Gpio_pinState_t pinState;
-
-    pinState = HAL_GPIO_ReadPin(GPIO_port[port], GPIO_pin[pin]);
-    return pinState;
+    return GpioWrapper_GetPin(port, pin);
 }

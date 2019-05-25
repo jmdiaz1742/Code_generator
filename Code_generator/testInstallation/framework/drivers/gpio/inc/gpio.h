@@ -54,7 +54,7 @@ typedef struct
 /************************
  * Public Variables     *
  ************************/
-const Gpio_cfg_t Gpio_Cfg[GPIO_ELEMENTS_MAX];
+extern const Gpio_cfg_t Gpio_Cfg[GPIO_ELEMENTS_MAX];
 
 /************************
  * Public Functions     *
