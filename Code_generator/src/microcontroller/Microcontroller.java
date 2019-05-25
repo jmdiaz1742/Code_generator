@@ -15,6 +15,7 @@ import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
+import configurator.GPIO.Selected;
 import xmlParser.XmlOpener;
 
 /**
@@ -419,6 +420,14 @@ public class Microcontroller {
 					Features.verbosePrint("Pin " + name + " not found...");
 					return ErrorCode.EX_ERROR;
 				}
+			}
+			
+			configuration = XmlOpener.getElementInfo(pinEl, Selected.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[pinNum].setSelected(Selected.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Selection: " + configuration);
+			} else {
+				GpioCfgPin[pinNum].setSelected(PinConf.DF_SELECTED);
 			}
 
 			configuration = XmlOpener.getElementInfo(pinEl, Mode.STR_NAME);

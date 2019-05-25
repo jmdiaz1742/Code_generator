@@ -23,6 +23,7 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
+import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import microcontroller.Microcontroller;
 
@@ -99,6 +100,7 @@ public class ConfXmlWriter {
 		/* Write the pins configuration information */
 		addPinChild(STR_NAME, pin.getPinName(), pinNum);
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
+		addPinChild(Selected.STR_NAME, pin.getSelected().name(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
 		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);

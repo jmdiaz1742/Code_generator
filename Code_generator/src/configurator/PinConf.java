@@ -6,6 +6,7 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
+import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 
 /**
@@ -24,6 +25,7 @@ public class PinConf {
 	private String Port;
 	private String PinName;
 	private String CodeName;
+	private Selected Selection;
 	private Mode PinMode;
 	private Speed PinSpeed;
 	private OutType PinOutType;
@@ -31,6 +33,11 @@ public class PinConf {
 	private Pull PinPull;
 
 	/* Public fields */
+	
+	/**
+	 * Default Pin's selection
+	 */
+	public static final Selected DF_SELECTED = Selected.NOT;
 
 	/**
 	 * Default Pin mode
@@ -157,6 +164,22 @@ public class PinConf {
 	 */
 	public void setCodeName(String name) {
 		CodeName = name;
+	}
+
+	/**
+	 * Get the pin's selection
+	 * @return Selection
+	 */
+	public Selected getSelected() {
+		return Selection;
+	}
+
+	/**
+	 * Set the pin's selection
+	 * @param selection Selection
+	 */
+	public void setSelected(Selected selection) {
+		Selection = selection;
 	}
 
 	/**
