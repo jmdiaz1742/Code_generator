@@ -51,13 +51,20 @@
  */
 void Gpio_Init(const Gpio_cfg_t* cfgPtr)
 {
+    uint16_t gpioNum;
+
     if (NULL != cfgPtr)
     {
-        for (uint8_t gpioNum = 0; gpioNum < GPIO_ELEMENTS_MAX; gpioNum++)
+        for (gpioNum = 0; gpioNum < GPIO_ELEMENTS_MAX; gpioNum++)
         {
             GpioWrapper_setMode(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Mode);
             GpioWrapper_setPull(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Pull);
             GpioWrapper_setSpeed(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].Speed);
+
+            if (cfgPtr[gpioNum].Mode == MODE_OUTPUT)
+            {
+                Gpio_SetPin(cfgPtr[gpioNum].Port, cfgPtr[gpioNum].Pin, cfgPtr[gpioNum].InitOutValue);
+            }
         }
     }
 }

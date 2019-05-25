@@ -35,8 +35,8 @@ public class Features {
 	/* Static fields */
 
 	/* Software version numbers */
-	private static final int VERSION_MAJOR = 0;
-	private static final int VERSION_MINOR = 3;
+	private static final int VERSION_MAJOR = 1;
+	private static final int VERSION_MINOR = 0;
 	private static final int VERSION_PATCH = 0;
 
 	/**
@@ -52,7 +52,7 @@ public class Features {
 	/**
 	 * Code name of the software version
 	 */
-	public static final String VERSION_NAME = "Coruscant";
+	public static final String VERSION_NAME = "Dagobah";
 
 	public static final String GENERATOR_NAME = "Kamino";
 
