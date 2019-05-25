@@ -1,6 +1,7 @@
 var searchData=
 [
   ['saveuc',['saveUc',['../classgui_1_1_main_gui.html#a657184b567c814be6bcccd09c5daced4',1,'gui::MainGui']]],
+  ['selected',['Selected',['../enumconfigurator_1_1_g_p_i_o_1_1_selected.html',1,'configurator::GPIO']]],
   ['setadc',['setAdc',['../classmicrocontroller_1_1_pin.html#a94bf91b71a1cb20f2ee542c8e96ce8a2',1,'microcontroller::Pin']]],
   ['setclock',['setClock',['../classmicrocontroller_1_1_pin.html#ac6a07cc62b26f65f70a490ba10c9deeb',1,'microcontroller::Pin']]],
   ['setcodename',['setCodeName',['../classconfigurator_1_1_pin_conf.html#a9a196b8de41e11a64a6bc711d2c06e08',1,'configurator::PinConf']]],
@@ -27,10 +28,12 @@ var searchData=
   ['setoutlevel',['setOutLevel',['../classconfigurator_1_1_pin_conf.html#a2c308474d674bea46bf53ea3462af288',1,'configurator::PinConf']]],
   ['setouttype',['setOutType',['../classconfigurator_1_1_pin_conf.html#a25c64f8501836117bfc5371183dbd045',1,'configurator::PinConf']]],
   ['setport',['setPort',['../classmicrocontroller_1_1_pin.html#a498c121ea56e48984f2098891e041c12',1,'microcontroller::Pin']]],
+  ['setportpin',['setPortPin',['../classmicrocontroller_1_1_pin.html#a6908071932f850db49c1dc9a2d540366',1,'microcontroller::Pin']]],
   ['setprojectfwkpath',['setProjectFwkPath',['../classframework_1_1_common.html#a90856ffd7e656580c53b928bca6554fc',1,'framework::Common']]],
   ['setprojectinformation',['setProjectInformation',['../classgui_1_1_main_window.html#a941801b5d59d0315aa2e3181d79fec80',1,'gui::MainWindow']]],
   ['setpull',['setPull',['../classconfigurator_1_1_pin_conf.html#acc5339917552ab241b2123025f9080a2',1,'configurator::PinConf']]],
   ['setreset',['setReset',['../classmicrocontroller_1_1_pin.html#a4bfbaabe8a7d3aca7f01d5d74b1cc263',1,'microcontroller::Pin']]],
+  ['setselected',['setSelected',['../classconfigurator_1_1_pin_conf.html#a009dd2cd2a2dac560c6e48ac753a2ed0',1,'configurator::PinConf']]],
   ['setspeed',['setSpeed',['../classconfigurator_1_1_pin_conf.html#a99c843aea03e28a2663d1078c3ac7114',1,'configurator::PinConf']]],
   ['setspi',['setSpi',['../classmicrocontroller_1_1_pin.html#af7c3b4bbc170bb3ed588844f43037890',1,'microcontroller::Pin']]],
   ['settimer',['setTimer',['../classmicrocontroller_1_1_pin.html#af838c8cf044c41eb3821514e520eeaaf',1,'microcontroller::Pin']]],
@@ -52,7 +55,7 @@ var searchData=
   ['str_5finclude',['STR_INCLUDE',['../classframework_1_1_common.html#a8ee64ddc864abacd365496d4a705c4d9',1,'framework::Common']]],
   ['str_5finvalid',['STR_INVALID',['../enumcommon_1_1_error_code.html#a10a7a36f68454ce05c6bab095877b43f',1,'common::ErrorCode']]],
   ['str_5fmodule_5fgpio',['STR_MODULE_GPIO',['../classframework_1_1_common.html#a49ffadb3c79236523b0545ae91db5bc5',1,'framework::Common']]],
-  ['str_5fname',['STR_NAME',['../enumconfigurator_1_1_g_p_i_o_1_1_code_name.html#a00161690dd4d92fdd65450bed9effccd',1,'configurator.GPIO.CodeName.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_mode.html#a04fdce2f48aa4a47e2a8df0fdf4fc3e3',1,'configurator.GPIO.Mode.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_level.html#ad6c1608f5507a3f7161c6421f1672303',1,'configurator.GPIO.OutLevel.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_type.html#ae72b59e00687522e3c74163a2e24e2a1',1,'configurator.GPIO.OutType.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_pull.html#a829990a054037af7e5865fdca1dc34b8',1,'configurator.GPIO.Pull.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html#ae747f82ea771763f3b3356265877b406',1,'configurator.GPIO.Speed.STR_NAME()']]],
+  ['str_5fname',['STR_NAME',['../enumconfigurator_1_1_g_p_i_o_1_1_code_name.html#a00161690dd4d92fdd65450bed9effccd',1,'configurator.GPIO.CodeName.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_mode.html#a04fdce2f48aa4a47e2a8df0fdf4fc3e3',1,'configurator.GPIO.Mode.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_level.html#ad6c1608f5507a3f7161c6421f1672303',1,'configurator.GPIO.OutLevel.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_out_type.html#ae72b59e00687522e3c74163a2e24e2a1',1,'configurator.GPIO.OutType.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_pull.html#a829990a054037af7e5865fdca1dc34b8',1,'configurator.GPIO.Pull.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_selected.html#a2ea73cfcd8c5ee252a045974e8d84afe',1,'configurator.GPIO.Selected.STR_NAME()'],['../enumconfigurator_1_1_g_p_i_o_1_1_speed.html#ae747f82ea771763f3b3356265877b406',1,'configurator.GPIO.Speed.STR_NAME()']]],
   ['str_5fproj_5fconf_5ffile',['STR_PROJ_CONF_FILE',['../classconfigurator_1_1_configuration_file.html#a79cd36a33859cfca35ee70f42b134802',1,'configurator::ConfigurationFile']]],
   ['sw_5fversion',['SW_VERSION',['../classcommon_1_1_features.html#a0c962257745ec3facbfa9131f59e8dd3',1,'common::Features']]]
 ];

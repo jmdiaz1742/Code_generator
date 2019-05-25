@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['testmain',['TestMain',['../classxml_parser_1_1_test_main.html',1,'xmlParser']]]
+  ['xmlopener',['XmlOpener',['../classxml_parser_1_1_xml_opener.html',1,'xmlParser']]]
 ];

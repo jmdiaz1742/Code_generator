@@ -95,6 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43019e1a06f95508af9e2726f735a8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc67805242fb40816ececf03ceb17d3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_microcontroller.html#acc67805242fb40816ececf03ceb17d3d">getUc_portNum</a> ()</td></tr>
 <tr class="separator:acc67805242fb40816ececf03ceb17d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730de9cd466de39a6927ceefea931b0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_microcontroller.html#a730de9cd466de39a6927ceefea931b0b">getUc_selectedPinsNum</a> ()</td></tr>
+<tr class="separator:a730de9cd466de39a6927ceefea931b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8a88e9fc0911e0678ee0fb50568e953"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconfigurator_1_1_pin_conf.html">PinConf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_microcontroller.html#ae8a88e9fc0911e0678ee0fb50568e953">getConfiguredPin</a> (String gpioName)</td></tr>
 <tr class="separator:ae8a88e9fc0911e0678ee0fb50568e953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcb9d0b700ac4cc71157b4c6dc3a2a15"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_microcontroller.html#afcb9d0b700ac4cc71157b4c6dc3a2a15">isValid</a> ()</td></tr>
@@ -298,6 +300,25 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a730de9cd466de39a6927ceefea931b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730de9cd466de39a6927ceefea931b0b">&#9670;&nbsp;</a></span>getUc_selectedPinsNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int microcontroller.Microcontroller.getUc_selectedPinsNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the total pins selected</p>
+<dl class="section return"><dt>Returns</dt><dd>Total of pins selected </dd></dl>
+
+</div>
+</div>
 <a id="afcb9d0b700ac4cc71157b4c6dc3a2a15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afcb9d0b700ac4cc71157b4c6dc3a2a15">&#9670;&nbsp;</a></span>isValid()</h2>
 
@@ -332,7 +353,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Load pins' configuration </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Load pins' configuration</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">confDoc</td><td>Document with pins </td></tr>
   </table>

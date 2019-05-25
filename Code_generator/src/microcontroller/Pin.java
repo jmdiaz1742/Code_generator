@@ -659,7 +659,7 @@ public class Pin {
 
 	/**
 	 * Set port pin number
-	 * @param portPin
+	 * @param portPin Port pin number
 	 */
 	public void setPortPin(String portPin) {
 		this.portPin = portPin;
