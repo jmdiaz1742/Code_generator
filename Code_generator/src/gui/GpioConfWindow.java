@@ -512,11 +512,11 @@ public class GpioConfWindow {
 				/* Pin's speed resistor */
 				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_OUTPUT.name())) {
 					comboBox_PinSpeed[portPinNum].setSelectedItem(UcConf.GpioCfgPin[pinNum].getSpeed().name());
-					comboBox_PinSpeed[portPinNum].setEnabled(true);
+					comboBox_PinSpeed[portPinNum].setEnabled(checkBox_PinSelected[portPinNum].isSelected());
 				} else {
 					comboBox_PinSpeed[portPinNum].setEnabled(false);
 				}
-				comboBox_PinSpeed[portPinNum].setEnabled(checkBox_PinSelected[portPinNum].isSelected());
+				comboBox_PinSpeed[portPinNum].setVisible(true);
 
 				/* Pin's Code name */
 				textField_CodeName[portPinNum].setText(UcConf.GpioCfgPin[pinNum].getCodeName());

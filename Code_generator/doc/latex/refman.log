@@ -1110,4 +1110,164 @@ LaTeX Warning: Reference `classconfigurator_1_1_pin_conf' on page 3 undefined o
 n input line 20.
 
 
-LaTeX Warning: Reference `classproject_configuration_1_1_proje
+LaTeX Warning: Reference `classproject_configuration_1_1_project_settings' on p
+age 3 undefined on input line 21.
+
+
+LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_pull' on page 3 unde
+fined on input line 22.
+
+
+LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_selected' on page 3 
+undefined on input line 23.
+
+
+LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_speed' on page 3 und
+efined on input line 24.
+
+
+LaTeX Warning: Reference `classxml_parser_1_1_xml_opener' on page 3 undefined o
+n input line 25.
+
+) [3] [4
+
+]
+Chapter 3.
+(./namespacecommon.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 3.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 10.79993pt on input line 3.
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 6.
+ (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 6.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 15.
+
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./namespaceconfigurator.tex
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./namespaceframework.tex [5]
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+) (./namespacegui.tex
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][][]
+ []
+
+) (./namespacemicrocontroller.tex [6]
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./namespaceproject_configuration.tex
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 6.29996pt on input line 1.
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+) (./namespacexml_creator.tex [7]
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+) (./namespacexml_parser.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+) [8]
+Chapter 4.
+(./classgui_1_1_about_window.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 28.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 28.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 37.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.45 \end{DoxyParams}
+                     
+
+? 
+! Emergency stop.
+<inserted text> 
+                }
+l.45 \end{DoxyParams}
+                     
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 16478 strings out of 492616
+ 235719 string characters out of 6135177
+ 342985 words of memory out of 5000000
+ 20051 multiletter control sequences out of 15000+600000
+ 56403 words of font info for 75 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 53i,12n,92p,938b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
