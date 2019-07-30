@@ -3,18 +3,29 @@ echo off
 
 title Generate doxygen documentation
 
-ECHO Using doxygen...
-doxygen Doxyfile
-IF errorlevel 1 (
-  ECHO Error generating documentation!
-  exit 1
+:: The first parameter is the Doxygen file name
+set fileName=%1
+
+:: Check input parameters
+IF "%fileName%"=="" (
+  ECHO No file name specified, using Doxyfile...
+  set fileName="Doxyfile"
 )
 
+:: Generate HTML documentation
+ECHO Using Doxygen...
+doxygen %fileName%
+IF errorlevel 1 (
+  ECHO Problem building HTML documentation!
+  exit 1
+)
+ECHO HTML documentation completed...
+
+:: Generate PDF documentation
 ECHO Generating pdf...
 doc\latex\make.bat
 IF errorlevel 1 (
-  ECHO Error generating pdf!
+  ECHO Problem building PDF documentation!
   exit 1
 )
-
-ECHO Documentation generated successfully!
+ECHO PDF documentation completed...

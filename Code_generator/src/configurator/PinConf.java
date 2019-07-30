@@ -6,10 +6,12 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
+import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 
 /**
  * GPIO pin configuration
+ * 
  * @author Miguel Diaz
  * @version 0.1
  *
@@ -17,19 +19,26 @@ import configurator.GPIO.Speed;
 public class PinConf {
 
 	/* Private fields */
-	Pin GpioPin;
-	
+	private Pin GpioPin;
+
 	/* Pin configuration */
-	private String		Port;
-	private String		PinName;
-	private Mode 		PinMode;
-	private Speed		PinSpeed;
-	private OutType		PinOutType;
-	private OutLevel	PinOutLevel;
-	private Pull		PinPull;
-	
+	private String Port;
+	private String PinName;
+	private String CodeName;
+	private Selected Selection;
+	private Mode PinMode;
+	private Speed PinSpeed;
+	private OutType PinOutType;
+	private OutLevel PinOutLevel;
+	private Pull PinPull;
+
 	/* Public fields */
-	
+
+	/**
+	 * Default Pin's selection
+	 */
+	public static final Selected DF_SELECTED = Selected.NOT;
+
 	/**
 	 * Default Pin mode
 	 */
@@ -45,16 +54,22 @@ public class PinConf {
 	/**
 	 * Default pin's output level
 	 */
-	public static final OutLevel DF_OUT_LEVEL =	OutLevel.LOW;
+	public static final OutLevel DF_OUT_LEVEL = OutLevel.LOW;
 	/**
-	 * Default pin'r pull resistor
+	 * Default pin's pull resistor
 	 */
 	public static final Pull DF_PULL = Pull.PULL_NOT_AVAILABLE;
-	
+
+	/**
+	 * Default pin's code name
+	 */
+	public static final String DF_CODE_NAME = "";
+
 	/* Methods */
-	
+
 	/**
 	 * Constructor
+	 * 
 	 * @param gpioPin Pin information
 	 */
 	public PinConf(Pin gpioPin) {
@@ -65,28 +80,32 @@ public class PinConf {
 		}
 		setPort(gpioPin.getPort());
 		setPinName(gpioPin.getName());
+		setCodeName(gpioPin.getName());
 		setMode(DF_MODE);
 		setSpeed(DF_SPEED);
 		setOutType(DF_OUTTYPE);
+		setOutLevel(DF_OUT_LEVEL);
 		setPull(DF_PULL);
 	}
-	
+
 	/**
 	 * Check if the GPIO pin is valid
+	 * 
 	 * @return True if valid
 	 */
 	public boolean isValid() {
 		boolean valid = false;
-		
+
 		if (GpioPin.isValid() && GpioPin.getFunc_gpio()) {
 			valid = true;
 		}
-		
+
 		return valid;
 	}
 
 	/**
 	 * Get the pin's port
+	 * 
 	 * @return Port
 	 */
 	public String getPort() {
@@ -95,6 +114,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's port
+	 * 
 	 * @param port Port
 	 */
 	private void setPort(String port) {
@@ -102,7 +122,17 @@ public class PinConf {
 	}
 
 	/**
+	 * Get the port pin number
+	 * 
+	 * @return Port pin number
+	 */
+	public String getPortPin() {
+		return GpioPin.getPortPin();
+	}
+
+	/**
 	 * Get the pin's number
+	 * 
 	 * @return Pin's number
 	 */
 	public String getPinName() {
@@ -111,6 +141,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's number
+	 * 
 	 * @param pin Pin's number
 	 */
 	private void setPinName(String pin) {
@@ -118,7 +149,44 @@ public class PinConf {
 	}
 
 	/**
+	 * Get the pin's user selected name
+	 * 
+	 * @return pin's name
+	 */
+	public String getCodeName() {
+		return CodeName;
+	}
+
+	/**
+	 * Set the pin's user selected name
+	 * 
+	 * @param name Pin's name
+	 */
+	public void setCodeName(String name) {
+		CodeName = name;
+	}
+
+	/**
+	 * Get the pin's selection
+	 * 
+	 * @return Selection
+	 */
+	public Selected getSelected() {
+		return Selection;
+	}
+
+	/**
+	 * Set the pin's selection
+	 * 
+	 * @param selection Selection
+	 */
+	public void setSelected(Selected selection) {
+		Selection = selection;
+	}
+
+	/**
 	 * Get the pin's mode configuration
+	 * 
 	 * @return Mode
 	 */
 	public Mode getMode() {
@@ -127,6 +195,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's mode configuration
+	 * 
 	 * @param mode Mode
 	 */
 	public void setMode(Mode mode) {
@@ -156,14 +225,16 @@ public class PinConf {
 
 	/**
 	 * Get the pin's output configuration
+	 * 
 	 * @return Output configuration
 	 */
 	public OutType getOutType() {
 		return PinOutType;
 	}
-	
+
 	/**
 	 * Set the pin's output configuration
+	 * 
 	 * @param outType Output configuration
 	 */
 	public void setOutType(OutType outType) {
@@ -172,6 +243,7 @@ public class PinConf {
 
 	/**
 	 * Get the pin's output level
+	 * 
 	 * @return Pin's output level
 	 */
 	public OutLevel getOutLevel() {
@@ -180,6 +252,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's output level
+	 * 
 	 * @param level Pin's output level
 	 */
 	public void setOutLevel(OutLevel level) {
@@ -188,6 +261,7 @@ public class PinConf {
 
 	/**
 	 * Get the pin's speed
+	 * 
 	 * @return Speed
 	 */
 	public Speed getSpeed() {
@@ -196,6 +270,7 @@ public class PinConf {
 
 	/**
 	 * Set the pin's speed
+	 * 
 	 * @param speed Speed
 	 */
 	public void setSpeed(Speed speed) {
@@ -204,6 +279,7 @@ public class PinConf {
 
 	/**
 	 * Get the pin's pull resistor configuration
+	 * 
 	 * @return Pull Resistor configuration
 	 */
 	public Pull getPull() {
@@ -212,31 +288,31 @@ public class PinConf {
 
 	/**
 	 * Set the pull resistor configuration
+	 * 
 	 * @param pull Resistor configuration
 	 */
 	public void setPull(Pull pull) {
 		this.PinPull = pull;
 	}
-	
+
 	/**
 	 * Check availability of ADC
+	 * 
 	 * @return True if ADC is available
 	 */
 	public boolean isAv_Adc() {
 		return GpioPin.getFeat_adc();
 	}
-	
+
 	/**
 	 * Check the availability of alternate function
+	 * 
 	 * @return True if alternate function is available
 	 */
 	public boolean isAv_altFunc() {
 		boolean altFunc = false;
-		if (GpioPin.getFeat_clock()	|| 
-			GpioPin.getFeat_i2c()	|| 
-			GpioPin.getFeat_reset()	|| 
-			GpioPin.getFeat_spi()	|| 
-			GpioPin.getFeat_uart()) {
+		if (GpioPin.getFeat_clock() || GpioPin.getFeat_i2c() || GpioPin.getFeat_reset() || GpioPin.getFeat_spi()
+				|| GpioPin.getFeat_uart()) {
 			altFunc = true;
 		}
 		return altFunc;

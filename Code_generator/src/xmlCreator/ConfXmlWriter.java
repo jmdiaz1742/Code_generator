@@ -18,15 +18,18 @@ import org.w3c.dom.Element;
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
+import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
+import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import microcontroller.Microcontroller;
 
 /**
  * Write a XML file
+ * 
  * @author Miguel Diaz
  * @version 0.1
  *
@@ -36,24 +39,25 @@ public class ConfXmlWriter {
 	private Document XmlDoc;
 	private Element RootElement;
 	private Element[] PinElement;
-	Microcontroller UCConf;
+	private Microcontroller UCConf;
 
-	private static final String	STR_ROOT_EL	= "Microcontroller_Configuration";
-	private static final String	STR_PIN_EL	= "pin";
-	private static final String	STR_PORT	= "port";
-	private static final String	STR_NAME	= "name";
+	private static final String STR_ROOT_EL = "Microcontroller_Configuration";
+	private static final String STR_PIN_EL = "pin";
+	private static final String STR_PORT = "port";
+	private static final String STR_NAME = "name";
 
 	/**
 	 * Constructor
+	 * 
 	 * @param uC Microcontroller configuration
 	 */
-	public ConfXmlWriter (Microcontroller uC) {
+	public ConfXmlWriter(Microcontroller uC) {
 		DocumentBuilderFactory xmlFactory;
 		DocumentBuilder xmlBuilder;
-		
+
 		UCConf = uC;
 
-		if (UCConf.getUc_gpioNum() > 0 ) {
+		if (UCConf.getUc_gpioNum() > 0) {
 			try {
 				xmlFactory = DocumentBuilderFactory.newInstance();
 				xmlBuilder = xmlFactory.newDocumentBuilder();
@@ -72,7 +76,7 @@ public class ConfXmlWriter {
 			}
 		}
 	}
-	
+
 	/**
 	 * Configure all pins
 	 */
@@ -84,7 +88,8 @@ public class ConfXmlWriter {
 
 	/**
 	 * Add a pin configuration to the file
-	 * @param pin Pin configuration
+	 * 
+	 * @param pin    Pin configuration
 	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
@@ -95,15 +100,18 @@ public class ConfXmlWriter {
 		/* Write the pins configuration information */
 		addPinChild(STR_NAME, pin.getPinName(), pinNum);
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
+		addPinChild(Selected.STR_NAME, pin.getSelected().name(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
 		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);
 		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
 		addPinChild(Speed.STR_NAME, pin.getSpeed().name(), pinNum);
+		addPinChild(CodeName.STR_NAME, pin.getCodeName(), pinNum);
 	}
 
 	/**
 	 * Add a configuration child element to the pin
+	 * 
 	 * @param elName Configuration name
 	 * @param elInfo Configuration information
 	 * @param pinNum GPIO pin number
@@ -116,6 +124,7 @@ public class ConfXmlWriter {
 
 	/**
 	 * Write the XMl file
+	 * 
 	 * @param fileName Name of XML configuration file
 	 * @return Error status
 	 */
@@ -128,9 +137,9 @@ public class ConfXmlWriter {
 		File xmlFile;
 
 		try {
-			xmlFile = new File (fileName);
+			xmlFile = new File(fileName);
 			xmlFile.getParentFile().mkdirs();
-			
+
 			xmlTransFact = TransformerFactory.newInstance();
 			xmlTrans = xmlTransFact.newTransformer();
 			xmlSource = new DOMSource(XmlDoc);

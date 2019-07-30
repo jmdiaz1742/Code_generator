@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE xml>
+
+<CodeGeneratorProject>
+	<name>Test_Project_MSP430</name>
+	<ConfigFile>testProjectConf.xml</ConfigFile>
+	<ucFile>MSP430FR6989.xml</ucFile>
+	<frameworkFolder>framework</frameworkFolder>
+</CodeGeneratorProject>

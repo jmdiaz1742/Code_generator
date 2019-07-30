@@ -2,33 +2,54 @@ package configurator.GPIO;
 
 /**
  * GPIO modes
+ * 
  * @author Miguel Diaz
  * @version 0.1
  *
  */
 public enum Mode {
+	/**
+	 * Input
+	 */
 	MODE_INPUT,
+
+	/**
+	 * Output
+	 */
 	MODE_OUTPUT,
+
+	/**
+	 * Alternate function
+	 */
 	MODE_ALTERNATE_FUNCTION,
+
+	/**
+	 * Analog
+	 */
 	MODE_ANALOG,
+
+	/**
+	 * Maximum value for Mode enum
+	 */
 	MODE_MAX_VALUE;
-	
+
 	/**
 	 * Name as String
 	 */
 	public static final String STR_NAME = "Mode";
-	
+
 	/* Public methods */
-	
+
 	/**
 	 * Get the corresponding mode from its name as String
-	 * @param conf Configuration name 
+	 * 
+	 * @param conf Configuration name
 	 * @return Mode
 	 */
 	public static Mode getConfFromString(String conf) {
 		Mode mode = MODE_MAX_VALUE;
-		
-		switch(conf) {
+
+		switch (conf) {
 		case "MODE_INPUT":
 			mode = Mode.MODE_INPUT;
 			break;

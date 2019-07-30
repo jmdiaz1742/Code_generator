@@ -9,11 +9,13 @@ import org.w3c.dom.NodeList;
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
+import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
+import configurator.GPIO.Selected;
 import xmlParser.XmlOpener;
 
 /**
@@ -28,117 +30,160 @@ public class Microcontroller {
 	/* private fields */
 	private Document UcDoc;
 	private Pin[] CurrentPin;
-	
+
 	/* Public fields */
-	
+
 	/**
 	 * Ports name list
 	 */
 	public String[] Ports;
-	
+
+	/**
+	 * List of common includes that will be available for all framework
+	 */
+	public String[] Includes_Common;
+
+	/**
+	 * List of Includes for GPIO module
+	 */
+	public String[] Includes_Gpio;
+
+	/**
+	 * List of common definitions that will be available for all framework
+	 */
+	public String[] Definitions_Common;
+
+	/**
+	 * List of definitions for GPIO module
+	 */
+	public String[] Definitions_Gpio;
+
 	/**
 	 * Configured pins list
 	 */
 	public PinConf[] GpioCfgPin;
-	
+
 	/* Microcontroller characteristics */
-	private String	Uc_model;
-	private String	Uc_manufacturer;
-	private int		Uc_pinNum;
-	private int		Uc_gpioNum;
-	private int		Uc_portNum;
-	
+	private String Uc_model;
+	private String Uc_manufacturer;
+	private int Uc_pinNum;
+	private int Uc_gpioNum;
+	private int Uc_portNum;
+
 	/* Pin's mandatory characteristics */
-	private static final String STR_PIN_NAME	= "name";
-	private static final String STR_PIN_NUMBER	= "number";
-	
+	private static final String STR_PIN_NAME = "name";
+	private static final String STR_PIN_NUMBER = "number";
+	private static final String STR_PORT_PIN = "portPin";
+
 	/* Pin's optional characteristics */
-	private static final String STR_PIN_INT		= "interrupt";
-	private static final String STR_PIN_ADC		= "adc";
-	private static final String STR_PIN_PORT	= "port";
-	private static final String STR_PIN_CLOCK	= "clock";
-	private static final String STR_PIN_TIMER	= "timer";
-	private static final String STR_PIN_VCC		= "vcc";
-	private static final String STR_PIN_GND		= "gnd";
-	private static final String STR_PIN_GPIO	= "gpio";
-	private static final String STR_PIN_RESET	= "reset";
-	
+	private static final String STR_PIN_INT = "interrupt";
+	private static final String STR_PIN_ADC = "adc";
+	private static final String STR_PIN_PORT = "port";
+	private static final String STR_PIN_CLOCK = "clock";
+	private static final String STR_PIN_TIMER = "timer";
+	private static final String STR_PIN_VCC = "vcc";
+	private static final String STR_PIN_GND = "gnd";
+	private static final String STR_PIN_GPIO = "gpio";
+	private static final String STR_PIN_RESET = "reset";
+	private static final String STR_PIN_MISC = "misc";
+
 	/* Strings to extract information from XML file */
-	private static final String ROOT_ELEMENT		= "microcontroller";
-	private static final String STR_ATT_MODEL		= "model";
-	private static final String STR_ATT_MFCT		= "manufacturer";
-	private static final String STR_PIN				= "pin";
-	private static final String CFG_ROOT_ELEMENT	= "Microcontroller_Configuration";
-	
+	private static final String ROOT_ELEMENT = "microcontroller";
+	private static final String STR_ATT_MODEL = "model";
+	private static final String STR_ATT_MFCT = "manufacturer";
+	private static final String STR_PIN = "pin";
+	private static final String CFG_ROOT_ELEMENT = "Microcontroller_Configuration";
+
+	/**
+	 * Maximum number of pins allowed in a single port
+	 */
 	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
-	
+
+	/* Include files needed */
+	private static final String STR_INCLUDE_COMMON = "include_common";
+	private static final String STR_INCLUDE_GPIO = "include_gpio";
+	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
+	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
+
 	/**
 	 * Constructor
+	 * 
 	 * @param ucDoc Document obtained from XML file
 	 */
-	public Microcontroller (Document ucDoc) {
+	public Microcontroller(Document ucDoc) {
 		this.UcDoc = ucDoc;
 		setUc_pinNum(0);
 		setUc_gpioNum(0);
 	}
-	
+
 	/**
 	 * Process the document obtained from XML file
+	 * 
 	 * @return Error status
 	 */
 	public ErrorCode processDocument() {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
-		
+
 		/* Get the root microcontroller element */
 		Element pinRoot = UcDoc.getDocumentElement();
 		Features.verbosePrint("Root element: " + pinRoot.getTagName());
-		
+
 		if (!pinRoot.getTagName().equals(ROOT_ELEMENT)) {
 			Features.verbosePrint("Wrong root element!...");
 			return ErrorCode.EX_ERROR;
 		}
-		
+
 		if (loadMandatoryElements() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
-		
+
 		if (loadPins() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
-		
+
+		if (loadIncludes() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+
+		if (loadDefinitions() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+
 		calculatePortNum();
-		
+
 		return errorStatus;
 	}
-	
+
 	/**
 	 * Load mandatory microcontroller elements Manufacturer and Model
+	 * 
 	 * @return Error status
 	 */
 	private ErrorCode loadMandatoryElements() {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		String manufacturer = "";
 		String model = "";
-		
+
 		/* Get manufacturer */
 		manufacturer = XmlOpener.getElementInfoFromDoc(UcDoc, STR_ATT_MFCT);
 		if (!manufacturer.equals(ErrorCode.STR_INVALID)) {
 			Features.verbosePrint("Manufaturer: " + manufacturer);
 			setUc_manufacturer(manufacturer);
 		}
-		
+
 		/* Get model */
 		model = XmlOpener.getElementInfoFromDoc(UcDoc, STR_ATT_MODEL);
 		if (!model.equals(ErrorCode.STR_INVALID)) {
 			Features.verbosePrint("Model: " + model);
 			setUc_model(model);
 		}
-		
+
 		return errorStatus;
 	}
-	
+
 	/**
 	 * Load the microcontroller's number of pins
+	 * 
 	 * @return Error status
 	 */
 	private ErrorCode loadPins() {
@@ -148,7 +193,7 @@ public class Microcontroller {
 		int pinsGnd = 0;
 		int pinsRst = 0;
 		int pinsGpio = 0;
-		
+
 		pinList = UcDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
 			setUc_pinNum(pinList.getLength());
@@ -157,11 +202,11 @@ public class Microcontroller {
 			errorStatus = ErrorCode.EX_ERROR;
 			Features.verbosePrint("No pins found...");
 		}
-		
+
 		if (errorStatus == ErrorCode.NO_ERROR) {
-			
+
 			CurrentPin = new Pin[getUc_pinNum()];
-			
+
 			/* Parse the pins */
 			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
 				CurrentPin[pinNum] = parsePin(pinNum);
@@ -171,7 +216,7 @@ public class Microcontroller {
 					Features.verbosePrint("Pin " + pinNum + " not valid!");
 					break;
 				}
-				
+
 				/* Get pins functions */
 				if (CurrentPin[pinNum].getFunc_vcc()) {
 					pinsVcc++;
@@ -186,9 +231,9 @@ public class Microcontroller {
 			}
 			setUc_gpioNum(pinsGpio);
 			Features.verbosePrint("Found " + getUc_gpioNum() + " GPIOs...");
-			
+
 			int gpioNum = 0;
-			
+
 			/* Load all GPIO pins without configuration */
 			GpioCfgPin = new PinConf[getUc_gpioNum()];
 			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
@@ -197,19 +242,21 @@ public class Microcontroller {
 					gpioNum++;
 				}
 			}
-			
+
 			/* We should have at least 1 Vcc, 1 Gnd, 1 GPIO and 1 Reset */
-			if ((errorStatus == ErrorCode.NO_ERROR) && ((pinsVcc <= 0) || (pinsGnd <= 0) || (pinsGpio <= 0) || (pinsRst <= 0))) {
+			if ((errorStatus == ErrorCode.NO_ERROR)
+					&& ((pinsVcc <= 0) || (pinsGnd <= 0) || (pinsGpio <= 0) || (pinsRst <= 0))) {
 				errorStatus = ErrorCode.EX_ERROR;
 				Features.verbosePrint("The microcontroller does NOT have all the required pins!");
 			}
 		}
-		
+
 		return errorStatus;
 	}
-	
+
 	/**
 	 * Load pins from XML
+	 * 
 	 * @param pinNum Pin's number
 	 * @return Pin's information
 	 */
@@ -218,29 +265,39 @@ public class Microcontroller {
 		Element pinEl;
 		String name;
 		String pinsNum;
+		String portPin;
 		String vcc;
 		String gnd;
 		String gpio;
+		String reset;
+		String misc;
 		Features.verbosePrint("Getting pin " + pinNum + " characteristics:");
-		
-		pinEl = (Element)UcDoc.getElementsByTagName(STR_PIN).item(pinNum);
-		
+
+		pinEl = (Element) UcDoc.getElementsByTagName(STR_PIN).item(pinNum);
+
 		/* Get mandatory characteristics */
 		/* Name */
-		
+
 		name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
 		if (!name.equals(ErrorCode.STR_INVALID)) {
 			CurrentPin[pinNum].setName(name);
 			Features.verbosePrint("\tName: " + name);
 		}
-		
+
 		/* Number */
 		pinsNum = XmlOpener.getElementInfo(pinEl, STR_PIN_NUMBER);
 		if (!pinsNum.equals(ErrorCode.STR_INVALID)) {
 			CurrentPin[pinNum].setNumber(Integer.parseInt(pinsNum));
 			Features.verbosePrint("\tNumber: " + pinsNum);
 		}
-		
+
+		/* Port pin */
+		portPin = XmlOpener.getElementInfo(pinEl, STR_PORT_PIN);
+		if (!portPin.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setPortPin(portPin);
+			Features.verbosePrint("\tPort Pin: " + portPin);
+		}
+
 		/* Get Pin functions */
 		/* VCC */
 		vcc = XmlOpener.getElementInfo(pinEl, STR_PIN_VCC);
@@ -260,7 +317,20 @@ public class Microcontroller {
 			CurrentPin[pinNum].setFunc_gpio(true);
 			Features.verbosePrint("\tFunction: GPIO");
 		}
-		
+		/* RESET */
+		reset = XmlOpener.getElementInfo(pinEl, STR_PIN_RESET);
+		if (!reset.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setFunc_reset(true);
+			CurrentPin[pinNum].setReset(reset);
+			Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
+		}
+		/* MISC */
+		misc = XmlOpener.getElementInfo(pinEl, STR_PIN_MISC);
+		if (!misc.equals(ErrorCode.STR_INVALID)) {
+			CurrentPin[pinNum].setFunc_misc(true);
+			Features.verbosePrint("\tFunction: MISC");
+		}
+
 		/* Get optional GPIO characteristics */
 		if (CurrentPin[pinNum].getFunc_gpio()) {
 			String port;
@@ -268,8 +338,7 @@ public class Microcontroller {
 			String adc;
 			String clock;
 			String timer;
-			String reset;
-			
+
 			/* Port */
 			port = XmlOpener.getElementInfo(pinEl, STR_PIN_PORT);
 			if (!port.equals(ErrorCode.STR_INVALID)) {
@@ -300,31 +369,31 @@ public class Microcontroller {
 				CurrentPin[pinNum].setTimer(timer);
 				Features.verbosePrint("\tTimer: " + CurrentPin[pinNum].getTimer());
 			}
-			/* Reset */
-			reset = XmlOpener.getElementInfo(pinEl, STR_PIN_RESET);
-			if (!reset.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setReset(reset);
-				Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
-			}
 		}
 		return CurrentPin[pinNum];
 	}
-	
+
+	/**
+	 * Load pins' configuration
+	 * 
+	 * @param confDoc Document with pins
+	 * @return Error Code
+	 */
 	public ErrorCode loadPinsConf(Document confDoc) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList pinList;
-		
+
 		/* Get the root microcontroller element */
 		Element pinRoot = confDoc.getDocumentElement();
 		Features.verbosePrint("Configuration Root element: " + pinRoot.getTagName());
-		
+
 		if (!pinRoot.getTagName().equals(CFG_ROOT_ELEMENT)) {
 			Features.verbosePrint("Wrong root element!...");
 			return ErrorCode.FILE_READ_ERROR;
 		}
-		
+
 		/* Get the pin's configuration */
-		
+
 		pinList = confDoc.getElementsByTagName(STR_PIN);
 		if (pinList.getLength() > 0) {
 			setUc_gpioNum(pinList.getLength());
@@ -333,26 +402,34 @@ public class Microcontroller {
 			Features.verbosePrint("No pins configurations found...");
 			return ErrorCode.EX_ERROR;
 		}
-		
+
 		for (int pinNum = 0; pinNum < pinList.getLength(); pinNum++) {
 			String name;
 			String configuration;
 			Element pinEl;
 			int gpioIndex = 0;
-			
-			pinEl = (Element)confDoc.getElementsByTagName(STR_PIN).item(pinNum);
-			
-			/* Set the pin's configurations if available */ 
-			
+
+			pinEl = (Element) confDoc.getElementsByTagName(STR_PIN).item(pinNum);
+
+			/* Set the pin's configurations if available */
+
 			name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
-			if (!name.equals(ErrorCode.STR_INVALID)) {	
+			if (!name.equals(ErrorCode.STR_INVALID)) {
 				gpioIndex = getGpioIndexFromPinName(name);
 				if (gpioIndex >= getUc_pinNum()) {
 					Features.verbosePrint("Pin " + name + " not found...");
 					return ErrorCode.EX_ERROR;
 				}
 			}
-			
+
+			configuration = XmlOpener.getElementInfo(pinEl, Selected.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[pinNum].setSelected(Selected.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s Selection: " + configuration);
+			} else {
+				GpioCfgPin[pinNum].setSelected(PinConf.DF_SELECTED);
+			}
+
 			configuration = XmlOpener.getElementInfo(pinEl, Mode.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setMode(Mode.getConfFromString(configuration));
@@ -360,7 +437,7 @@ public class Microcontroller {
 			} else {
 				GpioCfgPin[pinNum].setMode(PinConf.DF_MODE);
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(pinEl, OutType.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setOutType(OutType.getConfFromString(configuration));
@@ -368,7 +445,7 @@ public class Microcontroller {
 			} else {
 				GpioCfgPin[pinNum].setOutType(PinConf.DF_OUTTYPE);
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(pinEl, OutLevel.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setOutLevel(OutLevel.getConfFromString(configuration));
@@ -376,7 +453,7 @@ public class Microcontroller {
 			} else {
 				GpioCfgPin[pinNum].setOutLevel(PinConf.DF_OUT_LEVEL);
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(pinEl, Pull.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setPull(Pull.getConfFromString(configuration));
@@ -384,7 +461,7 @@ public class Microcontroller {
 			} else {
 				GpioCfgPin[gpioIndex].setPull(PinConf.DF_PULL);
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(pinEl, Speed.STR_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				GpioCfgPin[pinNum].setSpeed(Speed.getConfFromString(configuration));
@@ -392,36 +469,44 @@ public class Microcontroller {
 			} else {
 				GpioCfgPin[pinNum].setSpeed(PinConf.DF_SPEED);
 			}
+
+			configuration = XmlOpener.getElementInfo(pinEl, CodeName.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				GpioCfgPin[pinNum].setCodeName(configuration);
+				Features.verbosePrint("Found " + name + "'s Code name: " + configuration);
+			} else {
+				GpioCfgPin[pinNum].setCodeName(PinConf.DF_CODE_NAME);
+			}
 		}
-		
-		
-		
+
 		return errorStatus;
 	}
-	
+
 	private int getGpioIndexFromPinName(String name) {
 		int gpioIndex;
-		
+
 		for (gpioIndex = 0; gpioIndex < getUc_pinNum(); gpioIndex++) {
 			if (name.equals(CurrentPin[gpioIndex].getName())) {
 				break;
 			}
 		}
-		
+
 		return gpioIndex;
 	}
-	
+
 	/**
 	 * Get a pin's characteristics
+	 * 
 	 * @param pinNum Number of pin
 	 * @return Pin's characteristics
 	 */
 	public Pin getPin(int pinNum) {
 		return CurrentPin[pinNum];
 	}
-	
+
 	/**
 	 * Get the microcontroller's model
+	 * 
 	 * @return Microcontroller's model
 	 */
 	public String getUc_model() {
@@ -430,6 +515,7 @@ public class Microcontroller {
 
 	/**
 	 * Set the microcontroller's model
+	 * 
 	 * @param uc_model Microcontroller's model
 	 */
 	private void setUc_model(String uc_model) {
@@ -438,6 +524,7 @@ public class Microcontroller {
 
 	/**
 	 * Get the microcontroller's manufacturer
+	 * 
 	 * @return Microcontroller's manufacturer
 	 */
 	public String getUc_manufacturer() {
@@ -446,6 +533,7 @@ public class Microcontroller {
 
 	/**
 	 * Set the microcontroller's manufacturer
+	 * 
 	 * @param uc_manufacturer microcontroller's manufacturer
 	 */
 	private void setUc_manufacturer(String uc_manufacturer) {
@@ -454,6 +542,7 @@ public class Microcontroller {
 
 	/**
 	 * Get the microcontroller's pins number
+	 * 
 	 * @return Number of pins
 	 */
 	public int getUc_pinNum() {
@@ -462,6 +551,7 @@ public class Microcontroller {
 
 	/**
 	 * Set the microcontroller's pins number
+	 * 
 	 * @param uc_pinNum Number of pins
 	 */
 	private void setUc_pinNum(int uc_pinNum) {
@@ -470,6 +560,7 @@ public class Microcontroller {
 
 	/**
 	 * Get the number of GPIOs in the microcontroller
+	 * 
 	 * @return Number of GPIOs
 	 */
 	public int getUc_gpioNum() {
@@ -478,14 +569,16 @@ public class Microcontroller {
 
 	/**
 	 * Set the number of GPIOs in the microcontroller
+	 * 
 	 * @param uc_gpioNum Number of GPIOs
 	 */
 	private void setUc_gpioNum(int uc_gpioNum) {
 		this.Uc_gpioNum = uc_gpioNum;
 	}
-	
+
 	/**
 	 * Get the number of ports in the microcontroller
+	 * 
 	 * @return Number of ports
 	 */
 	public int getUc_portNum() {
@@ -494,77 +587,184 @@ public class Microcontroller {
 
 	/**
 	 * Set the number of ports in the microcontroller
+	 * 
 	 * @param uc_portNum Number of ports
 	 */
 	private void setUc_portNum(int uc_portNum) {
 		Uc_portNum = uc_portNum;
 	}
-	
+
+	/**
+	 * Get the total pins selected
+	 * 
+	 * @return Total of pins selected
+	 */
+	public int getUc_selectedPinsNum() {
+		int selectedPins = 0;
+
+		for (int pinNum = 0; pinNum < GpioCfgPin.length; pinNum++) {
+			if (GpioCfgPin[pinNum].getSelected().getBoolean()) {
+				selectedPins++;
+			}
+		}
+
+		return selectedPins;
+	}
+
 	/**
 	 * Get the configuration of a pin
+	 * 
 	 * @param gpioName Name of the pin
 	 * @return Pin configuration
 	 */
 	public PinConf getConfiguredPin(String gpioName) {
 		return GpioCfgPin[getGpioPinIndexFromName(gpioName)];
 	}
-	
+
 	/**
 	 * Get the Gpio index of the gpio pins array
+	 * 
 	 * @param gpioName Pin's name
 	 * @return Pin's index in the GPIO array
 	 */
 	private int getGpioPinIndexFromName(String gpioName) {
 		int gpioNum;
-		
+
 		for (gpioNum = 0; gpioNum < GpioCfgPin.length; gpioNum++) {
 			if (GpioCfgPin[gpioNum].getPinName().equals(gpioName)) {
 				break;
 			}
 		}
-		
+
 		return gpioNum;
 	}
-	
+
 	/**
 	 * Calculate the number of different ports in the microcontroller
 	 */
 	private void calculatePortNum() {
 		ArrayList<String> diffPorts = new ArrayList<>();
-		
+
 		for (int portNum = 0; portNum < CurrentPin.length; portNum++) {
 			String portName = CurrentPin[portNum].getPort();
 			if ((!diffPorts.contains(portName)) && (!portName.equals(Pin.DEF_PORT))) {
 				diffPorts.add(portName);
 			}
 		}
-		
+
 		if (diffPorts.size() == 1) {
 			setUc_portNum(0);
 		} else {
 			setUc_portNum(diffPorts.size());
 		}
-		
+
 		Ports = new String[getUc_portNum()];
-		
+
 		for (int portNum = 0; portNum < getUc_portNum(); portNum++) {
 			Ports[portNum] = diffPorts.get(portNum);
 		}
 	}
-	
+
 	/**
 	 * Check if the microcontroller configuration is valid
+	 * 
 	 * @return true if valid
 	 */
 	public boolean isValid() {
 		boolean validity = true;
-		
-		if (	(getUc_gpioNum() <= 0)	||
-				(getUc_pinNum() <= 0)	||
-				(getUc_model().equals(""))) {
+
+		if ((getUc_gpioNum() <= 0) || (getUc_pinNum() <= 0) || (getUc_model().equals(""))) {
 			validity = false;
 		}
-		
+
 		return validity;
+	}
+
+	private ErrorCode loadIncludes() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList includeList;
+		String incName;
+
+		Features.verbosePrint("Looking for Include files list...");
+
+		/* Get Common includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_COMMON);
+		if (includeList.getLength() > 0) {
+			Includes_Common = new String[includeList.getLength()];
+			for (int incNum = 0; incNum < Includes_Common.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Common[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			errorStatus = ErrorCode.EX_ERROR;
+			Features.verbosePrint("No Common includes found...");
+		}
+
+		/* Get GPIO includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_GPIO);
+		if (includeList.getLength() > 0) {
+			Includes_Gpio = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Gpio.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Gpio[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			errorStatus = ErrorCode.EX_ERROR;
+			Features.verbosePrint("No GPIO includes found...");
+		}
+
+		return errorStatus;
+	}
+
+	private ErrorCode loadDefinitions() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList includeList;
+		String defName;
+
+		Features.verbosePrint("Looking for Common definitions...");
+
+		/* Get Common definitions */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_COMMON);
+		if (includeList.getLength() > 0) {
+			Definitions_Common = new String[includeList.getLength()];
+			for (int incNum = 0; incNum < Definitions_Common.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Common[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Common = new String[1];
+			Definitions_Common[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No Common definitions found...");
+		}
+
+		/* Get GPIO includes */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_GPIO);
+		if (includeList.getLength() > 0) {
+			Definitions_Gpio = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Definitions_Gpio.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Gpio[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Gpio = new String[1];
+			Definitions_Gpio[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No GPIO definitions found...");
+		}
+
+		return errorStatus;
 	}
 }
