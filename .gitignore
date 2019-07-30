@@ -1,2 +1,6 @@
 /.metadata/
 /.recommenders/
+
+Code_generator/\.vscode/
+
+Code_generator/target/
