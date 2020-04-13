@@ -47,3 +47,5 @@ Code_generator/.metadata/.log
 Code_generator/\.settings/org\.eclipse\.jdt\.core\.prefs
 /.project
 Code_generator/.vscode/
+
+Code_generator/\.metadata/
