@@ -121,6 +121,13 @@ public class MainGui {
 	}
 
 	/**
+	 * Show the ADCs configuration window
+	 */
+	static public void showAdcConfWindow() {
+		new AdcConfWindow(SelectedMicrocontroller);
+	}
+
+	/**
 	 * Set the project's microcontroller configuration
 	 * 
 	 * @param uC Microcontroller configuration
@@ -143,11 +150,16 @@ public class MainGui {
 
 	/**
 	 * Generate source code files
+	 * 
+	 * @return Error code
 	 */
-	static public void generateCode() {
+	static public ErrorCode generateCode() {
+		ErrorCode errorCode;
 		generator = new CodeGenerator(SelectedMicrocontroller, ProjectSettingsConf);
 
-		generator.Generate();
+		errorCode = generator.Generate();
+
+		return errorCode;
 	}
 
 }
