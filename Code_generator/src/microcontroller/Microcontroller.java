@@ -103,7 +103,7 @@ public class Microcontroller {
 	/**
 	 * Maximum number of pins allowed in a single port
 	 */
-	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
+	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 32;
 
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
