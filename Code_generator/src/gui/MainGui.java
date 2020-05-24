@@ -44,8 +44,7 @@ public class MainGui {
 	 * @param args TBD
 	 */
 	static public void main(String[] args) {
-		// FIXME: Check how this would work, the idea is to call all the GUI
-		// windows from here
+		common.Features.initLog();
 		Features.verbosePrint("Starting GUI...");
 		CgMainWindow = new MainWindow();
 		CgMainWindow.setVisible(true);

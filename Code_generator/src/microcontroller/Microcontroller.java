@@ -8,6 +8,7 @@ import org.w3c.dom.NodeList;
 
 import common.ErrorCode;
 import common.Features;
+import configurator.AdcConf;
 import configurator.PinConf;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
@@ -62,6 +63,11 @@ public class Microcontroller {
 	 * Configured pins list
 	 */
 	public PinConf[] GpioCfgPin;
+	
+	/**
+	 * Configured ADCs list
+	 */
+	public AdcConf[] AdcCfg;
 
 	/* Microcontroller characteristics */
 	private String Uc_model;
@@ -138,6 +144,10 @@ public class Microcontroller {
 		}
 
 		if (loadPins() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+		
+		if (loadAdcs() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
 
@@ -479,6 +489,12 @@ public class Microcontroller {
 			}
 		}
 
+		return errorStatus;
+	}
+	
+	private ErrorCode loadAdcs() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		
 		return errorStatus;
 	}
 

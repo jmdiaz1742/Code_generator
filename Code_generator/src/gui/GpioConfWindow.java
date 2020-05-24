@@ -49,6 +49,7 @@ public class GpioConfWindow {
 	private JLabel lblt_Selected;
 	private JLabel lblt_Pin;
 	private JLabel lblt_Mode;
+	private JLabel lblt_AltMode;
 	private JLabel lblt_OutputType;
 	private JLabel lblt_OutputLevel;
 	private JLabel lblt_PullResistor;
@@ -59,6 +60,7 @@ public class GpioConfWindow {
 	private JLabel[] lbl_PinName;
 	private JCheckBox[] checkBox_PinSelected;
 	private JComboBox<String>[] comboBox_PinMode;
+	private JComboBox<String>[] comboBox_PinAltMode;
 	private JComboBox<String>[] comboBox_PinOutType;
 	private JComboBox<String>[] comboBox_PinOutLevel;
 	private JComboBox<String>[] comboBox_PinPull;
@@ -72,15 +74,17 @@ public class GpioConfWindow {
 	private static final int PIN_NAME_LABEL_INIT_POS_Y = 3;
 	private static final int PIN_MODE_CBOX_INIT_POS_X = 2;
 	private static final int PIN_MODE_CBOX_INIT_POS_Y = 3;
-	private static final int PIN_OUT_TYPE_CBOX_INIT_POS_X = 3;
+	private static final int PIN_ALT_MODE_CBOX_INIT_POS_X = 3;
+	private static final int PIN_ALT_MODE_CBOX_INIT_POS_Y = 3;
+	private static final int PIN_OUT_TYPE_CBOX_INIT_POS_X = 4;
 	private static final int PIN_OUT_TYPE_CBOX_INIT_POS_Y = 3;
-	private static final int PIN_OUT_LEVEL_CBOX_INIT_POS_X = 4;
+	private static final int PIN_OUT_LEVEL_CBOX_INIT_POS_X = 5;
 	private static final int PIN_OUT_LEVEL_CBOX_INIT_POS_Y = 3;
-	private static final int PIN_PULL_CBOX_INIT_POS_X = 5;
+	private static final int PIN_PULL_CBOX_INIT_POS_X = 6;
 	private static final int PIN_PULL_CBOX_INIT_POS_Y = 3;
-	private static final int PIN_SPEED_CBOX_INIT_POS_X = 6;
+	private static final int PIN_SPEED_CBOX_INIT_POS_X = 7;
 	private static final int PIN_SPEED_CBOX_INIT_POS_Y = 3;
-	private static final int PIN_CODE_NAME_TXTF_INIT_POS_X = 7;
+	private static final int PIN_CODE_NAME_TXTF_INIT_POS_X = 8;
 	private static final int PIN_CODE_NAME_TXTF_INIT_POS_Y = 3;
 
 	/**
@@ -142,15 +146,16 @@ public class GpioConfWindow {
 		frmGpiosConfiguration.setBounds(100, 100, 980, 740);
 		frmGpiosConfiguration.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 58, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0 };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		frmGpiosConfiguration.getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblt_SelectPort = new JLabel(Messages.getString("GpioConfWindow.lblSelectPort.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_SelectPort = new GridBagConstraints();
+		gbc_lblt_SelectPort.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_SelectPort.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_SelectPort.gridx = 0;
 		gbc_lblt_SelectPort.gridy = 0;
@@ -173,6 +178,7 @@ public class GpioConfWindow {
 		});
 		comboBox_PortSelection.setToolTipText(Messages.getString("GpioConfWindow.comboBox_PortSelection.toolTipText")); //$NON-NLS-1$
 		GridBagConstraints gbc_comboBox_PortSelection = new GridBagConstraints();
+		gbc_comboBox_PortSelection.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_PortSelection.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_PortSelection.gridx = 1;
 		gbc_comboBox_PortSelection.gridy = 0;
@@ -181,6 +187,7 @@ public class GpioConfWindow {
 		lblt_Selected = new JLabel(Messages.getString("GpioConfWindow.lblSelected.text")); //$NON-NLS-1$
 		lblt_Selected.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_lblSelected = new GridBagConstraints();
+		gbc_lblSelected.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblSelected.anchor = GridBagConstraints.SOUTH;
 		gbc_lblSelected.insets = new Insets(0, 0, 5, 5);
 		gbc_lblSelected.gridx = 0;
@@ -189,6 +196,7 @@ public class GpioConfWindow {
 
 		lblt_Pin = new JLabel(Messages.getString("GpioConfWindow.lblPin.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_Pin = new GridBagConstraints();
+		gbc_lblt_Pin.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_Pin.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Pin.gridx = 1;
 		gbc_lblt_Pin.gridy = 2;
@@ -196,43 +204,57 @@ public class GpioConfWindow {
 
 		lblt_Mode = new JLabel(Messages.getString("GpioConfWindow.lblMode.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_Mode = new GridBagConstraints();
+		gbc_lblt_Mode.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_Mode.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Mode.gridx = 2;
 		gbc_lblt_Mode.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblt_Mode, gbc_lblt_Mode);
+		
+		lblt_AltMode = new JLabel(Messages.getString("GpioConfWindow.lblAltMode.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lblt_AltMode = new GridBagConstraints();
+		gbc_lblt_AltMode.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblt_AltMode.insets = new Insets(0, 0, 5, 5);
+		gbc_lblt_AltMode.gridx = 3;
+		gbc_lblt_AltMode.gridy = 2;
+		frmGpiosConfiguration.getContentPane().add(lblt_AltMode, gbc_lblt_AltMode);
 
 		lblt_OutputType = new JLabel(Messages.getString("GpioConfWindow.lblOutputType.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_OutputType = new GridBagConstraints();
+		gbc_lblt_OutputType.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_OutputType.insets = new Insets(0, 0, 5, 5);
-		gbc_lblt_OutputType.gridx = 3;
+		gbc_lblt_OutputType.gridx = 4;
 		gbc_lblt_OutputType.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblt_OutputType, gbc_lblt_OutputType);
 
 		lblt_OutputLevel = new JLabel(Messages.getString("GpioConfWindow.lblOutputLevel.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_OutputLevel = new GridBagConstraints();
+		gbc_lblt_OutputLevel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_OutputLevel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblt_OutputLevel.gridx = 4;
+		gbc_lblt_OutputLevel.gridx = 5;
 		gbc_lblt_OutputLevel.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblt_OutputLevel, gbc_lblt_OutputLevel);
 
 		lblt_PullResistor = new JLabel(Messages.getString("GpioConfWindow.lblPullResistor.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_PullResistor = new GridBagConstraints();
+		gbc_lblt_PullResistor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblt_PullResistor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblt_PullResistor.gridx = 5;
+		gbc_lblt_PullResistor.gridx = 6;
 		gbc_lblt_PullResistor.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblt_PullResistor, gbc_lblt_PullResistor);
 
 		lblSpeed = new JLabel(Messages.getString("GpioConfWindow.lblSpeed.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblSpeed = new GridBagConstraints();
+		gbc_lblSpeed.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblSpeed.insets = new Insets(0, 0, 5, 5);
-		gbc_lblSpeed.gridx = 6;
+		gbc_lblSpeed.gridx = 7;
 		gbc_lblSpeed.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblSpeed, gbc_lblSpeed);
 
 		lblCodename = new JLabel(Messages.getString("GpioConfWindow.lblCodename.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCodename = new GridBagConstraints();
+		gbc_lblCodename.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblCodename.insets = new Insets(0, 0, 5, 0);
-		gbc_lblCodename.gridx = 7;
+		gbc_lblCodename.gridx = 8;
 		gbc_lblCodename.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblCodename, gbc_lblCodename);
 	}
