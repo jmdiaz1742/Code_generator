@@ -12,6 +12,7 @@ public class AdcConfWindow {
 
 	/**
 	 * Launch the application.
+	 * @param args General arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -28,6 +29,7 @@ public class AdcConfWindow {
 
 	/**
 	 * Create the application.
+	 * @param uCtrl Microcontroller
 	 */
 	public AdcConfWindow(Microcontroller uCtrl) {
 		initialize();

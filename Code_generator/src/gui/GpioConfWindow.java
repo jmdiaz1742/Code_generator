@@ -9,6 +9,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import common.Features;
+import configurator.GPIO.AltMode;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutType;
 import configurator.GPIO.OutLevel;
@@ -209,7 +210,7 @@ public class GpioConfWindow {
 		gbc_lblt_Mode.gridx = 2;
 		gbc_lblt_Mode.gridy = 2;
 		frmGpiosConfiguration.getContentPane().add(lblt_Mode, gbc_lblt_Mode);
-		
+
 		lblt_AltMode = new JLabel(Messages.getString("GpioConfWindow.lblAltMode.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_AltMode = new GridBagConstraints();
 		gbc_lblt_AltMode.fill = GridBagConstraints.HORIZONTAL;
@@ -277,6 +278,7 @@ public class GpioConfWindow {
 		checkBox_PinSelected = new JCheckBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		lbl_PinName = new JLabel[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinMode = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
+		comboBox_PinAltMode = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinOutType = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinOutLevel = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinPull = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
@@ -326,6 +328,25 @@ public class GpioConfWindow {
 					/****** Begin Pin's mode combo box click ******/
 					if (!GuiRefreshLocked) {
 						modeChange();
+					}
+					/****** End Pin's mode combo box click ******/
+				}
+			});
+
+			/* Pin's alternate mode */
+			comboBox_PinAltMode[pinNum] = new JComboBox<String>();
+			GridBagConstraints gbc_comboBox_PinAltMode = new GridBagConstraints();
+			gbc_comboBox_PinAltMode.insets = new Insets(0, 0, 5, 5);
+			gbc_comboBox_PinAltMode.fill = GridBagConstraints.HORIZONTAL;
+			gbc_comboBox_PinAltMode.gridx = PIN_ALT_MODE_CBOX_INIT_POS_X;
+			gbc_comboBox_PinAltMode.gridy = PIN_ALT_MODE_CBOX_INIT_POS_Y + pinNum;
+			frmGpiosConfiguration.getContentPane().add(comboBox_PinAltMode[pinNum], gbc_comboBox_PinAltMode);
+			comboBox_PinAltMode[pinNum].setVisible(false);
+			comboBox_PinAltMode[pinNum].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					/****** Begin Pin's mode combo box click ******/
+					if (!GuiRefreshLocked) {
+						altModeChange();
 					}
 					/****** End Pin's mode combo box click ******/
 				}
@@ -491,12 +512,22 @@ public class GpioConfWindow {
 				if (UcConf.GpioCfgPin[pinNum].isAv_altFunc()) {
 					comboBox_PinMode[portPinNum].addItem(Mode.MODE_ALTERNATE_FUNCTION.name());
 				}
-				if (UcConf.GpioCfgPin[pinNum].isAv_Adc()) {
-					comboBox_PinMode[portPinNum].addItem(Mode.MODE_ANALOG.name());
-				}
 				comboBox_PinMode[portPinNum].setSelectedItem(UcConf.GpioCfgPin[pinNum].getMode().name());
 				comboBox_PinMode[portPinNum].setVisible(true);
 				comboBox_PinMode[portPinNum].setEnabled(checkBox_PinSelected[portPinNum].isSelected());
+
+				/* Pin's alternate mode */
+				comboBox_PinAltMode[portPinNum].removeAllItems();
+				if (UcConf.GpioCfgPin[pinNum].isAv_Adc()) {
+					comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_ANALOG.name());
+				}
+				comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_NONE.name());
+				comboBox_PinAltMode[portPinNum].setVisible(true);
+				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_ALTERNATE_FUNCTION.name())) {
+					comboBox_PinAltMode[portPinNum].setEnabled(checkBox_PinSelected[portPinNum].isSelected());
+				} else {
+					comboBox_PinAltMode[portPinNum].setEnabled(false);
+				}
 
 				/* Pin's output type */
 				comboBox_PinOutType[portPinNum].removeAllItems();
@@ -551,6 +582,7 @@ public class GpioConfWindow {
 		for (int pinNum = PortPinsTotal; pinNum < Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT; pinNum++) {
 			lbl_PinName[pinNum].setVisible(false);
 			comboBox_PinMode[pinNum].setVisible(false);
+			comboBox_PinAltMode[pinNum].setVisible(false);
 			comboBox_PinOutType[pinNum].setVisible(false);
 			comboBox_PinOutLevel[pinNum].setVisible(false);
 			comboBox_PinPull[pinNum].setVisible(false);
@@ -573,10 +605,18 @@ public class GpioConfWindow {
 	 */
 	private void modeChange() {
 		updateMode();
+		updateAltMode();
 		updateOutputType();
 		updateOutLevel();
 		updatePull();
 		updateSpeed();
+	}
+
+	/**
+	 * Reflect the pin's alternate mode change
+	 */
+	private void altModeChange() {
+
 	}
 
 	/**
@@ -682,9 +722,31 @@ public class GpioConfWindow {
 
 		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_ALTERNATE_FUNCTION.name())) {
+					comboBox_PinAltMode[portPinNum].setEnabled(true);
+				} else {
+					comboBox_PinAltMode[portPinNum].setEnabled(false);
+				}
+
 				/* Save configuration to microcontroller object */
 				UcConf.GpioCfgPin[pinNum]
 						.setMode(Mode.getConfFromString(comboBox_PinMode[portPinNum].getSelectedItem().toString()));
+				portPinNum++;
+			}
+		}
+	}
+
+	/**
+	 * Reflect the pin's Alternate Mode changes
+	 */
+	private void updateAltMode() {
+		int portPinNum = 0;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				/* Save configuration to microcontroller object */
+				UcConf.GpioCfgPin[pinNum].setAltMode(
+						AltMode.getConfFromString(comboBox_PinAltMode[portPinNum].getSelectedItem().toString()));
 				portPinNum++;
 			}
 		}

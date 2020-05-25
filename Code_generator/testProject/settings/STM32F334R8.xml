@@ -40,24 +40,24 @@
 			<id>ADC2</id>
 			<name>ADC2</name>
 			<samples>ADC_SAMPLETIME_1CYCLE_5</samples>
-            <samples>ADC_SAMPLETIME_2CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_4CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_7CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_19CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_61CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_181CYCLES_5</samples>
-            <samples>ADC_SAMPLETIME_601CYCLES_5</samples>
-            <clock>ADC_NOT_SUPPORTED</clock>
-            <justification>ADC_DATAALIGN_RIGHT</justification>
-            <justification>ADC_DATAALIGN_LEFT</justification>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV4</prescaler>
-            <resolution>ADC_RESOLUTION12b</resolution>
-            <resolution>ADC_RESOLUTION10b</resolution>
-            <resolution>ADC_RESOLUTION8b</resolution>
-            <resolution>ADC_RESOLUTION6b</resolution>
-            <reference>ADC_NOT_SUPPORTED</reference>
+			<samples>ADC_SAMPLETIME_2CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_4CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_7CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_19CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_61CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_181CYCLES_5</samples>
+			<samples>ADC_SAMPLETIME_601CYCLES_5</samples>
+			<clock>ADC_NOT_SUPPORTED</clock>
+			<justification>ADC_DATAALIGN_RIGHT</justification>
+			<justification>ADC_DATAALIGN_LEFT</justification>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV4</prescaler>
+			<resolution>ADC_RESOLUTION12b</resolution>
+			<resolution>ADC_RESOLUTION10b</resolution>
+			<resolution>ADC_RESOLUTION8b</resolution>
+			<resolution>ADC_RESOLUTION6b</resolution>
+			<reference>ADC_NOT_SUPPORTED</reference>
 		</adc>
 	</adcs>
 	<pins>

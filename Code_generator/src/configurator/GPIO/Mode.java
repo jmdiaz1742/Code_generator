@@ -22,12 +22,6 @@ public enum Mode {
 	 * Alternate function
 	 */
 	MODE_ALTERNATE_FUNCTION,
-
-	/**
-	 * Analog
-	 */
-	MODE_ANALOG,
-
 	/**
 	 * Maximum value for Mode enum
 	 */
@@ -58,9 +52,6 @@ public enum Mode {
 			break;
 		case "MODE_ALTERNATE_FUNCTION":
 			mode = Mode.MODE_ALTERNATE_FUNCTION;
-			break;
-		case "MODE_ANALOG":
-			mode = Mode.MODE_ANALOG;
 			break;
 		case "MODE_MAX_VALUE":
 		default:

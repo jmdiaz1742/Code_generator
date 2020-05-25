@@ -2,6 +2,7 @@ package configurator;
 
 import microcontroller.Pin;
 import common.Features;
+import configurator.GPIO.AltMode;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
@@ -27,6 +28,7 @@ public class PinConf {
 	private String CodeName;
 	private Selected Selection;
 	private Mode PinMode;
+	private AltMode PinAltMode;
 	private Speed PinSpeed;
 	private OutType PinOutType;
 	private OutLevel PinOutLevel;
@@ -43,6 +45,10 @@ public class PinConf {
 	 * Default Pin mode
 	 */
 	public static final Mode DF_MODE = Mode.MODE_INPUT;
+	/**
+	 * Default Pin alternative mode
+	 */
+	public static final AltMode DF_ALT_MODE = AltMode.ALT_MODE_NONE;
 	/**
 	 * Default pin's speed
 	 */
@@ -82,6 +88,7 @@ public class PinConf {
 		setPinName(gpioPin.getName());
 		setCodeName(gpioPin.getName());
 		setMode(DF_MODE);
+		setAltMode(DF_ALT_MODE);
 		setSpeed(DF_SPEED);
 		setOutType(DF_OUTTYPE);
 		setOutLevel(DF_OUT_LEVEL);
@@ -211,16 +218,53 @@ public class PinConf {
 				this.PinMode = Mode.MODE_ALTERNATE_FUNCTION;
 			}
 			break;
-		case MODE_ANALOG:
-			if (isAv_Adc()) {
-				this.PinMode = Mode.MODE_ANALOG;
-			}
-			break;
 		default:
 			this.PinMode = DF_MODE;
 			break;
 		}
 		this.PinMode = mode;
+	}
+
+	/**
+	 * Get pin's alternative mode
+	 * 
+	 * @return Alternative mode
+	 */
+	public AltMode getAltMode() {
+		return PinAltMode;
+	}
+
+	/**
+	 * Set pin's alternative mode
+	 * 
+	 * @param altMode Alternative mode
+	 */
+	public void setAltMode(AltMode altMode) {
+		switch (altMode) {
+		case ALT_MODE_ANALOG:
+			if (isAv_Adc()) {
+				this.PinAltMode = AltMode.ALT_MODE_ANALOG;
+			}
+			break;
+		case ALT_MODE_UART:
+			if (isAv_Uart()) {
+				this.PinAltMode = AltMode.ALT_MODE_UART;
+			}
+		case ALT_MODE_I2C:
+			if (isAv_I2c()) {
+				this.PinAltMode = AltMode.ALT_MODE_I2C;
+			}
+		case ALT_MODE_SPI:
+			if (isAv_Spi()) {
+				this.PinAltMode = AltMode.ALT_MODE_SPI;
+			}
+		case ALT_MODE_NONE:
+			this.PinAltMode = AltMode.ALT_MODE_NONE;
+		default:
+			this.PinAltMode = DF_ALT_MODE;
+			break;
+		}
+
 	}
 
 	/**
@@ -302,6 +346,33 @@ public class PinConf {
 	 */
 	public boolean isAv_Adc() {
 		return GpioPin.getFeat_adc();
+	}
+
+	/**
+	 * Check availability of UART
+	 * 
+	 * @return True id UART is available
+	 */
+	public boolean isAv_Uart() {
+		return GpioPin.getFeat_uart();
+	}
+
+	/**
+	 * Check availability of I2C
+	 * 
+	 * @return True if I2C is available
+	 */
+	public boolean isAv_I2c() {
+		return GpioPin.getFeat_i2c();
+	}
+
+	/**
+	 * Check availability of SPI
+	 * 
+	 * @return True if SPI is available
+	 */
+	public boolean isAv_Spi() {
+		return GpioPin.getFeat_spi();
 	}
 
 	/**
