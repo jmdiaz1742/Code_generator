@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.25)  25 MAY 2019 01:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.2)  25 MAY 2020 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **refman
 (./refman.tex
-LaTeX2e <2018-12-01>
+LaTeX2e <2019-10-01> patch level 1
 (/usr/share/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+Document Class: book 2019/08/27 v1.4j Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+File: bk10.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -23,6 +23,21 @@ File: bk10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Rollback for package 'array' requested -> date 2016-10-06.
+         Best approximation is the release introduced on 2016-10-06.
+
+(/usr/share/texmf-dist/tex/latex/tools/array-2016-10-06.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks14
+\extratabsurround=\skip43
+\backup@length=\skip44
+))
 (/usr/share/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
 Applying: [2015/01/01] Old fixltx2e package on input line 46.
@@ -37,40 +52,27 @@ Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count89
 \calc@Bcount=\count90
-\calc@Adimen=\dimen103
-\calc@Bdimen=\dimen104
-\calc@Askip=\skip43
-\calc@Bskip=\skip44
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count91
-\calc@Cskip=\skip45
+\calc@Cskip=\skip47
 ) (./doxygen.sty
 Package: doxygen 
 
 (/usr/share/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
-(/usr/share/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
-\col@sep=\dimen105
-\ar@mcellbox=\box27
-\extrarowheight=\dimen106
-\NC@list=\toks14
-\extratabsurround=\skip46
-\backup@length=\skip47
-\ar@cellbox=\box28
-)
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count92
 \float@exts=\toks15
-\float@box=\box29
+\float@box=\box27
 \@float@everytoks=\toks16
-\@floatcapt=\box30
-)
-(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+\@floatcapt=\box28
 )
 (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
@@ -105,30 +107,31 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(/usr/share/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+(./longtable_doxygen.sty
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
 \LTleft=\skip49
 \LTright=\skip50
 \LTpre=\skip51
 \LTpost=\skip52
 \LTchunksize=\count94
 \LTcapwidth=\dimen107
-\LT@head=\box31
-\LT@firsthead=\box32
-\LT@foot=\box33
-\LT@lastfoot=\box34
+\LT@head=\box29
+\LT@firsthead=\box30
+\LT@foot=\box31
+\LT@lastfoot=\box32
 \LT@cols=\count95
 \LT@rows=\count96
 \c@LT@tables=\count97
 \c@LT@chunks=\count98
 \LT@p@ftn=\toks20
-)
-(/usr/share/texmf-dist/tex/latex/tabu/tabu.sty
-Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+) (./tabu_doxygen.sty
+Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen ve
+rsion for doxygen
 
 (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box35
+\@vwid@box=\box33
 \sift@deathcycles=\count99
 \@vwid@loff=\dimen108
 \@vwid@roff=\dimen109
@@ -150,23 +153,23 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabustrutrule=\dimen118
 \tabu@thebody=\toks21
 \tabu@footnotes=\toks22
-\tabu@box=\box36
-\tabu@arstrutbox=\box37
-\tabu@hleads=\box38
-\tabu@vleads=\box39
+\tabu@box=\box34
+\tabu@arstrutbox=\box35
+\tabu@hleads=\box36
+\tabu@vleads=\box37
 \tabu@cellskip=\skip53
 )
 (/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2019/01/15
+Package: fancyvrb 2019/10/22
 
-Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
+Style option: `fancyvrb' v3.3 <2019/10/22> (tvz)
 (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
 \FV@CodeLineNo=\count106
 \FV@InFile=\read2
-\FV@TabBox=\box40
+\FV@TabBox=\box38
 \c@FancyVerbLine=\count107
 \FV@StepNumber=\count108
 \FV@OutFile=\write3
@@ -182,7 +185,7 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 \TX@ftn=\toks24
 )
 (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip54
 \multirow@cntb=\count110
 \multirow@dima=\skip55
@@ -227,7 +230,7 @@ Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2019/10/08 v1.3c Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -235,14 +238,14 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
 )
 (/usr/share/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box41
+\collectedbox=\box39
 )
 \tc@llx=\dimen127
 \tc@lly=\dimen128
@@ -274,6 +277,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks27
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
@@ -282,7 +286,7 @@ Package: stackengine 2017/02/13 v4.01\ Stacking text and objects in convenient
 ways
 
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count113
 )
 (/usr/share/texmf-dist/tex/generic/listofitems/listofitems.sty
@@ -290,33 +294,33 @@ Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \loi_cnt_foreach_nest=\count114
 \loi_nestcnt=\count115
 )
-Package: listofitems 2018/11/01 v1.6 Grab items in lists using user-specified s
-ep char (CT)
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
+sep char (CT)
 )
 \c@@stackindex=\count116
 \@boxshift=\skip64
 \stack@tmplength=\skip65
 \temp@stkl=\skip66
 \@stackedboxwidth=\skip67
-\@addedbox=\box42
-\@anchorbox=\box43
-\stackedbox=\box44
-\@centerbox=\box45
+\@addedbox=\box40
+\@anchorbox=\box41
+\stackedbox=\box42
+\@centerbox=\box43
 \c@ROWcellindex@=\count117
 )
 (/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box46
-\UL@hyphenbox=\box47
+\UL@box=\box44
+\UL@hyphenbox=\box45
 \UL@skip=\skip68
 \UL@hook=\toks28
 \UL@height=\dimen139
 \UL@pe=\count118
 \UL@pixel=\dimen140
-\ULC@box=\box48
+\ULC@box=\box46
 Package: ulem 2012/05/18
 \ULdepth=\dimen141
 )
-\xrefbox=\box49
+\xrefbox=\box47
 \xreflength=\skip69
 \CodeWidthChar=\skip70
 \CodeHeightChar=\skip71
@@ -331,9 +335,9 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+Package: multicol 2019/03/01 v1.8w multicolumn formatting (FMi)
 \c@tracingmulticols=\count119
-\mult@box=\box50
+\mult@box=\box48
 \multicol@leftmargin=\dimen142
 \c@unbalance=\count120
 \c@collectmore=\count121
@@ -346,13 +350,15 @@ Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \postmulticols=\dimen146
 \multicolsep=\skip73
 \multicolbaselineskip=\skip74
-\partial@page=\box51
-\last@line=\box52
+\partial@page=\box49
+\last@line=\box50
 \maxbalancingoverflow=\dimen147
-\mult@rightbox=\box53
-\mult@grightbox=\box54
-\mult@gfirstbox=\box55
-\mult@firstbox=\box56
+\mult@rightbox=\box51
+\mult@grightbox=\box52
+\mult@gfirstbox=\box53
+\mult@firstbox=\box54
+\@tempa=\box55
+\@tempa=\box56
 \@tempa=\box57
 \@tempa=\box58
 \@tempa=\box59
@@ -368,16 +374,15 @@ Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \@tempa=\box69
 \@tempa=\box70
 \@tempa=\box71
-\@tempa=\box72
-\@tempa=\box73
-\c@columnbadness=\count125
-\c@finalcolumnbadness=\count126
+\c@minrows=\count125
+\c@columnbadness=\count126
+\c@finalcolumnbadness=\count127
 \last@try=\dimen148
 \multicolovershoot=\dimen149
 \multicolundershoot=\dimen150
-\mult@nat@firstbox=\box74
-\colbreak@box=\box75
-\mc@col@check@num=\count127
+\mult@nat@firstbox=\box72
+\colbreak@box=\box73
+\mc@col@check@num=\count128
 )
 (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
@@ -400,7 +405,7 @@ Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
 (/usr/share/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00A4 (decimal 164)
@@ -470,6 +475,8 @@ File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
    defining Unicode char U+25E6 (decimal 9702)
    defining Unicode char U+25EF (decimal 9711)
    defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
    defining Unicode char U+FEFF (decimal 65279)
 ))
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -561,17 +568,25 @@ Package: courier 2005/04/12 PSNFSS-v9.2a (WaS)
 (/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
-)
-(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count128
-\Gm@cntv=\count129
-\c@Gm@tempcnt=\count130
+\Gm@cnth=\count129
+\Gm@cntv=\count130
+\c@Gm@tempcnt=\count131
 \Gm@bindingoffset=\dimen151
 \Gm@wd@mp=\dimen152
 \Gm@odd@mp=\dimen153
@@ -600,7 +615,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip84
 \bibsep=\skip85
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count131
+\c@NAT@ctr=\count132
 )
 (/usr/share/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -634,8 +649,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip112
 \cftfigindent=\skip113
 \cftfignumwidth=\skip114
-\c@lofdepth=\count132
-\c@lotdepth=\count133
+\c@lofdepth=\count133
+\c@lotdepth=\count134
 \cftbeforelottitleskip=\skip115
 \cftafterlottitleskip=\skip116
 \cftbeforetabskip=\skip117
@@ -651,15 +666,15 @@ Writing index file refman.idx
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
 
-Package newunicodechar Warning: Redefining Unicode character on input line 104.
+Package newunicodechar Warning: Redefining Unicode character on input line 116.
 
 
 
-Package newunicodechar Warning: Redefining Unicode character on input line 105.
+Package newunicodechar Warning: Redefining Unicode character on input line 117.
 
 
 (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+Package: hyperref 2019/09/28 v7.00a Hypertext links for LaTeX
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
@@ -676,13 +691,9 @@ Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -710,26 +721,26 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen159
-\Hy@linkcounter=\count134
-\Hy@pagecounter=\count135
+\Hy@linkcounter=\count135
+\Hy@pagecounter=\count136
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2019/09/28 v7.00a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count136
+\Hy@SavedSpaceFactor=\count137
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4519.
-Package hyperref Info: Link nesting OFF on input line 4524.
-Package hyperref Info: Hyper index ON on input line 4527.
-Package hyperref Info: Plain pages OFF on input line 4534.
-Package hyperref Info: Backreferencing ON on input line 4537.
+Package hyperref Info: Hyper figures OFF on input line 4540.
+Package hyperref Info: Link nesting OFF on input line 4545.
+Package hyperref Info: Hyper index ON on input line 4548.
+Package hyperref Info: Plain pages OFF on input line 4555.
+Package hyperref Info: Backreferencing ON on input line 4558.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4772.
+Package hyperref Info: Bookmarks ON on input line 4793.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/backref.sty
 Package: backref 2016/05/21 v1.39 Bibliographical back referencing
@@ -739,51 +750,51 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 ))
-\c@Hy@tempcnt=\count137
+\c@Hy@tempcnt=\count138
 
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5125.
+LaTeX Info: Redefining \url on input line 5152.
 \XeTeXLinkMargin=\dimen160
-\Fld@menulength=\count138
+\Fld@menulength=\count139
 \Field@Width=\dimen161
 \Fld@charsize=\dimen162
-Package hyperref Info: Hyper figures OFF on input line 6380.
-Package hyperref Info: Link nesting OFF on input line 6385.
-Package hyperref Info: Hyper index ON on input line 6388.
-Package hyperref Info: backreferencing ON on input line 6393.
-Package hyperref Info: Link coloring OFF on input line 6400.
-Package hyperref Info: Link coloring with OCG OFF on input line 6405.
-Package hyperref Info: PDF/A mode OFF on input line 6410.
-LaTeX Info: Redefining \ref on input line 6450.
-LaTeX Info: Redefining \pageref on input line 6454.
-\Hy@abspage=\count139
-\c@Item=\count140
-\c@Hfootnote=\count141
+Package hyperref Info: Hyper figures OFF on input line 6423.
+Package hyperref Info: Link nesting OFF on input line 6428.
+Package hyperref Info: Hyper index ON on input line 6431.
+Package hyperref Info: backreferencing ON on input line 6436.
+Package hyperref Info: Link coloring OFF on input line 6443.
+Package hyperref Info: Link coloring with OCG OFF on input line 6448.
+Package hyperref Info: PDF/A mode OFF on input line 6453.
+LaTeX Info: Redefining \ref on input line 6493.
+LaTeX Info: Redefining \pageref on input line 6497.
+\Hy@abspage=\count140
+\c@Item=\count141
+\c@Hfootnote=\count142
 )
 Package hyperref Info: Driver: hpdftex.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
-\Fld@listcount=\count142
-\c@bookmark@seq@number=\count143
+File: hpdftex.def 2019/09/28 v7.00a Hyperref driver for pdfTeX
+\Fld@listcount=\count143
+\c@bookmark@seq@number=\count144
 \Hy@SectionHShift=\skip120
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 123.
-Package hyperref Info: Option `unicode' set `true' on input line 123.
+Package hyperref Info: Option `colorlinks' set `true' on input line 135.
+Package hyperref Info: Option `unicode' set `true' on input line 135.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2019/09/28 v7.00a Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
 (/usr/share/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+Package: caption 2019/09/01 v3.3d Customizing captions (AR)
 
 (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package: caption3 2019/09/01 v1.8d caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
 \captionmargin=\dimen163
 \captionmargin@=\dimen164
@@ -793,69 +804,70 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@parindent=\dimen168
 \caption@hangindent=\dimen169
 )
-\c@caption@flags=\count144
-\c@ContinuedFloat=\count145
+\c@caption@flags=\count145
+\c@ContinuedFloat=\count146
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
 (/usr/share/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
+Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 ))
 (/usr/share/texmf-dist/tex/latex/etoc/etoc.sty
-Package: etoc 2018/07/04 v1.08p Completely customisable TOCs (JFB)
+Package: etoc 2019/03/09 v1.09 Completely customisable TOCs (JFB)
 \Etoc@toctoks=\toks32
-\c@etoc@tocid=\count146
-\c@etoc@tocdepth=\count147
-\etoc@framed@titlebox=\box76
-\etoc@framed@contentsbox=\box77
-)
-No file refman.aux.
+\c@etoc@tocid=\count147
+\c@etoc@tocdepth=\count148
+\etoc@framed@titlebox=\box74
+\etoc@framed@contentsbox=\box75
+) (./refman.aux)
 \openout1 = `refman.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 138.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+50.
 
 (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 138.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 15
+0.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 138.
+(Font)              scaled to size 8.99994pt on input line 150.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count148
+\scratchcounter=\count149
 \scratchdimen=\dimen170
-\scratchbox=\box78
-\nofMPsegments=\count149
-\nofMParguments=\count150
+\scratchbox=\box76
+\nofMPsegments=\count150
+\nofMParguments=\count151
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count151
+\MPscratchCnt=\count152
 \MPscratchDim=\dimen171
-\MPnumerator=\count152
-\makeMPintoPDFobject=\count153
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -908,51 +920,54 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box79
-Package backref Info: ** backref set up for natbib ** on input line 138.
-Package hyperref Info: Link coloring ON on input line 138.
+\AtBeginShipoutBox=\box77
+Package backref Info: ** backref set up for natbib ** on input line 150.
+Package hyperref Info: Link coloring ON on input line 150.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count154
+\c@section@level=\count155
 )
-LaTeX Info: Redefining \ref on input line 138.
-LaTeX Info: Redefining \pageref on input line 138.
-LaTeX Info: Redefining \nameref on input line 138.
+LaTeX Info: Redefining \ref on input line 150.
+LaTeX Info: Redefining \pageref on input line 150.
+LaTeX Info: Redefining \nameref on input line 150.
+ (./refman.out) (./refman.out)
 \@outlinefile=\write5
 \openout5 = `refman.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+\Etoc@tf=\read3
+Package hyperref Info: Option `pageanchor' set `false' on input line 156.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 156.
 
-No file refman.toc.
-Package hyperref Info: Option `pageanchor' set `false' on input line 144.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 144.
-
-Package hyperref Info: Option `unicode' set `true' on input line 144.
+Package hyperref Info: Option `unicode' set `true' on input line 156.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 149.
+(Font)              scaled to size 12.9599pt on input line 161.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 149.
-LaTeX Font Info:    Try loading font information for U+msa on input line 149.
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+(Font)              scaled to size 6.29996pt on input line 161.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 161
+.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 161
+.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 149.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
+1.
 
 (/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 151.
+(Font)              scaled to size 10.79993pt on input line 163.
  [1
 
 
@@ -962,174 +977,47 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 \tf@toc=\write6
 \openout6 = `refman.toc'.
 
-Package hyperref Info: Option `pageanchor' set `true' on input line 159.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 169.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 169.
+ [1] [2] [3] [4] [5] [6] [7] [8] [9] [10]
+Package hyperref Info: Option `pageanchor' set `true' on input line 171.
 
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 162.
+(Font)              scaled to size 18.66588pt on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 162.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 162.
+(Font)              scaled to size 18.66588pt on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 18.66588pt on input line 162.
+(Font)              scaled to size 18.66588pt on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 22.39185pt on input line 162.
+(Font)              scaled to size 22.39185pt on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 162.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 162.
+(Font)              scaled to size 22.39185pt on input line 174.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 22.39185pt on input line 162.
+(Font)              scaled to size 22.39185pt on input line 174.
 (./namespaces.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 3.
-
-
-LaTeX Warning: Reference `namespacecommon' on page 1 undefined on input line 3.
-
-
-
-LaTeX Warning: Reference `namespaceconfigurator' on page 1 undefined on input l
-ine 4.
-
-
-LaTeX Warning: Reference `namespaceframework' on page 1 undefined on input line
- 5.
-
-
-LaTeX Warning: Reference `namespacegui' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Reference `namespacemicrocontroller' on page 1 undefined on inpu
-t line 7.
-
-
-LaTeX Warning: Reference `namespaceproject_configuration' on page 1 undefined o
-n input line 8.
-
-
-LaTeX Warning: Reference `namespacexml_creator' on page 1 undefined on input li
-ne 9.
-
-
-LaTeX Warning: Reference `namespacexml_parser' on page 1 undefined on input lin
-e 10.
-
 ) [1
 
 
-]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 164.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 164.
- [2
+] [2
 
 ]
 Chapter 2.
-(./annotated.tex
-
-LaTeX Warning: Reference `classgui_1_1_about_window' on page 3 undefined on inp
-ut line 3.
-
-
-LaTeX Warning: Reference `classframework_1_1_code_generator' on page 3 undefine
-d on input line 4.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_code_name' on page 3
- undefined on input line 5.
-
-
-LaTeX Warning: Reference `classframework_1_1_common' on page 3 undefined on inp
-ut line 6.
-
-
-LaTeX Warning: Reference `classconfigurator_1_1_configuration_file' on page 3 u
-ndefined on input line 7.
-
-
-LaTeX Warning: Reference `classxml_creator_1_1_conf_xml_writer' on page 3 undef
-ined on input line 8.
-
-
-LaTeX Warning: Reference `enumcommon_1_1_error_code' on page 3 undefined on inp
-ut line 9.
-
-
-LaTeX Warning: Reference `classcommon_1_1_features' on page 3 undefined on inpu
-t line 10.
-
-
-LaTeX Warning: Reference `classgui_1_1_gpio_conf_window' on page 3 undefined on
- input line 11.
-
-
-LaTeX Warning: Reference `classgui_1_1_main_gui' on page 3 undefined on input l
-ine 12.
-
-
-LaTeX Warning: Reference `classgui_1_1_main_window' on page 3 undefined on inpu
-t line 13.
-
-
-LaTeX Warning: Reference `classgui_1_1_messages' on page 3 undefined on input l
-ine 14.
-
-
-LaTeX Warning: Reference `classmicrocontroller_1_1_microcontroller' on page 3 u
-ndefined on input line 15.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_mode' on page 3 unde
-fined on input line 16.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_out_level' on page 3
- undefined on input line 17.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_out_type' on page 3 
-undefined on input line 18.
-
-
-LaTeX Warning: Reference `classmicrocontroller_1_1_pin' on page 3 undefined on 
-input line 19.
-
-
-LaTeX Warning: Reference `classconfigurator_1_1_pin_conf' on page 3 undefined o
-n input line 20.
-
-
-LaTeX Warning: Reference `classproject_configuration_1_1_project_settings' on p
-age 3 undefined on input line 21.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_pull' on page 3 unde
-fined on input line 22.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_selected' on page 3 
-undefined on input line 23.
-
-
-LaTeX Warning: Reference `enumconfigurator_1_1_g_p_i_o_1_1_speed' on page 3 und
-efined on input line 24.
-
-
-LaTeX Warning: Reference `classxml_parser_1_1_xml_opener' on page 3 undefined o
-n input line 25.
-
-) [3] [4
+(./annotated.tex) [3] [4
 
 ]
 Chapter 3.
@@ -1138,9 +1026,8 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 3.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 10.79993pt on input line 3.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 6.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6
+.
  (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
@@ -1159,16 +1046,16 @@ Underfull \hbox (badness 10000) detected at line 18
  []
 
 ) (./namespaceconfigurator.tex
-Underfull \hbox (badness 10000) detected at line 15
+Underfull \hbox (badness 10000) detected at line 17
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 18
+[5]
+Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
-) (./namespaceframework.tex [5]
+) (./namespaceframework.tex
 Underfull \hbox (badness 10000) detected at line 17
 [][][]
  []
@@ -1179,29 +1066,26 @@ Underfull \hbox (badness 10000) detected at line 20
  []
 
 ) (./namespacegui.tex
-Underfull \hbox (badness 10000) detected at line 19
+Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 22
+Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
 ) (./namespacemicrocontroller.tex [6]
-Underfull \hbox (badness 10000) detected at line 15
+Underfull \hbox (badness 10000) detected at line 17
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 18
+Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
 ) (./namespaceproject_configuration.tex
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 6.29996pt on input line 1.
-
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1240,34 +1124,756 @@ Underfull \hbox (badness 10000) detected at line 18
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 28.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 28.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 28
+.
 (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 37.
+ [9
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.45 \end{DoxyParams}
-                     
+])
+(./classmicrocontroller_1_1_adc.tex) (./classconfigurator_1_1_adc_conf.tex)
+(./classgui_1_1_adc_conf_window.tex
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 20.
+ [10])
+(./enumconfigurator_1_1_g_p_i_o_1_1_alt_mode.tex [11]
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
 
-? 
-! Emergency stop.
-<inserted text> 
-                }
-l.45 \end{DoxyParams}
-                     
-End of file on the terminal!
 
- 
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 55
+[][][]
+ []
+
+[12]) (./classframework_1_1_code_generator.tex [13]
+Underfull \hbox (badness 10000) detected at line 22
+[][][]
+ []
+
+
+Overfull \vbox (19.78728pt too high) has occurred while \output is active []
+
+
+[14]
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_code_name.tex
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+[15]) (./classframework_1_1_common.tex
+Underfull \hbox (badness 10000) detected at line 50
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+[17]
+Underfull \hbox (badness 10000) detected at line 92
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 110
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][][]
+ []
+
+[18]
+Underfull \hbox (badness 10000) detected at line 142
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 158
+[][][]
+ []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 174
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 185
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 196
+[][][]
+ []
+
+
+Overfull \vbox (1.26358pt too high) has occurred while \output is active []
+
+
+[20] [21]) (./classconfigurator_1_1_configuration_file.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+[22]) (./classxml_creator_1_1_conf_xml_writer.tex
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+[23] [24]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
+
+) (./enumcommon_1_1_error_code.tex
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+[25]) (./classcommon_1_1_features.tex [26]
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 44
+[][][]
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+\T1/pcr/m/n/8 final String common.[]Features.[]S[]W[]_[][]V[]E[]R[]S[]I[]ON = V
+[]E[]R[]S[]I[]O[]N[]_[][]M[]A[]J[]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]M[]I[]N[
+]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]P[]A[]
+ []
+
+[28]) (./classgui_1_1_gpio_conf_window.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][][]
+ []
+
+[29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30])
+(./classgui_1_1_main_gui.tex
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+[31]
+Underfull \hbox (badness 10000) detected at line 69
+[][][]
+ []
+
+[32] [33]) (./classgui_1_1_main_window.tex
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+[34] [35]
+Underfull \hbox (badness 10000) detected at line 77
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 97
+[][][]
+ []
+
+[36]) (./classgui_1_1_messages.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+[37]
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+) (./classmicrocontroller_1_1_microcontroller.tex
+Underfull \hbox (badness 10000) detected at line 57
+[][][]
+ []
+
+[38]
+Underfull \hbox (badness 10000) detected at line 60
+[][][]
+ []
+
+[39]
+Underfull \hbox (badness 10000) detected at line 95
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 111
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 133
+[][][]
+ []
+
+[40]
+Underfull \hbox (badness 10000) detected at line 144
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 155
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 177
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 188
+[][][]
+ []
+
+[41]
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 215
+[][][]
+ []
+
+[42]) (./enumconfigurator_1_1_g_p_i_o_1_1_mode.tex [43]
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+[44]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_out_level.tex [45]
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_out_type.tex [47]
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+[48]) (./classmicrocontroller_1_1_pin.tex [49] [50]
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+[51]
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 189
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 200
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+[52]
+Underfull \hbox (badness 10000) detected at line 222
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 233
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 244
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 255
+[][][]
+ []
+
+[53]
+Underfull \hbox (badness 10000) detected at line 266
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 277
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 288
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 299
+[][][]
+ []
+
+[54]
+Underfull \hbox (badness 10000) detected at line 310
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 321
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 332
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 343
+[][][]
+ []
+
+[55]
+Underfull \hbox (badness 10000) detected at line 354
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 365
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 376
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 387
+[][][]
+ []
+
+[56]
+Underfull \hbox (badness 10000) detected at line 398
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 407
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 418
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 429
+[][][]
+ []
+
+[57]
+Underfull \hbox (badness 10000) detected at line 440
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 451
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 462
+[][][]
+ []
+
+[58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
+[60] [61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+[63] [64]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65]
+[66]) (./classconfigurator_1_1_pin_conf.tex [67]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 85
+[][][]
+ []
+
+[68]
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+[69]
+Underfull \hbox (badness 10000) detected at line 159
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 192
+[][][]
+ []
+
+[70]
+Underfull \hbox (badness 10000) detected at line 203
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 214
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 225
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 236
+[][][]
+ []
+
+[71]
+Underfull \hbox (badness 10000) detected at line 247
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 258
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 269
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 280
+[][][]
+ []
+
+[72]
+Underfull \hbox (badness 10000) detected at line 291
+[][][]
+ []
+
+[73]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74]
+[75]) (./classproject_configuration_1_1_project_settings.tex [76]
+Underfull \hbox (badness 10000) detected at line 25
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][][]
+ []
+
+[77]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 62
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 84
+[][][]
+ []
+
+[78]
+Underfull \hbox (badness 10000) detected at line 100
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 111
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_pull.tex
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+[79]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+[80]) (./enumconfigurator_1_1_g_p_i_o_1_1_selected.tex [81]
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+[82]
+Underfull \hbox (badness 10000) detected at line 65
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_speed.tex [83]
+Underfull \hbox (badness 10000) detected at line 31
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 34
+[][][]
+ []
+
+[84]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+) (./classxml_parser_1_1_xml_opener.tex [85]
+Underfull \hbox (badness 10000) detected at line 24
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+[86]
+Underfull \hbox (badness 10000) detected at line 57
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+[87]
+Underfull \hbox (badness 10000) detected at line 86
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+) [88] (./refman.ind [89
+
+
+
+] [90] [91] [92] [93] [94] [95])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
+ (./refman.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
+Package rerunfilecheck Info: File `refman.out' has not changed.
+(rerunfilecheck)             Checksum: 9C39AF6A3197E8004818ED1CB4244D13;74211.
+ ) 
 Here is how much of TeX's memory you used:
- 16478 strings out of 492616
- 235719 string characters out of 6135177
- 342985 words of memory out of 5000000
- 20051 multiletter control sequences out of 15000+600000
- 56403 words of font info for 75 fonts, out of 8000000 for 9000
+ 18444 strings out of 492167
+ 292178 string characters out of 6131559
+ 443811 words of memory out of 5000000
+ 21594 multiletter control sequences out of 15000+600000
+ 55852 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,12n,92p,938b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 55i,16n,96p,938b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pf
+b></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texmf-
+dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw
+/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
+b></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (107 pages, 284089 bytes).
+PDF statistics:
+ 3944 PDF objects out of 4296 (max. 8388607)
+ 3767 compressed objects within 38 object streams
+ 876 named destinations out of 1000 (max. 500000)
+ 2873 words of extra memory for PDF output out of 10000 (max. 10000000)
+
