@@ -119,7 +119,7 @@ public class Features {
 
 	public static void initLog() {
 		if (LOG_FILE) {
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH:mm:ss");
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH.mm.ss");
 			LocalDateTime now = LocalDateTime.now();
 			System.out.println(dtf.format(now));
 
