@@ -521,6 +521,15 @@ public class GpioConfWindow {
 				if (UcConf.GpioCfgPin[pinNum].isAv_Adc()) {
 					comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_ANALOG.name());
 				}
+				if (UcConf.GpioCfgPin[pinNum].isAv_Uart()) {
+					comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_UART.name());
+				}
+				if (UcConf.GpioCfgPin[pinNum].isAv_I2c()) {
+					comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_I2C.name());
+				}
+				if (UcConf.GpioCfgPin[pinNum].isAv_Spi()) {
+					comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_SPI.name());
+				}
 				comboBox_PinAltMode[portPinNum].addItem(AltMode.ALT_MODE_NONE.name());
 				comboBox_PinAltMode[portPinNum].setVisible(true);
 				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_ALTERNATE_FUNCTION.name())) {

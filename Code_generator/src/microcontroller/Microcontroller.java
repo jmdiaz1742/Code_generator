@@ -84,6 +84,9 @@ public class Microcontroller {
 	/* Pin's optional characteristics */
 	private static final String STR_PIN_INT = "interrupt";
 	private static final String STR_PIN_ADC = "adc";
+	private static final String STR_PIN_UART = "uart";
+	private static final String STR_PIN_I2C = "i2c";
+	private static final String STR_PIN_SPI = "spi";
 	private static final String STR_PIN_PORT = "port";
 	private static final String STR_PIN_CLOCK = "clock";
 	private static final String STR_PIN_TIMER = "timer";
@@ -346,6 +349,9 @@ public class Microcontroller {
 			String port;
 			String interruption;
 			String adc;
+			String uart;
+			String i2c;
+			String spi;
 			String clock;
 			String timer;
 
@@ -366,6 +372,24 @@ public class Microcontroller {
 			if (!adc.equals(ErrorCode.STR_INVALID)) {
 				CurrentPin[pinNum].setAdc(adc);
 				Features.verbosePrint("\tADC: " + CurrentPin[pinNum].getAdc());
+			}
+			/* UART */
+			uart = XmlOpener.getElementInfo(pinEl, STR_PIN_UART);
+			if (!uart.equals(ErrorCode.STR_INVALID)) {
+				CurrentPin[pinNum].setUart(uart);
+				Features.verbosePrint("\tUART: " + CurrentPin[pinNum].getUart());
+			}
+			/* I2C */
+			i2c = XmlOpener.getElementInfo(pinEl, STR_PIN_I2C);
+			if (!i2c.equals(ErrorCode.STR_INVALID)) {
+				CurrentPin[pinNum].setI2c(i2c);
+				Features.verbosePrint("\tI2C: " + CurrentPin[pinNum].getI2c());
+			}
+			/* SPI */
+			spi = XmlOpener.getElementInfo(pinEl, STR_PIN_SPI);
+			if (!spi.equals(ErrorCode.STR_INVALID)) {
+				CurrentPin[pinNum].setSpi(spi);
+				Features.verbosePrint("\tSPI: " + CurrentPin[pinNum].getSpi());
 			}
 			/* Clock */
 			clock = XmlOpener.getElementInfo(pinEl, STR_PIN_CLOCK);

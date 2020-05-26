@@ -89,6 +89,9 @@ public class CodeGenerator {
 
 		error = replaceInFile(cfgFile, STR_TKN_FWK_COMMON_INC, framework.Common.getCommonIncludes(uC));
 		error = replaceInFile(cfgFile, STR_TKN_CFG_DEFS_COMMON, framework.Common.getCommonCfgDefinitions(uC));
+		if (error == ErrorCode.NO_ERROR) {
+			Features.verbosePrint("Framework common file generated");
+		}
 
 		/* Generate frameworkIncludes.h */
 		Features.verbosePrint("Generating framework common file...");
@@ -98,6 +101,9 @@ public class CodeGenerator {
 
 		error = copyFile(fwkFile, cfgFile);
 		error = replaceInFile(cfgFile, STR_TKN_FWK_MODULES_INC, modules);
+		if (error == ErrorCode.NO_ERROR) {
+			Features.verbosePrint("Framework common file generated");
+		}
 
 		return error;
 	}
@@ -131,6 +137,9 @@ public class CodeGenerator {
 		}
 		}
 		// beautifyFile(cfgFile);
+		if (error == ErrorCode.NO_ERROR) {
+			Features.verbosePrint(module + " configuration C file generated");
+		}
 
 		Features.verbosePrint("Generating " + module + " configuration H file...");
 
@@ -154,6 +163,9 @@ public class CodeGenerator {
 		}
 		}
 		// beautifyFile(cfgFile);
+		if (error == ErrorCode.NO_ERROR) {
+			Features.verbosePrint(module + " configuration H file generated");
+		}
 
 		return error;
 	}

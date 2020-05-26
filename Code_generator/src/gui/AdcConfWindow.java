@@ -12,6 +12,7 @@ public class AdcConfWindow {
 
 	/**
 	 * Launch the application.
+	 * 
 	 * @param args General arguments
 	 */
 	public static void main(String[] args) {
@@ -29,6 +30,7 @@ public class AdcConfWindow {
 
 	/**
 	 * Create the application.
+	 * 
 	 * @param uCtrl Microcontroller
 	 */
 	public AdcConfWindow(Microcontroller uCtrl) {
@@ -42,6 +44,7 @@ public class AdcConfWindow {
 		frmAdcsConfiguration = new JFrame();
 		frmAdcsConfiguration.setTitle("ADCs configuration");
 		frmAdcsConfiguration.setBounds(100, 100, 450, 300);
+		frmAdcsConfiguration.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAdcsConfiguration.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frmAdcsConfiguration.setVisible(true);
 	}
