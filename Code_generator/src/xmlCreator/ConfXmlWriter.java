@@ -18,6 +18,7 @@ import org.w3c.dom.Element;
 import common.ErrorCode;
 import common.Features;
 import configurator.PinConf;
+import configurator.GPIO.AltMode;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
@@ -102,6 +103,7 @@ public class ConfXmlWriter {
 		addPinChild(STR_PORT, pin.getPort(), pinNum);
 		addPinChild(Selected.STR_NAME, pin.getSelected().name(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
+		addPinChild(AltMode.STR_NAME, pin.getAltMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
 		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);
 		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
