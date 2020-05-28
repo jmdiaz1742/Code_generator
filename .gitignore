@@ -25,24 +25,6 @@ Code_generator/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml
 Code_generator/.metadata/.plugins/org.eclipse.ui.intro/introstate
 Code_generator/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
 Code_generator/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
-Code_generator/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
-Code_generator/.metadata/.log
-Code_generator/.metadata/version.ini
-Code_generator/.metadata/.mylyn/tasks.xml.zip
-Code_generator/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree
-Code_generator/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
-Code_generator/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.e4.ui.css.swt.theme.prefs
-Code_generator/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
-Code_generator/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs
-Code_generator/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
-Code_generator/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json
-Code_generator/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
-Code_generator/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml
-Code_generator/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
-Code_generator/.metadata/.plugins/org.eclipse.ui.intro/introstate
-Code_generator/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
-Code_generator/.metadata/.log
-Code_generator/.metadata/.log
 
 Code_generator/\.settings/org\.eclipse\.jdt\.core\.prefs
 /.project
@@ -51,3 +33,4 @@ Code_generator/.vscode/
 Code_generator/\.metadata/
 
 Code_generator/logs/*
+*.05.27_19.52.11_log.log
