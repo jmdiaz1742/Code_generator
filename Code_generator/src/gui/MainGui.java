@@ -45,9 +45,23 @@ public class MainGui {
 	 */
 	static public void main(String[] args) {
 		common.Features.initLog();
+		printInitInfo();
 		Features.verbosePrint("Starting GUI...");
 		CgMainWindow = new MainWindow();
 		CgMainWindow.setVisible(true);
+	}
+
+	static private void printInitInfo() {
+		String version = Features.SW_VERSION;
+		String codename = Features.VERSION_NAME;
+		
+		if (!Features.VERSION_STATUS.equals("Release")) {
+			version += ", " + Features.VERSION_STATUS + " build";
+		}
+		if (Features.DEBUG) {
+			version += " - Debug mode";
+		}
+		Features.verbosePrint("Kamino " + "version " + version + " " + codename);
 	}
 
 	/**
