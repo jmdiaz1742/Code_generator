@@ -118,7 +118,7 @@ public class XmlOpener {
 		if (subElement.getLength() > 0) {
 			info = subElement.item(0).getTextContent();
 		} else {
-			Features.verbosePrint(elementName + " not found");
+			Features.verbosePrint("\t" + elementName + " not found");
 		}
 
 		return info;

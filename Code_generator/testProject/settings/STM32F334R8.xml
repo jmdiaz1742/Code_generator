@@ -13,17 +13,16 @@
 		<!-- GPIO definitions -->
 	</configuration_definitions>
 	<adcs>
-		<adc>
-			<id>ADC1</id>
+		<adcInstance>
 			<name>ADC1</name>
-			<samples>ADC_SAMPLETIME_1CYCLE_5</samples>
-			<samples>ADC_SAMPLETIME_2CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_4CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_7CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_19CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_61CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_181CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_601CYCLES_5</samples>
+			<sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+			<sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_4CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_7CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_19CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_61CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_181CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_601CYCLES_5</sample>
 			<clock>ADC_NOT_SUPPORTED</clock>
 			<justification>ADC_DATAALIGN_RIGHT</justification>
 			<justification>ADC_DATAALIGN_LEFT</justification>
@@ -35,18 +34,17 @@
 			<resolution>ADC_RESOLUTION8b</resolution>
 			<resolution>ADC_RESOLUTION6b</resolution>
 			<reference>ADC_NOT_SUPPORTED</reference>
-		</adc>
-		<adc>
-			<id>ADC2</id>
+		</adcInstance>
+		<adcInstance>
 			<name>ADC2</name>
-			<samples>ADC_SAMPLETIME_1CYCLE_5</samples>
-			<samples>ADC_SAMPLETIME_2CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_4CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_7CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_19CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_61CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_181CYCLES_5</samples>
-			<samples>ADC_SAMPLETIME_601CYCLES_5</samples>
+			<sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+			<sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_4CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_7CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_19CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_61CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_181CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_601CYCLES_5</sample>
 			<clock>ADC_NOT_SUPPORTED</clock>
 			<justification>ADC_DATAALIGN_RIGHT</justification>
 			<justification>ADC_DATAALIGN_LEFT</justification>
@@ -58,7 +56,29 @@
 			<resolution>ADC_RESOLUTION8b</resolution>
 			<resolution>ADC_RESOLUTION6b</resolution>
 			<reference>ADC_NOT_SUPPORTED</reference>
-		</adc>
+		</adcInstance>
+        <adcInstance>
+            <name>ADC1_2_COMMON</name>
+            <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+            <sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_4CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_7CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_19CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_61CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_181CYCLES_5</sample>
+            <sample>ADC_SAMPLETIME_601CYCLES_5</sample>
+            <clock>ADC_NOT_SUPPORTED</clock>
+            <justification>ADC_DATAALIGN_RIGHT</justification>
+            <justification>ADC_DATAALIGN_LEFT</justification>
+            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
+            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV4</prescaler>
+            <resolution>ADC_RESOLUTION12b</resolution>
+            <resolution>ADC_RESOLUTION10b</resolution>
+            <resolution>ADC_RESOLUTION8b</resolution>
+            <resolution>ADC_RESOLUTION6b</resolution>
+            <reference>ADC_NOT_SUPPORTED</reference>
+        </adcInstance>
 	</adcs>
 	<pins>
 		<pin>
@@ -132,9 +152,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_0</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1_2_COMMON</adc>
+            <adcChannel>ADC_CHANNEL_6</adcChannel>
 			<!--TODO: -->
-			<adc>ADC12_IN6</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH1</timer>
 		</pin>
 		<pin>
@@ -143,9 +164,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_1</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1_2_COMMON</adc>
+            <adcChannel>ADC_CHANNEL_7</adcChannel>
 			<!--TODO: -->
-			<adc>ADC12_IN7</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH2</timer>
 		</pin>
 		<pin>
@@ -154,9 +176,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_2</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1_2_COMMON</adc>
+            <adcChannel>ADC_CHANNEL_8</adcChannel>
 			<!--TODO: -->
-			<adc>ADC12_IN8</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH3</timer>
 		</pin>
 		<pin>
@@ -165,9 +188,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_3</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1_2_COMMON</adc>
+            <adcChannel>ADC_CHANNEL_9</adcChannel>
 			<!--TODO: -->
-			<adc>ADC12_IN9</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH4</timer>
 			<timer>TIM1_BKIN2</timer>
 		</pin>
@@ -188,9 +212,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_0</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_1</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN1</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH1</timer>
 			<timer>TIM2_ETR</timer>
 			<tsc>TSC_G1_IO1</tsc>
@@ -203,9 +228,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_1</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_2</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN2</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH2</timer>
 			<timer>TIM15_CH1N</timer>
 			<tsc>TSC_G1_IO2</tsc>
@@ -218,9 +244,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_2</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_3</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN3</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH3</timer>
 			<tsc>TSC_G1_IO3</tsc>
 			<uart>USART2_TX</uart>
@@ -233,9 +260,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_3</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_4</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN4</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH4</timer>
 			<timer>TIM15_CH2</timer>
 			<tsc>TSC_G1_IO4</tsc>
@@ -257,9 +285,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_4</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_1</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN1</adc>
+			<interrupt>PCINT0</interrupt>
 			<dac>DAC1_OUT1</dac>
 			<timer>TIM3_CH2</timer>
 			<tsc>TSC_G2_IO1</tsc>
@@ -274,9 +303,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_5</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_2</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN2</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH1</timer>
 			<timer>TIM2_ETR</timer>
 			<tsc>TSC_G2_IO2</tsc>
@@ -290,9 +320,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_6</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_3</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN3</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM16_CH1</timer>
 			<timer>TIM3_CH1</timer>
 			<timer>TIM1_BKIN</timer>
@@ -308,9 +339,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_A</port>
 			<portPin>PIN_7</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_4</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN4</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM17_CH1</timer>
 			<timer>TIM3_CH2</timer>
 			<timer>TIM1_CH1N</timer>
@@ -325,9 +357,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_4</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_5</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN5</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_ETR</timer>
 			<uart>USART1_TX</uart>
 		</pin>
@@ -337,9 +370,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_C</port>
 			<portPin>PIN_5</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_11</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN11</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_BKIN</timer>
 			<uart>USART1_RX</uart>
 			<opamp>OPAMP2_VINM</opamp>
@@ -351,9 +385,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_0</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_11</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN11</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM3_CH3</timer>
 			<timer>TIM1_CH2N</timer>
 			<opamp>OPAMP2_VINP</opamp>
@@ -366,9 +401,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_1</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_12</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN12</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM3_CH4</timer>
 			<timer>TIM1_CH3N</timer>
 			<tsc>TSC_G3_IO3</tsc>
@@ -381,9 +417,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_2</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_12</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN12</adc>
+			<interrupt>PCINT0</interrupt>
 			<tsc>TSC_G3_IO4</tsc>
 			<hrtim>HRTIM1_SCIN</hrtim>
 			<comp>COMP4_INM</comp>
@@ -431,9 +468,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_12</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_13</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN13</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_BKIN</timer>
 			<tsc>TSC_G6_IO2</tsc>
 			<hrtim>HRTIM1_CHC1</hrtim>
@@ -444,9 +482,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_13</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_13</adcChannel>
 			<!--TODO: -->
-			<adc>ADC1_IN13</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH1N</timer>
 			<tsc>TSC_G6_IO3</tsc>
 			<hrtim>HRTIM1_CHC2</hrtim>
@@ -458,9 +497,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_14</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_14</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN14</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_CH1</timer>
 			<timer>TIM1_CH2N</timer>
 			<tsc>TSC_G6_IO4</tsc>
@@ -474,9 +514,10 @@
 			<gpio>GPIO</gpio>
 			<port>PORT_B</port>
 			<portPin>PIN_15</portPin>
-			<interrupt>PCINT0</interrupt>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_15</adcChannel>
 			<!--TODO: -->
-			<adc>ADC2_IN15</adc>
+			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_CH2</timer>
 			<timer>TIM15_CH1N</timer>
 			<timer>TIM1_CH3N</timer>
