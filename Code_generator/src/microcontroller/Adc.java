@@ -142,7 +142,7 @@ public class Adc {
 	 * 
 	 * @param prescaler Clock prescaler
 	 */
-	public void addprescaler(String prescaler) {
+	public void addPrescaler(String prescaler) {
 		Prescalers.add(prescaler);
 	}
 

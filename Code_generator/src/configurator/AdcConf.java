@@ -12,6 +12,7 @@ public class AdcConf {
 	private String Sample;
 	private String Clock;
 	private String Justification;
+	private String Prescaler;
 	private String Resolution;
 	private String Reference;
 	private List<AdcChannel> Channels;
@@ -101,6 +102,22 @@ public class AdcConf {
 	 */
 	public void setJustification(String justification) {
 		Justification = justification;
+	}
+
+	/**
+	 * Get ADC's prescaler
+	 * @return ADC's prescaler
+	 */
+	public String getPrescaler() {
+		return Prescaler;
+	}
+
+	/**
+	 * Set ADC's prescaler
+	 * @param prescaler ADC's prescaler
+	 */
+	public void setPrescaler(String prescaler) {
+		Prescaler = prescaler;
 	}
 
 	/**

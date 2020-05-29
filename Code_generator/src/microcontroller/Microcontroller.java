@@ -105,6 +105,7 @@ public class Microcontroller {
 	private static final String STR_ADC_SAMPLE = "sample";
 	private static final String STR_ADC_CLOCK = "clock";
 	private static final String STR_ADC_JUSTIFICATION = "justification";
+	private static final String STR_ADC_PRESCALER = "prescaler";
 	private static final String STR_ADC_RESOLUTION = "resolution";
 	private static final String STR_ADC_REFERENCE = "reference";
 
@@ -636,6 +637,18 @@ public class Microcontroller {
 			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
 				adc.addJustification(featureStr);
 				Features.verbosePrint("\tJustification: " + featureStr);
+			}
+		}
+
+		/* Prescalers */
+		feature = STR_ADC_PRESCALER;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addPrescaler(featureStr);
+				Features.verbosePrint("\tPrescaler: " + featureStr);
 			}
 		}
 
