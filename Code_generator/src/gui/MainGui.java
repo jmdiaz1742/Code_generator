@@ -101,6 +101,7 @@ public class MainGui {
 			/* If a configuration file is found */
 			errorStatus = fileOpener.OpenFile(ProjectSettingsConf.getConfFile());
 			errorStatus = SelectedMicrocontroller.loadPinsConf(fileOpener.getParsedDoc());
+			errorStatus = SelectedMicrocontroller.loadAdcsConf(fileOpener.getParsedDoc());
 		} else {
 			Features.verbosePrint("No pin configuration file found...");
 		}

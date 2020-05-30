@@ -17,19 +17,31 @@ public class AdcConf {
 	private String Reference;
 	private List<AdcChannel> Channels;
 
+	public static final String STR_NAME = "name";
+	public static final String STR_CODE_NAME = "codeName";
+	public static final String STR_SAMPLE = "sample";
+	public static final String STR_CLOCK = "clock";
+	public static final String STR_JUSTIFICATION = "justification";
+	public static final String STR_PRESCALER = "prescaler";
+	public static final String STR_RESOLUTION = "resolution";
+	public static final String STR_REFERENCE = "reference";
+
+	public Adc AdcFeatures;
+
 	/**
 	 * ADC configuration constructor
 	 * 
 	 * @param adc ADC instance
 	 */
 	public AdcConf(Adc adc) {
+		AdcFeatures = adc;
 		/* Initialize default configuration with first element of each feature */
-		setCodeName(adc.geName());
-		setSample(adc.getSample(0));
-		setClock(adc.getClock(0));
-		setJustification(adc.getJustification(0));
-		setResolution(adc.getResolution(0));
-		setReference(adc.getReference(0));
+		setCodeName(AdcFeatures.getName());
+		setSample(AdcFeatures.getSample(0));
+		setClock(AdcFeatures.getClock(0));
+		setJustification(AdcFeatures.getJustification(0));
+		setResolution(AdcFeatures.getResolution(0));
+		setReference(AdcFeatures.getReference(0));
 	}
 
 	/**
@@ -106,6 +118,7 @@ public class AdcConf {
 
 	/**
 	 * Get ADC's prescaler
+	 * 
 	 * @return ADC's prescaler
 	 */
 	public String getPrescaler() {
@@ -114,6 +127,7 @@ public class AdcConf {
 
 	/**
 	 * Set ADC's prescaler
+	 * 
 	 * @param prescaler ADC's prescaler
 	 */
 	public void setPrescaler(String prescaler) {
@@ -162,9 +176,10 @@ public class AdcConf {
 	 * @param adc ADC instance
 	 */
 	public void setChannels(Adc adc) {
+		AdcFeatures = adc;
 		Channels = new ArrayList<AdcChannel>();
-		for (int chanNum = 0; chanNum < adc.getChannelNum(); chanNum++) {
-			Channels.add(adc.getChannel(chanNum));
+		for (int chanNum = 0; chanNum < AdcFeatures.getChannelNum(); chanNum++) {
+			Channels.add(AdcFeatures.getChannel(chanNum));
 		}
 	}
 

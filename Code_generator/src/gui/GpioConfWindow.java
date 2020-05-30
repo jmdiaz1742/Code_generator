@@ -60,6 +60,8 @@ public class GpioConfWindow {
 	private JLabel lblt_PullResistor;
 	private JLabel lblSpeed;
 	private JLabel lblCodename;
+	private JScrollPane scrollPane;
+	private JPanel panel;
 
 	/* Dynamic GUI elements */
 	private JLabel[] lbl_PinName;
@@ -91,8 +93,6 @@ public class GpioConfWindow {
 	private static final int PIN_SPEED_CBOX_INIT_POS_Y = 3;
 	private static final int PIN_CODE_NAME_TXTF_INIT_POS_X = 8;
 	private static final int PIN_CODE_NAME_TXTF_INIT_POS_Y = 3;
-	private JScrollPane scrollPane;
-	private JPanel panel;
 
 	/**
 	 * Gpio configuration window main
@@ -288,7 +288,7 @@ public class GpioConfWindow {
 	 */
 	@SuppressWarnings("unchecked") // FIXME: Look for way to properly initialize the JComboBox array
 	private void initDynamicPinElements() {
-		Features.verbosePrint("Initializing dynamic elements...");
+		Features.verbosePrint("Initializing dynamic Pin elements...");
 		checkBox_PinSelected = new JCheckBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		lbl_PinName = new JLabel[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];
 		comboBox_PinMode = new JComboBox[Microcontroller.MAX_NUMBER_OF_PINS_PER_PORT];

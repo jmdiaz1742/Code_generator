@@ -37,7 +37,7 @@ public class Adc {
 	 * 
 	 * @return Instance name
 	 */
-	public String geName() {
+	public String getName() {
 		return Name;
 	}
 

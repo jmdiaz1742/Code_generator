@@ -16,8 +16,8 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Speed;
 import configurator.GPIO.Selected;
+import configurator.GPIO.Speed;
 import xmlParser.XmlOpener;
 
 /**
@@ -67,6 +67,11 @@ public class Microcontroller {
 	public PinConf[] GpioCfgPin;
 
 	/**
+	 * List of ADCs
+	 */
+	public String[] Adcs;
+
+	/**
 	 * Configured ADCs list
 	 */
 	public AdcConf[] AdcCfg;
@@ -100,15 +105,6 @@ public class Microcontroller {
 	private static final String STR_PIN_RESET = "reset";
 	private static final String STR_PIN_MISC = "misc";
 
-	/* ADCs characteristics */
-	private static final String STR_ADC_NAME = "name";
-	private static final String STR_ADC_SAMPLE = "sample";
-	private static final String STR_ADC_CLOCK = "clock";
-	private static final String STR_ADC_JUSTIFICATION = "justification";
-	private static final String STR_ADC_PRESCALER = "prescaler";
-	private static final String STR_ADC_RESOLUTION = "resolution";
-	private static final String STR_ADC_REFERENCE = "reference";
-
 	/* Strings to extract information from XML file */
 	private static final String ROOT_ELEMENT = "microcontroller";
 	private static final String STR_ATT_MODEL = "model";
@@ -121,6 +117,11 @@ public class Microcontroller {
 	 * Maximum number of pins allowed in a single port
 	 */
 	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 32;
+
+	/**
+	 * Maximum number of ADCs allowed
+	 */
+	public static final int MAX_NUMBER_OF_ADCS = 16;
 
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
@@ -556,6 +557,7 @@ public class Microcontroller {
 		adcList = UcDoc.getElementsByTagName(STR_ADC);
 		if (adcList.getLength() > 0) {
 			setUc_adcNum(adcList.getLength());
+			Adcs = new String[getUc_adcNum()];
 			CurrentAdc = new Adc[getUc_adcNum()];
 			AdcCfg = new AdcConf[getUc_adcNum()];
 			Features.verbosePrint("Number of ADCs: " + getUc_adcNum());
@@ -569,6 +571,7 @@ public class Microcontroller {
 					Features.verbosePrint("ADC " + adcNum + " not valid!");
 					break;
 				}
+				Adcs[adcNum] = CurrentAdc[adcNum].getName();
 			}
 
 		} else {
@@ -598,14 +601,14 @@ public class Microcontroller {
 
 		/* Name */
 
-		name = XmlOpener.getElementInfo(adcEl, STR_ADC_NAME);
+		name = XmlOpener.getElementInfo(adcEl, AdcConf.STR_NAME);
 		if (!name.equals(ErrorCode.STR_INVALID)) {
 			adc.setName(name);
 			Features.verbosePrint("\tName: " + name);
 		}
 
 		/* Samples */
-		feature = STR_ADC_SAMPLE;
+		feature = AdcConf.STR_SAMPLE;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -617,7 +620,7 @@ public class Microcontroller {
 		}
 
 		/* Clocks */
-		feature = STR_ADC_CLOCK;
+		feature = AdcConf.STR_CLOCK;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -629,7 +632,7 @@ public class Microcontroller {
 		}
 
 		/* Justifications */
-		feature = STR_ADC_JUSTIFICATION;
+		feature = AdcConf.STR_JUSTIFICATION;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -641,7 +644,7 @@ public class Microcontroller {
 		}
 
 		/* Prescalers */
-		feature = STR_ADC_PRESCALER;
+		feature = AdcConf.STR_PRESCALER;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -653,7 +656,7 @@ public class Microcontroller {
 		}
 
 		/* Resolutions */
-		feature = STR_ADC_RESOLUTION;
+		feature = AdcConf.STR_RESOLUTION;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -665,7 +668,7 @@ public class Microcontroller {
 		}
 
 		/* References */
-		feature = STR_ADC_REFERENCE;
+		feature = AdcConf.STR_REFERENCE;
 		featureList = adcEl.getElementsByTagName(feature);
 		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
 			featureStr = featureList.item(featNum).getTextContent();
@@ -681,6 +684,87 @@ public class Microcontroller {
 		}
 
 		return adc;
+	}
+
+	public ErrorCode loadAdcsConf(Document confDoc) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList adcList;
+
+		/* Get the root microcontroller element */
+		Element adcRoot = confDoc.getDocumentElement();
+		Features.verbosePrint("Configuration Root element: " + adcRoot.getTagName());
+
+		if (!adcRoot.getTagName().equals(CFG_ROOT_ELEMENT)) {
+			Features.verbosePrint("Wrong root element!...");
+			return ErrorCode.FILE_READ_ERROR;
+		}
+
+		/* Get the ADC's configuration */
+
+		adcList = confDoc.getElementsByTagName(STR_ADC);
+		if (adcList.getLength() > 0) {
+			Features.verbosePrint("Number of configured ADCs: " + adcList.getLength());
+		} else {
+			Features.verbosePrint("No ADCs configurations found...");
+			return ErrorCode.EX_ERROR;
+		}
+
+		for (int adcNum = 0; adcNum < adcList.getLength(); adcNum++) {
+			String name;
+			String configuration;
+			Element adcEl;
+			int adcIndex = 0;
+
+			adcEl = (Element) confDoc.getElementsByTagName(STR_ADC).item(adcNum);
+
+			/* Set the ADC's configurations if available */
+
+			name = XmlOpener.getElementInfo(adcEl, AdcConf.STR_NAME);
+			if (!name.equals(ErrorCode.STR_INVALID)) {
+				adcIndex = getAdcIndexFromName(name);
+				if (adcIndex >= getUc_pinNum()) {
+					Features.verbosePrint("ADC " + name + " not found...");
+					return ErrorCode.EX_ERROR;
+				}
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CODE_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setCodeName(configuration);
+				Features.verbosePrint("Found " + name + "'s Code name: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_SAMPLE);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setSample(configuration);
+				Features.verbosePrint("Found " + name + "'s Sample: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CLOCK);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setClock(configuration);
+				Features.verbosePrint("Found " + name + "'s Clock: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_JUSTIFICATION);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setJustification(configuration);
+				Features.verbosePrint("Found " + name + "'s Justification: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_RESOLUTION);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setResolution(configuration);
+				Features.verbosePrint("Found " + name + "'s Resolution: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_REFERENCE);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setReference(configuration);
+				Features.verbosePrint("Found " + name + "'s Reference: " + configuration);
+			}
+		}
+		return errorStatus;
 	}
 
 	/**
@@ -710,7 +794,7 @@ public class Microcontroller {
 	private int getAdcIndexFromName(String name) {
 		int index = ErrorCode.INT_INVALID_INDEX;
 		for (int adcNum = 0; adcNum < CurrentAdc.length; adcNum++) {
-			if (name.equals(CurrentAdc[adcNum].geName())) {
+			if (name.equals(CurrentAdc[adcNum].getName())) {
 				index = adcNum;
 				break;
 			}
