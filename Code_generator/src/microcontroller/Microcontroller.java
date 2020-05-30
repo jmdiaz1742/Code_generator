@@ -752,6 +752,12 @@ public class Microcontroller {
 				Features.verbosePrint("Found " + name + "'s Justification: " + configuration);
 			}
 
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_PRESCALER);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setPrescaler(configuration);
+				Features.verbosePrint("Found " + name + "'s Prescaler: " + configuration);
+			}
+
 			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_RESOLUTION);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				AdcCfg[adcNum].setResolution(configuration);

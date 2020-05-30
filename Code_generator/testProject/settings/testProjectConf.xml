@@ -663,4 +663,37 @@
         <Speed>SPEED_FAST</Speed>
         <codeName>PB9</codeName>
     </pin>
+    <adcInstance>
+        ADC1
+        <name>ADC1</name>
+        <codeName>ADC1</codeName>
+        <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+        <clock>ADC_NOT_SUPPORTED</clock>
+        <justification>ADC_DATAALIGN_RIGHT</justification>
+        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+        <resolution>ADC_RESOLUTION12b</resolution>
+        <reference>ADC_NOT_SUPPORTED</reference>
+    </adcInstance>
+    <adcInstance>
+        ADC2
+        <name>ADC2</name>
+        <codeName>MyAdc</codeName>
+        <sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+        <clock>ADC_NOT_SUPPORTED</clock>
+        <justification>ADC_DATAALIGN_LEFT</justification>
+        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
+        <resolution>ADC_RESOLUTION10b</resolution>
+        <reference>ADC_NOT_SUPPORTED</reference>
+    </adcInstance>
+    <adcInstance>
+        ADC1_2_COMMON
+        <name>ADC1_2_COMMON</name>
+        <codeName>CommonAdc</codeName>
+        <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+        <clock>ADC_NOT_SUPPORTED</clock>
+        <justification>ADC_DATAALIGN_RIGHT</justification>
+        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+        <resolution>ADC_RESOLUTION12b</resolution>
+        <reference>ADC_NOT_SUPPORTED</reference>
+    </adcInstance>
 </Microcontroller_Configuration>

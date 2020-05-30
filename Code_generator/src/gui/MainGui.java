@@ -147,7 +147,7 @@ public class MainGui {
 	 * @param uC Microcontroller configuration
 	 */
 	static public void setNewUC(Microcontroller uC) {
-		if (uC == SelectedMicrocontroller) {
+		if (uC.equals(SelectedMicrocontroller)) {
 			Features.verbosePrint("No uC change...");
 		} else {
 			Features.verbosePrint("uC changed...");

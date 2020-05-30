@@ -41,14 +41,14 @@ public class ConfXmlWriter {
 	/* Private fields */
 	private Document XmlDoc;
 	private Element RootElement;
-	private Element[] PinElement;
-	private Element[] AdcElement;
+	private Element[] ConfElement;
 	private Microcontroller UCConf;
 
 	private static final String STR_ROOT_EL = "Microcontroller_Configuration";
 	private static final String STR_PIN_EL = "pin";
 	private static final String STR_PIN_PORT = "port";
 	private static final String STR_PIN_NAME = "name";
+	private static final String STR_ADC = "adcInstance";
 
 	/**
 	 * Constructor
@@ -60,6 +60,7 @@ public class ConfXmlWriter {
 		DocumentBuilder xmlBuilder;
 
 		UCConf = uC;
+		int totalElements = UCConf.getUc_gpioNum() + UCConf.getUc_adcNum();
 
 		if (UCConf.getUc_gpioNum() > 0) {
 			try {
@@ -71,11 +72,9 @@ public class ConfXmlWriter {
 				RootElement = XmlDoc.createElement(STR_ROOT_EL);
 				XmlDoc.appendChild(RootElement);
 
-				PinElement = new Element[UCConf.getUc_gpioNum()];
+				ConfElement = new Element[totalElements];
 				configurePins();
-
-				AdcElement = new Element[UCConf.getUc_adcNum()];
-//				configureAdcs();
+				configureAdcs();
 
 			} catch (ParserConfigurationException e) {
 				Features.verbosePrint("Error creating XML file...");
@@ -100,9 +99,9 @@ public class ConfXmlWriter {
 	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
-		PinElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
-		PinElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPinName()));
-		RootElement.appendChild(PinElement[pinNum]);
+		ConfElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
+		ConfElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPinName()));
+		RootElement.appendChild(ConfElement[pinNum]);
 
 		/* Write the pins configuration information */
 		addPinChild(STR_PIN_NAME, pin.getPinName(), pinNum);
@@ -127,28 +126,31 @@ public class ConfXmlWriter {
 	private void addPinChild(String elName, String elInfo, int pinNum) {
 		Element childEl = XmlDoc.createElement(elName);
 		childEl.appendChild(XmlDoc.createTextNode(elInfo));
-		PinElement[pinNum].appendChild(childEl);
+		ConfElement[pinNum].appendChild(childEl);
 	}
 
 	/**
 	 * Configure ADCs
 	 */
 	private void configureAdcs() {
+		int adcOffset = UCConf.getUc_gpioNum();
 		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
+			int elNum = adcOffset + adcNum;
 			AdcConf adc = UCConf.AdcCfg[adcNum];
 
-			AdcElement[adcNum] = XmlDoc.createElement(AdcConf.STR_NAME);
-			AdcElement[adcNum].appendChild(XmlDoc.createTextNode(adc.AdcFeatures.getName()));
-			RootElement.appendChild(AdcElement[adcNum]);
+			ConfElement[elNum] = XmlDoc.createElement(STR_ADC);
+			ConfElement[elNum].appendChild(XmlDoc.createTextNode(adc.AdcFeatures.getName()));
+			RootElement.appendChild(ConfElement[elNum]);
 
 			/* Write the pins configuration information */
-			addAdcChild(AdcConf.STR_CODE_NAME, adc.getCodeName(), adcNum);
-			addAdcChild(AdcConf.STR_SAMPLE, adc.getSample(), adcNum);
-			addAdcChild(AdcConf.STR_CLOCK, adc.getClock(), adcNum);
-			addAdcChild(AdcConf.STR_JUSTIFICATION, adc.getJustification(), adcNum);
-			addAdcChild(AdcConf.STR_PRESCALER, adc.getPrescaler(), adcNum);
-			addAdcChild(AdcConf.STR_RESOLUTION, adc.getResolution(), adcNum);
-			addAdcChild(AdcConf.STR_REFERENCE, adc.getReference(), adcNum);
+			addAdcChild(AdcConf.STR_NAME, adc.AdcFeatures.getName(), elNum);
+			addAdcChild(AdcConf.STR_CODE_NAME, adc.getCodeName(), elNum);
+			addAdcChild(AdcConf.STR_SAMPLE, adc.getSample(), elNum);
+			addAdcChild(AdcConf.STR_CLOCK, adc.getClock(), elNum);
+			addAdcChild(AdcConf.STR_JUSTIFICATION, adc.getJustification(), elNum);
+			addAdcChild(AdcConf.STR_PRESCALER, adc.getPrescaler(), elNum);
+			addAdcChild(AdcConf.STR_RESOLUTION, adc.getResolution(), elNum);
+			addAdcChild(AdcConf.STR_REFERENCE, adc.getReference(), elNum);
 		}
 	}
 
@@ -162,7 +164,7 @@ public class ConfXmlWriter {
 	private void addAdcChild(String elName, String elInfo, int adcNum) {
 		Element childEl = XmlDoc.createElement(elName);
 		childEl.appendChild(XmlDoc.createTextNode(elInfo));
-		PinElement[adcNum].appendChild(childEl);
+		ConfElement[adcNum].appendChild(childEl);
 	}
 
 	/**
@@ -189,7 +191,6 @@ public class ConfXmlWriter {
 			xmlResult = new StreamResult(xmlFile);
 
 			xmlTrans.setOutputProperty(OutputKeys.INDENT, "yes");
-			xmlTrans.setOutputProperty(OutputKeys.METHOD, "xml");
 			xmlTrans.transform(xmlSource, xmlResult);
 		} catch (TransformerConfigurationException e) {
 			errorStatus = ErrorCode.FILE_WRITE_ERROR;

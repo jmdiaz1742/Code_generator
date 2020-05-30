@@ -40,6 +40,7 @@ public class AdcConf {
 		setSample(AdcFeatures.getSample(0));
 		setClock(AdcFeatures.getClock(0));
 		setJustification(AdcFeatures.getJustification(0));
+		setPrescaler(AdcFeatures.getPrescaler(0));
 		setResolution(AdcFeatures.getResolution(0));
 		setReference(AdcFeatures.getReference(0));
 	}
