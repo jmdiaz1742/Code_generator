@@ -52,7 +52,7 @@ public class Features {
 	/* Software version numbers */
 	private static final int VERSION_MAJOR = 1;
 	private static final int VERSION_MINOR = 0;
-	private static final int VERSION_PATCH = 3;
+	private static final int VERSION_PATCH = 4;
 
 	/**
 	 * Complete Software version

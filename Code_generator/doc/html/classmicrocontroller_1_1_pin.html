@@ -134,10 +134,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aed1a4738499a5e65d34802a49daabeac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5e9d29f1703cbcac65fb58c0fad76b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#aab5e9d29f1703cbcac65fb58c0fad76b">getInt</a> ()</td></tr>
 <tr class="separator:aab5e9d29f1703cbcac65fb58c0fad76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94bf91b71a1cb20f2ee542c8e96ce8a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#a94bf91b71a1cb20f2ee542c8e96ce8a2">setAdc</a> (String feature)</td></tr>
-<tr class="separator:a94bf91b71a1cb20f2ee542c8e96ce8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77300e0560b6b73be0a457aedf81c881"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#a77300e0560b6b73be0a457aedf81c881">setAdc</a> (String instance, String channel)</td></tr>
+<tr class="separator:a77300e0560b6b73be0a457aedf81c881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3ecaed5ed7abaa0879a0d04175e1a37"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#ab3ecaed5ed7abaa0879a0d04175e1a37">getAdc</a> ()</td></tr>
 <tr class="separator:ab3ecaed5ed7abaa0879a0d04175e1a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba4387c75409a74c1e1168f45b125392"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#aba4387c75409a74c1e1168f45b125392">getAdcChannel</a> ()</td></tr>
+<tr class="separator:aba4387c75409a74c1e1168f45b125392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bfe518b73af323338fe6ce0b3f7546d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#a5bfe518b73af323338fe6ce0b3f7546d">setUart</a> (String feature)</td></tr>
 <tr class="separator:a5bfe518b73af323338fe6ce0b3f7546d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e439c168172aa841f6a99b3760deeb2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmicrocontroller_1_1_pin.html#a7e439c168172aa841f6a99b3760deeb2">getUart</a> ()</td></tr>
@@ -287,6 +289,25 @@ Reset </li>
 </div><div class="memdoc">
 <p>Get the pin's ADC name</p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classmicrocontroller_1_1_pin.html">Pin</a>'s ADC </dd></dl>
+
+</div>
+</div>
+<a id="aba4387c75409a74c1e1168f45b125392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba4387c75409a74c1e1168f45b125392">&#9670;&nbsp;</a></span>getAdcChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String microcontroller.Pin.getAdcChannel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the pin's ADC channel</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classmicrocontroller_1_1_pin.html">Pin</a>'s ADC channel </dd></dl>
 
 </div>
 </div>
@@ -665,7 +686,8 @@ Reset </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get port pin number </p><dl class="section return"><dt>Returns</dt><dd>port pin number </dd></dl>
+<p>Get port pin number</p>
+<dl class="section return"><dt>Returns</dt><dd>port pin number </dd></dl>
 
 </div>
 </div>
@@ -764,8 +786,8 @@ Reset </li>
 
 </div>
 </div>
-<a id="a94bf91b71a1cb20f2ee542c8e96ce8a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94bf91b71a1cb20f2ee542c8e96ce8a2">&#9670;&nbsp;</a></span>setAdc()</h2>
+<a id="a77300e0560b6b73be0a457aedf81c881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77300e0560b6b73be0a457aedf81c881">&#9670;&nbsp;</a></span>setAdc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -774,8 +796,18 @@ Reset </li>
           <td class="memname">void microcontroller.Pin.setAdc </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>feature</em></td><td>)</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>channel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1279,7 +1311,8 @@ Reset </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set port pin number </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set port pin number</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">portPin</td><td>Port pin number </td></tr>
   </table>

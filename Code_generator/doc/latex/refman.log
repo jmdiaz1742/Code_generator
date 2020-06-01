@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.2)  27 MAY 2020 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.2)  31 MAY 2020 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -986,6 +986,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 169.
  [1] [2] [3] [4] [5] [6] [7] [8] [9] [10]
+[11] [12]
 Package hyperref Info: Option `pageanchor' set `true' on input line 171.
 
 Chapter 1.
@@ -1046,22 +1047,22 @@ Underfull \hbox (badness 10000) detected at line 18
  []
 
 ) (./namespaceconfigurator.tex
-Underfull \hbox (badness 10000) detected at line 17
+Underfull \hbox (badness 10000) detected at line 19
 [][][]
  []
 
 [5]
-Underfull \hbox (badness 10000) detected at line 20
+Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
 ) (./namespaceframework.tex
-Underfull \hbox (badness 10000) detected at line 17
+Underfull \hbox (badness 10000) detected at line 19
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 20
+Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
@@ -1134,12 +1135,177 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
  [9
 
 ])
-(./classmicrocontroller_1_1_adc.tex) (./classconfigurator_1_1_adc_conf.tex)
-(./classgui_1_1_adc_conf_window.tex
+(./classmicrocontroller_1_1_adc.tex [10] [11] [12]
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 183
+[][][]
+ []
+
+[13]
+Underfull \hbox (badness 10000) detected at line 199
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 210
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+[14]
+Underfull \hbox (badness 10000) detected at line 237
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 248
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 264
+[][][]
+ []
+
+[15]
+Underfull \hbox (badness 10000) detected at line 275
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 291
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 302
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Underfull \hbox (badness 10000) detected at line 318
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 329
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 356
+[][][]
+ []
+
+[17]
+Underfull \hbox (badness 10000) detected at line 367
+[][][]
+ []
+
+) (./classconfigurator_1_1_a_d_c_1_1_adc_channel.tex [18]
+Underfull \hbox (badness 10000) detected at line 43
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 65
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 76
+[][][]
+ []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 87
+[][][]
+ []
+
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 20.
- [10])
-(./enumconfigurator_1_1_g_p_i_o_1_1_alt_mode.tex [11]
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
+[20]) (./classconfigurator_1_1_adc_conf.tex [21]
+Underfull \hbox (badness 10000) detected at line 104
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][][]
+ []
+
+[22]
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 159
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+[23]
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+[24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26]) (./classgui_1_1_adc_conf_window.tex [27])
+(./classframework_1_1_adc_generator.tex [28]
+Underfull \hbox (badness 10000) detected at line 50
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+[29]
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_alt_mode.tex
 Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
@@ -1149,21 +1315,17 @@ Underfull \hbox (badness 10000) detected at line 36
 [][][]
  []
 
-
+[30]
 Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
-[12]) (./classframework_1_1_code_generator.tex [13]
+[31]) (./classframework_1_1_code_generator.tex
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
-
-Overfull \vbox (19.78728pt too high) has occurred while \output is active []
-
-
-[14]
+[32]
 Underfull \hbox (badness 10000) detected at line 54
 [][][]
  []
@@ -1178,58 +1340,58 @@ Underfull \hbox (badness 10000) detected at line 19
 [][][]
  []
 
-[15]) (./classframework_1_1_common.tex
-Underfull \hbox (badness 10000) detected at line 50
+[33]) (./classframework_1_1_common.tex
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+[34]
+Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 53
+Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-[16]
-Underfull \hbox (badness 10000) detected at line 74
-[][][]
- []
-
-[17]
-Underfull \hbox (badness 10000) detected at line 92
+[35]
+Underfull \hbox (badness 10000) detected at line 94
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 110
+Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 126
+Underfull \hbox (badness 10000) detected at line 128
 [][][]
  []
 
-[18]
-Underfull \hbox (badness 10000) detected at line 142
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 158
-[][][]
- []
-
-[19]
-Underfull \hbox (badness 10000) detected at line 174
+[36]
+Underfull \hbox (badness 10000) detected at line 144
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 185
+Underfull \hbox (badness 10000) detected at line 160
+[][][]
+ []
+
+[37]
+Underfull \hbox (badness 10000) detected at line 176
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 196
+Underfull \hbox (badness 10000) detected at line 187
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 198
 [][][]
  []
 
@@ -1237,7 +1399,7 @@ Underfull \hbox (badness 10000) detected at line 196
 Overfull \vbox (1.26358pt too high) has occurred while \output is active []
 
 
-[20] [21]) (./classconfigurator_1_1_configuration_file.tex
+[38] [39]) (./classconfigurator_1_1_configuration_file.tex
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1247,7 +1409,7 @@ Underfull \hbox (badness 10000) detected at line 16
 [][][]
  []
 
-[22]) (./classxml_creator_1_1_conf_xml_writer.tex
+[40]) (./classxml_creator_1_1_conf_xml_writer.tex
 Underfull \hbox (badness 10000) detected at line 17
 [][][]
  []
@@ -1257,22 +1419,22 @@ Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
 
-[23] [24]
+[41] [42]
 Underfull \hbox (badness 10000) detected at line 70
 [][][]
  []
 
 ) (./enumcommon_1_1_error_code.tex
-Underfull \hbox (badness 10000) detected at line 26
+Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 29
+Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
 
-[25]) (./classcommon_1_1_features.tex [26]
+[43]) (./classcommon_1_1_features.tex [44]
 Underfull \hbox (badness 10000) detected at line 41
 [][][]
  []
@@ -1282,14 +1444,14 @@ Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-[27]
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 95--96
 \T1/pcr/m/n/8 final String common.[]Features.[]S[]W[]_[][]V[]E[]R[]S[]I[]ON = V
 []E[]R[]S[]I[]O[]N[]_[][]M[]A[]J[]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]M[]I[]N[
 ]OR + "." + V[]E[]R[]S[]I[]O[]N[]_[][]P[]A[]
  []
 
-[28]) (./classgui_1_1_gpio_conf_window.tex
+[46]) (./classgui_1_1_gpio_conf_window.tex
 Underfull \hbox (badness 10000) detected at line 18
 [][][]
  []
@@ -1299,10 +1461,10 @@ Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
-[29]
+[47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30])
+ [48])
 (./classgui_1_1_main_gui.tex
 Underfull \hbox (badness 10000) detected at line 36
 [][][]
@@ -1318,12 +1480,12 @@ Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
 
-[31]
+[49]
 Underfull \hbox (badness 10000) detected at line 69
 [][][]
  []
 
-[32] [33]) (./classgui_1_1_main_window.tex
+[50] [51]) (./classgui_1_1_main_window.tex
 Underfull \hbox (badness 10000) detected at line 29
 [][][]
  []
@@ -1333,7 +1495,7 @@ Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-[34] [35]
+[52] [53]
 Underfull \hbox (badness 10000) detected at line 77
 [][][]
  []
@@ -1343,293 +1505,28 @@ Underfull \hbox (badness 10000) detected at line 97
 [][][]
  []
 
-[36]) (./classgui_1_1_messages.tex
+[54]) (./classgui_1_1_messages.tex
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
 
-[37]
-Underfull \hbox (badness 10000) detected at line 32
-[][][]
- []
-
-) (./classmicrocontroller_1_1_microcontroller.tex
-Underfull \hbox (badness 10000) detected at line 57
-[][][]
- []
-
-[38]
-Underfull \hbox (badness 10000) detected at line 60
-[][][]
- []
-
-[39]
-Underfull \hbox (badness 10000) detected at line 95
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 111
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 122
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 133
-[][][]
- []
-
-[40]
-Underfull \hbox (badness 10000) detected at line 144
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 155
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 166
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 177
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 188
-[][][]
- []
-
-[41]
-Underfull \hbox (badness 10000) detected at line 204
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 215
-[][][]
- []
-
-[42]) (./enumconfigurator_1_1_g_p_i_o_1_1_mode.tex [43]
-Underfull \hbox (badness 10000) detected at line 29
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 32
-[][][]
- []
-
-[44]
-Underfull \hbox (badness 10000) detected at line 51
-[][][]
- []
-
-) (./enumconfigurator_1_1_g_p_i_o_1_1_out_level.tex [45]
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46]
-Underfull \hbox (badness 10000) detected at line 49
-[][][]
- []
-
-) (./enumconfigurator_1_1_g_p_i_o_1_1_out_type.tex [47]
-Underfull \hbox (badness 10000) detected at line 29
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 32
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 51
-[][][]
- []
-
-[48]) (./classmicrocontroller_1_1_pin.tex [49] [50]
-Underfull \hbox (badness 10000) detected at line 163
-[][][]
- []
-
-[51]
-Underfull \hbox (badness 10000) detected at line 166
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 189
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 200
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 211
-[][][]
- []
-
-[52]
-Underfull \hbox (badness 10000) detected at line 222
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 233
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 244
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 255
-[][][]
- []
-
-[53]
-Underfull \hbox (badness 10000) detected at line 266
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 277
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 288
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 299
-[][][]
- []
-
-[54]
-Underfull \hbox (badness 10000) detected at line 310
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 321
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 332
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 343
-[][][]
- []
-
 [55]
-Underfull \hbox (badness 10000) detected at line 354
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+) (./classmicrocontroller_1_1_microcontroller.tex [56]
+Underfull \hbox (badness 10000) detected at line 72
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 365
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 376
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 387
-[][][]
- []
-
-[56]
-Underfull \hbox (badness 10000) detected at line 398
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 407
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 418
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 429
+Underfull \hbox (badness 10000) detected at line 75
 [][][]
  []
 
 [57]
-Underfull \hbox (badness 10000) detected at line 440
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 451
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 462
-[][][]
- []
-
-[58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
-[60] [61]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [62]
-[63] [64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65]
-[66]) (./classconfigurator_1_1_pin_conf.tex [67]
-Underfull \hbox (badness 10000) detected at line 82
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 85
-[][][]
- []
-
-[68]
-Underfull \hbox (badness 10000) detected at line 115
+Underfull \hbox (badness 10000) detected at line 110
 [][][]
  []
 
@@ -1648,7 +1545,7 @@ Underfull \hbox (badness 10000) detected at line 148
 [][][]
  []
 
-[69]
+[58]
 Underfull \hbox (badness 10000) detected at line 159
 [][][]
  []
@@ -1668,7 +1565,283 @@ Underfull \hbox (badness 10000) detected at line 192
 [][][]
  []
 
-[70]
+
+Underfull \hbox (badness 10000) detected at line 203
+[][][]
+ []
+
+[59]
+Underfull \hbox (badness 10000) detected at line 214
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 225
+[][][]
+ []
+
+[60]
+Underfull \hbox (badness 10000) detected at line 241
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 252
+[][][]
+ []
+
+[61]) (./enumconfigurator_1_1_g_p_i_o_1_1_mode.tex [62]
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+[63] [64]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_out_level.tex [65]
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [66]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+) (./enumconfigurator_1_1_g_p_i_o_1_1_out_type.tex [67]
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+[68]) (./classmicrocontroller_1_1_pin.tex [69] [70]
+Underfull \hbox (badness 10000) detected at line 165
+[][][]
+ []
+
+[71]
+Underfull \hbox (badness 10000) detected at line 168
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 191
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 202
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 213
+[][][]
+ []
+
+[72]
+Underfull \hbox (badness 10000) detected at line 224
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 235
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 246
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 257
+[][][]
+ []
+
+[73]
+Underfull \hbox (badness 10000) detected at line 268
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 279
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 290
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 301
+[][][]
+ []
+
+[74]
+Underfull \hbox (badness 10000) detected at line 312
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 323
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 334
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+[75]
+Underfull \hbox (badness 10000) detected at line 356
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 367
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 378
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 389
+[][][]
+ []
+
+[76]
+Underfull \hbox (badness 10000) detected at line 400
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 411
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 422
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 433
+[][][]
+ []
+
+[77]
+Underfull \hbox (badness 10000) detected at line 444
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 455
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 466
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 477
+[][][]
+ []
+
+[78] [79]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [80]
+[81] [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [83]
+[84] [85] [86]) (./classconfigurator_1_1_pin_conf.tex [87]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 85
+[][][]
+ []
+
+[88]
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+[89]
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 159
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+[90]
+Underfull \hbox (badness 10000) detected at line 192
+[][][]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 203
 [][][]
  []
@@ -1683,12 +1856,12 @@ Underfull \hbox (badness 10000) detected at line 225
 [][][]
  []
 
-
+[91]
 Underfull \hbox (badness 10000) detected at line 236
 [][][]
  []
 
-[71]
+
 Underfull \hbox (badness 10000) detected at line 247
 [][][]
  []
@@ -1703,21 +1876,21 @@ Underfull \hbox (badness 10000) detected at line 269
 [][][]
  []
 
-
+[92]
 Underfull \hbox (badness 10000) detected at line 280
 [][][]
  []
 
-[72]
+
 Underfull \hbox (badness 10000) detected at line 291
 [][][]
  []
 
-[73]
+[93]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74]
-[75]) (./classproject_configuration_1_1_project_settings.tex [76]
+ [94]
+[95] [96]) (./classproject_configuration_1_1_project_settings.tex
 Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
@@ -1727,7 +1900,7 @@ Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-[77]
+[97]
 Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
@@ -1742,17 +1915,17 @@ Underfull \hbox (badness 10000) detected at line 73
 [][][]
  []
 
-
+[98]
 Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
-[78]
+
 Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-
+[99]
 Underfull \hbox (badness 10000) detected at line 111
 [][][]
  []
@@ -1767,12 +1940,12 @@ Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-[79]
+[100]
 Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
 
-[80]) (./enumconfigurator_1_1_g_p_i_o_1_1_selected.tex [81]
+) (./enumconfigurator_1_1_selected.tex [101]
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
@@ -1787,7 +1960,7 @@ Underfull \hbox (badness 10000) detected at line 49
 [][][]
  []
 
-[82]
+[102]
 Underfull \hbox (badness 10000) detected at line 65
 [][][]
  []
@@ -1797,7 +1970,7 @@ Underfull \hbox (badness 10000) detected at line 81
 [][][]
  []
 
-) (./enumconfigurator_1_1_g_p_i_o_1_1_speed.tex [83]
+) (./enumconfigurator_1_1_g_p_i_o_1_1_speed.tex [103]
 Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
@@ -1807,12 +1980,12 @@ Underfull \hbox (badness 10000) detected at line 34
 [][][]
  []
 
-[84]
+[104]
 Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
 
-) (./classxml_parser_1_1_xml_opener.tex [85]
+) (./classxml_parser_1_1_xml_opener.tex [105]
 Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
@@ -1822,7 +1995,7 @@ Underfull \hbox (badness 10000) detected at line 27
 [][][]
  []
 
-[86]
+[106]
 Underfull \hbox (badness 10000) detected at line 57
 [][][]
  []
@@ -1832,7 +2005,7 @@ Underfull \hbox (badness 10000) detected at line 75
 [][][]
  []
 
-[87]
+[107]
 Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
@@ -1842,24 +2015,27 @@ Underfull \hbox (badness 10000) detected at line 102
 [][][]
  []
 
-) [88] (./refman.ind [89
+) [108] (./refman.ind [109
 
 
 
-] [90] [91] [92] [93] [94] [95])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
- (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
+] [110] [111] [112] [113] [114] [115] [116] [117
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
+
+(./refman.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 9C39AF6A3197E8004818ED1CB4244D13;74211.
+(rerunfilecheck)             Checksum: 05360453CAD76778A6ADBE13168C54F8;88844.
  ) 
 Here is how much of TeX's memory you used:
- 18444 strings out of 492167
- 292178 string characters out of 6131559
- 443811 words of memory out of 5000000
- 21594 multiletter control sequences out of 15000+600000
+ 18851 strings out of 492167
+ 307314 string characters out of 6131559
+ 467016 words of memory out of 5000000
+ 21782 multiletter control sequences out of 15000+600000
  55852 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,96p,938b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1870,10 +2046,10 @@ b></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texmf-
 dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw
 /helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (107 pages, 284089 bytes).
+Output written on refman.pdf (131 pages, 330952 bytes).
 PDF statistics:
- 3944 PDF objects out of 4296 (max. 8388607)
- 3767 compressed objects within 38 object streams
- 876 named destinations out of 1000 (max. 500000)
- 2873 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4800 PDF objects out of 5155 (max. 8388607)
+ 4591 compressed objects within 46 object streams
+ 1091 named destinations out of 1200 (max. 500000)
+ 3449 words of extra memory for PDF output out of 10000 (max. 10000000)
 
