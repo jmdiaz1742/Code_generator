@@ -667,7 +667,7 @@
         ADC1
         <name>ADC1</name>
         <selected>NOT</selected>
-        <codeName>ADC1</codeName>
+        <codeName>FirstAdc</codeName>
         <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
         <clock>ADC_NOT_SUPPORTED</clock>
         <justification>ADC_DATAALIGN_RIGHT</justification>

@@ -1,14 +1,14 @@
 /**
- * @file gpio_cfg.h
- * @author Miguel Diaz
- * @brief GPIO framework configuration header
+ * @file adc_cfg.h
+ * @author Cesar Rodriguez
+ * @brief ADC framework configuration header
  */
 
 /************************
  * Guard                *
  ************************/
-#ifndef _GPIO_CFG_H_
-#define _GPIO_CFG_H_
+#ifndef _ADC_CFG_H_
+#define _ADC_CFG_H_
 
 /************************
  * Includes             *
@@ -29,12 +29,11 @@ typedef enum
 {
     // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-USER_BUTTON,
-USER_LED,
+MyAdc,
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
-    GPIO_ELEMENTS_MAX
-} Gpio_elementsType;
+    ADC_ELEMENTS_MAX
+} Adc_elementsType;
 
 /************************
  * Public Macros        *
@@ -51,25 +50,13 @@ USER_LED,
 
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-// USER_BUTTON
-#define USER_BUTTON_PORT PORT_C
-#define USER_BUTTON_PIN PIN_13
-#define USER_BUTTON_MODE MODE_INPUT
-#define USER_BUTTON_ALT_MODE ALT_MODE_NONE
-#define USER_BUTTON_OUT_TYPE OTYPE_PUSH_PULL
-#define USER_BUTTON_PULL PULL_UP
-#define USER_BUTTON_SPEED SPEED_FAST
-#define USER_BUTTON_INIT_OUT LOW
-
-// USER_LED
-#define USER_LED_PORT PORT_A
-#define USER_LED_PIN PIN_12
-#define USER_LED_MODE MODE_OUTPUT
-#define USER_LED_ALT_MODE ALT_MODE_NONE
-#define USER_LED_OUT_TYPE OTYPE_PUSH_PULL
-#define USER_LED_PULL PULL_NOT_AVAILABLE
-#define USER_LED_SPEED SPEED_FAST
-#define USER_LED_INIT_OUT LOW
+// MyAdc
+#define MyAdc_SAMPLE ADC_SAMPLETIME_2CYCLES_5
+#define MyAdc_CLOCK ADC_NOT_SUPPORTED
+#define MyAdc_JUSTIFICATION ADC_DATAALIGN_LEFT
+#define MyAdc_PRESCALER ADC_CLOCK_SYNC_PCLK_DIV2
+#define MyAdc_RESOLUTION ADC_RESOLUTION10b
+#define MyAdc_REFERENCE ADC_NOT_SUPPORTED
 
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
@@ -90,4 +77,4 @@ USER_LED,
  * Public Functions     *
  ************************/
 
-#endif /* _GPIO_CFG_H_ */
+#endif /* _ADC_CFG_H_ */

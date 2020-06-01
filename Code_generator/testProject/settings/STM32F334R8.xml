@@ -8,6 +8,7 @@
 		<include_common>stdlib.h</include_common>
 		<include_common>stdbool.h</include_common>
 		<include_gpio>stm32f3xx_hal.h</include_gpio>
+		<include_adc>stm32f3xx_hal.h</include_adc>
 	</includes>
 	<configuration_definitions>
 		<!-- GPIO definitions -->

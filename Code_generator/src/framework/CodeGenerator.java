@@ -26,6 +26,8 @@ public class CodeGenerator {
 
 	private Microcontroller uC;
 	private ProjectSettings projectSettings;
+	private boolean generateGpio = false;
+	private boolean generateAdc = false;
 
 	private final static String STR_TKN_FWK_COMMON_INC = "FWK_COMMON_INCLUDES";
 	private final static String STR_TKN_FWK_MODULES_INC = "FWK_MODULES_INCLUDES";
@@ -52,8 +54,17 @@ public class CodeGenerator {
 	public ErrorCode Generate() {
 		ErrorCode error = ErrorCode.NO_ERROR;
 
-		// Generate GPIO module files:
-		error = generateCfgFiles(framework.Common.STR_MODULE_GPIO);
+		/* Check which files to generate */
+		generateGpio = uC.getUc_selectedPinsNum() > 0;
+		generateAdc = uC.getUc_selectedAdcsNum() > 0;
+
+		// Generate module files:
+		if (generateGpio) {
+			error = generateCfgFiles(framework.Common.STR_MODULE_GPIO);
+		}
+		if (generateAdc) {
+			error = generateCfgFiles(framework.Common.STR_MODULE_ADC);
+		}
 		error = generateCommonFiles();
 
 		return error;
@@ -76,8 +87,13 @@ public class CodeGenerator {
 		 * TODO: Set a method to establish which modules are in use, for now we'll only
 		 * be using GPIO
 		 */
-		modules += framework.Common.STR_INCLUDE;
-		modules += "\"" + framework.Common.STR_MODULE_GPIO + framework.Common.STR_HEADER_EXT + "\"";
+		if (generateGpio) {
+			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_GPIO;
+		}
+		if (generateAdc) {
+			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_ADC;
+		}
+		modules += framework.Common.STR_HEADER_EXT + "\"";
 
 		/* Generate frameworkCommon.h */
 		Features.verbosePrint("Generating framework common file...");
@@ -131,6 +147,10 @@ public class CodeGenerator {
 			error = replaceInFile(cfgFile, GpioGenerator.STR_TKN_CFG_ARRAY, GpioGenerator.getCfgArray(uC));
 			break;
 		}
+		case framework.Common.STR_MODULE_ADC: {
+			error = replaceInFile(cfgFile, AdcGenerator.STR_TKN_CFG_ARRAY, AdcGenerator.getCfgArray(uC));
+			break;
+		}
 		default: {
 			error = ErrorCode.FILE_CONF_ERROR;
 			break;
@@ -155,6 +175,14 @@ public class CodeGenerator {
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_ELEMENTS, GpioGenerator.getElements(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_INC, GpioGenerator.getIncludes(uC));
 			replaceInFile(cfgFile, GpioGenerator.STR_TKN_CFG_DEFS, GpioGenerator.getCfgDefinitions(uC));
+			break;
+		}
+		case framework.Common.STR_MODULE_ADC: {
+			replaceInFile(cfgFile, AdcGenerator.STR_TKN_INC, AdcGenerator.getIncludes(uC));
+			replaceInFile(cfgFile, AdcGenerator.STR_TKN_EL_DEFS, AdcGenerator.getElDefs(uC));
+			replaceInFile(cfgFile, AdcGenerator.STR_TKN_ELEMENTS, AdcGenerator.getElements(uC));
+			replaceInFile(cfgFile, AdcGenerator.STR_TKN_INC, AdcGenerator.getIncludes(uC));
+			replaceInFile(cfgFile, AdcGenerator.STR_TKN_CFG_DEFS, AdcGenerator.getCfgDefinitions(uC));
 			break;
 		}
 		default: {
@@ -195,12 +223,12 @@ public class CodeGenerator {
 
 		} catch (FileNotFoundException e1) {
 			error = ErrorCode.FILE_READ_ERROR;
-			Features.verbosePrint("Error opening file" + src.getPath());
+			Features.verbosePrint("Error opening file " + src.getPath());
 			e1.printStackTrace();
 			return error;
 		} catch (IOException e) {
 			error = ErrorCode.FILE_WRITE_ERROR;
-			Features.verbosePrint("Error saving file" + dest.getPath());
+			Features.verbosePrint("Error saving file " + dest.getPath());
 			e.printStackTrace();
 			return error;
 		} finally {

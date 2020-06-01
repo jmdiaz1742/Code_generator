@@ -50,6 +50,11 @@ public class Microcontroller {
 	 * List of Includes for GPIO module
 	 */
 	public String[] Includes_Gpio;
+	
+	/**
+	 * List of Includes for ADC module
+	 */
+	public String[] Includes_Adc;
 
 	/**
 	 * List of common definitions that will be available for all framework
@@ -60,6 +65,11 @@ public class Microcontroller {
 	 * List of definitions for GPIO module
 	 */
 	public String[] Definitions_Gpio;
+	
+	/**
+	 * List of definitions for ADC module
+	 */
+	public String[] Definitions_Adc;
 
 	/**
 	 * Configured pins list
@@ -126,8 +136,10 @@ public class Microcontroller {
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
 	private static final String STR_INCLUDE_GPIO = "include_gpio";
+	private static final String STR_INCLUDE_ADC = "include_adc";
 	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
 	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
+	private static final String STR_DEFINITION_ADC = "cfg_def_adc";
 
 	/**
 	 * Constructor
@@ -733,7 +745,7 @@ public class Microcontroller {
 				AdcCfg[adcNum].setSelected(Selected.getConfFromString(configuration));
 				Features.verbosePrint("Found " + name + "'s selection: " + configuration);
 			}
-			
+
 			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CODE_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				AdcCfg[adcNum].setCodeName(configuration);
@@ -950,6 +962,23 @@ public class Microcontroller {
 	}
 
 	/**
+	 * Get the total ADCs selected
+	 * 
+	 * @return Total of ADCs selected
+	 */
+	public int getUc_selectedAdcsNum() {
+		int selectedAdcs = 0;
+
+		for (int adcNum = 0; adcNum < AdcCfg.length; adcNum++) {
+			if (AdcCfg[adcNum].getSelected().getBoolean()) {
+				selectedAdcs++;
+			}
+		}
+
+		return selectedAdcs;
+	}
+
+	/**
 	 * Get the configuration of a pin
 	 * 
 	 * @param gpioName Name of the pin
@@ -1055,7 +1084,27 @@ public class Microcontroller {
 			}
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
+			Includes_Gpio = new String[1];
+			Includes_Gpio[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No GPIO includes found...");
+		}
+		
+		/* Get ADC includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_ADC);
+		if (includeList.getLength() > 0) {
+			Includes_Adc = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Adc.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Adc[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			Includes_Adc = new String[1];
+			Includes_Adc[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No ADC includes found...");
 		}
 
 		return errorStatus;
@@ -1101,6 +1150,24 @@ public class Microcontroller {
 			Definitions_Gpio = new String[1];
 			Definitions_Gpio[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No GPIO definitions found...");
+		}
+		
+		/* Get ADC includes */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_ADC);
+		if (includeList.getLength() > 0) {
+			Definitions_Adc = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Definitions_Adc.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Adc[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Adc = new String[1];
+			Definitions_Adc[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No ADC definitions found...");
 		}
 
 		return errorStatus;

@@ -1,13 +1,13 @@
 /**
- * @file gpio_cfg.c
- * @author Miguel Diaz
- * @brief GPIO gramework configuration
+ * @file adc_cfg.c
+ * @author Cesar Rodriguez
+ * @brief ADC Framework Configuration
  */
 
 /************************
  * Includes             *
  ************************/
-#include "gpio.h"
+#include "adc.h"
 
 /************************
  * Type Definitions     *
@@ -36,26 +36,15 @@
 /**
  * @brief GPIO initial configuration structures array
  */
-const Gpio_cfg_t Gpio_Cfg[GPIO_ELEMENTS_MAX] = {
+const Adc_cfg_t Adc_Cfg[ADC_ELEMENTS_MAX] = {
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-{USER_BUTTON_PORT,
-USER_BUTTON_PIN,
-USER_BUTTON_MODE,
-USER_BUTTON_ALT_MODE,
-USER_BUTTON_OUT_TYPE,
-USER_BUTTON_PULL,
-USER_BUTTON_SPEED,
-USER_BUTTON_INIT_OUT
-},
-{USER_LED_PORT,
-USER_LED_PIN,
-USER_LED_MODE,
-USER_LED_ALT_MODE,
-USER_LED_OUT_TYPE,
-USER_LED_PULL,
-USER_LED_SPEED,
-USER_LED_INIT_OUT
+{MyAdc_SAMPLE,
+MyAdc_CLOCK,
+MyAdc_JUSTIFICATION,
+MyAdc_PRESCALER,
+MyAdc_RESOLUTION,
+MyAdc_REFERENCE,
 }
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######

@@ -16,7 +16,7 @@
  * Includes             *
  ************************/
 // Include framework modules depending on what you are using:
-#include "gpio.h"
+#include "gpio#include "adc.h"
 
 /************************
  * Public Types         *
