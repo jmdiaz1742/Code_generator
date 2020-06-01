@@ -1,4 +1,4 @@
-package configurator.GPIO;
+package configurator;
 
 /**
  * Pin's selection

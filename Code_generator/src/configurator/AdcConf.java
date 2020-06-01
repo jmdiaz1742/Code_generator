@@ -8,6 +8,7 @@ import microcontroller.Adc;
 
 public class AdcConf {
 
+	private Selected Selection;
 	private String CodeName;
 	private String Sample;
 	private String Clock;
@@ -16,6 +17,11 @@ public class AdcConf {
 	private String Resolution;
 	private String Reference;
 	private List<AdcChannel> Channels;
+	
+	/**
+	 * Default Pin's selection
+	 */
+	public static final Selected DF_SELECTED = Selected.NOT;
 
 	public static final String STR_NAME = "name";
 	public static final String STR_CODE_NAME = "codeName";
@@ -35,6 +41,7 @@ public class AdcConf {
 	 */
 	public AdcConf(Adc adc) {
 		AdcFeatures = adc;
+		setSelected(DF_SELECTED);
 		/* Initialize default configuration with first element of each feature */
 		setCodeName(AdcFeatures.getName());
 		setSample(AdcFeatures.getSample(0));
@@ -43,6 +50,24 @@ public class AdcConf {
 		setPrescaler(AdcFeatures.getPrescaler(0));
 		setResolution(AdcFeatures.getResolution(0));
 		setReference(AdcFeatures.getReference(0));
+	}
+
+	/**
+	 * Get the ADC's selection
+	 * 
+	 * @return Selection
+	 */
+	public Selected getSelected() {
+		return Selection;
+	}
+
+	/**
+	 * Set the ADC's selection
+	 * 
+	 * @param selection Selection
+	 */
+	public void setSelected(Selected selection) {
+		Selection = selection;
 	}
 
 	/**

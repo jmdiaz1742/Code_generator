@@ -7,7 +7,6 @@ import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 
 /**

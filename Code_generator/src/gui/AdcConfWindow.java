@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 
 import common.Features;
 import configurator.AdcConf;
+import configurator.Selected;
 
 import javax.swing.JCheckBox;
 
@@ -36,6 +37,7 @@ public class AdcConfWindow {
 
 	/* Static GUI elements */
 	private JComboBox<String> comboBox_SelectAdc;
+	private JCheckBox chckbx_Selected;
 	private JTextField textField_CodeName;
 	private JComboBox<String> comboBox_Sample;
 	private JComboBox<String> comboBox_Clock;
@@ -180,12 +182,36 @@ public class AdcConfWindow {
 		gbc_lblt_ChannelCodeName.gridy = 0;
 		panel.add(lblt_ChannelCodeName, gbc_lblt_ChannelCodeName);
 
+		JLabel lblt_Selected = new JLabel(Messages.getString("AdcConfWindow.lblSelected.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lblt_Selected = new GridBagConstraints();
+		gbc_lblt_Selected.anchor = GridBagConstraints.EAST;
+		gbc_lblt_Selected.insets = new Insets(0, 0, 5, 5);
+		gbc_lblt_Selected.gridx = 0;
+		gbc_lblt_Selected.gridy = 1;
+		panel.add(lblt_Selected, gbc_lblt_Selected);
+
+		chckbx_Selected = new JCheckBox(Messages.getString("AdcConfWindow.chckbxSelected.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_chckbx_Selected = new GridBagConstraints();
+		gbc_chckbx_Selected.insets = new Insets(0, 0, 5, 5);
+		gbc_chckbx_Selected.gridx = 1;
+		gbc_chckbx_Selected.gridy = 1;
+		panel.add(chckbx_Selected, gbc_chckbx_Selected);
+		chckbx_Selected.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin ADC configuration change ******/
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+				/****** End ADC configuration change ******/
+			}
+		});
+
 		JLabel lblt_CodeName = new JLabel(Messages.getString("AdcConfWindow.lblCodeName.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_CodeName = new GridBagConstraints();
 		gbc_lblt_CodeName.anchor = GridBagConstraints.EAST;
 		gbc_lblt_CodeName.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_CodeName.gridx = 0;
-		gbc_lblt_CodeName.gridy = 1;
+		gbc_lblt_CodeName.gridy = 2;
 		panel.add(lblt_CodeName, gbc_lblt_CodeName);
 
 		textField_CodeName = new JTextField();
@@ -194,7 +220,7 @@ public class AdcConfWindow {
 		gbc_textField_CodeName.insets = new Insets(0, 0, 5, 5);
 		gbc_textField_CodeName.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_CodeName.gridx = 1;
-		gbc_textField_CodeName.gridy = 1;
+		gbc_textField_CodeName.gridy = 2;
 		panel.add(textField_CodeName, gbc_textField_CodeName);
 		textField_CodeName.setColumns(10);
 		textField_CodeName.addActionListener(new ActionListener() {
@@ -212,7 +238,7 @@ public class AdcConfWindow {
 		gbc_lblt_Sample.anchor = GridBagConstraints.EAST;
 		gbc_lblt_Sample.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Sample.gridx = 0;
-		gbc_lblt_Sample.gridy = 2;
+		gbc_lblt_Sample.gridy = 3;
 		panel.add(lblt_Sample, gbc_lblt_Sample);
 
 		comboBox_Sample = new JComboBox<String>();
@@ -220,7 +246,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Sample.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Sample.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Sample.gridx = 1;
-		gbc_comboBox_Sample.gridy = 2;
+		gbc_comboBox_Sample.gridy = 3;
 		panel.add(comboBox_Sample, gbc_comboBox_Sample);
 		comboBox_Sample.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -237,7 +263,7 @@ public class AdcConfWindow {
 		gbc_lblt_Clock.anchor = GridBagConstraints.EAST;
 		gbc_lblt_Clock.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Clock.gridx = 0;
-		gbc_lblt_Clock.gridy = 3;
+		gbc_lblt_Clock.gridy = 4;
 		panel.add(lblt_Clock, gbc_lblt_Clock);
 
 		comboBox_Clock = new JComboBox<String>();
@@ -245,7 +271,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Clock.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Clock.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Clock.gridx = 1;
-		gbc_comboBox_Clock.gridy = 3;
+		gbc_comboBox_Clock.gridy = 4;
 		panel.add(comboBox_Clock, gbc_comboBox_Clock);
 		comboBox_Clock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -262,7 +288,7 @@ public class AdcConfWindow {
 		gbc_lblt_Justification.anchor = GridBagConstraints.EAST;
 		gbc_lblt_Justification.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Justification.gridx = 0;
-		gbc_lblt_Justification.gridy = 4;
+		gbc_lblt_Justification.gridy = 5;
 		panel.add(lblt_Justification, gbc_lblt_Justification);
 
 		comboBox_Justification = new JComboBox<String>();
@@ -270,7 +296,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Justification.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Justification.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Justification.gridx = 1;
-		gbc_comboBox_Justification.gridy = 4;
+		gbc_comboBox_Justification.gridy = 5;
 		panel.add(comboBox_Justification, gbc_comboBox_Justification);
 		comboBox_Justification.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -287,7 +313,7 @@ public class AdcConfWindow {
 		gbc_lblt_Prescaler.anchor = GridBagConstraints.EAST;
 		gbc_lblt_Prescaler.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Prescaler.gridx = 0;
-		gbc_lblt_Prescaler.gridy = 5;
+		gbc_lblt_Prescaler.gridy = 6;
 		panel.add(lblt_Prescaler, gbc_lblt_Prescaler);
 
 		comboBox_Prescaler = new JComboBox<String>();
@@ -295,7 +321,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Prescaler.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Prescaler.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Prescaler.gridx = 1;
-		gbc_comboBox_Prescaler.gridy = 5;
+		gbc_comboBox_Prescaler.gridy = 6;
 		panel.add(comboBox_Prescaler, gbc_comboBox_Prescaler);
 		comboBox_Prescaler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -312,7 +338,7 @@ public class AdcConfWindow {
 		gbc_lblt_Resolution.anchor = GridBagConstraints.EAST;
 		gbc_lblt_Resolution.insets = new Insets(0, 0, 5, 5);
 		gbc_lblt_Resolution.gridx = 0;
-		gbc_lblt_Resolution.gridy = 6;
+		gbc_lblt_Resolution.gridy = 7;
 		panel.add(lblt_Resolution, gbc_lblt_Resolution);
 
 		comboBox_Resolution = new JComboBox<String>();
@@ -320,7 +346,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Resolution.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Resolution.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Resolution.gridx = 1;
-		gbc_comboBox_Resolution.gridy = 6;
+		gbc_comboBox_Resolution.gridy = 7;
 		panel.add(comboBox_Resolution, gbc_comboBox_Resolution);
 		comboBox_Resolution.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -337,7 +363,7 @@ public class AdcConfWindow {
 		gbc_lblVoltajeReference.anchor = GridBagConstraints.EAST;
 		gbc_lblVoltajeReference.insets = new Insets(0, 0, 5, 5);
 		gbc_lblVoltajeReference.gridx = 0;
-		gbc_lblVoltajeReference.gridy = 7;
+		gbc_lblVoltajeReference.gridy = 8;
 		panel.add(lblVoltajeReference, gbc_lblVoltajeReference);
 
 		comboBox_Reference = new JComboBox<String>();
@@ -345,7 +371,7 @@ public class AdcConfWindow {
 		gbc_comboBox_Reference.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Reference.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Reference.gridx = 1;
-		gbc_comboBox_Reference.gridy = 7;
+		gbc_comboBox_Reference.gridy = 8;
 		panel.add(comboBox_Reference, gbc_comboBox_Reference);
 		comboBox_Reference.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -435,10 +461,15 @@ public class AdcConfWindow {
 		int featNum = 0;
 		int selectedItem = 0;
 		AdcConf adcCfg;
+		boolean fieldsEditable;
 
 		selectedAdc = comboBox_SelectAdc.getSelectedIndex();
 		adcCfg = UcConf.AdcCfg[selectedAdc];
+		fieldsEditable = adcCfg.getSelected().getBoolean();
+		chckbx_Selected.setSelected(fieldsEditable);
+
 		textField_CodeName.setText(adcCfg.getCodeName());
+		textField_CodeName.setEnabled(fieldsEditable);
 
 		comboBox_Sample.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getSampleNum(); featNum++) {
@@ -448,6 +479,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Sample.setSelectedIndex(selectedItem);
+		comboBox_Sample.setEnabled(fieldsEditable);
 
 		comboBox_Clock.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getClockNum(); featNum++) {
@@ -457,6 +489,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Clock.setSelectedIndex(selectedItem);
+		comboBox_Clock.setEnabled(fieldsEditable);
 
 		comboBox_Justification.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getJustificationNum(); featNum++) {
@@ -466,6 +499,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Justification.setSelectedIndex(selectedItem);
+		comboBox_Justification.setEnabled(fieldsEditable);
 
 		comboBox_Prescaler.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getPrescalerNum(); featNum++) {
@@ -475,6 +509,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Prescaler.setSelectedIndex(selectedItem);
+		comboBox_Prescaler.setEnabled(fieldsEditable);
 
 		comboBox_Resolution.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getResolutionNum(); featNum++) {
@@ -484,6 +519,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Resolution.setSelectedIndex(selectedItem);
+		comboBox_Resolution.setEnabled(fieldsEditable);
 
 		comboBox_Reference.removeAllItems();
 		for (featNum = 0; featNum < adcCfg.AdcFeatures.getReferenceNum(); featNum++) {
@@ -493,6 +529,7 @@ public class AdcConfWindow {
 			}
 		}
 		comboBox_Reference.setSelectedIndex(selectedItem);
+		comboBox_Reference.setEnabled(fieldsEditable);
 
 		populateDynamicAdcElements();
 	}
@@ -501,6 +538,9 @@ public class AdcConfWindow {
 	 * Save ADC's configuration to uC
 	 */
 	private void adcConfChanged() {
+		boolean fieldsEditable = false;
+
+		UcConf.AdcCfg[selectedAdc].setSelected(Selected.getConfFromBoolean(chckbx_Selected.isSelected()));
 		UcConf.AdcCfg[selectedAdc].setCodeName(textField_CodeName.getText());
 		UcConf.AdcCfg[selectedAdc].setSample(comboBox_Sample.getSelectedItem().toString());
 		UcConf.AdcCfg[selectedAdc].setClock(comboBox_Clock.getSelectedItem().toString());
@@ -508,6 +548,16 @@ public class AdcConfWindow {
 		UcConf.AdcCfg[selectedAdc].setPrescaler(comboBox_Prescaler.getSelectedItem().toString());
 		UcConf.AdcCfg[selectedAdc].setResolution(comboBox_Resolution.getSelectedItem().toString());
 		UcConf.AdcCfg[selectedAdc].setReference(comboBox_Reference.getSelectedItem().toString());
+
+		/* Check if fields should be editable */
+		fieldsEditable = UcConf.AdcCfg[selectedAdc].getSelected().getBoolean();
+		textField_CodeName.setEnabled(fieldsEditable);
+		comboBox_Sample.setEnabled(fieldsEditable);
+		comboBox_Clock.setEnabled(fieldsEditable);
+		comboBox_Justification.setEnabled(fieldsEditable);
+		comboBox_Prescaler.setEnabled(fieldsEditable);
+		comboBox_Resolution.setEnabled(fieldsEditable);
+		comboBox_Reference.setEnabled(fieldsEditable);
 	}
 
 	private void populateDynamicAdcElements() {

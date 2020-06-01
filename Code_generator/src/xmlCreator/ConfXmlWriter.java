@@ -20,13 +20,13 @@ import common.ErrorCode;
 import common.Features;
 import configurator.AdcConf;
 import configurator.PinConf;
+import configurator.Selected;
 import configurator.GPIO.AltMode;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import microcontroller.Microcontroller;
 
@@ -144,6 +144,7 @@ public class ConfXmlWriter {
 
 			/* Write the pins configuration information */
 			addAdcChild(AdcConf.STR_NAME, adc.AdcFeatures.getName(), elNum);
+			addPinChild(Selected.STR_NAME, adc.getSelected().name(), elNum);
 			addAdcChild(AdcConf.STR_CODE_NAME, adc.getCodeName(), elNum);
 			addAdcChild(AdcConf.STR_SAMPLE, adc.getSample(), elNum);
 			addAdcChild(AdcConf.STR_CLOCK, adc.getClock(), elNum);

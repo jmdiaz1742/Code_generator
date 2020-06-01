@@ -9,12 +9,12 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import common.Features;
+import configurator.Selected;
 import configurator.GPIO.AltMode;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutType;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import microcontroller.Microcontroller;
 import java.awt.GridBagLayout;

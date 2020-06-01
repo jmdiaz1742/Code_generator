@@ -666,6 +666,7 @@
     <adcInstance>
         ADC1
         <name>ADC1</name>
+        <selected>NOT</selected>
         <codeName>ADC1</codeName>
         <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
         <clock>ADC_NOT_SUPPORTED</clock>
@@ -677,6 +678,7 @@
     <adcInstance>
         ADC2
         <name>ADC2</name>
+        <selected>YES</selected>
         <codeName>MyAdc</codeName>
         <sample>ADC_SAMPLETIME_2CYCLES_5</sample>
         <clock>ADC_NOT_SUPPORTED</clock>
@@ -688,6 +690,7 @@
     <adcInstance>
         ADC1_2_COMMON
         <name>ADC1_2_COMMON</name>
+        <selected>NOT</selected>
         <codeName>CommonAdc</codeName>
         <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
         <clock>ADC_NOT_SUPPORTED</clock>

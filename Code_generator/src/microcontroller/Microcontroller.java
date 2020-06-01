@@ -10,13 +10,13 @@ import common.ErrorCode;
 import common.Features;
 import configurator.AdcConf;
 import configurator.PinConf;
+import configurator.Selected;
 import configurator.ADC.AdcChannel;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import xmlParser.XmlOpener;
 
@@ -728,6 +728,12 @@ public class Microcontroller {
 				}
 			}
 
+			configuration = XmlOpener.getElementInfo(adcEl, Selected.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setSelected(Selected.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s selection: " + configuration);
+			}
+			
 			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CODE_NAME);
 			if (!configuration.equals(ErrorCode.STR_INVALID)) {
 				AdcCfg[adcNum].setCodeName(configuration);
