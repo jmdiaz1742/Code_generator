@@ -82,18 +82,16 @@ public class CodeGenerator {
 		String modules = "";
 
 		/* Set modules in use */
-
-		/*
-		 * TODO: Set a method to establish which modules are in use, for now we'll only
-		 * be using GPIO
-		 */
+		modules = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 		if (generateGpio) {
 			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_GPIO;
+			modules += framework.Common.STR_HEADER_EXT + "\"" + framework.Common.NL;
 		}
 		if (generateAdc) {
 			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_ADC;
+			modules += framework.Common.STR_HEADER_EXT + "\"" + framework.Common.NL;
 		}
-		modules += framework.Common.STR_HEADER_EXT + "\"";
+		modules += framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
 
 		/* Generate frameworkCommon.h */
 		Features.verbosePrint("Generating framework common file...");

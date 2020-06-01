@@ -13,10 +13,10 @@
 /************************
  * Includes             *
  ************************/
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 #include "stm32f3xx_hal.h"
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
@@ -27,10 +27,10 @@
  */
 typedef enum
 {
-    // ################## Kamino generator v1.0.3: Generated code! ################
+    // ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 MyAdc,
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     ADC_ELEMENTS_MAX
 } Adc_elementsType;
@@ -42,13 +42,13 @@ MyAdc,
 /************************
  * Public Defines       *
  ************************/
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // MyAdc
 #define MyAdc_SAMPLE ADC_SAMPLETIME_2CYCLES_5
@@ -58,7 +58,7 @@ MyAdc,
 #define MyAdc_RESOLUTION ADC_RESOLUTION10b
 #define MyAdc_REFERENCE ADC_NOT_SUPPORTED
 
-// ################## Kamino generator v1.0.3: Generated code! ################
+// ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
