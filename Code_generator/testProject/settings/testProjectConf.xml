@@ -674,6 +674,48 @@
         <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
         <resolution>ADC_RESOLUTION12b</resolution>
         <reference>ADC_NOT_SUPPORTED</reference>
+        <adcChannel>
+            <name>ADC_CHANNEL_1</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_1</codeName>
+            <pinIndex>13</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_2</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_2</codeName>
+            <pinIndex>14</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_3</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_3</codeName>
+            <pinIndex>15</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_4</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_4</codeName>
+            <pinIndex>16</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_11</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_11</codeName>
+            <pinIndex>25</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_12</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_12</codeName>
+            <pinIndex>26</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_13</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_13</codeName>
+            <pinIndex>33</pinIndex>
+        </adcChannel>
     </adcInstance>
     <adcInstance>
         ADC2
@@ -686,6 +728,66 @@
         <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
         <resolution>ADC_RESOLUTION10b</resolution>
         <reference>ADC_NOT_SUPPORTED</reference>
+        <adcChannel>
+            <name>ADC_CHANNEL_1</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_1</codeName>
+            <pinIndex>19</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_2</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_2</codeName>
+            <pinIndex>20</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_3</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_3</codeName>
+            <pinIndex>21</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_4</name>
+            <selected>YES</selected>
+            <codeName>TEMP_CHANNEL</codeName>
+            <pinIndex>22</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_5</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_5</codeName>
+            <pinIndex>23</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_11</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_11</codeName>
+            <pinIndex>24</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_12</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_12</codeName>
+            <pinIndex>27</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_13</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_13</codeName>
+            <pinIndex>32</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_14</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_14</codeName>
+            <pinIndex>34</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_15</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_15</codeName>
+            <pinIndex>35</pinIndex>
+        </adcChannel>
     </adcInstance>
     <adcInstance>
         ADC1_2_COMMON
@@ -698,5 +800,29 @@
         <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
         <resolution>ADC_RESOLUTION12b</resolution>
         <reference>ADC_NOT_SUPPORTED</reference>
+        <adcChannel>
+            <name>ADC_CHANNEL_6</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_6</codeName>
+            <pinIndex>7</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_7</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_7</codeName>
+            <pinIndex>8</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_8</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_8</codeName>
+            <pinIndex>9</pinIndex>
+        </adcChannel>
+        <adcChannel>
+            <name>ADC_CHANNEL_9</name>
+            <selected>NOT</selected>
+            <codeName>ADC_CHANNEL_9</codeName>
+            <pinIndex>10</pinIndex>
+        </adcChannel>
     </adcInstance>
 </Microcontroller_Configuration>

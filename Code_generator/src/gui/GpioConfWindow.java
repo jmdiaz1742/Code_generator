@@ -460,8 +460,8 @@ public class GpioConfWindow {
 			gbc_textField_CodeName.gridy = PIN_CODE_NAME_TXTF_INIT_POS_Y + pinNum;
 			panel.add(textField_CodeName[pinNum], gbc_textField_CodeName);
 			textField_CodeName[pinNum].setVisible(false);
-			/****** Begin Pin's Code Name change ******/
 			textField_CodeName[pinNum].getDocument().addDocumentListener(new DocumentListener() {
+				/****** Begin Pin's Code Name change ******/
 
 				@Override
 				public void changedUpdate(DocumentEvent arg0) {
@@ -483,8 +483,8 @@ public class GpioConfWindow {
 						codeNameChange();
 					}
 				}
+				/****** End Pin's Code Name change ******/
 			});
-			/****** End Pin's Code Name change ******/
 		}
 	}
 

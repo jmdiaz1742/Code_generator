@@ -21,6 +21,7 @@ import common.Features;
 import configurator.AdcConf;
 import configurator.PinConf;
 import configurator.Selected;
+import configurator.ADC.AdcChannel;
 import configurator.GPIO.AltMode;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
@@ -60,7 +61,14 @@ public class ConfXmlWriter {
 		DocumentBuilder xmlBuilder;
 
 		UCConf = uC;
-		int totalElements = UCConf.getUc_gpioNum() + UCConf.getUc_adcNum();
+		int totalElements = 0;
+		/* GPIOs */
+		totalElements = UCConf.getUc_gpioNum();
+		/* ADCs */
+		totalElements += UCConf.getUc_adcNum();
+		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
+			totalElements += UCConf.AdcCfg[adcNum].getChannelsNum();
+		}
 
 		if (UCConf.getUc_gpioNum() > 0) {
 			try {
@@ -152,6 +160,34 @@ public class ConfXmlWriter {
 			addAdcChild(AdcConf.STR_PRESCALER, adc.getPrescaler(), elNum);
 			addAdcChild(AdcConf.STR_RESOLUTION, adc.getResolution(), elNum);
 			addAdcChild(AdcConf.STR_REFERENCE, adc.getReference(), elNum);
+			addChannels(adc, elNum);
+		}
+	}
+
+	private void addChannels(AdcConf adc, int offset) {
+
+		for (int chanNum = 0; chanNum < adc.getChannelsNum(); chanNum++) {
+			Element channelEl = XmlDoc.createElement(AdcConf.STR_CHANNEL);
+			AdcChannel channel = adc.getChannel(chanNum);
+			Element featureEl;
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getName()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(Selected.STR_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getSelected().name()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_CODE_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getCodeName()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_PIN_INDEX);
+			featureEl.appendChild(XmlDoc.createTextNode(String.valueOf(channel.getPinIndex())));
+			channelEl.appendChild(featureEl);
+
+			ConfElement[offset].appendChild(channelEl);
 		}
 	}
 

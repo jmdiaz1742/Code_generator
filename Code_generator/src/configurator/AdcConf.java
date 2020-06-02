@@ -3,6 +3,7 @@ package configurator;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.ErrorCode;
 import configurator.ADC.AdcChannel;
 import microcontroller.Adc;
 
@@ -31,6 +32,7 @@ public class AdcConf {
 	public static final String STR_PRESCALER = "prescaler";
 	public static final String STR_RESOLUTION = "resolution";
 	public static final String STR_REFERENCE = "reference";
+	public static final String STR_CHANNEL = "adcChannel";
 
 	public Adc AdcFeatures;
 
@@ -207,6 +209,36 @@ public class AdcConf {
 		for (int chanNum = 0; chanNum < AdcFeatures.getChannelNum(); chanNum++) {
 			Channels.add(AdcFeatures.getChannel(chanNum));
 		}
+	}
+	
+	/**
+	 * Get the total of channels in the ADC
+	 * @return Total of channels in the ADC
+	 */
+	public int getChannelsNum() {
+		return Channels.size();
+	}
+	
+	/**
+	 * Get ADC channel
+	 * @param index ADC channel index
+	 * @return Channel
+	 */
+	public AdcChannel getChannel(int index) {
+		return Channels.get(index);
+	}
+	
+	public int getChannelIndexFromName(String name) {
+		int index = ErrorCode.INT_INVALID_INDEX;
+		
+		for (int chanNum = 0; chanNum < getChannelsNum(); chanNum++) {
+			if (name.equals(getChannel(chanNum).getName())) {
+				index = chanNum;
+				break;
+			}
+		}
+		
+		return index;
 	}
 
 }

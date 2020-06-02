@@ -1,6 +1,7 @@
 package configurator.ADC;
 
 import common.ErrorCode;
+import configurator.Selected;
 
 public class AdcChannel {
 
@@ -8,14 +9,23 @@ public class AdcChannel {
 	public static final int INVALID_INDEX = ErrorCode.INT_INVALID_INDEX;
 
 	private String Name;
+	private Selected Selection;
 	private String CodeName;
-	private boolean Selected;
 	private int PinIndex;
+
+	public static final String STR_NAME = "name";
+	public static final String STR_CODE_NAME = "codeName";
+	public static final String STR_PIN_INDEX = "pinIndex";
+
+	/**
+	 * Default Pin's selection
+	 */
+	public static final Selected DF_SELECTED = configurator.Selected.NOT;
 
 	public AdcChannel(String name, int pinIndex) {
 		Name = name;
+		setSelected(DF_SELECTED);
 		setCodeName(name);
-		setSelected(false);
 		PinIndex = pinIndex;
 	}
 
@@ -26,6 +36,24 @@ public class AdcChannel {
 	 */
 	public String getName() {
 		return Name;
+	}
+
+	/**
+	 * Get channel's selection
+	 * 
+	 * @return Channel's selection
+	 */
+	public Selected getSelected() {
+		return Selection;
+	}
+
+	/**
+	 * Set channel's selection
+	 * 
+	 * @param selection Channel's selection
+	 */
+	public void setSelected(Selected selection) {
+		Selection = selection;
 	}
 
 	/**
@@ -44,24 +72,6 @@ public class AdcChannel {
 	 */
 	public void setCodeName(String codeName) {
 		CodeName = codeName;
-	}
-
-	/**
-	 * Get ADC channel's selection
-	 * 
-	 * @return ADC channel's selection
-	 */
-	public boolean isSelected() {
-		return Selected;
-	}
-
-	/**
-	 * Set ADC channel's selection
-	 * 
-	 * @param selected
-	 */
-	public void setSelected(boolean selected) {
-		Selected = selected;
 	}
 
 	/**

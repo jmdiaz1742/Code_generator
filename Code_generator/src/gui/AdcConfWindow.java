@@ -19,10 +19,13 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import common.Features;
 import configurator.AdcConf;
 import configurator.Selected;
+import configurator.ADC.AdcChannel;
 
 import javax.swing.JCheckBox;
 
@@ -421,7 +424,7 @@ public class AdcConfWindow {
 				public void actionPerformed(ActionEvent arg0) {
 					/****** Begin Channel selection combo box click ******/
 					if (!GuiRefreshLocked) {
-						selectedChange();
+						dynamicElementsChange();
 					}
 					/****** End Channel selection combo box click ******/
 				}
@@ -453,6 +456,31 @@ public class AdcConfWindow {
 			gbc_element.gridy = CHANNEL_CODE_NAME_INIT_POS_Y + chaNum;
 			panel.add(textFieldChannelCodeName[chaNum], gbc_element);
 			textFieldChannelCodeName[chaNum].setVisible(initVisibleState);
+			textFieldChannelCodeName[chaNum].getDocument().addDocumentListener(new DocumentListener() {
+				/****** Begin Pin's Code Name change ******/
+
+				@Override
+				public void changedUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						dynamicElementsChange();
+					}
+				}
+
+				@Override
+				public void insertUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						dynamicElementsChange();
+					}
+				}
+
+				@Override
+				public void removeUpdate(DocumentEvent arg0) {
+					if (!GuiRefreshLocked) {
+						dynamicElementsChange();
+					}
+				}
+				/****** End Pin's Code Name change ******/
+			});
 		}
 
 	}
@@ -558,12 +586,52 @@ public class AdcConfWindow {
 		comboBox_Prescaler.setEnabled(fieldsEditable);
 		comboBox_Resolution.setEnabled(fieldsEditable);
 		comboBox_Reference.setEnabled(fieldsEditable);
+		populateDynamicAdcElements();
 	}
 
 	private void populateDynamicAdcElements() {
+		AdcConf adcCfg = UcConf.AdcCfg[selectedAdc];
+		int chanTotal = adcCfg.getChannelsNum();
+
+		for (int chanNum = 0; chanNum < chanTotal; chanNum++) {
+			AdcChannel channel = adcCfg.getChannel(chanNum);
+			boolean isEditable = channel.getSelected().getBoolean() && adcCfg.getSelected().getBoolean();
+
+			checkBox_ChannelSelected[chanNum].setSelected(isEditable);
+			checkBox_ChannelSelected[chanNum].setEnabled(adcCfg.getSelected().getBoolean());
+
+			lbl_ChannelName[chanNum].setText(channel.getName());
+			lbl_ChannelName[chanNum].setEnabled(isEditable);
+
+			lbl_ChannelPin[chanNum].setText(UcConf.getPin(channel.getPinIndex()).getName());
+			lbl_ChannelPin[chanNum].setEnabled(isEditable);
+
+			textFieldChannelCodeName[chanNum].setText(channel.getCodeName());
+			textFieldChannelCodeName[chanNum].setEnabled(isEditable);
+		}
+
+		for (int chanNum = 0; chanNum < Microcontroller.MAX_NUMBER_OF_ADCS; chanNum++) {
+			boolean channelExists = chanNum < UcConf.AdcCfg[selectedAdc].getChannelsNum();
+
+			checkBox_ChannelSelected[chanNum].setVisible(channelExists);
+			lbl_ChannelName[chanNum].setVisible(channelExists);
+			lbl_ChannelPin[chanNum].setVisible(channelExists);
+			textFieldChannelCodeName[chanNum].setVisible(channelExists);
+		}
 	}
 
-	private void selectedChange() {
+	private void dynamicElementsChange() {
+		int chanTotal = UcConf.AdcCfg[selectedAdc].getChannelsNum();
 
+		for (int chanNum = 0; chanNum < chanTotal; chanNum++) {
+			boolean isSelected = checkBox_ChannelSelected[chanNum].isSelected();
+			UcConf.AdcCfg[selectedAdc].getChannel(chanNum).setSelected(Selected.getConfFromBoolean(isSelected));
+			UcConf.AdcCfg[selectedAdc].getChannel(chanNum).setCodeName(textFieldChannelCodeName[chanNum].getText());
+
+			lbl_ChannelName[chanNum].setEnabled(isSelected);
+			lbl_ChannelPin[chanNum].setEnabled(isSelected);
+			textFieldChannelCodeName[chanNum].setEnabled(isSelected);
+		}
 	}
+
 }
