@@ -15,7 +15,7 @@
  ************************/
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-#include "MIMXRT1064.h.h"
+#include "MIMXRT1064.h"
 #include "fsl_gpio.h"
 // ################## Kamino generator v1.0.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######

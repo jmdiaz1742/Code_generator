@@ -7,7 +7,7 @@
     <includes>
         <include_common>stdlib.h</include_common>
         <include_common>stdbool.h</include_common>
-        <include_gpio>MIMXRT1064.h.h</include_gpio>
+        <include_gpio>MIMXRT1064.h</include_gpio>
 		<include_gpio>fsl_gpio.h</include_gpio>
     </includes>
     <configuration_definitions>
