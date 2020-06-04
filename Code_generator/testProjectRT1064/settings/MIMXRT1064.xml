@@ -856,6 +856,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_23</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_12</adcChannel>
+		    <adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_12</adcChannel>
         </pin>
 		<pin>
             <number>137</number>
@@ -863,6 +867,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_15</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_4</adcChannel>
         </pin>
 		<pin>
             <number>138</number>
@@ -934,6 +940,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_29</portPin>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_2</adcChannel>
         </pin>
 		<pin>
             <number>149</number>
@@ -941,6 +949,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_16</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_5</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_5</adcChannel>
         </pin>
 		<pin>
             <number>150</number>
@@ -948,6 +960,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_17</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_6</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_6</adcChannel>
         </pin>
 		<pin>
             <number>151</number>
@@ -955,6 +971,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_18</portPin>
+		    <adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_7</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_7</adcChannel>
         </pin>
 		<pin>
             <number>152</number>
@@ -1021,6 +1041,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_30</portPin>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_3</adcChannel>
         </pin>
 		<pin>
             <number>162</number>
@@ -1028,6 +1050,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_28</portPin>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_1</adcChannel>
         </pin>
 		<pin>
             <number>163</number>
@@ -1035,6 +1059,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_22</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_11</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_11</adcChannel>
         </pin>
 		<pin>
             <number>164</number>
@@ -1042,6 +1070,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_21</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_10</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_10</adcChannel>
         </pin>
 		<pin>
             <number>165</number>
@@ -1049,6 +1081,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_20</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_9</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_9</adcChannel>
         </pin>
 		<pin>
             <number>166</number>
@@ -1056,6 +1092,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_19</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_8</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_8</adcChannel>
         </pin>
 		<pin>
             <number>167</number>
@@ -1120,6 +1160,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_24</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_13</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_13</adcChannel>
         </pin>
 		<pin>
             <number>177</number>
@@ -1127,6 +1171,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_27</portPin>
+			<adc>ADC1</adc>
+			<adcChannel>ADC_CHANNEL_0</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_0</adcChannel>
         </pin>
 		<pin>
             <number>178</number>
@@ -1139,6 +1187,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_26</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_15</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_15</adcChannel>
         </pin>
 		<pin>
             <number>180</number>
@@ -1146,6 +1198,10 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_25</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_14</adcChannel>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_14</adcChannel>
         </pin>
 		<pin>
             <number>181</number>
@@ -1210,6 +1266,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_14</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_3</adcChannel>
         </pin>
 		<pin>
             <number>191</number>
@@ -1217,6 +1275,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_31</portPin>
+			<adc>ADC2</adc>
+            <adcChannel>ADC_CHANNEL_4</adcChannel>
         </pin>
 		<pin>
             <number>192</number>
@@ -1224,6 +1284,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_12</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_1</adcChannel>
         </pin>
 		<pin>
             <number>193</number>
@@ -1231,6 +1293,8 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_13</portPin>
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_2</adcChannel>
         </pin>
 		<pin>
             <number>194</number>
