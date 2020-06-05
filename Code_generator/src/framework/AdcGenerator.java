@@ -1,10 +1,13 @@
 package framework;
 
 import common.ErrorCode;
+import configurator.AdcConf;
+import configurator.ADC.AdcChannel;
 import microcontroller.Microcontroller;
 
 public class AdcGenerator {
 
+	private static final String STR_SUFF_NAME = "_NAME";
 	private static final String STR_SUFF_SAMPLE = "_SAMPLE";
 	private static final String STR_SUFF_CLOCK = "_CLOCK";
 	private static final String STR_SUFF_JUSTIFICATION = "_JUSTIFICATION";
@@ -31,6 +34,7 @@ public class AdcGenerator {
 
 				if (uC.AdcCfg[adcNum].getSelected().getBoolean()) {
 					cfgArray += "{";
+					cfgArray += adcName + STR_SUFF_NAME + "," + framework.Common.NL;
 					cfgArray += adcName + STR_SUFF_SAMPLE + "," + framework.Common.NL;
 					cfgArray += adcName + STR_SUFF_CLOCK + "," + framework.Common.NL;
 					cfgArray += adcName + STR_SUFF_JUSTIFICATION + "," + framework.Common.NL;
@@ -60,7 +64,7 @@ public class AdcGenerator {
 	public static String getElDefs(Microcontroller uC) {
 		String elDefs = "";
 
-		if (uC.Definitions_Adc.length > 0) {
+		if ((uC.Definitions_Adc.length > 0) && (uC.getUc_selectedAdcsNum() > 0)) {
 			elDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 			int generatedAdcsNum = 0;
 
@@ -70,6 +74,9 @@ public class AdcGenerator {
 				if (uC.AdcCfg[adcNum].getSelected().getBoolean()) {
 
 					elDefs += "// " + adcName + framework.Common.NL;
+
+					elDefs += framework.Common.STR_DEFINITION + adcName + STR_SUFF_NAME + " ";
+					elDefs += uC.AdcCfg[adcNum].AdcFeatures.getName() + framework.Common.NL;
 
 					elDefs += framework.Common.STR_DEFINITION + adcName + STR_SUFF_SAMPLE + " ";
 					elDefs += uC.AdcCfg[adcNum].getSample() + framework.Common.NL;
@@ -95,6 +102,23 @@ public class AdcGenerator {
 						elDefs += framework.Common.NL;
 					}
 				}
+			}
+
+			elDefs += framework.Common.NL + "// " + "Channel definitions" + framework.Common.NL;
+
+			for (int adcNum = 0; adcNum < uC.AdcCfg.length; adcNum++) {
+				AdcConf adc = uC.AdcCfg[adcNum];
+				if (adc.getSelected().getBoolean()) {
+					elDefs += "// " + "ADC " + adc.AdcFeatures.getName() + framework.Common.NL;
+					for (int chanNum = 0; chanNum < adc.getChannelsNum(); chanNum++) {
+						AdcChannel channel = adc.getChannel(chanNum);
+						if (channel.getSelected().getBoolean()) {
+							elDefs += framework.Common.STR_DEFINITION + channel.getCodeName() + " ";
+							elDefs += channel.getName() + framework.Common.NL;
+						}
+					}
+				}
+
 			}
 
 			elDefs += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
@@ -138,19 +162,21 @@ public class AdcGenerator {
 	public static String getIncludes(Microcontroller uC) {
 		String includes = "";
 
-		includes = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
+		if ((uC.Includes_Adc.length > 0) && (uC.getUc_selectedAdcsNum() > 0)) {
+			includes = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
-		for (int incNum = 0; incNum < uC.Includes_Adc.length; incNum++) {
-			String includeModule = uC.Includes_Adc[incNum];
-			if (!includeModule.equals(ErrorCode.STR_INVALID)) {
-				includes += framework.Common.STR_INCLUDE + "\"" + includeModule + "\"";
-				if (incNum < uC.Includes_Adc.length - 1) {
-					includes += framework.Common.NL;
+			for (int incNum = 0; incNum < uC.Includes_Adc.length; incNum++) {
+				String includeModule = uC.Includes_Adc[incNum];
+				if (!includeModule.equals(ErrorCode.STR_INVALID)) {
+					includes += framework.Common.STR_INCLUDE + "\"" + includeModule + "\"";
+					if (incNum < uC.Includes_Adc.length - 1) {
+						includes += framework.Common.NL;
+					}
 				}
 			}
-		}
 
-		includes += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+			includes += framework.Common.NL + framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
+		}
 
 		return includes;
 	}
@@ -158,7 +184,7 @@ public class AdcGenerator {
 	public static String getCfgDefinitions(Microcontroller uC) {
 		String cfgDefs = "";
 
-		if (uC.Definitions_Adc.length > 0) {
+		if ((uC.Definitions_Adc.length > 0) && (uC.getUc_selectedAdcsNum() > 0)) {
 			cfgDefs = framework.Common.STR_GEN_CODE_NOTICE_HEADER + framework.Common.NL;
 
 			if (uC.Definitions_Gpio[0] != ErrorCode.STR_INVALID) {

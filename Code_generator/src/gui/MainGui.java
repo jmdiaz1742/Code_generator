@@ -107,8 +107,7 @@ public class MainGui {
 			Features.verbosePrint("No pin configuration file found...");
 		}
 
-		CgMainWindow.setProjectInformation(ProjectSettingsConf.getProjectName(),
-				SelectedMicrocontroller.getUc_manufacturer(), SelectedMicrocontroller.getUc_model());
+		CgMainWindow.setProjectInformation(SelectedMicrocontroller, ProjectSettingsConf.getProjectName());
 		return errorStatus;
 	}
 

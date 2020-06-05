@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
+import microcontroller.Microcontroller;
+
 import java.awt.GridBagLayout;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -338,8 +340,12 @@ public class MainWindow {
 	 * @param ucName         Microcontroller's model
 	 * @return Error status
 	 */
-	public ErrorCode setProjectInformation(String projectName, String ucManufacturer, String ucName) {
+	public ErrorCode setProjectInformation(Microcontroller uC, String projectName) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		String ucManufacturer = uC.getUc_manufacturer();
+		String ucName = uC.getUc_model();
+		boolean hasAdc = uC.getUc_adcNum() > 0;
+		
 		if (projectName.equals("") || ucManufacturer.equals("") || ucName.equals("")) {
 			Features.verbosePrint("Wrong project information...");
 			MainGui.showErrorDialog("Wrong project information");
@@ -349,7 +355,7 @@ public class MainWindow {
 		lbl_ProjectName.setText(projectName);
 		lbl_Microcontroller.setText(ucManufacturer + " " + ucName);
 		btn_ConfigureGpios.setEnabled(true);
-		btn_ConfigureAdcs.setEnabled(true);
+		btn_ConfigureAdcs.setEnabled(hasAdc);
 		btn_GenerateCode.setEnabled(true);
 		mntmSaveAs.setEnabled(true);
 		return errorStatus;

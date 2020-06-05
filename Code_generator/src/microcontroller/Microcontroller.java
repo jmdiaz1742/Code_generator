@@ -861,10 +861,12 @@ public class Microcontroller {
 	 */
 	private int getAdcIndexFromName(String name) {
 		int index = ErrorCode.INT_INVALID_INDEX;
-		for (int adcNum = 0; adcNum < CurrentAdc.length; adcNum++) {
-			if (name.equals(CurrentAdc[adcNum].getName())) {
-				index = adcNum;
-				break;
+		if (getUc_adcNum() > 0) {
+			for (int adcNum = 0; adcNum < CurrentAdc.length; adcNum++) {
+				if (name.equals(CurrentAdc[adcNum].getName())) {
+					index = adcNum;
+					break;
+				}
 			}
 		}
 		return index;
@@ -1013,9 +1015,11 @@ public class Microcontroller {
 	public int getUc_selectedAdcsNum() {
 		int selectedAdcs = 0;
 
-		for (int adcNum = 0; adcNum < AdcCfg.length; adcNum++) {
-			if (AdcCfg[adcNum].getSelected().getBoolean()) {
-				selectedAdcs++;
+		if (getUc_adcNum() > 0) {
+			for (int adcNum = 0; adcNum < AdcCfg.length; adcNum++) {
+				if (AdcCfg[adcNum].getSelected().getBoolean()) {
+					selectedAdcs++;
+				}
 			}
 		}
 

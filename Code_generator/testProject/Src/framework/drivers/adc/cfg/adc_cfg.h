@@ -51,12 +51,17 @@ MyAdc,
 // ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // MyAdc
+#define MyAdc_NAME ADC2
 #define MyAdc_SAMPLE ADC_SAMPLETIME_2CYCLES_5
 #define MyAdc_CLOCK ADC_NOT_SUPPORTED
 #define MyAdc_JUSTIFICATION ADC_DATAALIGN_LEFT
 #define MyAdc_PRESCALER ADC_CLOCK_SYNC_PCLK_DIV2
 #define MyAdc_RESOLUTION ADC_RESOLUTION10b
 #define MyAdc_REFERENCE ADC_NOT_SUPPORTED
+
+// Channel definitions
+// ADC ADC2
+#define TEMP_CHANNEL ADC_CHANNEL_4
 
 // ################## Kamino generator v1.0.5: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######

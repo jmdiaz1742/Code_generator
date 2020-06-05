@@ -809,8 +809,7 @@ public class GpioConfWindow {
 
 		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
 			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
-				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_OUTPUT.name())
-						&& comboBox_PinOutType[portPinNum].getSelectedItem().equals(OutType.OTYPE_PUSH_PULL.name())) {
+				if (comboBox_PinMode[portPinNum].getSelectedItem().equals(Mode.MODE_OUTPUT.name())) {
 					comboBox_PinOutLevel[portPinNum].setEnabled(checkBox_PinSelected[portPinNum].isSelected());
 				} else {
 					comboBox_PinOutLevel[portPinNum].setEnabled(false);
