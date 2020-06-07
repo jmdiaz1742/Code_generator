@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import common.ErrorCode;
 import common.Features;
+import common.GeneralSettings;
 import framework.CodeGenerator;
 import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
@@ -44,7 +45,7 @@ public class MainGui {
 	 * @param args TBD
 	 */
 	static public void main(String[] args) {
-		common.Features.initLog();
+		GeneralSettings.initLog();
 		printInitInfo();
 		Features.verbosePrint("Starting GUI...");
 		CgMainWindow = new MainWindow();
@@ -139,6 +140,14 @@ public class MainGui {
 	 */
 	static public void showAdcConfWindow() {
 		new AdcConfWindow(SelectedMicrocontroller);
+	}
+	
+	static public void showProjectPreferencesWindow() {
+		new ProjectPreferencesWindow(ProjectSettingsConf);
+	}
+	
+	static public void showGeneralSettingsWindow() {
+		new GeneralSettingsWindow();
 	}
 
 	/**
