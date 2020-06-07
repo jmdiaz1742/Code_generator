@@ -113,6 +113,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acbc64aa6287cbebe3786306cea530f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1425282852334924a9515eab642e51f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconfigurator_1_1_adc_conf.html#ac1425282852334924a9515eab642e51f">setChannels</a> (<a class="el" href="classmicrocontroller_1_1_adc.html">Adc</a> adc)</td></tr>
 <tr class="separator:ac1425282852334924a9515eab642e51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09fc63a5e175429bd01d8e0a604e9b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconfigurator_1_1_adc_conf.html#ad09fc63a5e175429bd01d8e0a604e9b7">getChannelsNum</a> ()</td></tr>
+<tr class="separator:ad09fc63a5e175429bd01d8e0a604e9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9675e409c041b0d0987152a1c81d43f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconfigurator_1_1_a_d_c_1_1_adc_channel.html">AdcChannel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconfigurator_1_1_adc_conf.html#a9675e409c041b0d0987152a1c81d43f3">getChannel</a> (int index)</td></tr>
+<tr class="separator:a9675e409c041b0d0987152a1c81d43f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495ed9b4f50004283236b74df4d27db3"><td class="memItemLeft" align="right" valign="top"><a id="a495ed9b4f50004283236b74df4d27db3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getChannelIndexFromName</b> (String name)</td></tr>
+<tr class="separator:a495ed9b4f50004283236b74df4d27db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -148,6 +155,9 @@ static final String&#160;</td><td class="memItemRight" valign="bottom"><b>STR_RE
 <tr class="memitem:aca2b67393d19cd44509108c48b685c49"><td class="memItemLeft" align="right" valign="top"><a id="aca2b67393d19cd44509108c48b685c49"></a>
 static final String&#160;</td><td class="memItemRight" valign="bottom"><b>STR_REFERENCE</b> = &quot;reference&quot;</td></tr>
 <tr class="separator:aca2b67393d19cd44509108c48b685c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cc83860c50d412b36065c0f515206f"><td class="memItemLeft" align="right" valign="top"><a id="a67cc83860c50d412b36065c0f515206f"></a>
+static final String&#160;</td><td class="memItemRight" valign="bottom"><b>STR_CHANNEL</b> = &quot;adcChannel&quot;</td></tr>
+<tr class="separator:a67cc83860c50d412b36065c0f515206f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a36d7596dc1e77d3c3a458c512608dd4e"></a>
@@ -176,6 +186,49 @@ static final String&#160;</td><td class="memItemRight" valign="bottom"><b>STR_RE
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9675e409c041b0d0987152a1c81d43f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9675e409c041b0d0987152a1c81d43f3">&#9670;&nbsp;</a></span>getChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classconfigurator_1_1_a_d_c_1_1_adc_channel.html">AdcChannel</a> configurator.AdcConf.getChannel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get ADC channel </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>ADC channel index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Channel </dd></dl>
+
+</div>
+</div>
+<a id="ad09fc63a5e175429bd01d8e0a604e9b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09fc63a5e175429bd01d8e0a604e9b7">&#9670;&nbsp;</a></span>getChannelsNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int configurator.AdcConf.getChannelsNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the total of channels in the ADC </p><dl class="section return"><dt>Returns</dt><dd>Total of channels in the ADC </dd></dl>
+
+</div>
+</div>
 <a id="ae280d63f14f86276f0c51c38dfa3f795"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae280d63f14f86276f0c51c38dfa3f795">&#9670;&nbsp;</a></span>getClock()</h2>
 

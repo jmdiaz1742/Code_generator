@@ -18,7 +18,7 @@ var searchData=
   ['df_5fout_5flevel_45',['DF_OUT_LEVEL',['../classconfigurator_1_1_pin_conf.html#a34da90704ad7ff485ab0db310eb1baaf',1,'configurator::PinConf']]],
   ['df_5fouttype_46',['DF_OUTTYPE',['../classconfigurator_1_1_pin_conf.html#ac54ff0afd21d5ce534948d74d48cbad5',1,'configurator::PinConf']]],
   ['df_5fpull_47',['DF_PULL',['../classconfigurator_1_1_pin_conf.html#a79c9d3c396a397e92dc148d3a1ca48d9',1,'configurator::PinConf']]],
-  ['df_5fselected_48',['DF_SELECTED',['../classconfigurator_1_1_adc_conf.html#a0e29def125498e331d4604b6359d79e0',1,'configurator.AdcConf.DF_SELECTED()'],['../classconfigurator_1_1_pin_conf.html#a33e5254a8cd7dfb82d9c45eeffbb246f',1,'configurator.PinConf.DF_SELECTED()']]],
+  ['df_5fselected_48',['DF_SELECTED',['../classconfigurator_1_1_a_d_c_1_1_adc_channel.html#af10393bd8c3549a2e45b1c4d2b8f3c0d',1,'configurator.ADC.AdcChannel.DF_SELECTED()'],['../classconfigurator_1_1_adc_conf.html#a0e29def125498e331d4604b6359d79e0',1,'configurator.AdcConf.DF_SELECTED()'],['../classconfigurator_1_1_pin_conf.html#a33e5254a8cd7dfb82d9c45eeffbb246f',1,'configurator.PinConf.DF_SELECTED()']]],
   ['df_5fspeed_49',['DF_SPEED',['../classconfigurator_1_1_pin_conf.html#ab8d7c2ac789a2b2641e7b2d6aa3f63f6',1,'configurator::PinConf']]],
   ['disable_50',['DISABLE',['../classmicrocontroller_1_1_pin.html#ab1b3ea2cecfd8281d0a76c790f34da74',1,'microcontroller::Pin']]]
 ];

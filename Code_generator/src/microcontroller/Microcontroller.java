@@ -794,6 +794,7 @@ public class Microcontroller {
 	/**
 	 * Load ADC channels
 	 * 
+	 * @param confDoc Configuration document
 	 * @return Error code
 	 */
 	public ErrorCode loadAdcChannelsConf(Document confDoc) {
