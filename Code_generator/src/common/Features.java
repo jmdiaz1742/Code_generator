@@ -67,7 +67,7 @@ public class Features {
 	/**
 	 * Code name of the software version
 	 */
-	public static final String VERSION_NAME = "Dagobah";
+	public static final String VERSION_NAME = "Endor";
 
 	public static final String GENERATOR_NAME = "Kamino";
 
