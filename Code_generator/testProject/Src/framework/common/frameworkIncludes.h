@@ -16,7 +16,12 @@
  * Includes             *
  ************************/
 // Include framework modules depending on what you are using:
+// ################## Kamino generator v1.0.5: Generated code! ################
+// ######## Do NOT modify code between this header and the footer below #######
 #include "gpio.h"
+#include "adc.h"
+// ################## Kamino generator v1.0.5: Generated code! ################
+// ######## Do NOT modify code between this footer and the header above #######
 
 /************************
  * Public Types         *

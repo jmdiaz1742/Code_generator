@@ -44,11 +44,24 @@ public class MainGui {
 	 * @param args TBD
 	 */
 	static public void main(String[] args) {
-		// FIXME: Check how this would work, the idea is to call all the GUI
-		// windows from here
+		common.Features.initLog();
+		printInitInfo();
 		Features.verbosePrint("Starting GUI...");
 		CgMainWindow = new MainWindow();
 		CgMainWindow.setVisible(true);
+	}
+
+	static private void printInitInfo() {
+		String version = Features.SW_VERSION;
+		String codename = Features.VERSION_NAME;
+		
+		if (!Features.VERSION_STATUS.equals("Release")) {
+			version += ", " + Features.VERSION_STATUS + " build";
+		}
+		if (Features.DEBUG) {
+			version += " - Debug mode";
+		}
+		Features.verbosePrint("Kamino " + "version " + version + " " + codename);
 	}
 
 	/**
@@ -88,12 +101,13 @@ public class MainGui {
 			/* If a configuration file is found */
 			errorStatus = fileOpener.OpenFile(ProjectSettingsConf.getConfFile());
 			errorStatus = SelectedMicrocontroller.loadPinsConf(fileOpener.getParsedDoc());
+			errorStatus = SelectedMicrocontroller.loadAdcsConf(fileOpener.getParsedDoc());
+			errorStatus = SelectedMicrocontroller.loadAdcChannelsConf(fileOpener.getParsedDoc());
 		} else {
 			Features.verbosePrint("No pin configuration file found...");
 		}
 
-		CgMainWindow.setProjectInformation(ProjectSettingsConf.getProjectName(),
-				SelectedMicrocontroller.getUc_manufacturer(), SelectedMicrocontroller.getUc_model());
+		CgMainWindow.setProjectInformation(SelectedMicrocontroller, ProjectSettingsConf.getProjectName());
 		return errorStatus;
 	}
 
@@ -121,12 +135,19 @@ public class MainGui {
 	}
 
 	/**
+	 * Show the ADCs configuration window
+	 */
+	static public void showAdcConfWindow() {
+		new AdcConfWindow(SelectedMicrocontroller);
+	}
+
+	/**
 	 * Set the project's microcontroller configuration
 	 * 
 	 * @param uC Microcontroller configuration
 	 */
 	static public void setNewUC(Microcontroller uC) {
-		if (uC == SelectedMicrocontroller) {
+		if (uC.equals(SelectedMicrocontroller)) {
 			Features.verbosePrint("No uC change...");
 		} else {
 			Features.verbosePrint("uC changed...");
@@ -143,11 +164,16 @@ public class MainGui {
 
 	/**
 	 * Generate source code files
+	 * 
+	 * @return Error code
 	 */
-	static public void generateCode() {
+	static public ErrorCode generateCode() {
+		ErrorCode errorCode;
 		generator = new CodeGenerator(SelectedMicrocontroller, ProjectSettingsConf);
 
-		generator.Generate();
+		errorCode = generator.Generate();
+
+		return errorCode;
 	}
 
 }

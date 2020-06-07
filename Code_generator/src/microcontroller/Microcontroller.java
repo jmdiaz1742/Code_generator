@@ -8,14 +8,16 @@ import org.w3c.dom.NodeList;
 
 import common.ErrorCode;
 import common.Features;
+import configurator.AdcConf;
 import configurator.PinConf;
+import configurator.Selected;
+import configurator.ADC.AdcChannel;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
 import configurator.GPIO.Speed;
-import configurator.GPIO.Selected;
 import xmlParser.XmlOpener;
 
 /**
@@ -30,6 +32,7 @@ public class Microcontroller {
 	/* private fields */
 	private Document UcDoc;
 	private Pin[] CurrentPin;
+	private Adc[] CurrentAdc;
 
 	/* Public fields */
 
@@ -49,6 +52,11 @@ public class Microcontroller {
 	public String[] Includes_Gpio;
 
 	/**
+	 * List of Includes for ADC module
+	 */
+	public String[] Includes_Adc;
+
+	/**
 	 * List of common definitions that will be available for all framework
 	 */
 	public String[] Definitions_Common;
@@ -59,9 +67,24 @@ public class Microcontroller {
 	public String[] Definitions_Gpio;
 
 	/**
+	 * List of definitions for ADC module
+	 */
+	public String[] Definitions_Adc;
+
+	/**
 	 * Configured pins list
 	 */
 	public PinConf[] GpioCfgPin;
+
+	/**
+	 * List of ADCs
+	 */
+	public String[] Adcs;
+
+	/**
+	 * Configured ADCs list
+	 */
+	public AdcConf[] AdcCfg;
 
 	/* Microcontroller characteristics */
 	private String Uc_model;
@@ -69,6 +92,7 @@ public class Microcontroller {
 	private int Uc_pinNum;
 	private int Uc_gpioNum;
 	private int Uc_portNum;
+	private int Uc_adcNum;
 
 	/* Pin's mandatory characteristics */
 	private static final String STR_PIN_NAME = "name";
@@ -78,6 +102,10 @@ public class Microcontroller {
 	/* Pin's optional characteristics */
 	private static final String STR_PIN_INT = "interrupt";
 	private static final String STR_PIN_ADC = "adc";
+	private static final String STR_PIN_ADC_CHANNEL = "adcChannel";
+	private static final String STR_PIN_UART = "uart";
+	private static final String STR_PIN_I2C = "i2c";
+	private static final String STR_PIN_SPI = "spi";
 	private static final String STR_PIN_PORT = "port";
 	private static final String STR_PIN_CLOCK = "clock";
 	private static final String STR_PIN_TIMER = "timer";
@@ -92,18 +120,26 @@ public class Microcontroller {
 	private static final String STR_ATT_MODEL = "model";
 	private static final String STR_ATT_MFCT = "manufacturer";
 	private static final String STR_PIN = "pin";
+	private static final String STR_ADC = "adcInstance";
 	private static final String CFG_ROOT_ELEMENT = "Microcontroller_Configuration";
 
 	/**
 	 * Maximum number of pins allowed in a single port
 	 */
-	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 16;
+	public static final int MAX_NUMBER_OF_PINS_PER_PORT = 32;
+
+	/**
+	 * Maximum number of ADCs allowed
+	 */
+	public static final int MAX_NUMBER_OF_ADCS = 16;
 
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
 	private static final String STR_INCLUDE_GPIO = "include_gpio";
+	private static final String STR_INCLUDE_ADC = "include_adc";
 	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
 	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
+	private static final String STR_DEFINITION_ADC = "cfg_def_adc";
 
 	/**
 	 * Constructor
@@ -137,8 +173,17 @@ public class Microcontroller {
 			return ErrorCode.EX_ERROR;
 		}
 
+		if (loadAdcs() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+
 		if (loadPins() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
+		}
+
+		/* ADC channels need to be set after scanning GPIO pins */
+		for (int adcNum = 0; adcNum < Uc_adcNum; adcNum++) {
+			AdcCfg[adcNum].setChannels(CurrentAdc[adcNum]);
 		}
 
 		if (loadIncludes() != ErrorCode.NO_ERROR) {
@@ -261,7 +306,7 @@ public class Microcontroller {
 	 * @return Pin's information
 	 */
 	private Pin parsePin(int pinNum) {
-		CurrentPin[pinNum] = new Pin();
+		Pin pin = new Pin();
 		Element pinEl;
 		String name;
 		String pinsNum;
@@ -280,21 +325,21 @@ public class Microcontroller {
 
 		name = XmlOpener.getElementInfo(pinEl, STR_PIN_NAME);
 		if (!name.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setName(name);
+			pin.setName(name);
 			Features.verbosePrint("\tName: " + name);
 		}
 
 		/* Number */
 		pinsNum = XmlOpener.getElementInfo(pinEl, STR_PIN_NUMBER);
 		if (!pinsNum.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setNumber(Integer.parseInt(pinsNum));
+			pin.setNumber(Integer.parseInt(pinsNum));
 			Features.verbosePrint("\tNumber: " + pinsNum);
 		}
 
 		/* Port pin */
 		portPin = XmlOpener.getElementInfo(pinEl, STR_PORT_PIN);
 		if (!portPin.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setPortPin(portPin);
+			pin.setPortPin(portPin);
 			Features.verbosePrint("\tPort Pin: " + portPin);
 		}
 
@@ -302,75 +347,105 @@ public class Microcontroller {
 		/* VCC */
 		vcc = XmlOpener.getElementInfo(pinEl, STR_PIN_VCC);
 		if (!vcc.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setFunc_vcc(true);
+			pin.setFunc_vcc(true);
 			Features.verbosePrint("\tFunction: VCC");
 		}
 		/* GND */
 		gnd = XmlOpener.getElementInfo(pinEl, STR_PIN_GND);
 		if (!gnd.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setFunc_gnd(true);
+			pin.setFunc_gnd(true);
 			Features.verbosePrint("\tFunction: GND");
 		}
 		/* GPIO */
 		gpio = XmlOpener.getElementInfo(pinEl, STR_PIN_GPIO);
 		if (!gpio.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setFunc_gpio(true);
+			pin.setFunc_gpio(true);
 			Features.verbosePrint("\tFunction: GPIO");
 		}
 		/* RESET */
 		reset = XmlOpener.getElementInfo(pinEl, STR_PIN_RESET);
 		if (!reset.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setFunc_reset(true);
-			CurrentPin[pinNum].setReset(reset);
-			Features.verbosePrint("\tReset: " + CurrentPin[pinNum].getReset());
+			pin.setFunc_reset(true);
+			pin.setReset(reset);
+			Features.verbosePrint("\tReset: " + pin.getReset());
 		}
 		/* MISC */
 		misc = XmlOpener.getElementInfo(pinEl, STR_PIN_MISC);
 		if (!misc.equals(ErrorCode.STR_INVALID)) {
-			CurrentPin[pinNum].setFunc_misc(true);
+			pin.setFunc_misc(true);
 			Features.verbosePrint("\tFunction: MISC");
 		}
 
 		/* Get optional GPIO characteristics */
-		if (CurrentPin[pinNum].getFunc_gpio()) {
+		if (pin.getFunc_gpio()) {
 			String port;
 			String interruption;
 			String adc;
+			int adcIndex;
+			String adcChannel;
+			String uart;
+			String i2c;
+			String spi;
 			String clock;
 			String timer;
 
 			/* Port */
 			port = XmlOpener.getElementInfo(pinEl, STR_PIN_PORT);
 			if (!port.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setPort(port);
-				Features.verbosePrint("\tPort: " + CurrentPin[pinNum].getPort());
+				pin.setPort(port);
+				Features.verbosePrint("\tPort: " + pin.getPort());
 			}
 			/* Interruption */
 			interruption = XmlOpener.getElementInfo(pinEl, STR_PIN_INT);
 			if (!interruption.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setInt(interruption);
-				Features.verbosePrint("\tInterruption: " + CurrentPin[pinNum].getInt());
+				pin.setInt(interruption);
+				Features.verbosePrint("\tInterruption: " + pin.getInt());
 			}
 			/* ADC */
 			adc = XmlOpener.getElementInfo(pinEl, STR_PIN_ADC);
-			if (!adc.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setAdc(adc);
-				Features.verbosePrint("\tADC: " + CurrentPin[pinNum].getAdc());
+			adcChannel = XmlOpener.getElementInfo(pinEl, STR_PIN_ADC_CHANNEL);
+			if (!adc.equals(ErrorCode.STR_INVALID) && !adcChannel.equals(ErrorCode.STR_INVALID)) {
+				pin.setAdc(adc, adcChannel);
+				Features.verbosePrint("\tADC: " + pin.getAdc() + ", Channel: " + pin.getAdcChannel());
+
+				/* Add channel to ADC */
+				adcIndex = getAdcIndexFromName(pin.getAdc());
+				if (adcIndex != ErrorCode.INT_INVALID_INDEX) {
+					CurrentAdc[adcIndex].addChannel(new AdcChannel(pin.getAdcChannel(), pinNum));
+				}
+			}
+			/* UART */
+			uart = XmlOpener.getElementInfo(pinEl, STR_PIN_UART);
+			if (!uart.equals(ErrorCode.STR_INVALID)) {
+				pin.setUart(uart);
+				Features.verbosePrint("\tUART: " + pin.getUart());
+			}
+			/* I2C */
+			i2c = XmlOpener.getElementInfo(pinEl, STR_PIN_I2C);
+			if (!i2c.equals(ErrorCode.STR_INVALID)) {
+				pin.setI2c(i2c);
+				Features.verbosePrint("\tI2C: " + pin.getI2c());
+			}
+			/* SPI */
+			spi = XmlOpener.getElementInfo(pinEl, STR_PIN_SPI);
+			if (!spi.equals(ErrorCode.STR_INVALID)) {
+				pin.setSpi(spi);
+				Features.verbosePrint("\tSPI: " + pin.getSpi());
 			}
 			/* Clock */
 			clock = XmlOpener.getElementInfo(pinEl, STR_PIN_CLOCK);
 			if (!clock.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setClock(clock);
-				Features.verbosePrint("\tClock: " + CurrentPin[pinNum].getClock());
+				pin.setClock(clock);
+				Features.verbosePrint("\tClock: " + pin.getClock());
 			}
 			/* Timer */
 			timer = XmlOpener.getElementInfo(pinEl, STR_PIN_TIMER);
 			if (!timer.equals(ErrorCode.STR_INVALID)) {
-				CurrentPin[pinNum].setTimer(timer);
-				Features.verbosePrint("\tTimer: " + CurrentPin[pinNum].getTimer());
+				pin.setTimer(timer);
+				Features.verbosePrint("\tTimer: " + pin.getTimer());
 			}
 		}
-		return CurrentPin[pinNum];
+		return pin;
 	}
 
 	/**
@@ -482,6 +557,291 @@ public class Microcontroller {
 		return errorStatus;
 	}
 
+	/**
+	 * Load microcontroller's ADCs
+	 * 
+	 * @return ErrorStatus
+	 */
+	private ErrorCode loadAdcs() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList adcList;
+
+		adcList = UcDoc.getElementsByTagName(STR_ADC);
+		if (adcList.getLength() > 0) {
+			setUc_adcNum(adcList.getLength());
+			Adcs = new String[getUc_adcNum()];
+			CurrentAdc = new Adc[getUc_adcNum()];
+			AdcCfg = new AdcConf[getUc_adcNum()];
+			Features.verbosePrint("Number of ADCs: " + getUc_adcNum());
+
+			/* Parse the ADCs */
+			for (int adcNum = 0; adcNum < getUc_adcNum(); adcNum++) {
+				CurrentAdc[adcNum] = parseAdc(adcNum);
+				/* Check the ADC is valid */
+				if (!CurrentAdc[adcNum].isValid()) {
+					errorStatus = ErrorCode.EX_ERROR;
+					Features.verbosePrint("ADC " + adcNum + " not valid!");
+					break;
+				}
+				Adcs[adcNum] = CurrentAdc[adcNum].getName();
+			}
+
+		} else {
+			Features.verbosePrint("No ADCs found...");
+		}
+
+		return errorStatus;
+	}
+
+	/**
+	 * Parse the ADC
+	 * 
+	 * @param adcNum ADC index
+	 * @return ADC
+	 */
+	private Adc parseAdc(int adcNum) {
+		Adc adc = new Adc();
+		String name;
+		Element adcEl;
+		String feature;
+		String featureStr;
+		NodeList featureList;
+
+		Features.verbosePrint("Getting ADC " + adcNum + " characteristics:");
+
+		adcEl = (Element) UcDoc.getElementsByTagName(STR_ADC).item(adcNum);
+
+		/* Name */
+
+		name = XmlOpener.getElementInfo(adcEl, AdcConf.STR_NAME);
+		if (!name.equals(ErrorCode.STR_INVALID)) {
+			adc.setName(name);
+			Features.verbosePrint("\tName: " + name);
+		}
+
+		/* Samples */
+		feature = AdcConf.STR_SAMPLE;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addSample(featureStr);
+				Features.verbosePrint("\tSample: " + featureStr);
+			}
+		}
+
+		/* Clocks */
+		feature = AdcConf.STR_CLOCK;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addClock(featureStr);
+				Features.verbosePrint("\tClock: " + featureStr);
+			}
+		}
+
+		/* Justifications */
+		feature = AdcConf.STR_JUSTIFICATION;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addJustification(featureStr);
+				Features.verbosePrint("\tJustification: " + featureStr);
+			}
+		}
+
+		/* Prescalers */
+		feature = AdcConf.STR_PRESCALER;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addPrescaler(featureStr);
+				Features.verbosePrint("\tPrescaler: " + featureStr);
+			}
+		}
+
+		/* Resolutions */
+		feature = AdcConf.STR_RESOLUTION;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addResolution(featureStr);
+				Features.verbosePrint("\tResolution: " + featureStr);
+			}
+		}
+
+		/* References */
+		feature = AdcConf.STR_REFERENCE;
+		featureList = adcEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				adc.addReference(featureStr);
+				Features.verbosePrint("\tReference: " + featureStr);
+			}
+		}
+
+		if (adc.isValid()) {
+			AdcCfg[adcNum] = new AdcConf(adc);
+		}
+
+		return adc;
+	}
+
+	public ErrorCode loadAdcsConf(Document confDoc) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList adcList;
+
+		/* Get the root microcontroller element */
+		Element adcRoot = confDoc.getDocumentElement();
+		Features.verbosePrint("Configuration Root element: " + adcRoot.getTagName());
+
+		if (!adcRoot.getTagName().equals(CFG_ROOT_ELEMENT)) {
+			Features.verbosePrint("Wrong root element!...");
+			return ErrorCode.FILE_READ_ERROR;
+		}
+
+		/* Get the ADC's configuration */
+
+		adcList = confDoc.getElementsByTagName(STR_ADC);
+		if (adcList.getLength() > 0) {
+			Features.verbosePrint("Number of configured ADCs: " + adcList.getLength());
+		} else {
+			Features.verbosePrint("No ADCs configurations found...");
+			return ErrorCode.EX_ERROR;
+		}
+
+		for (int adcNum = 0; adcNum < adcList.getLength(); adcNum++) {
+			String name;
+			String configuration;
+			Element adcEl;
+			int adcIndex = 0;
+
+			adcEl = (Element) confDoc.getElementsByTagName(STR_ADC).item(adcNum);
+
+			/* Set the ADC's configurations if available */
+
+			name = XmlOpener.getElementInfo(adcEl, AdcConf.STR_NAME);
+			if (!name.equals(ErrorCode.STR_INVALID)) {
+				adcIndex = getAdcIndexFromName(name);
+				if (adcIndex >= getUc_pinNum()) {
+					Features.verbosePrint("ADC " + name + " not found...");
+					return ErrorCode.EX_ERROR;
+				}
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, Selected.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setSelected(Selected.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s selection: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CODE_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setCodeName(configuration);
+				Features.verbosePrint("Found " + name + "'s Code name: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_SAMPLE);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setSample(configuration);
+				Features.verbosePrint("Found " + name + "'s Sample: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_CLOCK);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setClock(configuration);
+				Features.verbosePrint("Found " + name + "'s Clock: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_JUSTIFICATION);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setJustification(configuration);
+				Features.verbosePrint("Found " + name + "'s Justification: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_PRESCALER);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setPrescaler(configuration);
+				Features.verbosePrint("Found " + name + "'s Prescaler: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_RESOLUTION);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setResolution(configuration);
+				Features.verbosePrint("Found " + name + "'s Resolution: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(adcEl, AdcConf.STR_REFERENCE);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				AdcCfg[adcNum].setReference(configuration);
+				Features.verbosePrint("Found " + name + "'s Reference: " + configuration);
+			}
+		}
+		return errorStatus;
+	}
+
+	/**
+	 * Load ADC channels
+	 * 
+	 * @param confDoc Configuration document
+	 * @return Error code
+	 */
+	public ErrorCode loadAdcChannelsConf(Document confDoc) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList adcList = confDoc.getElementsByTagName(STR_ADC);
+
+		for (int adcNum = 0; adcNum < adcList.getLength(); adcNum++) {
+			/* Get channels */
+			Element adcEl = (Element) confDoc.getElementsByTagName(STR_ADC).item(adcNum);
+			NodeList chanEl = adcEl.getElementsByTagName(AdcConf.STR_CHANNEL);
+			String chanName;
+			String configuration;
+
+			for (int chanNum = 0; chanNum < chanEl.getLength(); chanNum++) {
+				Element featEl = (Element) adcEl.getElementsByTagName(AdcConf.STR_CHANNEL).item(chanNum);
+				int chanIndex;
+
+				chanName = XmlOpener.getElementInfo(featEl, AdcChannel.STR_NAME);
+				if (!chanName.equals(ErrorCode.STR_INVALID)) {
+					chanIndex = AdcCfg[adcNum].getChannelIndexFromName(chanName);
+
+					configuration = XmlOpener.getElementInfo(featEl, Selected.STR_NAME);
+					if (!configuration.equals(ErrorCode.STR_INVALID)) {
+						AdcCfg[adcNum].getChannel(chanIndex).setSelected(Selected.getConfFromString(configuration));
+						Features.verbosePrint("Found " + AdcCfg[adcNum].AdcFeatures.getName() + " " + chanName
+								+ "'s Selection: " + configuration);
+					}
+
+					configuration = XmlOpener.getElementInfo(featEl, AdcChannel.STR_CODE_NAME);
+					if (!configuration.equals(ErrorCode.STR_INVALID)) {
+						AdcCfg[adcNum].getChannel(chanIndex).setCodeName(configuration);
+						Features.verbosePrint("Found " + AdcCfg[adcNum].AdcFeatures.getName() + " " + chanName
+								+ "'s Code name: " + configuration);
+					}
+				}
+			}
+
+		}
+		return errorStatus;
+	}
+
+	/**
+	 * Get the GPIO index from the Pin's name
+	 * 
+	 * @param name Pin's name
+	 * @return GPIO pin index
+	 */
 	private int getGpioIndexFromPinName(String name) {
 		int gpioIndex;
 
@@ -492,6 +852,25 @@ public class Microcontroller {
 		}
 
 		return gpioIndex;
+	}
+
+	/**
+	 * Get the ADC index from it's instance name
+	 * 
+	 * @param name ADC instance name
+	 * @return ADC index
+	 */
+	private int getAdcIndexFromName(String name) {
+		int index = ErrorCode.INT_INVALID_INDEX;
+		if (getUc_adcNum() > 0) {
+			for (int adcNum = 0; adcNum < CurrentAdc.length; adcNum++) {
+				if (name.equals(CurrentAdc[adcNum].getName())) {
+					index = adcNum;
+					break;
+				}
+			}
+		}
+		return index;
 	}
 
 	/**
@@ -595,6 +974,24 @@ public class Microcontroller {
 	}
 
 	/**
+	 * Get the number of ADCs in the microcontroller
+	 * 
+	 * @return Number of ADCs
+	 */
+	public int getUc_adcNum() {
+		return Uc_adcNum;
+	}
+
+	/**
+	 * Set the number of ADCs in the microcontroller
+	 * 
+	 * @param uc_adcNum Number of ADCs
+	 */
+	private void setUc_adcNum(int uc_adcNum) {
+		Uc_adcNum = uc_adcNum;
+	}
+
+	/**
 	 * Get the total pins selected
 	 * 
 	 * @return Total of pins selected
@@ -609,6 +1006,25 @@ public class Microcontroller {
 		}
 
 		return selectedPins;
+	}
+
+	/**
+	 * Get the total ADCs selected
+	 * 
+	 * @return Total of ADCs selected
+	 */
+	public int getUc_selectedAdcsNum() {
+		int selectedAdcs = 0;
+
+		if (getUc_adcNum() > 0) {
+			for (int adcNum = 0; adcNum < AdcCfg.length; adcNum++) {
+				if (AdcCfg[adcNum].getSelected().getBoolean()) {
+					selectedAdcs++;
+				}
+			}
+		}
+
+		return selectedAdcs;
 	}
 
 	/**
@@ -717,7 +1133,27 @@ public class Microcontroller {
 			}
 		} else {
 			errorStatus = ErrorCode.EX_ERROR;
+			Includes_Gpio = new String[1];
+			Includes_Gpio[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No GPIO includes found...");
+		}
+
+		/* Get ADC includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_ADC);
+		if (includeList.getLength() > 0) {
+			Includes_Adc = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Adc.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Adc[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			Includes_Adc = new String[1];
+			Includes_Adc[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No ADC includes found...");
 		}
 
 		return errorStatus;
@@ -763,6 +1199,24 @@ public class Microcontroller {
 			Definitions_Gpio = new String[1];
 			Definitions_Gpio[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No GPIO definitions found...");
+		}
+
+		/* Get ADC includes */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_ADC);
+		if (includeList.getLength() > 0) {
+			Definitions_Adc = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Definitions_Adc.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Adc[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Adc = new String[1];
+			Definitions_Adc[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No ADC definitions found...");
 		}
 
 		return errorStatus;

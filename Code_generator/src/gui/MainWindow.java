@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import common.ErrorCode;
 import common.Features;
 import configurator.ConfigurationFile;
+import microcontroller.Microcontroller;
+
 import java.awt.GridBagLayout;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -50,6 +52,7 @@ public class MainWindow {
 	private JLabel lbl_ProjectName;
 	private JLabel lbl_Microcontroller;
 	private JButton btn_ConfigureGpios;
+	private JButton btn_ConfigureAdcs;
 	private JButton btn_GenerateCode;
 
 	/* Dynamic menu elements */
@@ -195,10 +198,10 @@ public class MainWindow {
 		});
 		mnHelp.add(mntmAbout);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		FrmCodeGenerator.getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblt_ProjectName = new JLabel(Messages.getString("MainWindow.lblProject.text")); //$NON-NLS-1$
@@ -254,14 +257,29 @@ public class MainWindow {
 		btn_GenerateCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/****** Begin Generate Code button click ******/
-				MainGui.generateCode();
+				generateCode();
 				/****** End Generate Code button click ******/
+			}
+		});
+
+		btn_ConfigureAdcs = new JButton(Messages.getString("MainWindow.btnNewButton.text")); //$NON-NLS-1$
+		btn_ConfigureAdcs.setEnabled(false);
+		GridBagConstraints gbc_btn_ConfigureAdcs = new GridBagConstraints();
+		gbc_btn_ConfigureAdcs.insets = new Insets(0, 0, 5, 5);
+		gbc_btn_ConfigureAdcs.gridx = 0;
+		gbc_btn_ConfigureAdcs.gridy = 3;
+		FrmCodeGenerator.getContentPane().add(btn_ConfigureAdcs, gbc_btn_ConfigureAdcs);
+		btn_ConfigureAdcs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin Configure ADCs button click ******/
+				MainGui.showAdcConfWindow();
+				/****** End Configure ADCs button click ******/
 			}
 		});
 		GridBagConstraints gbc_btn_GenerateCode = new GridBagConstraints();
 		gbc_btn_GenerateCode.insets = new Insets(0, 0, 0, 5);
 		gbc_btn_GenerateCode.gridx = 0;
-		gbc_btn_GenerateCode.gridy = 3;
+		gbc_btn_GenerateCode.gridy = 4;
 		FrmCodeGenerator.getContentPane().add(btn_GenerateCode, gbc_btn_GenerateCode);
 	}
 
@@ -322,8 +340,12 @@ public class MainWindow {
 	 * @param ucName         Microcontroller's model
 	 * @return Error status
 	 */
-	public ErrorCode setProjectInformation(String projectName, String ucManufacturer, String ucName) {
+	public ErrorCode setProjectInformation(Microcontroller uC, String projectName) {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		String ucManufacturer = uC.getUc_manufacturer();
+		String ucName = uC.getUc_model();
+		boolean hasAdc = uC.getUc_adcNum() > 0;
+		
 		if (projectName.equals("") || ucManufacturer.equals("") || ucName.equals("")) {
 			Features.verbosePrint("Wrong project information...");
 			MainGui.showErrorDialog("Wrong project information");
@@ -333,6 +355,7 @@ public class MainWindow {
 		lbl_ProjectName.setText(projectName);
 		lbl_Microcontroller.setText(ucManufacturer + " " + ucName);
 		btn_ConfigureGpios.setEnabled(true);
+		btn_ConfigureAdcs.setEnabled(hasAdc);
 		btn_GenerateCode.setEnabled(true);
 		mntmSaveAs.setEnabled(true);
 		return errorStatus;
@@ -344,6 +367,21 @@ public class MainWindow {
 	private void showComingSoonMessage() {
 		JOptionPane.showMessageDialog(FrmCodeGenerator, "Coming soon!", "Feature not ready",
 				JOptionPane.WARNING_MESSAGE);
+	}
+
+	private void generateCode() {
+		ErrorCode errorCode;
+
+		errorCode = MainGui.generateCode();
+
+		if (errorCode == ErrorCode.NO_ERROR) {
+			JOptionPane.showMessageDialog(FrmCodeGenerator, "Code generated succesfully", "Code generation",
+					JOptionPane.OK_OPTION);
+		} else {
+			JOptionPane.showMessageDialog(FrmCodeGenerator, "Error generating code!", "Code generation",
+					JOptionPane.ERROR_MESSAGE);
+		}
+
 	}
 
 	/**

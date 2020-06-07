@@ -5,6 +5,7 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -17,13 +18,16 @@ import org.w3c.dom.Element;
 
 import common.ErrorCode;
 import common.Features;
+import configurator.AdcConf;
 import configurator.PinConf;
+import configurator.Selected;
+import configurator.ADC.AdcChannel;
+import configurator.GPIO.AltMode;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutLevel;
 import configurator.GPIO.OutType;
 import configurator.GPIO.Pull;
-import configurator.GPIO.Selected;
 import configurator.GPIO.Speed;
 import microcontroller.Microcontroller;
 
@@ -38,13 +42,14 @@ public class ConfXmlWriter {
 	/* Private fields */
 	private Document XmlDoc;
 	private Element RootElement;
-	private Element[] PinElement;
+	private Element[] ConfElement;
 	private Microcontroller UCConf;
 
 	private static final String STR_ROOT_EL = "Microcontroller_Configuration";
 	private static final String STR_PIN_EL = "pin";
-	private static final String STR_PORT = "port";
-	private static final String STR_NAME = "name";
+	private static final String STR_PIN_PORT = "port";
+	private static final String STR_PIN_NAME = "name";
+	private static final String STR_ADC = "adcInstance";
 
 	/**
 	 * Constructor
@@ -56,6 +61,14 @@ public class ConfXmlWriter {
 		DocumentBuilder xmlBuilder;
 
 		UCConf = uC;
+		int totalElements = 0;
+		/* GPIOs */
+		totalElements = UCConf.getUc_gpioNum();
+		/* ADCs */
+		totalElements += UCConf.getUc_adcNum();
+		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
+			totalElements += UCConf.AdcCfg[adcNum].getChannelsNum();
+		}
 
 		if (UCConf.getUc_gpioNum() > 0) {
 			try {
@@ -67,8 +80,9 @@ public class ConfXmlWriter {
 				RootElement = XmlDoc.createElement(STR_ROOT_EL);
 				XmlDoc.appendChild(RootElement);
 
-				PinElement = new Element[UCConf.getUc_gpioNum()];
+				ConfElement = new Element[totalElements];
 				configurePins();
+				configureAdcs();
 
 			} catch (ParserConfigurationException e) {
 				Features.verbosePrint("Error creating XML file...");
@@ -93,15 +107,16 @@ public class ConfXmlWriter {
 	 * @param pinNum Number of GPIO pin
 	 */
 	public void addPin(PinConf pin, int pinNum) {
-		PinElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
-		PinElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPinName()));
-		RootElement.appendChild(PinElement[pinNum]);
+		ConfElement[pinNum] = XmlDoc.createElement(STR_PIN_EL);
+		ConfElement[pinNum].appendChild(XmlDoc.createTextNode(pin.getPinName()));
+		RootElement.appendChild(ConfElement[pinNum]);
 
 		/* Write the pins configuration information */
-		addPinChild(STR_NAME, pin.getPinName(), pinNum);
-		addPinChild(STR_PORT, pin.getPort(), pinNum);
+		addPinChild(STR_PIN_NAME, pin.getPinName(), pinNum);
+		addPinChild(STR_PIN_PORT, pin.getPort(), pinNum);
 		addPinChild(Selected.STR_NAME, pin.getSelected().name(), pinNum);
 		addPinChild(Mode.STR_NAME, pin.getMode().name(), pinNum);
+		addPinChild(AltMode.STR_NAME, pin.getAltMode().name(), pinNum);
 		addPinChild(OutType.STR_NAME, pin.getOutType().name(), pinNum);
 		addPinChild(OutLevel.STR_NAME, pin.getOutLevel().name(), pinNum);
 		addPinChild(Pull.STR_NAME, pin.getPull().name(), pinNum);
@@ -119,7 +134,74 @@ public class ConfXmlWriter {
 	private void addPinChild(String elName, String elInfo, int pinNum) {
 		Element childEl = XmlDoc.createElement(elName);
 		childEl.appendChild(XmlDoc.createTextNode(elInfo));
-		PinElement[pinNum].appendChild(childEl);
+		ConfElement[pinNum].appendChild(childEl);
+	}
+
+	/**
+	 * Configure ADCs
+	 */
+	private void configureAdcs() {
+		int adcOffset = UCConf.getUc_gpioNum();
+		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
+			int elNum = adcOffset + adcNum;
+			AdcConf adc = UCConf.AdcCfg[adcNum];
+
+			ConfElement[elNum] = XmlDoc.createElement(STR_ADC);
+			ConfElement[elNum].appendChild(XmlDoc.createTextNode(adc.AdcFeatures.getName()));
+			RootElement.appendChild(ConfElement[elNum]);
+
+			/* Write the pins configuration information */
+			addAdcChild(AdcConf.STR_NAME, adc.AdcFeatures.getName(), elNum);
+			addPinChild(Selected.STR_NAME, adc.getSelected().name(), elNum);
+			addAdcChild(AdcConf.STR_CODE_NAME, adc.getCodeName(), elNum);
+			addAdcChild(AdcConf.STR_SAMPLE, adc.getSample(), elNum);
+			addAdcChild(AdcConf.STR_CLOCK, adc.getClock(), elNum);
+			addAdcChild(AdcConf.STR_JUSTIFICATION, adc.getJustification(), elNum);
+			addAdcChild(AdcConf.STR_PRESCALER, adc.getPrescaler(), elNum);
+			addAdcChild(AdcConf.STR_RESOLUTION, adc.getResolution(), elNum);
+			addAdcChild(AdcConf.STR_REFERENCE, adc.getReference(), elNum);
+			addChannels(adc, elNum);
+		}
+	}
+
+	private void addChannels(AdcConf adc, int offset) {
+
+		for (int chanNum = 0; chanNum < adc.getChannelsNum(); chanNum++) {
+			Element channelEl = XmlDoc.createElement(AdcConf.STR_CHANNEL);
+			AdcChannel channel = adc.getChannel(chanNum);
+			Element featureEl;
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getName()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(Selected.STR_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getSelected().name()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_CODE_NAME);
+			featureEl.appendChild(XmlDoc.createTextNode(channel.getCodeName()));
+			channelEl.appendChild(featureEl);
+
+			featureEl = XmlDoc.createElement(AdcChannel.STR_PIN_INDEX);
+			featureEl.appendChild(XmlDoc.createTextNode(String.valueOf(channel.getPinIndex())));
+			channelEl.appendChild(featureEl);
+
+			ConfElement[offset].appendChild(channelEl);
+		}
+	}
+
+	/**
+	 * Add ADC configuration
+	 * 
+	 * @param elName ADC's feature name
+	 * @param elInfo ADC's feature configuration
+	 * @param adcNum ADC's number
+	 */
+	private void addAdcChild(String elName, String elInfo, int adcNum) {
+		Element childEl = XmlDoc.createElement(elName);
+		childEl.appendChild(XmlDoc.createTextNode(elInfo));
+		ConfElement[adcNum].appendChild(childEl);
 	}
 
 	/**
@@ -145,6 +227,7 @@ public class ConfXmlWriter {
 			xmlSource = new DOMSource(XmlDoc);
 			xmlResult = new StreamResult(xmlFile);
 
+			xmlTrans.setOutputProperty(OutputKeys.INDENT, "yes");
 			xmlTrans.transform(xmlSource, xmlResult);
 		} catch (TransformerConfigurationException e) {
 			errorStatus = ErrorCode.FILE_WRITE_ERROR;

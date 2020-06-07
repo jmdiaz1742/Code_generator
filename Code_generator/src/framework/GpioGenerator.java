@@ -5,12 +5,11 @@ import microcontroller.Microcontroller;
 
 class GpioGenerator {
 
-	private static final String STR_ALT_MODE_NONE = "GPIO_ALT_NONE";
-
 	private static final String STR_SUFF_PORT = "_PORT";
 	private static final String STR_SUFF_PIN = "_PIN";
 	private static final String STR_SUFF_MODE = "_MODE";
-	private static final String STR_SUFF_ALT = "_ALT";
+	private static final String STR_SUFF_ALT_MODE = "_ALT_MODE";
+	private static final String STR_SUFF_OUT_TYPE = "_OUT_TYPE";
 	private static final String STR_SUFF_PULL = "_PULL";
 	private static final String STR_SUFF_SPEED = "_SPEED";
 	private static final String STR_SUFF_INIT_OUT = "_INIT_OUT";
@@ -40,7 +39,8 @@ class GpioGenerator {
 				cfgArray += pinName + STR_SUFF_PORT + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_PIN + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_MODE + "," + framework.Common.NL;
-				cfgArray += pinName + STR_SUFF_ALT + "," + framework.Common.NL;
+				cfgArray += pinName + STR_SUFF_ALT_MODE + "," + framework.Common.NL;
+				cfgArray += pinName + STR_SUFF_OUT_TYPE + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_PULL + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_SPEED + "," + framework.Common.NL;
 				cfgArray += pinName + STR_SUFF_INIT_OUT + framework.Common.NL;
@@ -83,8 +83,11 @@ class GpioGenerator {
 				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_MODE + " ";
 				elDefs += uC.GpioCfgPin[pinNum].getMode() + framework.Common.NL;
 
-				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_ALT + " ";
-				elDefs += STR_ALT_MODE_NONE + framework.Common.NL;
+				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_ALT_MODE + " ";
+				elDefs += uC.GpioCfgPin[pinNum].getAltMode() + framework.Common.NL;
+
+				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_OUT_TYPE + " ";
+				elDefs += uC.GpioCfgPin[pinNum].getOutType() + framework.Common.NL;
 
 				elDefs += framework.Common.STR_DEFINITION + pinName + STR_SUFF_PULL + " ";
 				elDefs += uC.GpioCfgPin[pinNum].getPull() + framework.Common.NL;

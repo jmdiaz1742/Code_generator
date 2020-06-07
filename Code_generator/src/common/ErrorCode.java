@@ -37,4 +37,9 @@ public enum ErrorCode {
 	 * Error string
 	 */
 	public static final String STR_INVALID = "STR_INVALID";
+	
+	/**
+	 * Invalid index
+	 */
+	public static final int INT_INVALID_INDEX = -1;
 }

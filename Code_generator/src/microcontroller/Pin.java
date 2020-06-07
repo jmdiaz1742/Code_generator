@@ -58,6 +58,7 @@ public class Pin {
 	/* Pin features */
 	private String interruption;
 	private String adc;
+	private String adcChannel;
 	private String uart;
 	private String i2c;
 	private String spi;
@@ -322,7 +323,7 @@ public class Pin {
 	public void setFeat_adc(boolean featState) {
 		feat_adc = featState;
 		if (!feat_adc) {
-			setAdc(DEF_FEATURE);
+			setAdc(DEF_FEATURE, DEF_FEATURE);
 		}
 	}
 
@@ -485,8 +486,9 @@ public class Pin {
 	 * 
 	 * @param feature Pin's ADC
 	 */
-	public void setAdc(String feature) {
-		adc = feature;
+	public void setAdc(String instance, String channel) {
+		adc = instance;
+		adcChannel = channel;
 		setFeat_adc(ENABLE);
 	}
 
@@ -497,6 +499,15 @@ public class Pin {
 	 */
 	public String getAdc() {
 		return adc;
+	}
+
+	/**
+	 * Get the pin's ADC channel
+	 * 
+	 * @return Pin's ADC channel
+	 */
+	public String getAdcChannel() {
+		return adcChannel;
 	}
 
 	/**
@@ -651,6 +662,7 @@ public class Pin {
 
 	/**
 	 * Get port pin number
+	 * 
 	 * @return port pin number
 	 */
 	public String getPortPin() {
@@ -659,6 +671,7 @@ public class Pin {
 
 	/**
 	 * Set port pin number
+	 * 
 	 * @param portPin Port pin number
 	 */
 	public void setPortPin(String portPin) {
