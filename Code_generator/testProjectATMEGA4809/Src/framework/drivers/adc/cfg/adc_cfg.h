@@ -29,7 +29,7 @@ typedef enum
 {
     // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-ADC1,
+APP_ADC,
 // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     ADC_ELEMENTS_MAX
@@ -50,14 +50,14 @@ ADC1,
 
 // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-// ADC1
-#define ADC1_NAME ADC1
-#define ADC1_SAMPLE ADC_DISABLE_SAMPLE
-#define ADC1_CLOCK ADC_NOT_SUPPORTED
-#define ADC1_JUSTIFICATION ADC_NOT_SUPPORTED
-#define ADC1_PRESCALER DIVIDE_ADC_CLOCK_BY_4
-#define ADC1_RESOLUTION ADC_10_BIT_RESOLUTION
-#define ADC1_REFERENCE ADC_USE_SUPPLY_VOLTAGE_AS_REFERENCE
+// APP_ADC
+#define APP_ADC_NAME ADC1
+#define APP_ADC_SAMPLE ADC_DISABLE_SAMPLE
+#define APP_ADC_CLOCK ADC_NOT_SUPPORTED
+#define APP_ADC_JUSTIFICATION ADC_NOT_SUPPORTED
+#define APP_ADC_PRESCALER DIVIDE_ADC_CLOCK_BY_4
+#define APP_ADC_RESOLUTION ADC_10_BIT_RESOLUTION
+#define APP_ADC_REFERENCE ADC_USE_SUPPLY_VOLTAGE_AS_REFERENCE
 
 // Channel definitions
 // ADC ADC1

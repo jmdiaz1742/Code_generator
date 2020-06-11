@@ -537,7 +537,7 @@
         ADC1
         <name>ADC1</name>
         <selected>YES</selected>
-        <codeName>ADC1</codeName>
+        <codeName>APP_ADC</codeName>
         <sample>ADC_DISABLE_SAMPLE</sample>
         <clock>ADC_NOT_SUPPORTED</clock>
         <justification>ADC_NOT_SUPPORTED</justification>
