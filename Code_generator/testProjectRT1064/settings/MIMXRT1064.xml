@@ -9,6 +9,8 @@
         <include_common>stdbool.h</include_common>
         <include_gpio>MIMXRT1064.h</include_gpio>
 		<include_gpio>fsl_gpio.h</include_gpio>
+		<include_adc>MIMXRT1064.h</include_adc>
+		<include_adc>fsl_adc.h</include_adc>
     </includes>
     <configuration_definitions>
         <!-- GPIO definitions -->
