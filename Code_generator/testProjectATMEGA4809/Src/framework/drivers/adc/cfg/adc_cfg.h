@@ -15,7 +15,7 @@
  ************************/
 // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-
+#include "adc_basic.h"
 // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
