@@ -174,4 +174,12 @@ public class ProjectSettings {
 	public String getFrameworkPath() {
 		return FrameworkPath;
 	}
+	
+	/**
+	 * Set the framework folder
+	 * @param path Framework folder
+	 */
+	public void setFrameworkPath(String path) {
+		FrameworkPath = path;
+	}
 }

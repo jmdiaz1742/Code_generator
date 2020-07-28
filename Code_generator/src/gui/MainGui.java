@@ -25,6 +25,7 @@ public class MainGui {
 	/* Private fields */
 	static private MainWindow CgMainWindow;
 	static private ProjectSettings ProjectSettingsConf = new ProjectSettings();
+	static private GeneralSettings Settings;
 	static private Microcontroller SelectedMicrocontroller;
 	static private CodeGenerator generator;
 
@@ -55,7 +56,7 @@ public class MainGui {
 	static private void printInitInfo() {
 		String version = Features.SW_VERSION;
 		String codename = Features.VERSION_NAME;
-		
+
 		if (!Features.VERSION_STATUS.equals("Release")) {
 			version += ", " + Features.VERSION_STATUS + " build";
 		}
@@ -141,13 +142,19 @@ public class MainGui {
 	static public void showAdcConfWindow() {
 		new AdcConfWindow(SelectedMicrocontroller);
 	}
-	
+
+	/**
+	 * Show the Project Preferences window
+	 */
 	static public void showProjectPreferencesWindow() {
-		new ProjectPreferencesWindow(ProjectSettingsConf);
+		new ProjectSettingsWindow(ProjectSettingsConf);
 	}
-	
+
+	/**
+	 * Show the General Settings window
+	 */
 	static public void showGeneralSettingsWindow() {
-		new GeneralSettingsWindow();
+		new GeneralSettingsWindow(Settings);
 	}
 
 	/**
@@ -161,6 +168,24 @@ public class MainGui {
 		} else {
 			Features.verbosePrint("uC changed...");
 		}
+	}
+
+	/**
+	 * Save the project's preferences
+	 * 
+	 * @param preferences Project's preferences
+	 */
+	static public void saveProjectPreferences(ProjectSettings preferences) {
+		ProjectSettingsConf = preferences;
+	}
+
+	/**
+	 * Save the General Settings
+	 * 
+	 * @param settings General Settings
+	 */
+	static public void saveGeneralSettings(GeneralSettings settings) {
+		Settings = settings;
 	}
 
 	/**

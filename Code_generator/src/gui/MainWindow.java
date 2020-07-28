@@ -412,7 +412,7 @@ public class MainWindow {
 
 		if (errorCode == ErrorCode.NO_ERROR) {
 			JOptionPane.showMessageDialog(FrmCodeGenerator, "Code generated succesfully", "Code generation",
-					JOptionPane.OK_OPTION);
+					JOptionPane.PLAIN_MESSAGE);
 		} else {
 			JOptionPane.showMessageDialog(FrmCodeGenerator, "Error generating code!", "Code generation",
 					JOptionPane.ERROR_MESSAGE);
