@@ -21,6 +21,7 @@ import common.Features;
 import configurator.AdcConf;
 import configurator.PinConf;
 import configurator.Selected;
+import configurator.UartConf;
 import configurator.ADC.AdcChannel;
 import configurator.GPIO.AltMode;
 import configurator.GPIO.CodeName;
@@ -50,6 +51,7 @@ public class ConfXmlWriter {
 	private static final String STR_PIN_PORT = "port";
 	private static final String STR_PIN_NAME = "name";
 	private static final String STR_ADC = "adcInstance";
+	private static final String STR_UART = "uartInstance";
 
 	/**
 	 * Constructor
@@ -69,6 +71,8 @@ public class ConfXmlWriter {
 		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
 			totalElements += UCConf.AdcCfg[adcNum].getChannelsNum();
 		}
+		/* UARTs */
+		totalElements += UCConf.getUc_uartNum();
 
 		if (UCConf.getUc_gpioNum() > 0) {
 			try {
@@ -83,6 +87,7 @@ public class ConfXmlWriter {
 				ConfElement = new Element[totalElements];
 				configurePins();
 				configureAdcs();
+				configureUarts();
 
 			} catch (ParserConfigurationException e) {
 				Features.verbosePrint("Error creating XML file...");
@@ -150,7 +155,7 @@ public class ConfXmlWriter {
 			ConfElement[elNum].appendChild(XmlDoc.createTextNode(adc.AdcFeatures.getName()));
 			RootElement.appendChild(ConfElement[elNum]);
 
-			/* Write the pins configuration information */
+			/* Write the ADCs configuration information */
 			addAdcChild(AdcConf.STR_NAME, adc.AdcFeatures.getName(), elNum);
 			addPinChild(Selected.STR_NAME, adc.getSelected().name(), elNum);
 			addAdcChild(AdcConf.STR_CODE_NAME, adc.getCodeName(), elNum);
@@ -202,6 +207,49 @@ public class ConfXmlWriter {
 		Element childEl = XmlDoc.createElement(elName);
 		childEl.appendChild(XmlDoc.createTextNode(elInfo));
 		ConfElement[adcNum].appendChild(childEl);
+	}
+
+	/**
+	 * Configure UARTs
+	 */
+	private void configureUarts() {
+		int uartOffset = UCConf.getUc_gpioNum();
+		uartOffset += UCConf.getUc_adcNum();
+		for (int adcNum = 0; adcNum < UCConf.getUc_adcNum(); adcNum++) {
+			uartOffset += UCConf.AdcCfg[adcNum].getChannelsNum();
+		}
+		for (int uartNum = 0; uartNum < UCConf.getUc_adcNum(); uartNum++) {
+			int elNum = uartOffset + uartNum;
+			UartConf uart = UCConf.UartCfg[uartNum];
+
+			ConfElement[elNum] = XmlDoc.createElement(STR_UART);
+			ConfElement[elNum].appendChild(XmlDoc.createTextNode(uart.UartFeatures.getName()));
+			RootElement.appendChild(ConfElement[elNum]);
+
+			/* Write the UARTs configuration information */
+			addUartChild(UartConf.STR_NAME, uart.UartFeatures.getName(), elNum);
+			addPinChild(Selected.STR_NAME, uart.getSelected().name(), elNum);
+			addUartChild(UartConf.STR_CODE_NAME, uart.getCodeName(), elNum);
+			addUartChild(UartConf.STR_CLOCK, uart.getClock(), elNum);
+			addUartChild(UartConf.STR_PRESCALER, uart.getPrescaler(), elNum);
+			addUartChild(UartConf.STR_BAUD_RATE, uart.getBaudRate(), elNum);
+			addUartChild(UartConf.STR_DATA_BITS, uart.getDataBits(), elNum);
+			addUartChild(UartConf.STR_STOP_BITS, uart.getStopBits(), elNum);
+			addUartChild(UartConf.STR_PARITY, uart.getParity(), elNum);
+		}
+	}
+
+	/**
+	 * Add UART configuration
+	 * 
+	 * @param elName  UART's feature name
+	 * @param elInfo  UART's feature configuration
+	 * @param uartNum UART's number
+	 */
+	private void addUartChild(String elName, String elInfo, int uartNum) {
+		Element childEl = XmlDoc.createElement(elName);
+		childEl.appendChild(XmlDoc.createTextNode(elInfo));
+		ConfElement[uartNum].appendChild(childEl);
 	}
 
 	/**

@@ -58,29 +58,76 @@
 			<resolution>ADC_RESOLUTION6b</resolution>
 			<reference>ADC_NOT_SUPPORTED</reference>
 		</adcInstance>
-        <adcInstance>
-            <name>ADC1_2_COMMON</name>
-            <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
-            <sample>ADC_SAMPLETIME_2CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_4CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_7CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_19CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_61CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_181CYCLES_5</sample>
-            <sample>ADC_SAMPLETIME_601CYCLES_5</sample>
-            <clock>ADC_NOT_SUPPORTED</clock>
-            <justification>ADC_DATAALIGN_RIGHT</justification>
-            <justification>ADC_DATAALIGN_LEFT</justification>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
-            <prescaler>ADC_CLOCK_SYNC_PCLK_DIV4</prescaler>
-            <resolution>ADC_RESOLUTION12b</resolution>
-            <resolution>ADC_RESOLUTION10b</resolution>
-            <resolution>ADC_RESOLUTION8b</resolution>
-            <resolution>ADC_RESOLUTION6b</resolution>
-            <reference>ADC_NOT_SUPPORTED</reference>
-        </adcInstance>
+		<adcInstance>
+			<name>ADC1_2_COMMON</name>
+			<sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+			<sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_4CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_7CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_19CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_61CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_181CYCLES_5</sample>
+			<sample>ADC_SAMPLETIME_601CYCLES_5</sample>
+			<clock>ADC_NOT_SUPPORTED</clock>
+			<justification>ADC_DATAALIGN_RIGHT</justification>
+			<justification>ADC_DATAALIGN_LEFT</justification>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
+			<prescaler>ADC_CLOCK_SYNC_PCLK_DIV4</prescaler>
+			<resolution>ADC_RESOLUTION12b</resolution>
+			<resolution>ADC_RESOLUTION10b</resolution>
+			<resolution>ADC_RESOLUTION8b</resolution>
+			<resolution>ADC_RESOLUTION6b</resolution>
+			<reference>ADC_NOT_SUPPORTED</reference>
+		</adcInstance>
 	</adcs>
+	<uarts>
+		<uartInstance>
+			<name>USART1</name>
+			<clock>RCC_USART1CLKSOURCE_PCLK1</clock>
+			<clock>RCC_USART1CLKSOURCE_SYSCLK</clock>
+			<clock>RCC_USART1CLKSOURCE_LSE</clock>
+			<clock>RCC_USART1CLKSOURCE_HSI</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_WORDLENGTH_8B</dataBits>
+			<dataBits>UART_WORDLENGTH_9B</dataBits>
+			<stopBits>UART_STOPBITS_1</stopBits>
+			<stopBits>UART_STOPBITS_2</stopBits>
+			<parity>UART_PARITY_NONE</parity>
+			<parity>UART_PARITY_EVEN</parity>
+			<parity>UART_PARITY_ODD</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>USART2</name>
+			<clock>RCC_USART2CLKSOURCE_PCLK1</clock>
+			<clock>RCC_USART2CLKSOURCE_SYSCLK</clock>
+			<clock>RCC_USART2CLKSOURCE_LSE</clock>
+			<clock>RCC_USART2CLKSOURCE_HSI</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_WORDLENGTH_8B</dataBits>
+			<dataBits>UART_WORDLENGTH_9B</dataBits>
+			<stopBits>UART_STOPBITS_1</stopBits>
+			<stopBits>UART_STOPBITS_2</stopBits>
+			<parity>UART_PARITY_NONE</parity>
+			<parity>UART_PARITY_EVEN</parity>
+			<parity>UART_PARITY_ODD</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>USART3</name>
+			<clock>RCC_USART3CLKSOURCE_PCLK1</clock>
+			<clock>RCC_USART3CLKSOURCE_SYSCLK</clock>
+			<clock>RCC_USART3CLKSOURCE_LSE</clock>
+			<clock>RCC_USART3CLKSOURCE_HSI</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_WORDLENGTH_8B</dataBits>
+			<dataBits>UART_WORDLENGTH_9B</dataBits>
+			<stopBits>UART_STOPBITS_1</stopBits>
+			<stopBits>UART_STOPBITS_2</stopBits>
+			<parity>UART_PARITY_NONE</parity>
+			<parity>UART_PARITY_EVEN</parity>
+			<parity>UART_PARITY_ODD</parity>
+		</uartInstance>
+	</uarts>
 	<pins>
 		<pin>
 			<!-- Backup power supply -->
@@ -154,7 +201,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_0</portPin>
 			<adc>ADC1_2_COMMON</adc>
-            <adcChannel>ADC_CHANNEL_6</adcChannel>
+			<adcChannel>ADC_CHANNEL_6</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH1</timer>
@@ -166,7 +213,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_1</portPin>
 			<adc>ADC1_2_COMMON</adc>
-            <adcChannel>ADC_CHANNEL_7</adcChannel>
+			<adcChannel>ADC_CHANNEL_7</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH2</timer>
@@ -178,7 +225,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_2</portPin>
 			<adc>ADC1_2_COMMON</adc>
-            <adcChannel>ADC_CHANNEL_8</adcChannel>
+			<adcChannel>ADC_CHANNEL_8</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH3</timer>
@@ -190,7 +237,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_3</portPin>
 			<adc>ADC1_2_COMMON</adc>
-            <adcChannel>ADC_CHANNEL_9</adcChannel>
+			<adcChannel>ADC_CHANNEL_9</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH4</timer>
@@ -214,7 +261,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_0</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_1</adcChannel>
+			<adcChannel>ADC_CHANNEL_1</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH1</timer>
@@ -230,7 +277,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_1</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_2</adcChannel>
+			<adcChannel>ADC_CHANNEL_2</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH2</timer>
@@ -246,7 +293,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_2</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_3</adcChannel>
+			<adcChannel>ADC_CHANNEL_3</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH3</timer>
@@ -262,7 +309,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_3</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_4</adcChannel>
+			<adcChannel>ADC_CHANNEL_4</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH4</timer>
@@ -287,7 +334,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_4</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_1</adcChannel>
+			<adcChannel>ADC_CHANNEL_1</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<dac>DAC1_OUT1</dac>
@@ -305,7 +352,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_5</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_2</adcChannel>
+			<adcChannel>ADC_CHANNEL_2</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM2_CH1</timer>
@@ -322,7 +369,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_6</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_3</adcChannel>
+			<adcChannel>ADC_CHANNEL_3</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM16_CH1</timer>
@@ -341,7 +388,7 @@
 			<port>PORT_A</port>
 			<portPin>PIN_7</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_4</adcChannel>
+			<adcChannel>ADC_CHANNEL_4</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM17_CH1</timer>
@@ -359,7 +406,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_4</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_5</adcChannel>
+			<adcChannel>ADC_CHANNEL_5</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_ETR</timer>
@@ -372,7 +419,7 @@
 			<port>PORT_C</port>
 			<portPin>PIN_5</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_11</adcChannel>
+			<adcChannel>ADC_CHANNEL_11</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_BKIN</timer>
@@ -387,7 +434,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_0</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_11</adcChannel>
+			<adcChannel>ADC_CHANNEL_11</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM3_CH3</timer>
@@ -403,7 +450,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_1</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_12</adcChannel>
+			<adcChannel>ADC_CHANNEL_12</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM3_CH4</timer>
@@ -419,7 +466,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_2</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_12</adcChannel>
+			<adcChannel>ADC_CHANNEL_12</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<tsc>TSC_G3_IO4</tsc>
@@ -470,7 +517,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_12</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_13</adcChannel>
+			<adcChannel>ADC_CHANNEL_13</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_BKIN</timer>
@@ -484,7 +531,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_13</portPin>
 			<adc>ADC1</adc>
-            <adcChannel>ADC_CHANNEL_13</adcChannel>
+			<adcChannel>ADC_CHANNEL_13</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM1_CH1N</timer>
@@ -499,7 +546,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_14</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_14</adcChannel>
+			<adcChannel>ADC_CHANNEL_14</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_CH1</timer>
@@ -516,7 +563,7 @@
 			<port>PORT_B</port>
 			<portPin>PIN_15</portPin>
 			<adc>ADC2</adc>
-            <adcChannel>ADC_CHANNEL_15</adcChannel>
+			<adcChannel>ADC_CHANNEL_15</adcChannel>
 			<!--TODO: -->
 			<interrupt>PCINT0</interrupt>
 			<timer>TIM15_CH2</timer>

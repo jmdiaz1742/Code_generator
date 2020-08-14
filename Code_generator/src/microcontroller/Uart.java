@@ -161,7 +161,7 @@ public class Uart {
 	 */
 	public String getDataBits(int index) {
 		if (index < getDataBitsNum()) {
-			return Prescalers.get(index);
+			return DataBits.get(index);
 		} else {
 			return ErrorCode.STR_INVALID;
 		}
@@ -238,7 +238,7 @@ public class Uart {
 	 */
 	public boolean isValid() {
 		if (!Name.equals(ErrorCode.STR_INVALID) && (getClockNum() > 0) && (getPrescalerNum() > 0)
-				&& (getBaudRateNum() > 0) && (getDataBitsNum() > 0) && (getStopBitsNum() > 0) && (getParityNum() > 0)) {
+				&& (getDataBitsNum() > 0) && (getStopBitsNum() > 0) && (getParityNum() > 0)) {
 			return true;
 		} else {
 			return false;

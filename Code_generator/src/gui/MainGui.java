@@ -105,6 +105,7 @@ public class MainGui {
 			errorStatus = SelectedMicrocontroller.loadPinsConf(fileOpener.getParsedDoc());
 			errorStatus = SelectedMicrocontroller.loadAdcsConf(fileOpener.getParsedDoc());
 			errorStatus = SelectedMicrocontroller.loadAdcChannelsConf(fileOpener.getParsedDoc());
+			errorStatus = SelectedMicrocontroller.loadUartsConf(fileOpener.getParsedDoc());
 		} else {
 			Features.verbosePrint("No pin configuration file found...");
 		}
@@ -141,6 +142,13 @@ public class MainGui {
 	 */
 	static public void showAdcConfWindow() {
 		new AdcConfWindow(SelectedMicrocontroller);
+	}
+	
+	/**
+	 * Show the UARTs configuration window
+	 */
+	static public void showUartConfWindow() {
+		new UartConfWindow(SelectedMicrocontroller);
 	}
 
 	/**

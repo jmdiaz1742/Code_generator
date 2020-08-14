@@ -1,828 +1,750 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Microcontroller_Configuration>
-    <pin>
-        PC13
-        <name>PC13</name>
-        <port>PORT_C</port>
-        <selected>YES</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_UP</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>USER_BUTTON</codeName>
-    </pin>
-    <pin>
-        PC14
-        <name>PC14</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC14</codeName>
-    </pin>
-    <pin>
-        PC15
-        <name>PC15</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC15</codeName>
-    </pin>
-    <pin>
-        PF0
-        <name>PF0</name>
-        <port>PORT_F</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PF0</codeName>
-    </pin>
-    <pin>
-        PF1
-        <name>PF1</name>
-        <port>PORT_F</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PF1</codeName>
-    </pin>
-    <pin>
-        PC0
-        <name>PC0</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC0</codeName>
-    </pin>
-    <pin>
-        PC1
-        <name>PC1</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC1</codeName>
-    </pin>
-    <pin>
-        PC2
-        <name>PC2</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC2</codeName>
-    </pin>
-    <pin>
-        PC3
-        <name>PC3</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC3</codeName>
-    </pin>
-    <pin>
-        PA0
-        <name>PA0</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA0</codeName>
-    </pin>
-    <pin>
-        PA1
-        <name>PA1</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA1</codeName>
-    </pin>
-    <pin>
-        PA2
-        <name>PA2</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA2</codeName>
-    </pin>
-    <pin>
-        PA3
-        <name>PA3</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA3</codeName>
-    </pin>
-    <pin>
-        PA4
-        <name>PA4</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA4</codeName>
-    </pin>
-    <pin>
-        PA5
-        <name>PA5</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA5</codeName>
-    </pin>
-    <pin>
-        PA6
-        <name>PA6</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA6</codeName>
-    </pin>
-    <pin>
-        PA7
-        <name>PA7</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA7</codeName>
-    </pin>
-    <pin>
-        PC4
-        <name>PC4</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC4</codeName>
-    </pin>
-    <pin>
-        PC5
-        <name>PC5</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC5</codeName>
-    </pin>
-    <pin>
-        PB0
-        <name>PB0</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB0</codeName>
-    </pin>
-    <pin>
-        PB1
-        <name>PB1</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB1</codeName>
-    </pin>
-    <pin>
-        PB2
-        <name>PB2</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB2</codeName>
-    </pin>
-    <pin>
-        PB10
-        <name>PB10</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB10</codeName>
-    </pin>
-    <pin>
-        PB11
-        <name>PB11</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB11</codeName>
-    </pin>
-    <pin>
-        PB12
-        <name>PB12</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB12</codeName>
-    </pin>
-    <pin>
-        PB13
-        <name>PB13</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB13</codeName>
-    </pin>
-    <pin>
-        PB14
-        <name>PB14</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB14</codeName>
-    </pin>
-    <pin>
-        PB15
-        <name>PB15</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB15</codeName>
-    </pin>
-    <pin>
-        PC6
-        <name>PC6</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC6</codeName>
-    </pin>
-    <pin>
-        PC7
-        <name>PC7</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC7</codeName>
-    </pin>
-    <pin>
-        PC8
-        <name>PC8</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC8</codeName>
-    </pin>
-    <pin>
-        PC9
-        <name>PC9</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC9</codeName>
-    </pin>
-    <pin>
-        PA8
-        <name>PA8</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA8</codeName>
-    </pin>
-    <pin>
-        PA9
-        <name>PA9</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA9</codeName>
-    </pin>
-    <pin>
-        PA10
-        <name>PA10</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA10</codeName>
-    </pin>
-    <pin>
-        PA11
-        <name>PA11</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA11</codeName>
-    </pin>
-    <pin>
-        PA12
-        <name>PA12</name>
-        <port>PORT_A</port>
-        <selected>YES</selected>
-        <Mode>MODE_OUTPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>USER_LED</codeName>
-    </pin>
-    <pin>
-        PA13
-        <name>PA13</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA13</codeName>
-    </pin>
-    <pin>
-        PA14
-        <name>PA14</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA14</codeName>
-    </pin>
-    <pin>
-        PA15
-        <name>PA15</name>
-        <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PA15</codeName>
-    </pin>
-    <pin>
-        PC10
-        <name>PC10</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC10</codeName>
-    </pin>
-    <pin>
-        PC11
-        <name>PC11</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC11</codeName>
-    </pin>
-    <pin>
-        PC12
-        <name>PC12</name>
-        <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PC12</codeName>
-    </pin>
-    <pin>
-        PD2
-        <name>PD2</name>
-        <port>PORT_D</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PD2</codeName>
-    </pin>
-    <pin>
-        PB3
-        <name>PB3</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB3</codeName>
-    </pin>
-    <pin>
-        PB4
-        <name>PB4</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB4</codeName>
-    </pin>
-    <pin>
-        PB5
-        <name>PB5</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB5</codeName>
-    </pin>
-    <pin>
-        PB6
-        <name>PB6</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB6</codeName>
-    </pin>
-    <pin>
-        PB7
-        <name>PB7</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB7</codeName>
-    </pin>
-    <pin>
-        PB8
-        <name>PB8</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB8</codeName>
-    </pin>
-    <pin>
-        PB9
-        <name>PB9</name>
-        <port>PORT_B</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
-        <OutType>OTYPE_PUSH_PULL</OutType>
-        <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
-        <Speed>SPEED_FAST</Speed>
-        <codeName>PB9</codeName>
-    </pin>
-    <adcInstance>
-        ADC1
-        <name>ADC1</name>
-        <selected>NOT</selected>
-        <codeName>FirstAdc</codeName>
-        <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
-        <clock>ADC_NOT_SUPPORTED</clock>
-        <justification>ADC_DATAALIGN_RIGHT</justification>
-        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
-        <resolution>ADC_RESOLUTION12b</resolution>
-        <reference>ADC_NOT_SUPPORTED</reference>
-        <adcChannel>
-            <name>ADC_CHANNEL_1</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_1</codeName>
-            <pinIndex>13</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_2</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_2</codeName>
-            <pinIndex>14</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_3</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_3</codeName>
-            <pinIndex>15</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_4</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_4</codeName>
-            <pinIndex>16</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_11</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_11</codeName>
-            <pinIndex>25</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_12</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_12</codeName>
-            <pinIndex>26</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_13</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_13</codeName>
-            <pinIndex>33</pinIndex>
-        </adcChannel>
-    </adcInstance>
-    <adcInstance>
-        ADC2
-        <name>ADC2</name>
-        <selected>YES</selected>
-        <codeName>MyAdc</codeName>
-        <sample>ADC_SAMPLETIME_2CYCLES_5</sample>
-        <clock>ADC_NOT_SUPPORTED</clock>
-        <justification>ADC_DATAALIGN_LEFT</justification>
-        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
-        <resolution>ADC_RESOLUTION10b</resolution>
-        <reference>ADC_NOT_SUPPORTED</reference>
-        <adcChannel>
-            <name>ADC_CHANNEL_1</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_1</codeName>
-            <pinIndex>19</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_2</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_2</codeName>
-            <pinIndex>20</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_3</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_3</codeName>
-            <pinIndex>21</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_4</name>
-            <selected>YES</selected>
-            <codeName>TEMP_CHANNEL</codeName>
-            <pinIndex>22</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_5</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_5</codeName>
-            <pinIndex>23</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_11</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_11</codeName>
-            <pinIndex>24</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_12</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_12</codeName>
-            <pinIndex>27</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_13</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_13</codeName>
-            <pinIndex>32</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_14</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_14</codeName>
-            <pinIndex>34</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_15</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_15</codeName>
-            <pinIndex>35</pinIndex>
-        </adcChannel>
-    </adcInstance>
-    <adcInstance>
-        ADC1_2_COMMON
-        <name>ADC1_2_COMMON</name>
-        <selected>NOT</selected>
-        <codeName>CommonAdc</codeName>
-        <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
-        <clock>ADC_NOT_SUPPORTED</clock>
-        <justification>ADC_DATAALIGN_RIGHT</justification>
-        <prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
-        <resolution>ADC_RESOLUTION12b</resolution>
-        <reference>ADC_NOT_SUPPORTED</reference>
-        <adcChannel>
-            <name>ADC_CHANNEL_6</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_6</codeName>
-            <pinIndex>7</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_7</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_7</codeName>
-            <pinIndex>8</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_8</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_8</codeName>
-            <pinIndex>9</pinIndex>
-        </adcChannel>
-        <adcChannel>
-            <name>ADC_CHANNEL_9</name>
-            <selected>NOT</selected>
-            <codeName>ADC_CHANNEL_9</codeName>
-            <pinIndex>10</pinIndex>
-        </adcChannel>
-    </adcInstance>
+<pin>PC13<name>PC13</name>
+<port>PORT_C</port>
+<selected>YES</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_UP</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>USER_BUTTON</codeName>
+</pin>
+<pin>PC14<name>PC14</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC14</codeName>
+</pin>
+<pin>PC15<name>PC15</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC15</codeName>
+</pin>
+<pin>PF0<name>PF0</name>
+<port>PORT_F</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PF0</codeName>
+</pin>
+<pin>PF1<name>PF1</name>
+<port>PORT_F</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PF1</codeName>
+</pin>
+<pin>PC0<name>PC0</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC0</codeName>
+</pin>
+<pin>PC1<name>PC1</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC1</codeName>
+</pin>
+<pin>PC2<name>PC2</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC2</codeName>
+</pin>
+<pin>PC3<name>PC3</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC3</codeName>
+</pin>
+<pin>PA0<name>PA0</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA0</codeName>
+</pin>
+<pin>PA1<name>PA1</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA1</codeName>
+</pin>
+<pin>PA2<name>PA2</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA2</codeName>
+</pin>
+<pin>PA3<name>PA3</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA3</codeName>
+</pin>
+<pin>PA4<name>PA4</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA4</codeName>
+</pin>
+<pin>PA5<name>PA5</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA5</codeName>
+</pin>
+<pin>PA6<name>PA6</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA6</codeName>
+</pin>
+<pin>PA7<name>PA7</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA7</codeName>
+</pin>
+<pin>PC4<name>PC4</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC4</codeName>
+</pin>
+<pin>PC5<name>PC5</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC5</codeName>
+</pin>
+<pin>PB0<name>PB0</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB0</codeName>
+</pin>
+<pin>PB1<name>PB1</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB1</codeName>
+</pin>
+<pin>PB2<name>PB2</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB2</codeName>
+</pin>
+<pin>PB10<name>PB10</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB10</codeName>
+</pin>
+<pin>PB11<name>PB11</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB11</codeName>
+</pin>
+<pin>PB12<name>PB12</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB12</codeName>
+</pin>
+<pin>PB13<name>PB13</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB13</codeName>
+</pin>
+<pin>PB14<name>PB14</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB14</codeName>
+</pin>
+<pin>PB15<name>PB15</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB15</codeName>
+</pin>
+<pin>PC6<name>PC6</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC6</codeName>
+</pin>
+<pin>PC7<name>PC7</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC7</codeName>
+</pin>
+<pin>PC8<name>PC8</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC8</codeName>
+</pin>
+<pin>PC9<name>PC9</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC9</codeName>
+</pin>
+<pin>PA8<name>PA8</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA8</codeName>
+</pin>
+<pin>PA9<name>PA9</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA9</codeName>
+</pin>
+<pin>PA10<name>PA10</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA10</codeName>
+</pin>
+<pin>PA11<name>PA11</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA11</codeName>
+</pin>
+<pin>PA12<name>PA12</name>
+<port>PORT_A</port>
+<selected>YES</selected>
+<Mode>MODE_OUTPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>USER_LED</codeName>
+</pin>
+<pin>PA13<name>PA13</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA13</codeName>
+</pin>
+<pin>PA14<name>PA14</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA14</codeName>
+</pin>
+<pin>PA15<name>PA15</name>
+<port>PORT_A</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PA15</codeName>
+</pin>
+<pin>PC10<name>PC10</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC10</codeName>
+</pin>
+<pin>PC11<name>PC11</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC11</codeName>
+</pin>
+<pin>PC12<name>PC12</name>
+<port>PORT_C</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PC12</codeName>
+</pin>
+<pin>PD2<name>PD2</name>
+<port>PORT_D</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PD2</codeName>
+</pin>
+<pin>PB3<name>PB3</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB3</codeName>
+</pin>
+<pin>PB4<name>PB4</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB4</codeName>
+</pin>
+<pin>PB5<name>PB5</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB5</codeName>
+</pin>
+<pin>PB6<name>PB6</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB6</codeName>
+</pin>
+<pin>PB7<name>PB7</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB7</codeName>
+</pin>
+<pin>PB8<name>PB8</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB8</codeName>
+</pin>
+<pin>PB9<name>PB9</name>
+<port>PORT_B</port>
+<selected>NOT</selected>
+<Mode>MODE_INPUT</Mode>
+<AltMode>ALT_MODE_NONE</AltMode>
+<OutType>OTYPE_PUSH_PULL</OutType>
+<OutLevel>LOW</OutLevel>
+<Pull>PULL_NOT_AVAILABLE</Pull>
+<Speed>SPEED_FAST</Speed>
+<codeName>PB9</codeName>
+</pin>
+<adcInstance>ADC1<name>ADC1</name>
+<selected>NOT</selected>
+<codeName>FirstAdc</codeName>
+<sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+<clock>ADC_NOT_SUPPORTED</clock>
+<justification>ADC_DATAALIGN_RIGHT</justification>
+<prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+<resolution>ADC_RESOLUTION12b</resolution>
+<reference>ADC_NOT_SUPPORTED</reference>
+<adcChannel>
+<name>ADC_CHANNEL_1</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_1</codeName>
+<pinIndex>13</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_2</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_2</codeName>
+<pinIndex>14</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_3</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_3</codeName>
+<pinIndex>15</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_4</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_4</codeName>
+<pinIndex>16</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_11</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_11</codeName>
+<pinIndex>25</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_12</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_12</codeName>
+<pinIndex>26</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_13</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_13</codeName>
+<pinIndex>33</pinIndex>
+</adcChannel>
+</adcInstance>
+<adcInstance>ADC2<name>ADC2</name>
+<selected>YES</selected>
+<codeName>MyAdc</codeName>
+<sample>ADC_SAMPLETIME_2CYCLES_5</sample>
+<clock>ADC_NOT_SUPPORTED</clock>
+<justification>ADC_DATAALIGN_LEFT</justification>
+<prescaler>ADC_CLOCK_SYNC_PCLK_DIV2</prescaler>
+<resolution>ADC_RESOLUTION10b</resolution>
+<reference>ADC_NOT_SUPPORTED</reference>
+<adcChannel>
+<name>ADC_CHANNEL_1</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_1</codeName>
+<pinIndex>19</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_2</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_2</codeName>
+<pinIndex>20</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_3</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_3</codeName>
+<pinIndex>21</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_4</name>
+<selected>YES</selected>
+<codeName>TEMP_CHANNEL</codeName>
+<pinIndex>22</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_5</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_5</codeName>
+<pinIndex>23</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_11</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_11</codeName>
+<pinIndex>24</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_12</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_12</codeName>
+<pinIndex>27</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_13</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_13</codeName>
+<pinIndex>32</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_14</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_14</codeName>
+<pinIndex>34</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_15</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_15</codeName>
+<pinIndex>35</pinIndex>
+</adcChannel>
+</adcInstance>
+<adcInstance>ADC1_2_COMMON<name>ADC1_2_COMMON</name>
+<selected>NOT</selected>
+<codeName>CommonAdc</codeName>
+<sample>ADC_SAMPLETIME_1CYCLE_5</sample>
+<clock>ADC_NOT_SUPPORTED</clock>
+<justification>ADC_DATAALIGN_RIGHT</justification>
+<prescaler>ADC_CLOCK_SYNC_PCLK_DIV1</prescaler>
+<resolution>ADC_RESOLUTION12b</resolution>
+<reference>ADC_NOT_SUPPORTED</reference>
+<adcChannel>
+<name>ADC_CHANNEL_6</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_6</codeName>
+<pinIndex>7</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_7</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_7</codeName>
+<pinIndex>8</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_8</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_8</codeName>
+<pinIndex>9</pinIndex>
+</adcChannel>
+<adcChannel>
+<name>ADC_CHANNEL_9</name>
+<selected>NOT</selected>
+<codeName>ADC_CHANNEL_9</codeName>
+<pinIndex>10</pinIndex>
+</adcChannel>
+</adcInstance>
+<uartInstance>USART1<name>USART1</name>
+<selected>YES</selected>
+<codeName>DebugUart</codeName>
+<clock>RCC_USART1CLKSOURCE_SYSCLK</clock>
+<prescaler>UART_NOT_SUPPORTED</prescaler>
+<baudRate>2500</baudRate>
+<dataBits>UART_WORDLENGTH_8B</dataBits>
+<stopBits>UART_STOPBITS_1</stopBits>
+<parity>UART_PARITY_NONE</parity>
+</uartInstance>
+<uartInstance>USART2<name>USART2</name>
+<selected>NOT</selected>
+<codeName>USART2</codeName>
+<clock>RCC_USART2CLKSOURCE_PCLK1</clock>
+<prescaler>UART_NOT_SUPPORTED</prescaler>
+<baudRate>STR_INVALID</baudRate>
+<dataBits>UART_WORDLENGTH_8B</dataBits>
+<stopBits>UART_STOPBITS_1</stopBits>
+<parity>UART_PARITY_NONE</parity>
+</uartInstance>
+<uartInstance>USART3<name>USART3</name>
+<selected>NOT</selected>
+<codeName>USART3</codeName>
+<clock>RCC_USART3CLKSOURCE_PCLK1</clock>
+<prescaler>UART_NOT_SUPPORTED</prescaler>
+<baudRate>STR_INVALID</baudRate>
+<dataBits>UART_WORDLENGTH_8B</dataBits>
+<stopBits>UART_STOPBITS_1</stopBits>
+<parity>UART_PARITY_NONE</parity>
+</uartInstance>
 </Microcontroller_Configuration>
