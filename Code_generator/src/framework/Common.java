@@ -57,6 +57,11 @@ public class Common {
 	 * GPIO module name
 	 */
 	public final static String STR_MODULE_ADC = "adc";
+	
+	/**
+	 * GPIO module name
+	 */
+	public final static String STR_MODULE_UART = "uart";
 
 	/**
 	 * Macro definition String

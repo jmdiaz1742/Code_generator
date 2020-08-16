@@ -166,6 +166,7 @@ public class Microcontroller {
 	private static final String STR_INCLUDE_COMMON = "include_common";
 	private static final String STR_INCLUDE_GPIO = "include_gpio";
 	private static final String STR_INCLUDE_ADC = "include_adc";
+	private static final String STR_INCLUDE_UART = "include_uart";
 	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
 	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
 	private static final String STR_DEFINITION_ADC = "cfg_def_adc";
@@ -1317,6 +1318,25 @@ public class Microcontroller {
 
 		return selectedAdcs;
 	}
+	
+	/**
+	 * Get the total UARTs selected
+	 * 
+	 * @return Total of UARTs selected
+	 */
+	public int getUc_selectedUartsNum() {
+		int selectedUarts = 0;
+
+		if (getUc_uartNum() > 0) {
+			for (int uartNum = 0; uartNum < UartCfg.length; uartNum++) {
+				if (UartCfg[uartNum].getSelected().getBoolean()) {
+					selectedUarts++;
+				}
+			}
+		}
+
+		return selectedUarts;
+	}
 
 	/**
 	 * Get the configuration of a pin
@@ -1445,6 +1465,24 @@ public class Microcontroller {
 			Includes_Adc = new String[1];
 			Includes_Adc[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No ADC includes found...");
+		}
+		
+		/* Get UART includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_UART);
+		if (includeList.getLength() > 0) {
+			Includes_Uart = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Uart.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Uart[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			Includes_Uart = new String[1];
+			Includes_Uart[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No UART includes found...");
 		}
 
 		return errorStatus;

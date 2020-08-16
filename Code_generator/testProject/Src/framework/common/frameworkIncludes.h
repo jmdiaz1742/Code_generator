@@ -20,6 +20,7 @@
 // ######## Do NOT modify code between this header and the footer below #######
 #include "gpio.h"
 #include "adc.h"
+#include "uart.h"
 // ################## Kamino generator v1.1.0: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
