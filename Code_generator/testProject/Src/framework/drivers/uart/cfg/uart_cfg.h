@@ -54,7 +54,7 @@ DebugUart,
 #define DebugUart_NAME USART1
 #define DebugUart_CLOCK RCC_USART1CLKSOURCE_SYSCLK
 #define DebugUart_PRESCALER UART_NOT_SUPPORTED
-#define DebugUart_BAUD_RATE 2500
+#define DebugUart_BAUD_RATE 115200
 #define DebugUart_DATA_BITS UART_WORDLENGTH_8B
 #define DebugUart_STOP_BITS UART_STOPBITS_1
 #define DebugUart_PARITY UART_PARITY_NONE

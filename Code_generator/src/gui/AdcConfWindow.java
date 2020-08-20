@@ -236,6 +236,29 @@ public class AdcConfWindow {
 				/****** End ADC configuration change ******/
 			}
 		});
+		
+		textField_CodeName.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+			}
+		});
 
 		JLabel lblt_Sample = new JLabel(Messages.getString("AdcConfWindow.lblSamples.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_Sample = new GridBagConstraints();

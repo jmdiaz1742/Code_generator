@@ -19,6 +19,9 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import common.Features;
 import configurator.Selected;
 import configurator.UartConf;
@@ -26,12 +29,16 @@ import javax.swing.JCheckBox;
 
 public class UartConfWindow {
 
+	private final long MIN_BAUD_RATE = 0x0L;
+	private final long MAX_BAUD_RATE = 0xFFFFFFFFL;
+
 	private JFrame frmUartsConfiguration;
 	private JScrollPane scrollPane;
 	private JPanel panel;
 	private Microcontroller UcConf;
 	private boolean GuiRefreshLocked = true;
 	private int selectedUart;
+	private JLabel lbl_BaudRateValidity;
 
 	/* Static GUI elements */
 	private JComboBox<String> comboBox_SelectUart;
@@ -152,11 +159,11 @@ public class UartConfWindow {
 		panel.add(chckbx_Selected, gbc_chckbx_Selected);
 		chckbx_Selected.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -179,11 +186,34 @@ public class UartConfWindow {
 		textField_CodeName.setColumns(10);
 		textField_CodeName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
+			}
+		});
+
+		textField_CodeName.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
 			}
 		});
 
@@ -204,11 +234,11 @@ public class UartConfWindow {
 		panel.add(comboBox_Clock, gbc_comboBox_Clock);
 		comboBox_Clock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -229,11 +259,11 @@ public class UartConfWindow {
 		panel.add(comboBox_Prescaler, gbc_comboBox_Prescaler);
 		comboBox_Prescaler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -255,13 +285,43 @@ public class UartConfWindow {
 		panel.add(textField_BaudRate, gbc_textField_BaudRate);
 		textField_BaudRate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
+
+		textField_BaudRate.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					UartConfChanged();
+				}
+			}
+		});
+
+		lbl_BaudRateValidity = new JLabel(Messages.getString("UartConfWindow.lblNewLabel.text")); //$NON-NLS-1$
+		GridBagConstraints gbc_lbl_BaudRateValidity = new GridBagConstraints();
+		gbc_lbl_BaudRateValidity.insets = new Insets(0, 0, 5, 0);
+		gbc_lbl_BaudRateValidity.gridx = 2;
+		gbc_lbl_BaudRateValidity.gridy = 5;
+		panel.add(lbl_BaudRateValidity, gbc_lbl_BaudRateValidity);
 
 		JLabel lblt_DataBits = new JLabel(Messages.getString("UartConfWindow.lblDataBits.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblt_DataBits = new GridBagConstraints();
@@ -280,11 +340,11 @@ public class UartConfWindow {
 		panel.add(comboBox_DataBits, gbc_comboBox_DataBits);
 		comboBox_DataBits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -305,11 +365,11 @@ public class UartConfWindow {
 		panel.add(comboBox_StopBits, gbc_comboBox_StopBits);
 		comboBox_StopBits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -330,11 +390,11 @@ public class UartConfWindow {
 		panel.add(comboBox_Parity, gbc_comboBox_Parity);
 		comboBox_Parity.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/****** Begin ADC configuration change ******/
+				/****** Begin UART configuration change ******/
 				if (!GuiRefreshLocked) {
 					UartConfChanged();
 				}
-				/****** End ADC configuration change ******/
+				/****** End UART configuration change ******/
 			}
 		});
 
@@ -345,7 +405,7 @@ public class UartConfWindow {
 	 */
 	private void initUartComboBox() {
 		for (int uartNum = 0; uartNum < UcConf.getUc_uartNum(); uartNum++) {
-			comboBox_SelectUart.addItem(UcConf.Adcs[uartNum]);
+			comboBox_SelectUart.addItem(UcConf.Uarts[uartNum]);
 		}
 	}
 
@@ -385,6 +445,7 @@ public class UartConfWindow {
 
 		textField_BaudRate.setText(uartCfg.getBaudRate());
 		textField_BaudRate.setEnabled(fieldsEditable);
+		isBaudRateValid();
 
 		comboBox_DataBits.removeAllItems();
 		for (featNum = 0; featNum < uartCfg.UartFeatures.getDataBitsNum(); featNum++) {
@@ -424,15 +485,8 @@ public class UartConfWindow {
 		boolean fieldsEditable = false;
 
 		UcConf.UartCfg[selectedUart].setSelected(Selected.getConfFromBoolean(chckbx_Selected.isSelected()));
-		UcConf.UartCfg[selectedUart].setCodeName(textField_CodeName.getText());
-		UcConf.UartCfg[selectedUart].setClock(comboBox_Clock.getSelectedItem().toString());
-		UcConf.UartCfg[selectedUart].setPrescaler(comboBox_Prescaler.getSelectedItem().toString());
-		UcConf.UartCfg[selectedUart].setBaudRate(textField_BaudRate.getText());
-		UcConf.UartCfg[selectedUart].setDataBits(comboBox_DataBits.getSelectedItem().toString());
-		UcConf.UartCfg[selectedUart].setStopBits(comboBox_StopBits.getSelectedItem().toString());
-
-		/* Check if fields should be editable */
 		fieldsEditable = UcConf.UartCfg[selectedUart].getSelected().getBoolean();
+		/* Check if fields should be editable */
 		textField_CodeName.setEnabled(fieldsEditable);
 		comboBox_Clock.setEnabled(fieldsEditable);
 		comboBox_Prescaler.setEnabled(fieldsEditable);
@@ -440,6 +494,54 @@ public class UartConfWindow {
 		comboBox_DataBits.setEnabled(fieldsEditable);
 		comboBox_StopBits.setEnabled(fieldsEditable);
 		comboBox_Parity.setEnabled(fieldsEditable);
+
+		if (fieldsEditable) {
+			UcConf.UartCfg[selectedUart].setCodeName(textField_CodeName.getText());
+			UcConf.UartCfg[selectedUart].setClock(comboBox_Clock.getSelectedItem().toString());
+			UcConf.UartCfg[selectedUart].setPrescaler(comboBox_Prescaler.getSelectedItem().toString());
+			UcConf.UartCfg[selectedUart].setDataBits(comboBox_DataBits.getSelectedItem().toString());
+			UcConf.UartCfg[selectedUart].setStopBits(comboBox_StopBits.getSelectedItem().toString());
+			if (isBaudRateValid()) {
+				UcConf.UartCfg[selectedUart].setBaudRate(textField_BaudRate.getText());
+			} else {
+				UcConf.UartCfg[selectedUart].setBaudRate("0");
+			}
+		}
+	}
+
+	private boolean isBaudRateValid() {
+		boolean isValid = true;
+		String strBaudRate;
+		long numBaudRate = 0;
+
+		strBaudRate = textField_BaudRate.getText();
+		if (isValid && strBaudRate == null) {
+			isValid = false;
+		}
+		if (isValid && strBaudRate == "") {
+			isValid = false;
+		}
+		if (isValid) {
+			try {
+				numBaudRate = (long) (new Long(strBaudRate));
+			} catch (NumberFormatException e) {
+				isValid = false;
+			}
+		}
+		if (isValid && numBaudRate < MIN_BAUD_RATE) {
+			isValid = false;
+		}
+		if (isValid && numBaudRate > MAX_BAUD_RATE) {
+			isValid = false;
+		}
+
+		if (isValid) {
+			lbl_BaudRateValidity.setText("Baud Rate OK");
+		} else {
+			lbl_BaudRateValidity.setText("Baud Rate Invalid");
+		}
+
+		return isValid;
 	}
 
 }
