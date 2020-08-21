@@ -509,6 +509,7 @@ public class UartConfWindow {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private boolean isBaudRateValid() {
 		boolean isValid = true;
 		String strBaudRate;
