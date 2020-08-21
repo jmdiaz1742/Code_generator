@@ -103,6 +103,7 @@ public class AdcConfWindow {
 	 */
 	private void initialize() {
 		frmAdcsConfiguration = new JFrame();
+		frmAdcsConfiguration.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAdcsConfiguration.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -233,6 +234,29 @@ public class AdcConfWindow {
 					adcConfChanged();
 				}
 				/****** End ADC configuration change ******/
+			}
+		});
+		
+		textField_CodeName.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				if (!GuiRefreshLocked) {
+					adcConfChanged();
+				}
 			}
 		});
 

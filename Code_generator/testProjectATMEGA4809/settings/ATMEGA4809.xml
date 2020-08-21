@@ -8,10 +8,38 @@
 		<include_common>stdlib.h</include_common>
 		<include_common>stdbool.h</include_common>
 		<include_gpio>port.h</include_gpio>
+		<include_adc>adc_basic.h</include_adc>
 	</includes>
 	<configuration_definitions>
 		<!-- GPIO definitions -->
 	</configuration_definitions>
+		<adcs>
+		<adcInstance>
+			<name>ADC1</name>
+			<sample>ADC_DISABLE_SAMPLE</sample>
+			<sample>ADC_TAKE_2_SAMPLES</sample>
+			<sample>ADC_TAKE_4_SAMPLES</sample>
+			<sample>ADC_TAKE_8_SAMPLES</sample>
+			<sample>ADC_TAKE_16_SAMPLES</sample>
+			<sample>ADC_TAKE_32_SAMPLES</sample>
+			<sample>ADC_TAKE_64_SAMPLES</sample>
+			<clock>ADC_NOT_SUPPORTED</clock>
+			<justification>ADC_NOT_SUPPORTED</justification>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_2</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_4</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_8</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_16</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_32</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_64</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_128</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_256</prescaler>
+			<resolution>ADC_8_BIT_RESOLUTION</resolution>
+			<resolution>ADC_10_BIT_RESOLUTION</resolution>
+			<reference>ADC_USE_INTERNAL_VOLTAGE_REFERENCE</reference>
+			<reference>ADC_USE_EXTERNAL_VOLTAGE_REFERENCE</reference>
+			<reference>ADC_USE_SUPPLY_VOLTAGE_AS_REFERENCE</reference>
+		</adcInstance>
+	</adcs>
 	<pins>
 		<pin>
 			<number>1</number>

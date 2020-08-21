@@ -28,6 +28,7 @@ public class CodeGenerator {
 	private ProjectSettings projectSettings;
 	private boolean generateGpio = false;
 	private boolean generateAdc = false;
+	private boolean generateUart = false;
 
 	private final static String STR_TKN_FWK_COMMON_INC = "FWK_COMMON_INCLUDES";
 	private final static String STR_TKN_FWK_MODULES_INC = "FWK_MODULES_INCLUDES";
@@ -57,6 +58,7 @@ public class CodeGenerator {
 		/* Check which files to generate */
 		generateGpio = uC.getUc_selectedPinsNum() > 0;
 		generateAdc = uC.getUc_selectedAdcsNum() > 0;
+		generateUart = uC.getUc_selectedUartsNum() > 0;
 
 		// Generate module files:
 		if (generateGpio) {
@@ -64,6 +66,9 @@ public class CodeGenerator {
 		}
 		if (generateAdc) {
 			error = generateCfgFiles(framework.Common.STR_MODULE_ADC);
+		}
+		if (generateUart) {
+			error = generateCfgFiles(framework.Common.STR_MODULE_UART);
 		}
 		error = generateCommonFiles();
 
@@ -89,6 +94,10 @@ public class CodeGenerator {
 		}
 		if (generateAdc) {
 			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_ADC;
+			modules += framework.Common.STR_HEADER_EXT + "\"" + framework.Common.NL;
+		}
+		if (generateUart) {
+			modules += framework.Common.STR_INCLUDE + "\"" + framework.Common.STR_MODULE_UART;
 			modules += framework.Common.STR_HEADER_EXT + "\"" + framework.Common.NL;
 		}
 		modules += framework.Common.STR_GEN_CODE_NOTICE_FOOTER;
@@ -149,6 +158,10 @@ public class CodeGenerator {
 			error = replaceInFile(cfgFile, AdcGenerator.STR_TKN_CFG_ARRAY, AdcGenerator.getCfgArray(uC));
 			break;
 		}
+		case framework.Common.STR_MODULE_UART: {
+			error = replaceInFile(cfgFile, UartGenerator.STR_TKN_CFG_ARRAY, UartGenerator.getCfgArray(uC));
+			break;
+		}
 		default: {
 			error = ErrorCode.FILE_CONF_ERROR;
 			break;
@@ -183,6 +196,14 @@ public class CodeGenerator {
 			replaceInFile(cfgFile, AdcGenerator.STR_TKN_CFG_DEFS, AdcGenerator.getCfgDefinitions(uC));
 			break;
 		}
+		case framework.Common.STR_MODULE_UART: {
+			replaceInFile(cfgFile, UartGenerator.STR_TKN_INC, UartGenerator.getIncludes(uC));
+			replaceInFile(cfgFile, UartGenerator.STR_TKN_EL_DEFS, UartGenerator.getElDefs(uC));
+			replaceInFile(cfgFile, UartGenerator.STR_TKN_ELEMENTS, UartGenerator.getElements(uC));
+			replaceInFile(cfgFile, UartGenerator.STR_TKN_INC, UartGenerator.getIncludes(uC));
+			replaceInFile(cfgFile, UartGenerator.STR_TKN_CFG_DEFS, UartGenerator.getCfgDefinitions(uC));
+			break;
+		}
 		default: {
 			error = ErrorCode.FILE_CONF_ERROR;
 			break;
@@ -209,6 +230,9 @@ public class CodeGenerator {
 		OutputStream outFile = null;
 
 		try {
+//			if (!dest.exists()) {
+//				dest.createNewFile();
+//			}
 			// Copy template file from installation folder
 			inFile = new FileInputStream(src);
 			outFile = new FileOutputStream(dest);

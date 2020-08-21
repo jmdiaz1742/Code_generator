@@ -64,6 +64,12 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>saveGeneralSettings()
+: <a class="el" href="classgui_1_1_main_gui.html#a8ddc349759d136562da4ab4cd3ab828e">gui.MainGui</a>
+</li>
+<li>saveProjectPreferences()
+: <a class="el" href="classgui_1_1_main_gui.html#aadbe504b4cc70c6924f7a8fc8e123b74">gui.MainGui</a>
+</li>
 <li>saveUc()
 : <a class="el" href="classgui_1_1_main_gui.html#a657184b567c814be6bcccd09c5daced4">gui.MainGui</a>
 </li>
@@ -73,17 +79,25 @@ $(function() {
 <li>setAltMode()
 : <a class="el" href="classconfigurator_1_1_pin_conf.html#a57093bfab4633879ef08dd259a3bfada">configurator.PinConf</a>
 </li>
+<li>setBaudRate()
+: <a class="el" href="classconfigurator_1_1_uart_conf.html#a20ac320487c07378e26be54783e45494">configurator.UartConf</a>
+</li>
 <li>setChannels()
 : <a class="el" href="classconfigurator_1_1_adc_conf.html#ac1425282852334924a9515eab642e51f">configurator.AdcConf</a>
 </li>
 <li>setClock()
 : <a class="el" href="classconfigurator_1_1_adc_conf.html#ad4412177c064cac5ad42324aba4c90be">configurator.AdcConf</a>
+, <a class="el" href="classconfigurator_1_1_uart_conf.html#ac028ff371437177d91e4c5368e740da5">configurator.UartConf</a>
 , <a class="el" href="classmicrocontroller_1_1_pin.html#ac6a07cc62b26f65f70a490ba10c9deeb">microcontroller.Pin</a>
 </li>
 <li>setCodeName()
 : <a class="el" href="classconfigurator_1_1_a_d_c_1_1_adc_channel.html#ac153c3af371eb783be0082864a7dfe49">configurator.ADC.AdcChannel</a>
 , <a class="el" href="classconfigurator_1_1_adc_conf.html#aa0931e3028436ae3cca177fc22cca508">configurator.AdcConf</a>
 , <a class="el" href="classconfigurator_1_1_pin_conf.html#a9a196b8de41e11a64a6bc711d2c06e08">configurator.PinConf</a>
+, <a class="el" href="classconfigurator_1_1_uart_conf.html#ac7b09e83a79697999b649616c2db92da">configurator.UartConf</a>
+</li>
+<li>setDataBits()
+: <a class="el" href="classconfigurator_1_1_uart_conf.html#ac67d138c5808bb2ef143c0e3742f004b">configurator.UartConf</a>
 </li>
 <li>setFeat_adc()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#ab5c22b110b82198f29ea907453db95b8">microcontroller.Pin</a>
@@ -108,6 +122,9 @@ $(function() {
 </li>
 <li>setFeat_uart()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#a89c5a279c95d660f267aeff0fb7823f1">microcontroller.Pin</a>
+</li>
+<li>setFrameworkPath()
+: <a class="el" href="classproject_configuration_1_1_project_settings.html#a2fcf141e43377f51b919c1b670b83a6c">projectConfiguration.ProjectSettings</a>
 </li>
 <li>setFunc_gnd()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#af8abe10ecfb0dd58675e9973bad68ead">microcontroller.Pin</a>
@@ -142,6 +159,7 @@ $(function() {
 <li>setName()
 : <a class="el" href="classmicrocontroller_1_1_adc.html#ab7fc360b570aaf385303c92344c3949e">microcontroller.Adc</a>
 , <a class="el" href="classmicrocontroller_1_1_pin.html#acdfbce0ecbac12b35a0cc8034dcd5a31">microcontroller.Pin</a>
+, <a class="el" href="classmicrocontroller_1_1_uart.html#a8d0f90a8da05ef0e761bf47b3f181221">microcontroller.Uart</a>
 </li>
 <li>setNewUC()
 : <a class="el" href="classgui_1_1_main_gui.html#a8d6fec2715afef30faa3b48cfd176e6d">gui.MainGui</a>
@@ -155,6 +173,9 @@ $(function() {
 <li>setOutType()
 : <a class="el" href="classconfigurator_1_1_pin_conf.html#a25c64f8501836117bfc5371183dbd045">configurator.PinConf</a>
 </li>
+<li>setParity()
+: <a class="el" href="classconfigurator_1_1_uart_conf.html#a2d0b5b66fbc33c0898d6412a7d9efd3f">configurator.UartConf</a>
+</li>
 <li>setPort()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#a498c121ea56e48984f2098891e041c12">microcontroller.Pin</a>
 </li>
@@ -163,6 +184,7 @@ $(function() {
 </li>
 <li>setPrescaler()
 : <a class="el" href="classconfigurator_1_1_adc_conf.html#ade26be07fddb39fb2425aeb86e36b209">configurator.AdcConf</a>
+, <a class="el" href="classconfigurator_1_1_uart_conf.html#a05709665633fc89ec7e13bbb9512ffab">configurator.UartConf</a>
 </li>
 <li>setProjectFwkPath()
 : <a class="el" href="classframework_1_1_common.html#a90856ffd7e656580c53b928bca6554fc">framework.Common</a>
@@ -189,12 +211,16 @@ $(function() {
 : <a class="el" href="classconfigurator_1_1_a_d_c_1_1_adc_channel.html#ab8e93690c6065914f5c4979f0b1602f8">configurator.ADC.AdcChannel</a>
 , <a class="el" href="classconfigurator_1_1_adc_conf.html#af735890b4e5e7f228cd87faa3ecbdf6f">configurator.AdcConf</a>
 , <a class="el" href="classconfigurator_1_1_pin_conf.html#a009dd2cd2a2dac560c6e48ac753a2ed0">configurator.PinConf</a>
+, <a class="el" href="classconfigurator_1_1_uart_conf.html#a3a5ce8685f574961052e33a2cdbcf2a0">configurator.UartConf</a>
 </li>
 <li>setSpeed()
 : <a class="el" href="classconfigurator_1_1_pin_conf.html#a99c843aea03e28a2663d1078c3ac7114">configurator.PinConf</a>
 </li>
 <li>setSpi()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#af7c3b4bbc170bb3ed588844f43037890">microcontroller.Pin</a>
+</li>
+<li>setStopBits()
+: <a class="el" href="classconfigurator_1_1_uart_conf.html#a55d323258a5902c3eda1d71023db4540">configurator.UartConf</a>
 </li>
 <li>setTimer()
 : <a class="el" href="classmicrocontroller_1_1_pin.html#af838c8cf044c41eb3821514e520eeaaf">microcontroller.Pin</a>
@@ -214,8 +240,17 @@ $(function() {
 <li>showErrorDialog()
 : <a class="el" href="classgui_1_1_main_gui.html#a0f32829cca1c6f9fce9ee4188c8a7486">gui.MainGui</a>
 </li>
+<li>showGeneralSettingsWindow()
+: <a class="el" href="classgui_1_1_main_gui.html#a1ac2bbf79d8301c5061412130187f8e6">gui.MainGui</a>
+</li>
 <li>showGpioConfWindow()
 : <a class="el" href="classgui_1_1_main_gui.html#a9c2976e4754d851abb56679ee3c1a7b8">gui.MainGui</a>
+</li>
+<li>showProjectPreferencesWindow()
+: <a class="el" href="classgui_1_1_main_gui.html#a702a151118755c7795bebf26300d3429">gui.MainGui</a>
+</li>
+<li>showUartConfWindow()
+: <a class="el" href="classgui_1_1_main_gui.html#a76afde59c3dcf309056adfd88a75dd93">gui.MainGui</a>
 </li>
 <li>SPEED_FAST
 : <a class="el" href="enumconfigurator_1_1_g_p_i_o_1_1_speed.html#a3c1aee897cf4eb0188cf60f7abebf665">configurator.GPIO.Speed</a>
@@ -255,6 +290,9 @@ $(function() {
 </li>
 <li>STR_MODULE_GPIO
 : <a class="el" href="classframework_1_1_common.html#a49ffadb3c79236523b0545ae91db5bc5">framework.Common</a>
+</li>
+<li>STR_MODULE_UART
+: <a class="el" href="classframework_1_1_common.html#ab17e1dbb12bfbd3349fcbc5f69116712">framework.Common</a>
 </li>
 <li>STR_NAME
 : <a class="el" href="enumconfigurator_1_1_g_p_i_o_1_1_alt_mode.html#ac25dcd4a81552f97a4cfc63b528d86c9">configurator.GPIO.AltMode</a>

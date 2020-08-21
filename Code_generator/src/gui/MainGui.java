@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import common.ErrorCode;
 import common.Features;
+import common.GeneralSettings;
 import framework.CodeGenerator;
 import microcontroller.Microcontroller;
 import projectConfiguration.ProjectSettings;
@@ -24,6 +25,7 @@ public class MainGui {
 	/* Private fields */
 	static private MainWindow CgMainWindow;
 	static private ProjectSettings ProjectSettingsConf = new ProjectSettings();
+	static private GeneralSettings Settings;
 	static private Microcontroller SelectedMicrocontroller;
 	static private CodeGenerator generator;
 
@@ -44,7 +46,7 @@ public class MainGui {
 	 * @param args TBD
 	 */
 	static public void main(String[] args) {
-		common.Features.initLog();
+		GeneralSettings.initLog();
 		printInitInfo();
 		Features.verbosePrint("Starting GUI...");
 		CgMainWindow = new MainWindow();
@@ -54,7 +56,7 @@ public class MainGui {
 	static private void printInitInfo() {
 		String version = Features.SW_VERSION;
 		String codename = Features.VERSION_NAME;
-		
+
 		if (!Features.VERSION_STATUS.equals("Release")) {
 			version += ", " + Features.VERSION_STATUS + " build";
 		}
@@ -103,6 +105,7 @@ public class MainGui {
 			errorStatus = SelectedMicrocontroller.loadPinsConf(fileOpener.getParsedDoc());
 			errorStatus = SelectedMicrocontroller.loadAdcsConf(fileOpener.getParsedDoc());
 			errorStatus = SelectedMicrocontroller.loadAdcChannelsConf(fileOpener.getParsedDoc());
+			errorStatus = SelectedMicrocontroller.loadUartsConf(fileOpener.getParsedDoc());
 		} else {
 			Features.verbosePrint("No pin configuration file found...");
 		}
@@ -140,6 +143,27 @@ public class MainGui {
 	static public void showAdcConfWindow() {
 		new AdcConfWindow(SelectedMicrocontroller);
 	}
+	
+	/**
+	 * Show the UARTs configuration window
+	 */
+	static public void showUartConfWindow() {
+		new UartConfWindow(SelectedMicrocontroller);
+	}
+
+	/**
+	 * Show the Project Preferences window
+	 */
+	static public void showProjectPreferencesWindow() {
+		new ProjectSettingsWindow(ProjectSettingsConf);
+	}
+
+	/**
+	 * Show the General Settings window
+	 */
+	static public void showGeneralSettingsWindow() {
+		new GeneralSettingsWindow(Settings);
+	}
 
 	/**
 	 * Set the project's microcontroller configuration
@@ -152,6 +176,24 @@ public class MainGui {
 		} else {
 			Features.verbosePrint("uC changed...");
 		}
+	}
+
+	/**
+	 * Save the project's preferences
+	 * 
+	 * @param preferences Project's preferences
+	 */
+	static public void saveProjectPreferences(ProjectSettings preferences) {
+		ProjectSettingsConf = preferences;
+	}
+
+	/**
+	 * Save the General Settings
+	 * 
+	 * @param settings General Settings
+	 */
+	static public void saveGeneralSettings(GeneralSettings settings) {
+		Settings = settings;
 	}
 
 	/**

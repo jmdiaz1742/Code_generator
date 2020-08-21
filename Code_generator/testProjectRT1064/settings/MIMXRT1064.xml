@@ -9,10 +9,55 @@
         <include_common>stdbool.h</include_common>
         <include_gpio>MIMXRT1064.h</include_gpio>
 		<include_gpio>fsl_gpio.h</include_gpio>
+		<include_adc>MIMXRT1064.h</include_adc>
+		<include_adc>fsl_adc.h</include_adc>
     </includes>
     <configuration_definitions>
         <!-- GPIO definitions -->
     </configuration_definitions>
+	<adcs>
+		<adcInstance>
+			<name>ADC1</name>
+			<sample>ADC_DISABLE_SAMPLE</sample>
+			<sample>ADC_TAKE_4_SAMPLES</sample>
+			<sample>ADC_TAKE_8_SAMPLES</sample>
+			<sample>ADC_TAKE_16_SAMPLES</sample>
+			<sample>ADC_TAKE_32_SAMPLES</sample>
+			<clock>PERIPHERAL_CLOCK_FOR_ADC</clock>
+			<clock>ADC_CLOCK_FOR_ADC</clock>
+			<clock>OTHER_CLOCK_FOR_ADC</clock>
+			<justification>ADC_NOT_SUPPORTED</justification>
+			<prescaler>DO_NOT_DIVIDE_ADC_CLOCK</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_2</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_4</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_8</prescaler>
+			<resolution>ADC_8_BIT_RESOLUTION</resolution>
+			<resolution>ADC_10_BIT_RESOLUTION</resolution>
+			<resolution>ADC_12_BIT_RESOLUTION</resolution>
+			<reference>ADC_NOT_SUPPORTED</reference>
+		</adcInstance>
+		<adcInstance>
+			<name>ADC2</name>
+			<name>ADC1</name>
+			<sample>ADC_DISABLE_SAMPLE</sample>
+			<sample>ADC_TAKE_4_SAMPLES</sample>
+			<sample>ADC_TAKE_8_SAMPLES</sample>
+			<sample>ADC_TAKE_16_SAMPLES</sample>
+			<sample>ADC_TAKE_32_SAMPLES</sample>
+			<clock>PERIPHERAL_CLOCK_FOR_ADC</clock>
+			<clock>ADC_CLOCK_FOR_ADC</clock>
+			<clock>OTHER_CLOCK_FOR_ADC</clock>
+			<justification>ADC_NOT_SUPPORTED</justification>
+			<prescaler>DO_NOT_DIVIDE_ADC_CLOCK</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_2</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_4</prescaler>
+			<prescaler>DIVIDE_ADC_CLOCK_BY_8</prescaler>
+			<resolution>ADC_8_BIT_RESOLUTION</resolution>
+			<resolution>ADC_10_BIT_RESOLUTION</resolution>
+			<resolution>ADC_12_BIT_RESOLUTION</resolution>
+			<reference>ADC_NOT_SUPPORTED</reference>
+		</adcInstance>
+	</adcs>
     <pins>
         <pin>
             <!-- Backup power supply -->

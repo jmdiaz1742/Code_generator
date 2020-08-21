@@ -11,6 +11,7 @@ import common.Features;
 import configurator.AdcConf;
 import configurator.PinConf;
 import configurator.Selected;
+import configurator.UartConf;
 import configurator.ADC.AdcChannel;
 import configurator.GPIO.CodeName;
 import configurator.GPIO.Mode;
@@ -33,6 +34,7 @@ public class Microcontroller {
 	private Document UcDoc;
 	private Pin[] CurrentPin;
 	private Adc[] CurrentAdc;
+	private Uart[] CurrentUart;
 
 	/* Public fields */
 
@@ -57,6 +59,11 @@ public class Microcontroller {
 	public String[] Includes_Adc;
 
 	/**
+	 * List of Includes for UART module
+	 */
+	public String[] Includes_Uart;
+
+	/**
 	 * List of common definitions that will be available for all framework
 	 */
 	public String[] Definitions_Common;
@@ -70,6 +77,11 @@ public class Microcontroller {
 	 * List of definitions for ADC module
 	 */
 	public String[] Definitions_Adc;
+
+	/**
+	 * List of definitions for UART module
+	 */
+	public String[] Definitions_Uart;
 
 	/**
 	 * Configured pins list
@@ -86,6 +98,16 @@ public class Microcontroller {
 	 */
 	public AdcConf[] AdcCfg;
 
+	/**
+	 * List of UARTs
+	 */
+	public String[] Uarts;
+
+	/**
+	 * Configured UARTs list
+	 */
+	public UartConf[] UartCfg;
+
 	/* Microcontroller characteristics */
 	private String Uc_model;
 	private String Uc_manufacturer;
@@ -93,6 +115,7 @@ public class Microcontroller {
 	private int Uc_gpioNum;
 	private int Uc_portNum;
 	private int Uc_adcNum;
+	private int Uc_uartNum;
 
 	/* Pin's mandatory characteristics */
 	private static final String STR_PIN_NAME = "name";
@@ -121,6 +144,7 @@ public class Microcontroller {
 	private static final String STR_ATT_MFCT = "manufacturer";
 	private static final String STR_PIN = "pin";
 	private static final String STR_ADC = "adcInstance";
+	private static final String STR_UART = "uartInstance";
 	private static final String CFG_ROOT_ELEMENT = "Microcontroller_Configuration";
 
 	/**
@@ -133,13 +157,20 @@ public class Microcontroller {
 	 */
 	public static final int MAX_NUMBER_OF_ADCS = 16;
 
+	/**
+	 * Maximum number of ADCs allowed
+	 */
+	public static final int MAX_NUMBER_OF_UARTS = 16;
+
 	/* Include files needed */
 	private static final String STR_INCLUDE_COMMON = "include_common";
 	private static final String STR_INCLUDE_GPIO = "include_gpio";
 	private static final String STR_INCLUDE_ADC = "include_adc";
+	private static final String STR_INCLUDE_UART = "include_uart";
 	private static final String STR_DEFINITION_COMMON = "cfg_def_common";
 	private static final String STR_DEFINITION_GPIO = "cfg_def_gpio";
 	private static final String STR_DEFINITION_ADC = "cfg_def_adc";
+	private static final String STR_DEFINITION_UART = "cfg_def_uart";
 
 	/**
 	 * Constructor
@@ -174,6 +205,10 @@ public class Microcontroller {
 		}
 
 		if (loadAdcs() != ErrorCode.NO_ERROR) {
+			return ErrorCode.EX_ERROR;
+		}
+
+		if (loadUarts() != ErrorCode.NO_ERROR) {
 			return ErrorCode.EX_ERROR;
 		}
 
@@ -837,6 +872,228 @@ public class Microcontroller {
 	}
 
 	/**
+	 * Load microcontroller's UARTs
+	 * 
+	 * @return ErrorStatus
+	 */
+	private ErrorCode loadUarts() {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList uartList;
+
+		uartList = UcDoc.getElementsByTagName(STR_ADC);
+		if (uartList.getLength() > 0) {
+			setUc_uartNum(uartList.getLength());
+			Uarts = new String[getUc_uartNum()];
+			CurrentUart = new Uart[getUc_uartNum()];
+			UartCfg = new UartConf[getUc_uartNum()];
+			Features.verbosePrint("Number of UARTs: " + getUc_uartNum());
+
+			/* Parse the UARTs */
+			for (int uartNum = 0; uartNum < getUc_uartNum(); uartNum++) {
+				CurrentUart[uartNum] = parseUart(uartNum);
+				/* Check the ADC is valid */
+				if (!CurrentUart[uartNum].isValid()) {
+					errorStatus = ErrorCode.EX_ERROR;
+					Features.verbosePrint("UART " + uartNum + " not valid!");
+					break;
+				}
+				Uarts[uartNum] = CurrentUart[uartNum].getName();
+			}
+
+		} else {
+			Features.verbosePrint("No UARTs found...");
+		}
+
+		return errorStatus;
+	}
+
+	/**
+	 * Parse the UART
+	 * 
+	 * @param uartNum UART index
+	 * @return UART
+	 */
+	private Uart parseUart(int uartNum) {
+		Uart uart = new Uart();
+		String name;
+		Element uartEl;
+		String feature;
+		String featureStr;
+		NodeList featureList;
+
+		Features.verbosePrint("Getting UART " + uartNum + " characteristics:");
+
+		uartEl = (Element) UcDoc.getElementsByTagName(STR_UART).item(uartNum);
+
+		/* Name */
+
+		name = XmlOpener.getElementInfo(uartEl, UartConf.STR_NAME);
+		if (!name.equals(ErrorCode.STR_INVALID)) {
+			uart.setName(name);
+			Features.verbosePrint("\tName: " + name);
+		}
+
+		/* Clocks */
+		feature = UartConf.STR_CLOCK;
+		featureList = uartEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				uart.addClock(featureStr);
+				Features.verbosePrint("\tClock: " + featureStr);
+			}
+		}
+
+		/* Prescalers */
+		feature = UartConf.STR_PRESCALER;
+		featureList = uartEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				uart.addPrescaler(featureStr);
+				Features.verbosePrint("\tPrescaler: " + featureStr);
+			}
+		}
+
+		/* Data Bits */
+		feature = UartConf.STR_DATA_BITS;
+		featureList = uartEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				uart.addDataBits(featureStr);
+				Features.verbosePrint("\tData Bits: " + featureStr);
+			}
+		}
+
+		/* Stop Bits */
+		feature = UartConf.STR_STOP_BITS;
+		featureList = uartEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				uart.addStopBits(featureStr);
+				Features.verbosePrint("\tStop Bits: " + featureStr);
+			}
+		}
+
+		/* Parity */
+		feature = UartConf.STR_PARITY;
+		featureList = uartEl.getElementsByTagName(feature);
+		for (int featNum = 0; featNum < featureList.getLength(); featNum++) {
+			featureStr = featureList.item(featNum).getTextContent();
+
+			if (!featureStr.equals(ErrorCode.STR_INVALID)) {
+				uart.addParity(featureStr);
+				Features.verbosePrint("\tParity: " + featureStr);
+			}
+		}
+
+		if (uart.isValid()) {
+			UartCfg[uartNum] = new UartConf(uart);
+		}
+
+		return uart;
+	}
+
+	public ErrorCode loadUartsConf(Document confDoc) {
+		ErrorCode errorStatus = ErrorCode.NO_ERROR;
+		NodeList uartList;
+
+		/* Get the root microcontroller element */
+		Element uartRoot = confDoc.getDocumentElement();
+		Features.verbosePrint("Configuration Root element: " + uartRoot.getTagName());
+
+		if (!uartRoot.getTagName().equals(CFG_ROOT_ELEMENT)) {
+			Features.verbosePrint("Wrong root element!...");
+			return ErrorCode.FILE_READ_ERROR;
+		}
+
+		/* Get the UART's configuration */
+
+		uartList = confDoc.getElementsByTagName(STR_UART);
+		if (uartList.getLength() > 0) {
+			Features.verbosePrint("Number of configured UARTs: " + uartList.getLength());
+		} else {
+			Features.verbosePrint("No UARTs configurations found...");
+			return ErrorCode.EX_ERROR;
+		}
+
+		for (int uartNum = 0; uartNum < uartList.getLength(); uartNum++) {
+			String name;
+			String configuration;
+			Element uartEl;
+			int uartIndex = 0;
+
+			uartEl = (Element) confDoc.getElementsByTagName(STR_UART).item(uartNum);
+
+			/* Set the UART's configurations if available */
+
+			name = XmlOpener.getElementInfo(uartEl, UartConf.STR_NAME);
+			if (!name.equals(ErrorCode.STR_INVALID)) {
+				uartIndex = getUartIndexFromName(name);
+				if (uartIndex >= getUc_pinNum()) {
+					Features.verbosePrint("UART " + name + " not found...");
+					return ErrorCode.EX_ERROR;
+				}
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, Selected.STR_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setSelected(Selected.getConfFromString(configuration));
+				Features.verbosePrint("Found " + name + "'s selection: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_CODE_NAME);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setCodeName(configuration);
+				Features.verbosePrint("Found " + name + "'s Code name: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_CLOCK);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setClock(configuration);
+				Features.verbosePrint("Found " + name + "'s Clock: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_PRESCALER);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setPrescaler(configuration);
+				Features.verbosePrint("Found " + name + "'s Prescaler: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_BAUD_RATE);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setBaudRate(configuration);
+				Features.verbosePrint("Found " + name + "'s Baud Rate: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_DATA_BITS);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setDataBits(configuration);
+				Features.verbosePrint("Found " + name + "'s Data Bits: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_STOP_BITS);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setStopBits(configuration);
+				Features.verbosePrint("Found " + name + "'s Stop Bits: " + configuration);
+			}
+
+			configuration = XmlOpener.getElementInfo(uartEl, UartConf.STR_PARITY);
+			if (!configuration.equals(ErrorCode.STR_INVALID)) {
+				UartCfg[uartNum].setParity(configuration);
+				Features.verbosePrint("Found " + name + "'s Parity: " + configuration);
+			}
+		}
+		return errorStatus;
+	}
+
+	/**
 	 * Get the GPIO index from the Pin's name
 	 * 
 	 * @param name Pin's name
@@ -873,6 +1130,23 @@ public class Microcontroller {
 		return index;
 	}
 
+	/**
+	 * 
+	 * @param name UART instance name
+	 * @return UART index
+	 */
+	private int getUartIndexFromName(String name) {
+		int index = ErrorCode.INT_INVALID_INDEX;
+		if (getUc_uartNum() > 0) {
+			for (int uartNum = 0; uartNum < CurrentUart.length; uartNum++) {
+				if (name.equals(CurrentUart[uartNum].getName())) {
+					index = uartNum;
+					break;
+				}
+			}
+		}
+		return index;
+	}
 	/**
 	 * Get a pin's characteristics
 	 * 
@@ -992,6 +1266,24 @@ public class Microcontroller {
 	}
 
 	/**
+	 * Get the number of UARTs in the microcontroller
+	 * 
+	 * @return Number of UARTs
+	 */
+	public int getUc_uartNum() {
+		return Uc_uartNum;
+	}
+
+	/**
+	 * Set the number of UARTs in the microcontroller
+	 * 
+	 * @param uc_uartNum Number of UARTs
+	 */
+	private void setUc_uartNum(int uc_uartNum) {
+		Uc_uartNum = uc_uartNum;
+	}
+
+	/**
 	 * Get the total pins selected
 	 * 
 	 * @return Total of pins selected
@@ -1025,6 +1317,25 @@ public class Microcontroller {
 		}
 
 		return selectedAdcs;
+	}
+	
+	/**
+	 * Get the total UARTs selected
+	 * 
+	 * @return Total of UARTs selected
+	 */
+	public int getUc_selectedUartsNum() {
+		int selectedUarts = 0;
+
+		if (getUc_uartNum() > 0) {
+			for (int uartNum = 0; uartNum < UartCfg.length; uartNum++) {
+				if (UartCfg[uartNum].getSelected().getBoolean()) {
+					selectedUarts++;
+				}
+			}
+		}
+
+		return selectedUarts;
 	}
 
 	/**
@@ -1155,6 +1466,24 @@ public class Microcontroller {
 			Includes_Adc[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No ADC includes found...");
 		}
+		
+		/* Get UART includes */
+		includeList = UcDoc.getElementsByTagName(STR_INCLUDE_UART);
+		if (includeList.getLength() > 0) {
+			Includes_Uart = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Includes_Uart.length; incNum++) {
+				incName = includeList.item(incNum).getTextContent();
+				if (!incName.equals(ErrorCode.STR_INVALID)) {
+					Includes_Uart[incNum] = incName;
+					Features.verbosePrint("\tInclude file added: " + incName);
+				}
+			}
+		} else {
+			Includes_Uart = new String[1];
+			Includes_Uart[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No UART includes found...");
+		}
 
 		return errorStatus;
 	}
@@ -1217,6 +1546,24 @@ public class Microcontroller {
 			Definitions_Adc = new String[1];
 			Definitions_Adc[0] = ErrorCode.STR_INVALID;
 			Features.verbosePrint("No ADC definitions found...");
+		}
+		
+		/* Get UART includes */
+		includeList = UcDoc.getElementsByTagName(STR_DEFINITION_UART);
+		if (includeList.getLength() > 0) {
+			Definitions_Uart = new String[includeList.getLength()];
+
+			for (int incNum = 0; incNum < Definitions_Uart.length; incNum++) {
+				defName = includeList.item(incNum).getTextContent();
+				if (!defName.equals(ErrorCode.STR_INVALID)) {
+					Definitions_Uart[incNum] = defName;
+					Features.verbosePrint("\tDefinition found: " + defName);
+				}
+			}
+		} else {
+			Definitions_Uart = new String[1];
+			Definitions_Uart[0] = ErrorCode.STR_INVALID;
+			Features.verbosePrint("No UART definitions found...");
 		}
 
 		return errorStatus;

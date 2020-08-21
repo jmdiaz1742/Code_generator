@@ -53,11 +53,23 @@ public class MainWindow {
 	private JLabel lbl_Microcontroller;
 	private JButton btn_ConfigureGpios;
 	private JButton btn_ConfigureAdcs;
+	private JButton btn_ConfigureUarts;
 	private JButton btn_GenerateCode;
 
 	/* Dynamic menu elements */
 	private JMenuItem mntmSave;
 	private JMenuItem mntmSaveAs;
+
+	/* Menu elements */
+	private JMenuBar menuBar;
+	private JMenu mnFile;
+	private JMenuItem mntmNewProject;
+	private JMenuItem mntmOpenProject;
+	private JMenu mnTools;
+	private JMenuItem mntmProjectPreferences;
+	private JMenuItem mntmGeneralSettings;
+	private JMenu mnHelp;
+	private JMenuItem mntmAbout;
 
 	/**
 	 * Open main window
@@ -132,13 +144,13 @@ public class MainWindow {
 		FrmCodeGenerator.setBounds(100, 100, 466, 270);
 		FrmCodeGenerator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		FrmCodeGenerator.setJMenuBar(menuBar);
 
-		JMenu mnFile = new JMenu("File");
+		mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 
-		JMenuItem mntmNewProject = new JMenuItem(Messages.getString("MainWindow.mntmNewProject.text")); //$NON-NLS-1$
+		mntmNewProject = new JMenuItem(Messages.getString("MainWindow.mntmNewProject.text")); //$NON-NLS-1$
 		mntmNewProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
 		mntmNewProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -149,7 +161,7 @@ public class MainWindow {
 		});
 		mnFile.add(mntmNewProject);
 
-		JMenuItem mntmOpenProject = new JMenuItem(Messages.getString("MainWindow.mntmOpenProject.text")); //$NON-NLS-1$
+		mntmOpenProject = new JMenuItem(Messages.getString("MainWindow.mntmOpenProject.text")); //$NON-NLS-1$
 		mntmOpenProject.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
 		mntmOpenProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -184,10 +196,34 @@ public class MainWindow {
 		mntmSaveAs.setEnabled(false);
 		mnFile.add(mntmSaveAs);
 
-		JMenu mnHelp = new JMenu(Messages.getString("MainWindow.mnHelp.text")); //$NON-NLS-1$
+		mnTools = new JMenu(Messages.getString("MainWindow.mnTools.text")); //$NON-NLS-1$
+		menuBar.add(mnTools);
+
+		mntmProjectPreferences = new JMenuItem(Messages.getString("MainWindow.mntmProjectPreferences.text")); //$NON-NLS-1$
+		mntmProjectPreferences.setEnabled(false);
+		mnTools.add(mntmProjectPreferences);
+		mntmProjectPreferences.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin About button click ******/
+				MainGui.showProjectPreferencesWindow();
+				/****** Begin About button click ******/
+			}
+		});
+
+		mntmGeneralSettings = new JMenuItem(Messages.getString("MainWindow.mntmGeneralSettings.text")); //$NON-NLS-1$
+		mnTools.add(mntmGeneralSettings);
+		mntmGeneralSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin About button click ******/
+				MainGui.showGeneralSettingsWindow();
+				/****** Begin About button click ******/
+			}
+		});
+
+		mnHelp = new JMenu(Messages.getString("MainWindow.mnHelp.text")); //$NON-NLS-1$
 		menuBar.add(mnHelp);
 
-		JMenuItem mntmAbout = new JMenuItem(Messages.getString("MainWindow.mntmAbout.text")); //$NON-NLS-1$
+		mntmAbout = new JMenuItem(Messages.getString("MainWindow.mntmAbout.text")); //$NON-NLS-1$
 		mntmAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		mntmAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -199,9 +235,9 @@ public class MainWindow {
 		mnHelp.add(mntmAbout);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		FrmCodeGenerator.getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblt_ProjectName = new JLabel(Messages.getString("MainWindow.lblProject.text")); //$NON-NLS-1$
@@ -262,7 +298,7 @@ public class MainWindow {
 			}
 		});
 
-		btn_ConfigureAdcs = new JButton(Messages.getString("MainWindow.btnNewButton.text")); //$NON-NLS-1$
+		btn_ConfigureAdcs = new JButton(Messages.getString("MainWindow.btn_ConfigureAdcs.text")); //$NON-NLS-1$
 		btn_ConfigureAdcs.setEnabled(false);
 		GridBagConstraints gbc_btn_ConfigureAdcs = new GridBagConstraints();
 		gbc_btn_ConfigureAdcs.insets = new Insets(0, 0, 5, 5);
@@ -276,10 +312,25 @@ public class MainWindow {
 				/****** End Configure ADCs button click ******/
 			}
 		});
+		
+		btn_ConfigureUarts = new JButton(Messages.getString("MainWindow.btnNewButton.text")); //$NON-NLS-1$
+		btn_ConfigureUarts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/****** Begin Configure UARTs button click ******/
+				MainGui.showUartConfWindow();
+				/****** End Configure UARTs button click ******/
+			}
+		});
+		btn_ConfigureUarts.setEnabled(false);
+		GridBagConstraints gbc_btn_ConfigureUarts = new GridBagConstraints();
+		gbc_btn_ConfigureUarts.insets = new Insets(0, 0, 5, 5);
+		gbc_btn_ConfigureUarts.gridx = 0;
+		gbc_btn_ConfigureUarts.gridy = 4;
+		FrmCodeGenerator.getContentPane().add(btn_ConfigureUarts, gbc_btn_ConfigureUarts);
 		GridBagConstraints gbc_btn_GenerateCode = new GridBagConstraints();
 		gbc_btn_GenerateCode.insets = new Insets(0, 0, 0, 5);
 		gbc_btn_GenerateCode.gridx = 0;
-		gbc_btn_GenerateCode.gridy = 4;
+		gbc_btn_GenerateCode.gridy = 5;
 		FrmCodeGenerator.getContentPane().add(btn_GenerateCode, gbc_btn_GenerateCode);
 	}
 
@@ -345,7 +396,8 @@ public class MainWindow {
 		String ucManufacturer = uC.getUc_manufacturer();
 		String ucName = uC.getUc_model();
 		boolean hasAdc = uC.getUc_adcNum() > 0;
-		
+		boolean hasUart = uC.getUc_uartNum() > 0;
+
 		if (projectName.equals("") || ucManufacturer.equals("") || ucName.equals("")) {
 			Features.verbosePrint("Wrong project information...");
 			MainGui.showErrorDialog("Wrong project information");
@@ -356,8 +408,10 @@ public class MainWindow {
 		lbl_Microcontroller.setText(ucManufacturer + " " + ucName);
 		btn_ConfigureGpios.setEnabled(true);
 		btn_ConfigureAdcs.setEnabled(hasAdc);
+		btn_ConfigureUarts.setEnabled(hasUart);
 		btn_GenerateCode.setEnabled(true);
 		mntmSaveAs.setEnabled(true);
+		mntmProjectPreferences.setEnabled(true);
 		return errorStatus;
 	}
 
@@ -376,7 +430,7 @@ public class MainWindow {
 
 		if (errorCode == ErrorCode.NO_ERROR) {
 			JOptionPane.showMessageDialog(FrmCodeGenerator, "Code generated succesfully", "Code generation",
-					JOptionPane.OK_OPTION);
+					JOptionPane.PLAIN_MESSAGE);
 		} else {
 			JOptionPane.showMessageDialog(FrmCodeGenerator, "Error generating code!", "Code generation",
 					JOptionPane.ERROR_MESSAGE);
