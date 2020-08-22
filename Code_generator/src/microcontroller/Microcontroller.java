@@ -880,7 +880,7 @@ public class Microcontroller {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList uartList;
 
-		uartList = UcDoc.getElementsByTagName(STR_ADC);
+		uartList = UcDoc.getElementsByTagName(STR_UART);
 		if (uartList.getLength() > 0) {
 			setUc_uartNum(uartList.getLength());
 			Uarts = new String[getUc_uartNum()];

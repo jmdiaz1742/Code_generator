@@ -13,10 +13,10 @@
 /************************
  * Includes             *
  ************************/
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
@@ -27,10 +27,10 @@
  */
 typedef enum
 {
-    // ################## Kamino generator v1.2.1: Generated code! ################
+    // ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 DebugUart,
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     UART_ELEMENTS_MAX
 } Uart_elementsType;
@@ -42,13 +42,13 @@ DebugUart,
 /************************
  * Public Defines       *
  ************************/
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // DebugUart
 #define DebugUart_NAME USART1
@@ -59,7 +59,7 @@ DebugUart,
 #define DebugUart_STOP_BITS UART_STOPBITS_1
 #define DebugUart_PARITY UART_PARITY_NONE
 
-// ################## Kamino generator v1.2.1: Generated code! ################
+// ################## Kamino generator v1.2.2: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
