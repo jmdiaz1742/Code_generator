@@ -1,13 +1,13 @@
 /**
- * @file adc_cfg.c
+ * @file uart_cfg.c
  * @author Cesar Rodriguez
- * @brief ADC Framework Configuration
+ * @brief UART Framework Configuration
  */
 
 /************************
  * Includes             *
  ************************/
-#include "adc.h"
+#include "uart.h"
 
 /************************
  * Type Definitions     *
@@ -36,16 +36,16 @@
 /**
  * @brief GPIO initial configuration structures array
  */
-const Adc_cfg_t Adc_Cfg[ADC_ELEMENTS_MAX] = {
+const Uart_cfg_t Uart_Cfg[UART_ELEMENTS_MAX] = {
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-{APP_ADC_NAME,
-APP_ADC_SAMPLE,
-APP_ADC_CLOCK,
-APP_ADC_JUSTIFICATION,
-APP_ADC_PRESCALER,
-APP_ADC_RESOLUTION,
-APP_ADC_REFERENCE,
+{APP_UART_NAME,
+APP_UART_CLOCK,
+APP_UART_PRESCALER,
+APP_UART_BAUD_RATE,
+APP_UART_DATA_BITS,
+APP_UART_STOP_BITS,
+APP_UART_PARITY,
 }
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
