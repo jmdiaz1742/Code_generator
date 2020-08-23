@@ -499,13 +499,14 @@ public class UartConfWindow {
 			UcConf.UartCfg[selectedUart].setCodeName(textField_CodeName.getText());
 			UcConf.UartCfg[selectedUart].setClock(comboBox_Clock.getSelectedItem().toString());
 			UcConf.UartCfg[selectedUart].setPrescaler(comboBox_Prescaler.getSelectedItem().toString());
-			UcConf.UartCfg[selectedUart].setDataBits(comboBox_DataBits.getSelectedItem().toString());
-			UcConf.UartCfg[selectedUart].setStopBits(comboBox_StopBits.getSelectedItem().toString());
 			if (isBaudRateValid()) {
 				UcConf.UartCfg[selectedUart].setBaudRate(textField_BaudRate.getText());
 			} else {
 				UcConf.UartCfg[selectedUart].setBaudRate("0");
 			}
+			UcConf.UartCfg[selectedUart].setDataBits(comboBox_DataBits.getSelectedItem().toString());
+			UcConf.UartCfg[selectedUart].setStopBits(comboBox_StopBits.getSelectedItem().toString());
+			UcConf.UartCfg[selectedUart].setParity(comboBox_Parity.getSelectedItem().toString());
 		}
 	}
 

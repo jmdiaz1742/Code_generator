@@ -9,6 +9,7 @@
 		<include_common>stdbool.h</include_common>
 		<include_gpio>stm32f3xx_hal.h</include_gpio>
 		<include_adc>stm32f3xx_hal.h</include_adc>
+		<include_uart>stm32f3xx_hal.h</include_uart>
 	</includes>
 	<configuration_definitions>
 		<!-- GPIO definitions -->
