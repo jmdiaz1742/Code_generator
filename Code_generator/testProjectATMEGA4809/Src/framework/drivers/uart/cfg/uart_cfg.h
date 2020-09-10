@@ -1,21 +1,21 @@
 /**
- * @file gpio_cfg.h
- * @author Miguel Diaz
- * @brief GPIO framework configuration header
+ * @file uart_cfg.h
+ * @author Cesar Rodriguez
+ * @brief UART framework configuration header
  */
 
 /************************
  * Guard                *
  ************************/
-#ifndef _GPIO_CFG_H_
-#define _GPIO_CFG_H_
+#ifndef _UART_CFG_H_
+#define _UART_CFG_H_
 
 /************************
  * Includes             *
  ************************/
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-#include "port.h"
+#include "usart_basic.h"
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
@@ -29,14 +29,11 @@ typedef enum
 {
     // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-USER_LED,
-TX,
-RX,
-POT,
+APP_UART,
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
-    GPIO_ELEMENTS_MAX
-} Gpio_elementsType;
+    UART_ELEMENTS_MAX
+} Uart_elementsType;
 
 /************************
  * Public Macros        *
@@ -53,45 +50,14 @@ POT,
 
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
-// USER_LED
-#define USER_LED_PORT PORT_B
-#define USER_LED_PIN PIN_5
-#define USER_LED_MODE MODE_OUTPUT
-#define USER_LED_ALT_MODE ALT_MODE_NONE
-#define USER_LED_OUT_TYPE OTYPE_PUSH_PULL
-#define USER_LED_PULL PULL_NOT_AVAILABLE
-#define USER_LED_SPEED SPEED_FAST
-#define USER_LED_INIT_OUT LOW
-
-// TX
-#define TX_PORT PORT_C
-#define TX_PIN PIN_0
-#define TX_MODE MODE_ALTERNATE_FUNCTION
-#define TX_ALT_MODE ALT_MODE_NONE
-#define TX_OUT_TYPE OTYPE_PUSH_PULL
-#define TX_PULL PULL_NOT_AVAILABLE
-#define TX_SPEED SPEED_FAST
-#define TX_INIT_OUT LOW
-
-// RX
-#define RX_PORT PORT_C
-#define RX_PIN PIN_1
-#define RX_MODE MODE_ALTERNATE_FUNCTION
-#define RX_ALT_MODE ALT_MODE_NONE
-#define RX_OUT_TYPE OTYPE_PUSH_PULL
-#define RX_PULL PULL_NOT_AVAILABLE
-#define RX_SPEED SPEED_FAST
-#define RX_INIT_OUT LOW
-
-// POT
-#define POT_PORT PORT_D
-#define POT_PIN PIN_0
-#define POT_MODE MODE_ALTERNATE_FUNCTION
-#define POT_ALT_MODE ALT_MODE_NONE
-#define POT_OUT_TYPE OTYPE_PUSH_PULL
-#define POT_PULL PULL_NOT_AVAILABLE
-#define POT_SPEED SPEED_FAST
-#define POT_INIT_OUT LOW
+// APP_UART
+#define APP_UART_NAME UART1
+#define APP_UART_CLOCK UART_NOT_SUPPORTED
+#define APP_UART_PRESCALER UART_NOT_SUPPORTED
+#define APP_UART_BAUD_RATE 9600
+#define APP_UART_DATA_BITS UART_8_DATA_BITS
+#define APP_UART_STOP_BITS UART_1_STOP_BIT
+#define APP_UART_PARITY UART_NO_PARITY
 
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
@@ -112,4 +78,4 @@ POT,
  * Public Functions     *
  ************************/
 
-#endif /* _GPIO_CFG_H_ */
+#endif /* _UART_CFG_H_ */
