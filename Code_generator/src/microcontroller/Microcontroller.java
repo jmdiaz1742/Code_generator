@@ -318,7 +318,7 @@ public class Microcontroller {
 			GpioCfgPin = new PinConf[getUc_gpioNum()];
 			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
 				if (CurrentPin[pinNum].getFunc_gpio()) {
-					GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum]);
+					GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum], pinNum);
 					gpioNum++;
 				}
 			}

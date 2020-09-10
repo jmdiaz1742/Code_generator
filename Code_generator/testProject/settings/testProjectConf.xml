@@ -121,9 +121,9 @@
         PA0
         <name>PA0</name>
         <port>PORT_A</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <selected>YES</selected>
+        <Mode>MODE_ALTERNATE_FUNCTION</Mode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -666,7 +666,7 @@
     <adcInstance>
         ADC1
         <name>ADC1</name>
-        <selected>NOT</selected>
+        <selected>YES</selected>
         <codeName>FirstAdc</codeName>
         <sample>ADC_SAMPLETIME_1CYCLE_5</sample>
         <clock>ADC_NOT_SUPPORTED</clock>
@@ -676,7 +676,7 @@
         <reference>ADC_NOT_SUPPORTED</reference>
         <adcChannel>
             <name>ADC_CHANNEL_1</name>
-            <selected>NOT</selected>
+            <selected>YES</selected>
             <codeName>ADC_CHANNEL_1</codeName>
             <pinIndex>13</pinIndex>
         </adcChannel>

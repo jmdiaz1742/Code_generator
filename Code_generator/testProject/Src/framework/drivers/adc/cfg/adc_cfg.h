@@ -29,6 +29,7 @@ typedef enum
 {
     // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
+FirstAdc,
 MyAdc,
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
@@ -50,6 +51,15 @@ MyAdc,
 
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
+// FirstAdc
+#define FirstAdc_NAME ADC1
+#define FirstAdc_SAMPLE ADC_SAMPLETIME_1CYCLE_5
+#define FirstAdc_CLOCK ADC_NOT_SUPPORTED
+#define FirstAdc_JUSTIFICATION ADC_DATAALIGN_RIGHT
+#define FirstAdc_PRESCALER ADC_CLOCK_SYNC_PCLK_DIV1
+#define FirstAdc_RESOLUTION ADC_RESOLUTION12b
+#define FirstAdc_REFERENCE ADC_NOT_SUPPORTED
+
 // MyAdc
 #define MyAdc_NAME ADC2
 #define MyAdc_SAMPLE ADC_SAMPLETIME_2CYCLES_5
@@ -60,6 +70,8 @@ MyAdc,
 #define MyAdc_REFERENCE ADC_NOT_SUPPORTED
 
 // Channel definitions
+// ADC ADC1
+#define ADC_CHANNEL_1 ADC_CHANNEL_1
 // ADC ADC2
 #define TEMP_CHANNEL ADC_CHANNEL_4
 

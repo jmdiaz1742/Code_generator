@@ -22,6 +22,7 @@ public class PinConf {
 	private Pin GpioPin;
 
 	/* Pin configuration */
+	private int Index;
 	private String Port;
 	private String PinName;
 	private String CodeName;
@@ -77,9 +78,10 @@ public class PinConf {
 	 * 
 	 * @param gpioPin Pin information
 	 */
-	public PinConf(Pin gpioPin) {
+	public PinConf(Pin gpioPin, int index) {
 		if (gpioPin.isValid() && gpioPin.getFunc_gpio()) {
 			this.GpioPin = gpioPin;
+			Index = index;
 		} else {
 			Features.verbosePrint("Pin " + gpioPin.getName() + "is NOT a GPIO!");
 		}
@@ -107,6 +109,15 @@ public class PinConf {
 		}
 
 		return valid;
+	}
+
+	/**
+	 * Get the pin's index
+	 * 
+	 * @return
+	 */
+	public int getIndex() {
+		return Index;
 	}
 
 	/**

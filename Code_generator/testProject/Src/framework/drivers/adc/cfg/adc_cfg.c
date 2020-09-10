@@ -39,6 +39,14 @@
 const Adc_cfg_t Adc_Cfg[ADC_ELEMENTS_MAX] = {
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
+{FirstAdc_NAME,
+FirstAdc_SAMPLE,
+FirstAdc_CLOCK,
+FirstAdc_JUSTIFICATION,
+FirstAdc_PRESCALER,
+FirstAdc_RESOLUTION,
+FirstAdc_REFERENCE,
+},
 {MyAdc_NAME,
 MyAdc_SAMPLE,
 MyAdc_CLOCK,
