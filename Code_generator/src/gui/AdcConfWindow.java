@@ -10,6 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -24,8 +26,11 @@ import javax.swing.event.DocumentListener;
 
 import common.Features;
 import configurator.AdcConf;
+import configurator.PinConf;
 import configurator.Selected;
 import configurator.ADC.AdcChannel;
+import configurator.GPIO.AltMode;
+import configurator.GPIO.Mode;
 
 import javax.swing.JCheckBox;
 
@@ -236,7 +241,7 @@ public class AdcConfWindow {
 				/****** End ADC configuration change ******/
 			}
 		});
-		
+
 		textField_CodeName.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
@@ -649,6 +654,12 @@ public class AdcConfWindow {
 
 		for (int chanNum = 0; chanNum < chanTotal; chanNum++) {
 			boolean isSelected = checkBox_ChannelSelected[chanNum].isSelected();
+			if (isSelected) {
+				isSelected = checkPinConf(UcConf.AdcCfg[selectedAdc].getChannel(chanNum));
+				if (!isSelected) {
+					checkBox_ChannelSelected[chanNum].setSelected(false);
+				}
+			}
 			UcConf.AdcCfg[selectedAdc].getChannel(chanNum).setSelected(Selected.getConfFromBoolean(isSelected));
 			UcConf.AdcCfg[selectedAdc].getChannel(chanNum).setCodeName(textFieldChannelCodeName[chanNum].getText());
 
@@ -656,6 +667,35 @@ public class AdcConfWindow {
 			lbl_ChannelPin[chanNum].setEnabled(isSelected);
 			textFieldChannelCodeName[chanNum].setEnabled(isSelected);
 		}
+	}
+
+	private boolean checkPinConf(AdcChannel channel) {
+		boolean configurePin = true;
+		PinConf pin = UcConf.getConfiguredPin(UcConf.getPin(channel.getPinIndex()).getName());
+		boolean isPinAdc = (pin.getMode() == Mode.MODE_ALTERNATE_FUNCTION
+				&& pin.getAltMode() == AltMode.ALT_MODE_ANALOG) || pin.getSelected() == Selected.NOT;
+
+		if (!isPinAdc) {
+			String message = "Pin " + pin.getPinName() + " is not configured as analog, do you wish to do this now?";
+			int result = JOptionPane.showConfirmDialog(frmAdcsConfiguration, message, "Pin not configured",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+			if (result == JOptionPane.YES_OPTION) {
+				configurePin = true;
+			} else if (result == JOptionPane.NO_OPTION) {
+				configurePin = false;
+			} else {
+				configurePin = false;
+			}
+		}
+
+		if (configurePin) {
+			pin.setMode(Mode.MODE_ALTERNATE_FUNCTION);
+			pin.setAltMode(AltMode.ALT_MODE_ANALOG);
+			pin.setSelected(Selected.YES);
+		}
+
+		return configurePin;
 	}
 
 }
