@@ -318,7 +318,7 @@ public class Microcontroller {
 			GpioCfgPin = new PinConf[getUc_gpioNum()];
 			for (int pinNum = 0; pinNum < getUc_pinNum(); pinNum++) {
 				if (CurrentPin[pinNum].getFunc_gpio()) {
-					GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum]);
+					GpioCfgPin[gpioNum] = new PinConf(CurrentPin[pinNum], pinNum);
 					gpioNum++;
 				}
 			}
@@ -880,7 +880,7 @@ public class Microcontroller {
 		ErrorCode errorStatus = ErrorCode.NO_ERROR;
 		NodeList uartList;
 
-		uartList = UcDoc.getElementsByTagName(STR_ADC);
+		uartList = UcDoc.getElementsByTagName(STR_UART);
 		if (uartList.getLength() > 0) {
 			setUc_uartNum(uartList.getLength());
 			Uarts = new String[getUc_uartNum()];

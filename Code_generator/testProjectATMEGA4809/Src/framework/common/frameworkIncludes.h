@@ -16,11 +16,11 @@
  * Includes             *
  ************************/
 // Include framework modules depending on what you are using:
-// ################## Kamino generator v1.1.0: Generated code! ################
+// ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 #include "gpio.h"
 #include "adc.h"
-// ################## Kamino generator v1.1.0: Generated code! ################
+// ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************

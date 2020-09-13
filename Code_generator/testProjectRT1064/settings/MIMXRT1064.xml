@@ -11,6 +11,7 @@
 		<include_gpio>fsl_gpio.h</include_gpio>
 		<include_adc>MIMXRT1064.h</include_adc>
 		<include_adc>fsl_adc.h</include_adc>
+		<include_uart>fsl_lpuart.h</include_uart>
     </includes>
     <configuration_definitions>
         <!-- GPIO definitions -->
@@ -58,6 +59,104 @@
 			<reference>ADC_NOT_SUPPORTED</reference>
 		</adcInstance>
 	</adcs>
+	<uarts>
+		<uartInstance>
+			<name>UART1</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART2</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART3</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART4</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART5</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART6</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART7</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+		<uartInstance>
+			<name>UART8</name>
+			<clock>UART_NOT_SUPPORTED</clock>
+			<prescaler>UART_NOT_SUPPORTED</prescaler>
+			<dataBits>UART_7_DATA_BITS</dataBits>
+			<dataBits>UART_8_DATA_BITS</dataBits>
+			<stopBits>UART_1_STOP_BIT</stopBits>
+			<stopBits>UART_2_STOP_BITS</stopBits>
+			<parity>UART_EVEN_PARITY</parity>
+			<parity>UART_ODD_PARITY</parity>
+			<parity>UART_NO_PARITY</parity>
+		</uartInstance>
+	</uarts>
     <pins>
         <pin>
             <!-- Backup power supply -->
@@ -175,6 +274,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_25</portPin>
+			<uart>USART6_TX</uart>
         </pin>
 		<pin>
             <number>19</number>
@@ -194,6 +294,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_23</portPin>
+			<uart>USART5_TX</uart>
         </pin>
 		<pin>
             <number>22</number>
@@ -201,6 +302,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_16</portPin>
+			<uart>USART8_TX</uart>
         </pin>
 		<pin>
             <number>23</number>
@@ -208,6 +310,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_17</portPin>
+			<uart>USART8_RX</uart>
         </pin>
 		<pin>
             <number>24</number>
@@ -242,6 +345,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_20</portPin>
+			<uart>USART4_RX</uart>
         </pin>
 		<pin>
             <number>30</number>
@@ -249,6 +353,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_26</portPin>
+			<uart>USART6_RX</uart>
         </pin>
 		<pin>
             <number>31</number>
@@ -263,6 +368,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_24</portPin>
+			<uart>USART5_RX</uart>
         </pin>
 		<pin>
             <number>33</number>
@@ -331,6 +437,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_8</portPin>
+			<uart>USART7_TX</uart>
         </pin>
 		<pin>
             <number>43</number>
@@ -345,6 +452,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_19</portPin>
+			<uart>USART4_TX</uart>
         </pin>
 		<pin>
             <number>45</number>
@@ -420,6 +528,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_9</portPin>
+			<uart>USART7_RX</uart>
         </pin>
 		<pin>
             <number>56</number>
@@ -427,6 +536,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_10</portPin>
+			<uart>USART2_RX</uart>
         </pin>
 		<pin>
             <number>57</number>
@@ -446,6 +556,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_4</port>
             <portPin>PIN_31</portPin>
+			<uart>USART7_TX</uart>
         </pin>
 		<pin>
             <number>60</number>
@@ -453,6 +564,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_18</portPin>
+			<uart>USART7_RX</uart>
         </pin>
 		<pin>
             <number>61</number>
@@ -496,6 +608,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_0</portPin>
+			<uart>USART4_TX</uart>
         </pin>
 		<pin>
             <number>68</number>
@@ -503,6 +616,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_1</portPin>
+			<uart>USART4_RX</uart>
         </pin>
 		<pin>
             <number>69</number>
@@ -515,6 +629,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_11</portPin>
+			<uart>USART2_TX</uart>
         </pin>
 		<pin>
             <number>71</number>
@@ -543,6 +658,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_24</portPin>
+			<uart>USART8_TX</uart>
         </pin>
 		<pin>
             <number>75</number>
@@ -609,6 +725,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_3</port>
             <portPin>PIN_25</portPin>
+			<uart>USART8_RX</uart>
         </pin>
 		<pin>
             <number>87</number>
@@ -780,6 +897,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_2</port>
             <portPin>PIN_9</portPin>
+			<uart>USART3_RX</uart>
         </pin>
 		<pin>
             <number>116</number>
@@ -905,6 +1023,7 @@
             <adcChannel>ADC_CHANNEL_12</adcChannel>
 		    <adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_12</adcChannel>
+			<uart>USART3_RX</uart>
         </pin>
 		<pin>
             <number>137</number>
@@ -994,6 +1113,12 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_16</portPin>
+			<!-- 
+			TODO: Uncomment once Code generator
+			supports shared pins between ADCs.
+			<adc>ADC1</adc>
+            <adcChannel>ADC_CHANNEL_5</adcChannel>
+			-->
 			<adc>ADC1</adc>
             <adcChannel>ADC_CHANNEL_5</adcChannel>
 			<adc>ADC2</adc>
@@ -1020,6 +1145,7 @@
             <adcChannel>ADC_CHANNEL_7</adcChannel>
 			<adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_7</adcChannel>
+			<uart>USART2_TX</uart>
         </pin>
 		<pin>
             <number>152</number>
@@ -1108,6 +1234,7 @@
             <adcChannel>ADC_CHANNEL_11</adcChannel>
 			<adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_11</adcChannel>
+			<uart>USART3_TX</uart>
         </pin>
 		<pin>
             <number>164</number>
@@ -1141,6 +1268,7 @@
             <adcChannel>ADC_CHANNEL_8</adcChannel>
 			<adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_8</adcChannel>
+			<uart>USART2_RX</uart>
         </pin>
 		<pin>
             <number>167</number>
@@ -1179,6 +1307,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_2</port>
             <portPin>PIN_28</portPin>
+			<uart>USART5_TX</uart>
         </pin>
 		<pin>
             <number>173</number>
@@ -1191,6 +1320,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_8</portPin>
+			<uart>USART3_TX</uart>
         </pin>
 		<pin>
             <number>175</number>
@@ -1220,6 +1350,7 @@
 			<adcChannel>ADC_CHANNEL_0</adcChannel>
 			<adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_0</adcChannel>
+			<uart>USART8_RX</uart>
         </pin>
 		<pin>
             <number>178</number>
@@ -1236,6 +1367,7 @@
             <adcChannel>ADC_CHANNEL_15</adcChannel>
 			<adc>ADC2</adc>
             <adcChannel>ADC_CHANNEL_15</adcChannel>
+			<uart>USART8_TX</uart>
         </pin>
 		<pin>
             <number>180</number>
@@ -1283,6 +1415,7 @@
             <gpio>GPIO</gpio>
             <port>PORT_2</port>
             <portPin>PIN_29</portPin>
+			<uart>USART5_RX</uart>
         </pin>
 		<pin>
             <number>187</number>
@@ -1331,15 +1464,17 @@
             <portPin>PIN_12</portPin>
 			<adc>ADC1</adc>
             <adcChannel>ADC_CHANNEL_1</adcChannel>
+			<uart>USART1_TX</uart>
         </pin>
 		<pin>
             <number>193</number>
-            <name>GPIO_SD_B0_02</name>
+            <name>GPIO_AD_B0_13</name>
             <gpio>GPIO</gpio>
             <port>PORT_1</port>
             <portPin>PIN_13</portPin>
 			<adc>ADC1</adc>
             <adcChannel>ADC_CHANNEL_2</adcChannel>
+			<uart>USART1_RX</uart>
         </pin>
 		<pin>
             <number>194</number>

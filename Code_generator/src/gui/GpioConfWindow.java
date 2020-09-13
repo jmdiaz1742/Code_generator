@@ -8,8 +8,11 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import common.ErrorCode;
 import common.Features;
+import configurator.PinConf;
 import configurator.Selected;
+import configurator.ADC.AdcChannel;
 import configurator.GPIO.AltMode;
 import configurator.GPIO.Mode;
 import configurator.GPIO.OutType;
@@ -628,6 +631,9 @@ public class GpioConfWindow {
 	 * Reflect the pin's mode changes
 	 */
 	private void modeChange() {
+
+		checkAdcsConf();
+
 		updateMode();
 		updateAltMode();
 		updateOutputType();
@@ -640,7 +646,9 @@ public class GpioConfWindow {
 	 * Reflect the pin's alternate mode change
 	 */
 	private void altModeChange() {
+		checkAdcsConf();
 
+		updateAltMode();
 	}
 
 	/**
@@ -869,6 +877,79 @@ public class GpioConfWindow {
 				portPinNum++;
 			}
 		}
+	}
+
+	private void checkAdcsConf() {
+		int portPinNum = 0;
+
+		GuiRefreshLocked = true;
+
+		for (int pinNum = 0; pinNum < UcConf.getUc_gpioNum(); pinNum++) {
+			if (UcConf.GpioCfgPin[pinNum].getPort().equals(SelectedPort)) {
+				PinConf pin = UcConf.GpioCfgPin[pinNum];
+				boolean checkAdc = (pin.getSelected() == Selected.YES && pin.isAv_Adc())
+						&& ((pin.getMode() == Mode.MODE_ALTERNATE_FUNCTION && !comboBox_PinMode[portPinNum]
+								.getSelectedItem().toString().equals(Mode.MODE_ALTERNATE_FUNCTION.name()))
+								|| (pin.getAltMode() == AltMode.ALT_MODE_ANALOG && !comboBox_PinAltMode[portPinNum]
+										.getSelectedItem().toString().equals(AltMode.ALT_MODE_ANALOG.name())));
+
+				if (checkAdc) {
+					/* Get ADC Channel */
+					int adcIndex = ErrorCode.INT_INVALID_INDEX;
+					int channelIndex = ErrorCode.INT_INVALID_INDEX;
+
+					for (int adcNum = 0; adcNum < UcConf.getUc_adcNum(); adcNum++) {
+						for (int chaNum = 0; chaNum < UcConf.AdcCfg[adcNum].getChannelsNum(); chaNum++) {
+							AdcChannel channel = UcConf.AdcCfg[adcNum].getChannel(chaNum);
+							if (channel.getPinIndex() == pin.getIndex()) {
+								adcIndex = adcNum;
+								channelIndex = chaNum;
+								break;
+							}
+						}
+					}
+
+					String message = "Pin " + pin.getPinName() + " is currently configured as ADC\r\n" + "ADC: "
+							+ UcConf.Adcs[adcIndex] + "\r\n" + "Channel: "
+							+ UcConf.AdcCfg[adcIndex].getChannel(channelIndex).getName() + "\r\n"
+							+ "Do you want to deselct the channel?";
+					int result = JOptionPane.showConfirmDialog(frmGpiosConfiguration, message, "ADC configured",
+							JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+					if (result == JOptionPane.YES_OPTION) {
+						UcConf.AdcCfg[adcIndex].getChannel(channelIndex).setSelected(Selected.NOT);
+					} else if (result == JOptionPane.NO_OPTION) {
+						int modeIndex = ErrorCode.INT_INVALID_INDEX;
+						int altModeIndex = ErrorCode.INT_INVALID_INDEX;
+
+						for (int modeNum = 0; modeNum < comboBox_PinMode[portPinNum].getItemCount(); modeNum++) {
+							if (comboBox_PinMode[portPinNum].getItemAt(modeNum)
+									.equals(Mode.MODE_ALTERNATE_FUNCTION.name())) {
+								modeIndex = modeNum;
+								break;
+							}
+						}
+
+						for (int altModeNum = 0; altModeNum < comboBox_PinAltMode[portPinNum]
+								.getItemCount(); altModeNum++) {
+							if (comboBox_PinAltMode[portPinNum].getItemAt(altModeNum)
+									.equals(AltMode.ALT_MODE_ANALOG.name())) {
+								altModeIndex = altModeNum;
+								break;
+							}
+						}
+
+						if (modeIndex != ErrorCode.INT_INVALID_INDEX && altModeIndex != ErrorCode.INT_INVALID_INDEX) {
+							comboBox_PinMode[portPinNum].setSelectedIndex(modeIndex);
+							comboBox_PinAltMode[portPinNum].setSelectedIndex(altModeIndex);
+						}
+
+					}
+				}
+				portPinNum++;
+			}
+		}
+		GuiRefreshLocked = false;
 	}
 
 }

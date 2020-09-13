@@ -42,7 +42,7 @@ public class Features {
 	/* Software version numbers */
 	private static final int VERSION_MAJOR = 1;
 	private static final int VERSION_MINOR = 2;
-	private static final int VERSION_PATCH = 1;
+	private static final int VERSION_PATCH = 4;
 
 	/**
 	 * Complete Software version
@@ -55,9 +55,10 @@ public class Features {
 	public static final String VERSION_STATUS = "Alpha";
 
 	/**
-	 * Code name of the software version
+	 * Code name of the software version For a complete list of planets to select
+	 * from, see https://starwars.fandom.com/wiki/List_of_planets
 	 */
-	public static final String VERSION_NAME = "Felucia";
+	public static final String VERSION_NAME = "Geonosis";
 
 	public static final String GENERATOR_NAME = "Kamino";
 

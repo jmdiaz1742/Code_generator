@@ -34,3 +34,5 @@ Code_generator/\.metadata/
 
 Code_generator/logs/*
 *.log
+
+*.patch

@@ -69,7 +69,7 @@
         PB2
         <name>PB2</name>
         <port>PORT_B</port>
-        <selected>YES</selected>
+        <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
         <AltMode>ALT_MODE_NONE</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
@@ -121,27 +121,27 @@
         PC0
         <name>PC0</name>
         <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
+        <selected>YES</selected>
+        <Mode>MODE_ALTERNATE_FUNCTION</Mode>
         <AltMode>ALT_MODE_NONE</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
         <Speed>SPEED_FAST</Speed>
-        <codeName>PC0</codeName>
+        <codeName>TX</codeName>
     </pin>
     <pin>
         PC1
         <name>PC1</name>
         <port>PORT_C</port>
-        <selected>NOT</selected>
-        <Mode>MODE_INPUT</Mode>
+        <selected>YES</selected>
+        <Mode>MODE_ALTERNATE_FUNCTION</Mode>
         <AltMode>ALT_MODE_NONE</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
         <Speed>SPEED_FAST</Speed>
-        <codeName>PC1</codeName>
+        <codeName>RX</codeName>
     </pin>
     <pin>
         PC2
@@ -641,4 +641,16 @@
             <pinIndex>38</pinIndex>
         </adcChannel>
     </adcInstance>
+    <uartInstance>
+        UART0
+        <name>UART0</name>
+        <selected>NOT</selected>
+        <codeName>APP_UART</codeName>
+        <clock>UART_NOT_SUPPORTED</clock>
+        <prescaler>UART_NOT_SUPPORTED</prescaler>
+        <baudRate>9600</baudRate>
+        <dataBits>UART_8_DATA_BITS</dataBits>
+        <stopBits>UART_1_STOP_BIT</stopBits>
+        <parity>UART_EVEN_PARITY</parity>
+    </uartInstance>
 </Microcontroller_Configuration>
