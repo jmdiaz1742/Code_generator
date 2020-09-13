@@ -13,10 +13,10 @@
 /************************
  * Includes             *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 #include "port.h"
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
@@ -27,13 +27,13 @@
  */
 typedef enum
 {
-    // ################## Kamino generator v1.2.3: Generated code! ################
+    // ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 USER_LED,
 TX,
 RX,
 POT,
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     GPIO_ELEMENTS_MAX
 } Gpio_elementsType;
@@ -45,13 +45,13 @@ POT,
 /************************
  * Public Defines       *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // USER_LED
 #define USER_LED_PORT PORT_B
@@ -67,9 +67,9 @@ POT,
 #define TX_PORT PORT_C
 #define TX_PIN PIN_0
 #define TX_MODE MODE_ALTERNATE_FUNCTION
-#define TX_ALT_MODE ALT_MODE_NONE
+#define TX_ALT_MODE ALT_MODE_UART
 #define TX_OUT_TYPE OTYPE_PUSH_PULL
-#define TX_PULL PULL_NOT_AVAILABLE
+#define TX_PULL PULL_UP
 #define TX_SPEED SPEED_FAST
 #define TX_INIT_OUT LOW
 
@@ -77,7 +77,7 @@ POT,
 #define RX_PORT PORT_C
 #define RX_PIN PIN_1
 #define RX_MODE MODE_ALTERNATE_FUNCTION
-#define RX_ALT_MODE ALT_MODE_NONE
+#define RX_ALT_MODE ALT_MODE_UART
 #define RX_OUT_TYPE OTYPE_PUSH_PULL
 #define RX_PULL PULL_NOT_AVAILABLE
 #define RX_SPEED SPEED_FAST
@@ -87,13 +87,13 @@ POT,
 #define POT_PORT PORT_D
 #define POT_PIN PIN_0
 #define POT_MODE MODE_ALTERNATE_FUNCTION
-#define POT_ALT_MODE ALT_MODE_NONE
+#define POT_ALT_MODE ALT_MODE_ANALOG
 #define POT_OUT_TYPE OTYPE_PUSH_PULL
-#define POT_PULL PULL_NOT_AVAILABLE
+#define POT_PULL PULL_UP
 #define POT_SPEED SPEED_FAST
 #define POT_INIT_OUT LOW
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************

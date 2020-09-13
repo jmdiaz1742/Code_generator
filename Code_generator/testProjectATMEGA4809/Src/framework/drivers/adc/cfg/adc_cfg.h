@@ -13,10 +13,10 @@
 /************************
  * Includes             *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 #include "adc_basic.h"
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
@@ -27,10 +27,10 @@
  */
 typedef enum
 {
-    // ################## Kamino generator v1.2.3: Generated code! ################
+    // ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 APP_ADC,
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     ADC_ELEMENTS_MAX
 } Adc_elementsType;
@@ -42,13 +42,13 @@ APP_ADC,
 /************************
  * Public Defines       *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // APP_ADC
 #define APP_ADC_NAME ADC1
@@ -63,7 +63,7 @@ APP_ADC,
 // ADC ADC1
 #define POT_ADC_CHANNEL ADC_CHANNEL_0
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
