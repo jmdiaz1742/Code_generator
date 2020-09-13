@@ -647,7 +647,7 @@ public class GpioConfWindow {
 	 */
 	private void altModeChange() {
 		checkAdcsConf();
-		
+
 		updateAltMode();
 	}
 
@@ -889,9 +889,9 @@ public class GpioConfWindow {
 				PinConf pin = UcConf.GpioCfgPin[pinNum];
 				boolean checkAdc = (pin.getSelected() == Selected.YES && pin.isAv_Adc())
 						&& ((pin.getMode() == Mode.MODE_ALTERNATE_FUNCTION && !comboBox_PinMode[portPinNum]
-								.getSelectedItem().equals(Mode.MODE_ALTERNATE_FUNCTION.name()))
+								.getSelectedItem().toString().equals(Mode.MODE_ALTERNATE_FUNCTION.name()))
 								|| (pin.getAltMode() == AltMode.ALT_MODE_ANALOG && !comboBox_PinAltMode[portPinNum]
-										.getSelectedItem().equals(AltMode.ALT_MODE_ANALOG.name())));
+										.getSelectedItem().toString().equals(AltMode.ALT_MODE_ANALOG.name())));
 
 				if (checkAdc) {
 
@@ -947,7 +947,7 @@ public class GpioConfWindow {
 
 					}
 				}
-
+				portPinNum++;
 			}
 		}
 		GuiRefreshLocked = false;

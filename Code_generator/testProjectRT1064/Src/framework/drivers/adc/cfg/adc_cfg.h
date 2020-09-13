@@ -62,6 +62,7 @@ APP_ADC,
 
 // Channel definitions
 // ADC ADC1
+#define POT_ADC_CHANNEL ADC_CHANNEL_15
 
 // ################## Kamino generator v1.2.3: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######

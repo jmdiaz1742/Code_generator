@@ -1436,7 +1436,7 @@
         <port>PORT_1</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -1618,7 +1618,7 @@
         <port>PORT_1</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -1631,7 +1631,7 @@
         <port>PORT_1</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -1730,7 +1730,7 @@
         </adcChannel>
         <adcChannel>
             <name>ADC_CHANNEL_15</name>
-            <selected>NOT</selected>
+            <selected>YES</selected>
             <codeName>POT_ADC_CHANNEL</codeName>
             <pinIndex>178</pinIndex>
         </adcChannel>
