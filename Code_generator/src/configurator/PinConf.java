@@ -260,16 +260,20 @@ public class PinConf {
 			if (isAv_Uart()) {
 				this.PinAltMode = AltMode.ALT_MODE_UART;
 			}
+			break;
 		case ALT_MODE_I2C:
 			if (isAv_I2c()) {
 				this.PinAltMode = AltMode.ALT_MODE_I2C;
 			}
+			break;
 		case ALT_MODE_SPI:
 			if (isAv_Spi()) {
 				this.PinAltMode = AltMode.ALT_MODE_SPI;
 			}
+			break;
 		case ALT_MODE_NONE:
 			this.PinAltMode = AltMode.ALT_MODE_NONE;
+			break;
 		default:
 			this.PinAltMode = DF_ALT_MODE;
 			break;

@@ -647,6 +647,8 @@ public class GpioConfWindow {
 	 */
 	private void altModeChange() {
 		checkAdcsConf();
+		
+		updateAltMode();
 	}
 
 	/**
