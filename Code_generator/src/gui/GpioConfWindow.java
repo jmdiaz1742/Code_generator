@@ -894,7 +894,6 @@ public class GpioConfWindow {
 										.getSelectedItem().toString().equals(AltMode.ALT_MODE_ANALOG.name())));
 
 				if (checkAdc) {
-
 					/* Get ADC Channel */
 					int adcIndex = ErrorCode.INT_INVALID_INDEX;
 					int channelIndex = ErrorCode.INT_INVALID_INDEX;
