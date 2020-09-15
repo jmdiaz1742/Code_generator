@@ -5,5 +5,5 @@
 	<name>Test_Project</name>
 	<ConfigFile>testProjectConf.xml</ConfigFile>
 	<ucFile>MIMXRT1064.xml</ucFile>
-	<frameworkFolder>framework</frameworkFolder>
+	<frameworkFolder>Src/framework</frameworkFolder>
 </CodeGeneratorProject>
