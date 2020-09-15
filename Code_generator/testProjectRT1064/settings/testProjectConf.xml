@@ -1652,8 +1652,8 @@
         <codeName>PB9</codeName>
     </pin>
     <adcInstance>
-        ADC1
-        <name>ADC1</name>
+        ADC_1
+        <name>ADC_1</name>
         <selected>YES</selected>
         <codeName>APP_ADC</codeName>
         <sample>ADC_DISABLE_SAMPLE</sample>
@@ -1760,8 +1760,8 @@
         </adcChannel>
     </adcInstance>
     <adcInstance>
-        ADC2
-        <name>ADC2</name>
+        ADC_2
+        <name>ADC_2</name>
         <selected>NOT</selected>
         <codeName>ADC2</codeName>
         <sample>ADC_DISABLE_SAMPLE</sample>

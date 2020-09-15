@@ -5,5 +5,5 @@
 	<name>Test_Project</name>
 	<ConfigFile>testProjectConf.xml</ConfigFile>
 	<ucFile>STM32F334R8.xml</ucFile>
-	<frameworkFolder>framework</frameworkFolder>
+	<frameworkFolder>Src/framework</frameworkFolder>
 </CodeGeneratorProject>

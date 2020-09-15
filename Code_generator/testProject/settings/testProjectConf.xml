@@ -17,14 +17,14 @@
         PC14
         <name>PC14</name>
         <port>PORT_C</port>
-        <selected>NOT</selected>
+        <selected>YES</selected>
         <Mode>MODE_INPUT</Mode>
         <AltMode>ALT_MODE_NONE</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
         <Speed>SPEED_FAST</Speed>
-        <codeName>PC14</codeName>
+        <codeName>test</codeName>
     </pin>
     <pin>
         PC15
@@ -123,7 +123,7 @@
         <port>PORT_A</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_ANALOG</AltMode>
+        <AltMode>ALT_MODE_NONE</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>

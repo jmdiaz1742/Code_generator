@@ -37,7 +37,7 @@
  * @brief GPIO initial configuration structures array
  */
 const Gpio_cfg_t Gpio_Cfg[GPIO_ELEMENTS_MAX] = {
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 {USER_BUTTON_PORT,
 USER_BUTTON_PIN,
@@ -47,6 +47,15 @@ USER_BUTTON_OUT_TYPE,
 USER_BUTTON_PULL,
 USER_BUTTON_SPEED,
 USER_BUTTON_INIT_OUT
+},
+{test_PORT,
+test_PIN,
+test_MODE,
+test_ALT_MODE,
+test_OUT_TYPE,
+test_PULL,
+test_SPEED,
+test_INIT_OUT
 },
 {PA0_PORT,
 PA0_PIN,
@@ -66,7 +75,7 @@ USER_LED_PULL,
 USER_LED_SPEED,
 USER_LED_INIT_OUT
 }
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 };
 /************************

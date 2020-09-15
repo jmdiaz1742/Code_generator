@@ -29,7 +29,6 @@ public class ProjectSettings {
 
 	/* Static fields */
 	private static final String STR_SETTINGS_FOLDER = "settings";
-	private static final String STR_SRC_FOLDER = "Src";
 
 	/* XML elements names */
 	private static final String STR_ROOT_ELEMENT = "CodeGeneratorProject";
@@ -111,8 +110,7 @@ public class ProjectSettings {
 		/* Get framework folder */
 		fwkFolderName = XmlOpener.getElementInfoFromDoc(SettingsDoc, STR_FWK_FOLDER);
 		if (!fwkFolderName.equals(ErrorCode.STR_INVALID)) {
-			FrameworkPath = ProjectPath + System.getProperty("file.separator") + STR_SRC_FOLDER
-					+ System.getProperty("file.separator") + fwkFolderName;
+			FrameworkPath = ProjectPath + System.getProperty("file.separator") + fwkFolderName;
 			Features.verbosePrint("Framework folder: " + fwkFolderName);
 		} else {
 			errorStatus = ErrorCode.FILE_READ_ERROR;
@@ -174,9 +172,10 @@ public class ProjectSettings {
 	public String getFrameworkPath() {
 		return FrameworkPath;
 	}
-	
+
 	/**
 	 * Set the framework folder
+	 * 
 	 * @param path Framework folder
 	 */
 	public void setFrameworkPath(String path) {
