@@ -13,10 +13,10 @@
 /************************
  * Includes             *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 #include "fsl_lpuart.h"
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************
@@ -27,10 +27,10 @@
  */
 typedef enum
 {
-    // ################## Kamino generator v1.2.3: Generated code! ################
+    // ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 APP_UART,
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
     UART_ELEMENTS_MAX
 } Uart_elementsType;
@@ -42,13 +42,13 @@ APP_UART,
 /************************
  * Public Defines       *
  ************************/
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 // APP_UART
 #define APP_UART_NAME UART1
@@ -59,7 +59,7 @@ APP_UART,
 #define APP_UART_STOP_BITS UART_1_STOP_BIT
 #define APP_UART_PARITY UART_NO_PARITY
 
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 
 /************************

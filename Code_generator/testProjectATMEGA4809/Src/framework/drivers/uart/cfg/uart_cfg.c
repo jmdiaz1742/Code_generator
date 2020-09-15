@@ -37,7 +37,7 @@
  * @brief GPIO initial configuration structures array
  */
 const Uart_cfg_t Uart_Cfg[UART_ELEMENTS_MAX] = {
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this header and the footer below #######
 {APP_UART_NAME,
 APP_UART_CLOCK,
@@ -47,7 +47,7 @@ APP_UART_DATA_BITS,
 APP_UART_STOP_BITS,
 APP_UART_PARITY,
 }
-// ################## Kamino generator v1.2.3: Generated code! ################
+// ################## Kamino generator v1.2.4: Generated code! ################
 // ######## Do NOT modify code between this footer and the header above #######
 };
 /************************

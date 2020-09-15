@@ -123,10 +123,10 @@
         <port>PORT_C</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
+        <Pull>PULL_UP</Pull>
         <Speed>SPEED_FAST</Speed>
         <codeName>TX</codeName>
     </pin>
@@ -136,7 +136,7 @@
         <port>PORT_C</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -175,7 +175,7 @@
         <port>PORT_C</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -188,7 +188,7 @@
         <port>PORT_C</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_UART</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -227,10 +227,10 @@
         <port>PORT_D</port>
         <selected>YES</selected>
         <Mode>MODE_ALTERNATE_FUNCTION</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
-        <Pull>PULL_NOT_AVAILABLE</Pull>
+        <Pull>PULL_UP</Pull>
         <Speed>SPEED_FAST</Speed>
         <codeName>POT</codeName>
     </pin>
@@ -240,7 +240,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -253,7 +253,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -266,7 +266,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -279,7 +279,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -292,7 +292,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -305,7 +305,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
@@ -318,7 +318,7 @@
         <port>PORT_D</port>
         <selected>NOT</selected>
         <Mode>MODE_INPUT</Mode>
-        <AltMode>ALT_MODE_NONE</AltMode>
+        <AltMode>ALT_MODE_ANALOG</AltMode>
         <OutType>OTYPE_PUSH_PULL</OutType>
         <OutLevel>LOW</OutLevel>
         <Pull>PULL_NOT_AVAILABLE</Pull>
